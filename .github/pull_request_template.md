@@ -10,6 +10,8 @@
 
 ---
 
+**Skip all the following sections if the changes are only assignment-related (reports, transcripts, etc.)**
+
 ## Testing Performed
 
 **Test types:**
