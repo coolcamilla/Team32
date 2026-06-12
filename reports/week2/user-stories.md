@@ -113,3 +113,6 @@ so that I can use them later for crafting.
 - number of slots is 5
 - must display resource name, icon and current quantity
 - will there be a warehouse?
+
+## Initial proposed MVP v1 scope 
+[US-02](#us-02-digging), [US-09](#us-09-tools-crafting), [US-10](#us-10-inventory)
