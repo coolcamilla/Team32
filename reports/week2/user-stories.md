@@ -1,8 +1,8 @@
 ## US-01: Saving
-**Requirement status:** Active
-**MoSCoW priority:** Should Have
-As a player,
-I want to (auto)save my progress,
+**Requirement status:** Active  
+**MoSCoW priority:** Should Have  
+As a player,  
+I want to (auto)save my progress,  
 so that I won't lose it when exiting.
 ### Notes and constraints
 - auto-save should trigger on key events (layer transition, tool craft, etc.)
@@ -11,10 +11,10 @@ so that I won't lose it when exiting.
 - is manual save also available? are several save slots needed?
 
 ## US-02: Digging
-**Requirement status:** Active
-**MoSCoW priority:** Must Have
-As a player,
-I want to dig through different layers (e.g. dirt, rock),
+**Requirement status:** Active  
+**MoSCoW priority:** Must Have  
+As a player,  
+I want to dig through different layers (e.g. dirt, rock),  
 so that I can reach the Earth's core and complete the game.
 ### Notes and constraints
 - core game mechanic
@@ -24,10 +24,10 @@ so that I can reach the Earth's core and complete the game.
 - the mole digs tile-by-tile
 
 ## US-03: Leaderboard
-**Requirement status:** Active
-**MoSCoW priority:** Could Have
-As a player,
-I want a leaderboard,
+**Requirement status:** Active  
+**MoSCoW priority:** Could Have  
+As a player,  
+I want a leaderboard,  
 so that I can compare my progress with other players.
 ### Notes and constraints
 - requires backend to store user's scores
@@ -35,19 +35,19 @@ so that I can compare my progress with other players.
 - depends on US-02 and US-10
 
 ## US-04: Streamer mode
-**Requirement status:** Active
-**MoSCoW priority:** Won't Have
-As a streamer,
-I want to turn on streamer mode,
+**Requirement status:** Active  
+**MoSCoW priority:** Won't Have  
+As a streamer,  
+I want to turn on streamer mode,  
 so that YouTube doesn't block my playthrough video.
 ### Notes and constraints
-This story is excluded because we prioritize core gameplay mechanics. Streamers is too narrow group of players. This feature will be added post-launch if the game gains popularity.
+This story is excluded because we prioritize core gameplay mechanics. Streamers is too narrow of a group of players. This feature will be added post-launch if the game gains popularity.
 
 ## US-05: Keys remapping
-**Requirement status:** Active
-**MoSCoW priority:** Could Have
-As a player,
-I want to remap keys,
+**Requirement status:** Active  
+**MoSCoW priority:** Could Have  
+As a player,  
+I want to remap keys,  
 so that I can change the layout to what I am comfortable with.
 ### Notes and constraints
 - remapped keys must persist between game sessions
@@ -56,45 +56,45 @@ so that I can change the layout to what I am comfortable with.
 - will the joystick buttons be added?
 
 ## US-06: Burrow depth
-**Requirement status:** Active
-**MoSCoW priority:** Should Have
-As a player,
-I want to see my progress toward the core (burrow depth),
+**Requirement status:** Active  
+**MoSCoW priority:** Should Have  
+As a player,  
+I want to see my progress toward the core (burrow depth),  
 so that I understand how far I've gone and what remains.
 ### Notes and constraints
 - must display current depth (in meters?)
 - must display distance to the next layer or/and core
 - related to US-02
 
-## US-07: Cutom character
-**Requirement status:** Active
-**MoSCoW priority:** Could Have
-As a player,
-I want to customize my character,
+## US-07: Custom character
+**Requirement status:** Active  
+**MoSCoW priority:** Could Have  
+As a player,  
+I want to customize my character,  
 so that my mole feels personal and I stay engaged longer.
 ### Notes and constraints
 - cosmetics only, doesn't affect gameplay
 - customization must persist between game sessions
 - is customization available from the beginning?
-- how customization is limited (e.g. 3–5 mole skins or colour variants)?
+- how is customization limited (e.g. 3–5 mole skins or colour variants)?
 
 ## US-08: Tools upgrading
-**Requirement status:** Active
-**MoSCoW priority:** Should Have
-As a player,
-I want to upgrade my tools,
+**Requirement status:** Active  
+**MoSCoW priority:** Should Have  
+As a player,  
+I want to upgrade my tools,  
 so that I can dig through the blocks faster.
 ### Notes and constraints
 - upgrading uses resources collected via US-10
 - depends on US-09 (tools creation) and US-10 (resource collection)
-- each upgrade level must have cost (e.g. 10 sticks) and effect (e.g. dig speed +5%)
-- separate upgrade trrees for each tool or single general upgrade tree?
+- each upgrade level must have a cost (e.g. 10 sticks) and an effect (e.g. dig speed +5%)
+- separate upgrade trees for each tool or single general upgrade tree?
 
 ## US-09: Tools crafting
-**Requirement status:** Active
-**MoSCoW priority:** Must Have
-As a player,
-I want to craft different tools (e.g. shovel, pickaxe),
+**Requirement status:** Active  
+**MoSCoW priority:** Must Have  
+As a player,  
+I want to craft different tools (e.g. shovel, pickaxe),  
 so that I can dig more types of dirt and rock.
 ### Notes and constraints
 - depends on US-10
@@ -103,10 +103,10 @@ so that I can dig more types of dirt and rock.
 - are tools available simultaneously?
 
 ## US-10: Inventory
-**Requirement status:** Active
-**MoSCoW priority:** Must Have
-As a player,
-I want to collect resources that drop from blocks,
+**Requirement status:** Active  
+**MoSCoW priority:** Must Have  
+As a player,  
+I want to collect resources that drop from blocks,  
 so that I can use them later for crafting.
 ### Notes and constraints
 - depends on US-02 (resources drop from blocks)
