@@ -1,5 +1,5 @@
 ## User roles
-**Player** - the primary user of the game, who controls the mole, digs through layers of the Earth, collects resources, crafts and upgrades tools, and progresses toward the Earth's core.
+**Player** - the primary user of the game, who controls the mole, digs through layers of the Earth, collects resources, crafts and upgrades tools, and progresses toward the Earth's core.  
 **Streamer** - the player, who broadcasts gameplay or publishes playthrough video on streaming platforms (e.g. YouTube, Twitch). Has additional needs related to the content publishing.
 
 ## US-01: Saving
