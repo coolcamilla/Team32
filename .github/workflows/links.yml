@@ -1,16 +1,24 @@
-name: Links
-
+name: Check URLs with lychee
 on:
   push:
-
+    branches: [main]
+  pull_request:
 jobs:
   linkChecker:
     runs-on: ubuntu-latest
     steps:
+      - name: Restore lychee cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
       - uses: actions/checkout@v5
-      - name: Link Checker
-        id: lychee
+      - name: lychee URL checker
         uses: lycheeverse/lychee-action@v2
         with:
-          format: "markdown"
-          args: ". --verbose"
+          args: >-
+            --cache
+            --verbose
+            --no-progress
+            './**/*.md'
