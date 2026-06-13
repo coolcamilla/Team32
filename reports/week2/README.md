@@ -17,20 +17,31 @@ Run instructions: go through [local setup instructions](../../README.md#local_se
 ### [Lychee configuration](../../.github/workflows/links.yml)
 
 ### Screenshots
+#### *Protected branch settings*
+![](images/branch_settings_1.png)
+![](images/branch_settings_2.png)
+![](images/branch_settings_3.png)
+![](images/branch_settings_4.png)
 
-![](reports/week2/images/branch_settings_1.png)
-![](reports/week2/images/branch_settings_2.png)
-![](reports/week2/images/branch_settings_3.png)
-![Protected branch settings](reports/week2/images/branch_settings_4.png)
+#### *PR made by SunrisEe41 and reviewed by coolcamilla*
+![](images/checked_pr_1.png)
+![](images/checked_pr_2.png)
 
-![](reports/week2/images/checked_pr_1.png)
-![PR made by SunrisEe41 and reviewed by coolcamilla](reports/week2/images/checked_pr_2.png)
+#### *Overview of all prototype screens*
+![](images/prototype_1.png)
+#### *Main menu*
+![](images/prototype_2.png)
+#### *Gameplay screen with inventory and crafting overlays*
+![](images/prototype_3.png)
+#### *Gameplay screen showing digging mechanic*
+![](images/prototype_4.png)
+#### *Load game menu with saving slots*
+![](images/prototype_5.png)
 
-![Overview of all prototype screens](reports/week2/images/prototype_1.png)
-![Main menu](reports/week2/images/prototype_2.png)
-![Gameplay screen with inventory and crafting overlays](reports/week2/images/prototype_3.png)
-![Gameplay screen showing digging mechanic](reports/week2/images/prototype_4.png)
-![Load game menu with saving slots](reports/week2/images/prototype_5.png)
+#### *Deployed MVP v0*
+![](images/mvp_1.png)
+![](images/mvp_2.png)
+![](images/mvp_3.png)
 
 ### Coverage 
 The interactive Figma prototype covers [US-02](user-stories.md#us-02-digging), [US-09](user-stories.md#us-09-tools-crafting), [US-10](user-stories.md#us-10-inventory) (and actually it also covers [US-01](user-stories.md#us-01-saving))
