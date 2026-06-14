@@ -118,7 +118,7 @@
 
 **coolcamilla:** I tell everyone what to do. But for the most part... For the most part, I handle all the stuff needed for the assignment - I write all of that.
 
-**WazzuRunaway:** Robert also made the blocks destructible. Where it wasn't marked, we did it.
+**WazzuRunaway:** Pro100Vorona also made the blocks destructible. Where it wasn't marked, we did it.
 
 **Customer:** Man, I really want to see some gameplay.
 
@@ -182,7 +182,7 @@
 
 **coolcamilla:** So, we've shown all of this, then.
 
-**m.sharapov@innopolis.university:** That's what we were aiming for.
+**MarikSH** That's what we were aiming for.
 
 **Customer:** All our efforts went into the prototype. Not Unity, but Figma, right?
 
@@ -238,7 +238,7 @@
 
 **Customer:** Why drop the sticks?
 
-**WazzuRunaway:** Basically, m.sharapov@innopolis.university is handling the game design there, and he really wants to create some kind of weight-based system with overload, at least for that.
+**WazzuRunaway:** Basically, MarikSH is handling the game design there, and he really wants to create some kind of weight-based system with overload, at least for that.
 
 **Customer:** Why?
 
@@ -298,7 +298,7 @@
 
 **Customer:** For now, let it be, or until it works - unique features will always come along the way and get implemented, God willing. That's cool, cool.
 
-**coolcamilla:** And overall then, well, in short, regarding anything official, that's all we needed to do. So now, well, maybe m.sharapov@innopolis.university or SunrisEe41 has any more questions?
+**coolcamilla:** And overall then, well, in short, regarding anything official, that's all we needed to do. So now, well, maybe MarikSH or SunrisEe41 has any more questions?
 
 ---
 
