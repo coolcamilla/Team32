@@ -2,9 +2,9 @@
 Is a 2D PC game where the player character is a mole. The mole tries to reach Earth's Core by digging a deep burrow with different tools and a massive drill.
 
 ### [License](../../LICENSE)
-### [User stroies](user-stories.md)
+### [User stories](user-stories.md)
 
-### [Protoype](https://www.figma.com/proto/1k5Nq73tM32LlkQ1JE7mtg/Mole-Prototype?node-id=0-1&t=aM2hmkN2RIzBq2JA-1)
+### [Prototype](https://www.figma.com/proto/1k5Nq73tM32LlkQ1JE7mtg/Mole-Prototype?node-id=0-1&t=aM2hmkN2RIzBq2JA-1)
 P.S. Open the prototype in the editor mode to familiarize with the transitions between states.
 
 ### [MVP v0 report](mvp-v0-report.md)
