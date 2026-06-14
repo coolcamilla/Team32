@@ -4,7 +4,8 @@ Is a 2D PC game where the player character is a mole. The mole tries to reach Ea
 ### [License](../../LICENSE)
 ### [User stroies](user-stories.md)
 
-### Protoype
+### [Protoype](https://www.figma.com/proto/1k5Nq73tM32LlkQ1JE7mtg/Mole-Prototype?node-id=0-1&t=aM2hmkN2RIzBq2JA-1)
+P.S. Open the prototype in the editor mode to familiarize with the transitions between states.
 
 ### [MVP v0 report](mvp-v0-report.md)
 Build: [Windows](../../releases/Windows), [Linux](../../releases/Linux)  
