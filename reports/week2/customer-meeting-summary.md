@@ -12,6 +12,7 @@
 - MVP 0 Unity build  
 ## Discussion Points  
   
+- Customer has agreed that the sanitized transcript can be published in the repository.
 - User story format was questioned by the customer, who noted that UX flow diagrams are more typical in game development; the team acknowledged this.  
 - MVP 1 scope: digging, tools crafting, and a basic inventory with resource counters.  
 - Inventory design: the team described it as closer to Terraria; customer recommended studying Forager as a simpler, more enjoyable reference.  
