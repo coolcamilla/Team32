@@ -1,0 +1,129 @@
+name: "User Story"
+description: "A user-facing feature or capability described from the perspective of a user role."
+labels: ["user-story"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## User Story
+        Fill in all fields. The stable ID must also appear in the issue **title** as `US-XXX: Short title`.
+
+  - type: input
+    id: stable-id
+    attributes:
+      label: "Stable ID"
+      description: "The permanent identifier for this user story. Never change or reuse this."
+      placeholder: "US-001"
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-story-statement
+    attributes:
+      label: "User Story Statement"
+      description: "The full user story in standard format."
+      placeholder: |
+        As a [user role/persona],
+        I want to [desired action],
+        so that [expected value].
+    validations:
+      required: true
+
+  - type: dropdown
+    id: moscow-priority
+    attributes:
+      label: "MoSCoW Priority"
+      options:
+        - "Must Have"
+        - "Should Have"
+        - "Could Have"
+        - "Won't Have"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: requirement-status
+    attributes:
+      label: "Requirement Status"
+      options:
+        - "Active"
+        - "Removed"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: work-status
+    attributes:
+      label: "Work Status"
+      options:
+        - "To Do"
+        - "In Progress"
+        - "In Review"
+        - "Done"
+    validations:
+      required: true
+
+  - type: input
+    id: story-points
+    attributes:
+      label: "Story Points"
+      placeholder: "e.g. 3"
+    validations:
+      required: false
+
+  - type: input
+    id: mvp-version
+    attributes:
+      label: "MVP Version"
+      placeholder: "e.g. MVP v1"
+    validations:
+      required: false
+
+  - type: input
+    id: implementer
+    attributes:
+      label: "Implementer"
+      description: "GitHub username of the team member implementing this story."
+      placeholder: "@username"
+    validations:
+      required: false
+
+  - type: input
+    id: reviewer
+    attributes:
+      label: "Reviewer"
+      description: "GitHub username of the team member reviewing this story. Must be different from the implementer."
+      placeholder: "@username"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "Additional context, scope clarification, UI/UX notes, or design considerations."
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "Acceptance Criteria"
+      description: "At least 3 criteria required for MVP v1 items. Use a checklist format."
+      placeholder: |
+        - [ ] AC1: ...
+        - [ ] AC2: ...
+        - [ ] AC3: ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "Notes, Constraints, Assumptions, and Open Questions"
+      placeholder: |
+        **Constraints:** ...
+        **Assumptions:** ...
+        **Open questions:** ...
+    validations:
+      required: false
