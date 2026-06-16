@@ -1,0 +1,119 @@
+name: "Other PBI"
+description: "A Product Backlog Item that is not a user story - e.g. technical task, spike, infrastructure, design, or documentation."
+labels: ["pbi"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Other Product Backlog Item
+        Use this template for technical tasks, spikes, infrastructure work, design tasks, and other non-user-story PBIs.
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: "Issue Type"
+      options:
+        - "Technical Task"
+        - "Infrastructure"
+        - "Spike / Research"
+        - "Design"
+        - "Documentation"
+        - "Testing"
+        - "Deployment"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "What needs to be done and why. Be specific enough that a developer can start without asking for clarification."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: moscow-priority
+    attributes:
+      label: "MoSCoW Priority"
+      options:
+        - "Must Have"
+        - "Should Have"
+        - "Could Have"
+        - "Won't Have"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: work-status
+    attributes:
+      label: "Work Status"
+      options:
+        - "To Do"
+        - "In Progress"
+        - "In Review"
+        - "Done"
+    validations:
+      required: true
+
+  - type: input
+    id: story-points
+    attributes:
+      label: "Story Points"
+      placeholder: "e.g. 2"
+    validations:
+      required: false
+
+  - type: input
+    id: mvp-version
+    attributes:
+      label: "MVP Version"
+      placeholder: "e.g. MVP v1"
+    validations:
+      required: false
+
+  - type: input
+    id: implementer
+    attributes:
+      label: "Implementer"
+      placeholder: "@username"
+    validations:
+      required: false
+
+  - type: input
+    id: reviewer
+    attributes:
+      label: "Reviewer"
+      description: "Must be different from the implementer."
+      placeholder: "@username"
+    validations:
+      required: false
+
+  - type: input
+    id: parent-story
+    attributes:
+      label: "Parent User Story (if applicable)"
+      description: "Link to the user story this PBI supports, if any."
+      placeholder: "#issue-number"
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "Acceptance Criteria"
+      description: "Required for all Sprint-selected PBIs and all MVP v1 PBIs."
+      placeholder: |
+        - [ ] AC1: ...
+        - [ ] AC2: ...
+        - [ ] AC3: ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: deliverable
+    attributes:
+      label: "Deliverable / Evidence"
+      description: "Describe the expected output or evidence of completion, especially if not obvious from a linked PR/MR."
+    validations:
+      required: false
