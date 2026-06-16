@@ -56,6 +56,17 @@
 - [ ] No obvious regressions in related gameplay systems
 - [ ] Error handling / null checks are appropriate
 
+**Acceptance Criteria**  
+Copy the acceptance criteria from the linked issue  
+- [ ] AC1) ...  
+- [ ] AC2) ...  
+- [ ] AC3) ...  
+
+**Changelog checklist**  
+*Choose exactly one option*
+- [ ] Added or updated a user-visible entry in CHANGELOG.md
+- [ ] Not applicable because the change is not user-visible.
+
 ---
 
 ## Notes for Reviewers

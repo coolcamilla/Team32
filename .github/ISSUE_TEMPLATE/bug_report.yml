@@ -1,0 +1,128 @@
+name: "Bug Report"
+description: "Report a defect or unexpected behavior in the game."
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Bug Report
+        Please fill in as much detail as possible so the bug can be reproduced and fixed efficiently.
+
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: "Problem Description"
+      description: "A clear summary of what the bug is."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: "Steps to Reproduce"
+      placeholder: |
+        1. Open the game and start a new level
+        2. Press [key / perform action]
+        3. Observe that ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: "Expected Behavior"
+      description: "What should happen."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: "Actual Behavior"
+      description: "What actually happens instead."
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: "Environment"
+      placeholder: |
+        - OS: e.g. Windows 11 / macOS 14 / Ubuntu 22.04
+        - Unity version: e.g. 2022.3.15f1
+        - Build target: e.g. Windows Standalone / WebGL / Editor Play Mode
+        - Branch / commit: e.g. main @ abc1234
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional Context"
+      description: "Screenshots, logs, console errors, or any other information that may help."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Severity"
+      options:
+        - "Critical – game-breaking / blocks progress"
+        - "High – major feature broken"
+        - "Medium – noticeable issue with workaround"
+        - "Low – cosmetic or minor"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: moscow-priority
+    attributes:
+      label: "MoSCoW Priority"
+      options:
+        - "Must Have"
+        - "Should Have"
+        - "Could Have"
+        - "Won't Have"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: work-status
+    attributes:
+      label: "Work Status"
+      options:
+        - "To Do"
+        - "In Progress"
+        - "In Review"
+        - "Done"
+    validations:
+      required: true
+
+  - type: input
+    id: implementer
+    attributes:
+      label: "Implementer"
+      placeholder: "@username"
+    validations:
+      required: false
+
+  - type: input
+    id: reviewer
+    attributes:
+      label: "Reviewer"
+      description: "Must be different from the implementer."
+      placeholder: "@username"
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "Acceptance Criteria for the Fix"
+      placeholder: |
+        - [ ] AC1: The bug no longer occurs when following the reproduction steps.
+        - [ ] AC2: ...
+        - [ ] AC3: ...
+    validations:
+      required: true

@@ -1,0 +1,58 @@
+name: "Course Task"
+description: "An assignment-administration or course-required task. Does NOT count toward the Product Backlog PBI minimum."
+labels: ["course-task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Course Task
+        Use this template for assignment-administration tasks such as writing reports, setting up repository infrastructure, or completing required course deliverables.
+        **These issues are not PBIs and do not count toward the 15-PBI backlog minimum.**
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "What needs to be done. Reference the relevant assignment section where applicable."
+    validations:
+      required: true
+
+  - type: textarea
+    id: deliverable
+    attributes:
+      label: "Expected Evidence or Deliverable"
+      description: "What must be produced, submitted, or demonstrated as proof of completion."
+      placeholder: |
+        - File(s) to create: ...
+        - Link(s) to provide: ...
+        - Evidence required: ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: work-status
+    attributes:
+      label: "Work Status"
+      options:
+        - "To Do"
+        - "In Progress"
+        - "In Review"
+        - "Done"
+    validations:
+      required: true
+
+  - type: input
+    id: assignee
+    attributes:
+      label: "Assignee"
+      placeholder: "@username"
+    validations:
+      required: false
+
+  - type: input
+    id: due-date
+    attributes:
+      label: "Due / Assignment"
+      placeholder: "e.g. Assignment 3 submission"
+    validations:
+      required: false
