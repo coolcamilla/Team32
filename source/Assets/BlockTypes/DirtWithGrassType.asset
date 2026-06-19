@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bedb08791680da545bb2bf1b831c06d4, type: 3}
+  m_Name: DirtWithGrassType
+  m_EditorClassIdentifier: Assembly-CSharp::BlockTypeData
+  _blockName: DirtWithGrass
+  _maxHp: 3
+  _minDamage: 1
+  _dropTable:
+  - _material: 0
+    _chance: 0.4
+  - _material: 1
+    _chance: 0.2
+  possibleSprites:
+  - {fileID: 1084899820, guid: aa85cf39885c8f6488903681fa68ee05, type: 3}
+  - {fileID: 1009223703, guid: aa85cf39885c8f6488903681fa68ee05, type: 3}
+  - {fileID: 2109895172, guid: aa85cf39885c8f6488903681fa68ee05, type: 3}
+  randomSprite: 1

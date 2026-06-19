@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedb08791680da545bb2bf1b831c06d4, type: 3}
   m_Name: StoneType
   m_EditorClassIdentifier: Assembly-CSharp::BlockTypeData
-  blockName: Stone
-  maxHp: 7
-  minDamage: 5
-  color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  dropTable:
-  - material: 1
-    chance: 0.7
+  _blockName: Stone
+  _maxHp: 10
+  _minDamage: 5
+  _dropTable:
+  - _material: 1
+    _chance: 0.8
+  possibleSprites:
+  - {fileID: -1439417570, guid: aa85cf39885c8f6488903681fa68ee05, type: 3}
+  randomSprite: 0
