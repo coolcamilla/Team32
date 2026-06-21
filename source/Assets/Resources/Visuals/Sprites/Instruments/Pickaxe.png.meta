@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u041A\u0438\u0440\u043A\u0430_0"
+      name: Pickaxe
       rect:
         serializedVersion: 2
         x: 23
@@ -108,7 +108,7 @@ TextureImporter:
         width: 538
         height: 528
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3657e33e2dee6f74db6abf35ee7d5669
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u041A\u0438\u0440\u043A\u0430_0": 5463335759745693671
+      Pickaxe: 5463335759745693671
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

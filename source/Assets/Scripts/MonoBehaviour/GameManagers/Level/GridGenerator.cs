@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class GridGenerator : MonoBehaviour
 {
-    public GameObject dirtPrefab;
-    public GameObject stonePrefab;
-    public GameObject dirtWithGrassPrefab;
+    [SerializeField] private GameObject dirtPrefab;
+    [SerializeField] private GameObject stonePrefab;
+    [SerializeField] private GameObject dirtWithGrassPrefab;
+    [SerializeField] private GameObject _dirtBackground; 
+    [SerializeField] private GameObject _stoneBackground; 
 
     public int initX = 0;
     public int width = 20;
@@ -45,7 +47,7 @@ public class GridGenerator : MonoBehaviour
         {
             int i = x - initX;
 
-            for (int y = stoneY[i] - 5; y <= surfaceY[i]; y++ )
+            for (int y = -10; y <= surfaceY[i]; y++ )
             {
                 if (y > surfaceY[i]) continue;
 
@@ -53,9 +55,15 @@ public class GridGenerator : MonoBehaviour
                 if (y == surfaceY[i])
                     prefab = dirtWithGrassPrefab;
                 else if (y >= stoneY[i])
+                {
                     prefab = dirtPrefab;
+                    Instantiate(_dirtBackground, new Vector3(x * 2.5f, y * 2.5f, 1), Quaternion.identity, transform);
+                }
                 else
+                {
                     prefab = stonePrefab;
+                    Instantiate(_stoneBackground, new Vector3(x * 2.5f, y * 2.5f, 1), Quaternion.identity, transform);
+                }
 
                 GameObject blockObj = Instantiate(prefab, new Vector3(x * 2.5f, y * 2.5f, 0), Quaternion.identity, transform);
                 

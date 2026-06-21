@@ -29,16 +29,14 @@ public class CursorBehaviour : MonoBehaviour
 
     private void OnEnable()
     {
-        Cursor.visible = false;
+        //Cursor.visible = false;
         _pointerPositionAction.action.performed += OnPointerPositionChanged;
-        CraftManager.OnItemCrafted += ChangeSprite;
     }
 
     private void OnDisable()
     {
         Cursor.visible = true;
         _pointerPositionAction.action.performed -= OnPointerPositionChanged;
-        CraftManager.OnItemCrafted -= ChangeSprite;
     }
 
     private void OnPointerPositionChanged(InputAction.CallbackContext context)
@@ -53,8 +51,8 @@ public class CursorBehaviour : MonoBehaviour
         }
     }
 
-    public void ChangeSprite(Instrument newInstrument)
-    {
-        _spriteRenderer.sprite = newInstrument.InstrumentSprite;
-    }
+    //public void ChangeSprite(Instrument newInstrument)
+    //{
+    //    _spriteRenderer.sprite = newInstrument.InstrumentSprite;
+    //}
 }

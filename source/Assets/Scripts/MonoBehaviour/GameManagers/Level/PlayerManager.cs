@@ -2,34 +2,36 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    private Instrument _instrument;
+    [SerializeField] private Animator _animator;
 
-    public Instrument CurrentInstrument { get { return _instrument; } }
+    public Item EquippedItem;
+   
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _instrument = new Broom();
+        EquippedItem = Item.CreateInstance<Item>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeItem(Item newItem)
     {
-        
+        EquippedItem = newItem;
+        UpdateAnimation();
     }
 
-    private void OnEnable()
+    private void UpdateAnimation()
     {
-        CraftManager.OnItemCrafted += ChangeInstrument;
+        switch(EquippedItem.Type)
+        {
+            case ItemType.Shovel:
+                _animator.SetInteger("ToolKey", 1);
+                break;
+            case ItemType.Pickaxe:
+                _animator.SetInteger("ToolKey", 2);
+                break;
+            default:
+                _animator.SetInteger("ToolKey", 0);
+                break;
+        }
     }
-
-    private void OnDisable()
-    {
-        CraftManager.OnItemCrafted -= ChangeInstrument;
-    }
-
-    public void ChangeInstrument(Instrument newInstrument)
-    {
-        _instrument = newInstrument;
-    }
-
 }

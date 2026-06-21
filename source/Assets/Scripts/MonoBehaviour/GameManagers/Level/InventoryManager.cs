@@ -1,73 +1,134 @@
-using System;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(PlayerManager))]
 
-public class InventoryManager : MonoBehaviour 
+public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _stickCounter;
-    [SerializeField] private TextMeshProUGUI _stoneCounter;
+    public readonly int STACK_SIZE = 16;
 
-    private static Dictionary<CraftMaterial, int> _inventory;
+    [SerializeField] private InventorySlot[] _inventory;
+    [SerializeField] private GameObject _inventoryToActivate;
 
-    private static InventoryManager _instance;
-    public static InventoryManager GetInstance
+    private GameObject _inventoryItemPrefab;
+    private PlayerManager _playerManager;
+    private PlayerInput _input;
+
+    private int _selectedSlot = 0;
+
+    private event UnityAction<Item> OnSlotChanged;
+
+
+    private void Awake()
     {
-        get
+        _inventoryItemPrefab = Resources.Load<GameObject>("Prefabs/UI/Inventory item");
+        _playerManager = GetComponent<PlayerManager>();
+        _inventory[_selectedSlot].Select();
+        ConfigureInput();
+        Cursor.visible = true;
+    }
+    private void ConfigureInput()
+    {
+        _input = new();
+        _input.UI.Switchinventoryslot.performed += ChangeSlot;
+        _input.Inventory.OpenClose.performed += ActivateInventory;
+    }
+
+    public void OnEnable()
+    {
+        OnSlotChanged += _playerManager.ChangeItem;
+        _input.Enable();
+    }
+    public void OnDisable()
+    {
+        OnSlotChanged -= _playerManager.ChangeItem;
+        _input.Disable();
+    }
+    public bool TryAddItem(Item item)
+    {
+        int firstEmpty = -1;
+        for(int i = 0; i < _inventory.Length && (item.IsStackable || firstEmpty == -1); i++)
         {
-            if (_instance == null)
-                _instance = new();
-            return _instance;
+            InventorySlot slot = _inventory[i];
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot == null && firstEmpty == -1) firstEmpty = i;
+            else if (itemInSlot != null && 
+                itemInSlot.GetItem == item &&
+                itemInSlot.Count < STACK_SIZE &&
+                itemInSlot.GetItem.IsStackable)
+            {
+                itemInSlot.Count++;
+                return true;
+            }
         }
-    }
-
-    private void LateUpdate()
-    {
-        _stickCounter.SetText(_inventory[CraftMaterial.Stick].ToString());
-        _stoneCounter.SetText(_inventory[CraftMaterial.Stone].ToString());
-    }
-    
-    /// <summary>
-    /// Should be called by gamemangaer from the start.
-    /// Method works only once, parallel to all initializations.
-    /// </summary>
-    public static void Init()
-    {
-        if (_inventory != null) return;
-        _inventory = new Dictionary<CraftMaterial, int>();
-
-        foreach (CraftMaterial material in Enum.GetValues(typeof(CraftMaterial)))
+        if (firstEmpty != -1)
         {
-            if (material == CraftMaterial.None) continue;
-
-            _inventory.Add(material, 0);
-        }
-    }
-    public void AddMaterial(CraftMaterial material, int amount = 1)
-    {
-        _inventory[material] += amount;
-    }
-
-    public bool TrySpendMaterial(CraftMaterial material, int amount = 1)
-    {
-        if (IsEnough(material,amount))
-        {
-            RemoveMaterial(material, amount);
+            SpawnNewItem(item, _inventory[firstEmpty]);
             return true;
         }
-
-        Debug.Log("Not enough of " + material.ToString());
         return false;
     }
-    
-    public bool IsEnough(CraftMaterial material, int amount = 1)
+
+    private void SpawnNewItem(Item item, InventorySlot slot)
     {
-        return _inventory[material] >= amount;
+        GameObject newGameObject = Instantiate(_inventoryItemPrefab, slot.transform);
+        InventoryItem newItem = newGameObject.GetComponent<InventoryItem>();
+        newItem.InitializeItem(item);
+        RefreshChosenSlot();
+    }
+    private void ChangeSlot(InputAction.CallbackContext context)
+    {
+        _inventory[_selectedSlot].Deselect();
+        _selectedSlot = Mathf.RoundToInt(context.ReadValue<float>());
+        _inventory[_selectedSlot].Select();
+        RefreshChosenSlot();
     }
 
-    private void RemoveMaterial(CraftMaterial material, int amount = 1)
+    public void RefreshChosenSlot()
     {
-        _inventory[material] -= amount;
+        Item newItem = _inventory[_selectedSlot]?.GetComponentInChildren<InventoryItem>()?.GetItem ?? new Item();
+        OnSlotChanged(newItem);
+    }
+
+    public bool IsEnough(Item item, int count)
+    {
+        for (int i = 0; i < _inventory.Length; i++)
+        { 
+            if (item == (_inventory[i]?.GetComponentInChildren<InventoryItem>()?.GetItem))
+            {
+                count -= _inventory[i].GetComponentInChildren<InventoryItem>().Count;
+            }
+            if (count <= 0) return true;
+        }
+
+        return false;
+    }
+
+    public void Spend(Item item, int count)
+    {
+        for (int i = 0; i < _inventory.Length; i++)
+        {
+            if (item == (_inventory[i]?.GetComponentInChildren<InventoryItem>()?.GetItem))
+            {
+                int toSubtract = Mathf.Min(_inventory[i].GetComponentInChildren<InventoryItem>().Count, count);
+                count -= _inventory[i].GetComponentInChildren<InventoryItem>().Count;
+                _inventory[i].GetComponentInChildren<InventoryItem>().Count -= toSubtract;
+            }
+            if (count <= 0) return;
+        }
+    }
+
+    private void ActivateInventory(InputAction.CallbackContext context)
+    {
+        ToggleInventory();
+    }
+
+    public void ToggleInventory()
+    {
+        _inventoryToActivate.SetActive(!_inventoryToActivate.activeSelf);
+        Cursor.visible = true;
     }
 }
+
