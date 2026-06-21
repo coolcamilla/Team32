@@ -1,87 +1,51 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
-public class CraftManager : MonoBehaviour
+public class NewCraftManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _craftDescriptionField;
-    [SerializeField] private Image _imageField;
+    [SerializeField] private GameObject _craftPanel;
 
-    private static Queue<Instrument> _craftingQueue;
-    private static Instrument _currentCraft;
+    private InventoryManager _inventoryManager;
 
-    public static event UnityAction<Instrument> OnItemCrafted;
-    
-    public void Init()
+
+    private void Awake()
     {
-        _craftingQueue = new Queue<Instrument>();
-        _craftingQueue.Enqueue(new Shovel());
-        _craftingQueue.Enqueue(new Pickaxe());
-
-        Equipment.Equip(new Broom());
-
-        SetNextCraft();
+        _inventoryManager = GetComponent<InventoryManager>();
     }
-    
-    private void Update()
+
+    public bool TryCraft(ItemType type)
     {
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            bool isCrafted = TryCraft();
-            if (isCrafted)
-            {
-                OnItemCrafted?.Invoke(_currentCraft);
-                SetNextCraft();
-            }
-        }
-        if (_currentCraft == null)
+        Item item = TypeToItemData.Convert(type);
+
+        if (IsPossibleToCraft(item))
         {
-            Destroy(_craftDescriptionField.gameObject);
-            Destroy(_imageField.gameObject);
-            Destroy(this);
+            Craft(item);
+            return true;
         }
+
+        return false;
     }
 
-    private void SetNextCraft()
+    private bool IsPossibleToCraft(Item item)
     {
-        try
+        CraftRecipe recipe = item.Recipe;
+        foreach(MaterialAndQuantity maq in recipe.Materials) 
         {
-            _currentCraft = _craftingQueue.Dequeue();
-            DrawDescription();
-            DrawImage();
+            if (!_inventoryManager.IsEnough(TypeToItemData.Convert(maq.Type), maq.Quantity)) return false;
         }
-        catch (Exception e)
+        return true;
+    }
+
+    private void Craft(Item item)
+    {
+        CraftRecipe recipe = item.Recipe;
+        foreach (MaterialAndQuantity maq in recipe.Materials)
         {
-            _currentCraft = null;
-            Debug.Log(e.Message);
+            _inventoryManager.Spend(TypeToItemData.Convert(maq.Type), maq.Quantity);
         }
-    }
-
-    private bool TryCraft()
-    {
-        bool isCrafted = _currentCraft.TryCraft();
-        if (!isCrafted) {
-            Debug.Log("Not enough resources to craft " + _currentCraft.GetType().ToString());
-        }
-        return isCrafted;
-    }
-
-    private void DrawDescription()
-    {
-        StringBuilder description = new StringBuilder(_currentCraft.GetType().ToString());
-        description.AppendLine();
-        description.Append(_currentCraft.GetCraftingString());
-        description.Append("Press Q to craft");
-
-        _craftDescriptionField.SetText(description.ToString());
-    }
-
-    private void DrawImage()
-    {
-        _imageField.sprite = _currentCraft.InstrumentSprite;
+        _inventoryManager.TryAddItem(item);
     }
 }

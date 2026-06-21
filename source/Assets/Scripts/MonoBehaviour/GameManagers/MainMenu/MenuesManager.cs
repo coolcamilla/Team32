@@ -7,6 +7,10 @@ public class MenuesManager : MonoBehaviour
     [SerializeField] private GameObject _newGameMenu;
     [SerializeField] private GameObject _loadGameMenu;
 
+    private void Awake()
+    {
+        Cursor.visible = true;
+    }
     private void resetAll()
     {
         _mainMenu.SetActive(false);

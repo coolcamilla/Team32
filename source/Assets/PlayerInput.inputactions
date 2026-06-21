@@ -155,6 +155,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Switch inventory slot",
+                    "type": "Value",
+                    "id": "cd16c42a-1f96-4f51-bf7a-f5e7531cd2a8",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -177,6 +186,89 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Call pause menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f9395bb-f584-4568-8cfa-fe78fddefe08",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "Scale(factor=0)",
+                    "groups": "",
+                    "action": "Switch inventory slot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd43bd96-345d-4410-abee-428bd21b6e4f",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "Scale",
+                    "groups": "",
+                    "action": "Switch inventory slot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "33973061-83f1-45ae-a73b-4b2cc1292934",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "Scale(factor=2)",
+                    "groups": "",
+                    "action": "Switch inventory slot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1f48fa1-da29-4307-a62f-a55b5662f8db",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "Scale(factor=3)",
+                    "groups": "",
+                    "action": "Switch inventory slot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b7a76c27-56c5-470c-9fa2-58246fa6cf97",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "Scale(factor=4)",
+                    "groups": "",
+                    "action": "Switch inventory slot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Inventory",
+            "id": "700f96e4-c3b5-48d5-b6e4-808f08e0d13d",
+            "actions": [
+                {
+                    "name": "Open/Close",
+                    "type": "Button",
+                    "id": "75530aed-9bf8-4693-a536-cfa4d7b4cb72",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "91eb701a-bf65-4d65-9134-b80edf43a547",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Open/Close",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

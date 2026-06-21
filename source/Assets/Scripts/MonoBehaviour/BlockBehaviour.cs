@@ -11,7 +11,7 @@ public class BlockBehaviour : MonoBehaviour
 
     private event UnityAction OnDamage;
     private System.Random _rand;
-    private static Dictionary<CraftMaterial, GameObject> _materialToPrefab;
+    private static Dictionary<ItemType, GameObject> _typeToPrefab;
     private float _currentHp;
     private SpriteRenderer _spriteRenderer;
 
@@ -28,7 +28,7 @@ public class BlockBehaviour : MonoBehaviour
         _rand = new System.Random();
         _animator = GetComponent<Animator>();
 
-        _materialToPrefab = MaterialToPrefab.GetDictionary;
+        _typeToPrefab = TypeToPrefab.GetDictionary;
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
         _currentHp = _blockData.MaxHp;
@@ -62,24 +62,24 @@ public class BlockBehaviour : MonoBehaviour
         }
     }
 
-public bool IsInstrumentSuitable(Instrument instrument)
+    public bool IsInstrumentSuitable(Item item)
     {
-        return instrument.Damage >= _blockData.MinDamage;
+        return item.Damage >= _blockData.MinDamage;
     }
 
-    public bool TryTakeDamage(Instrument instrument)
+    public bool TryTakeDamage(Item item)
     {
-        if (IsInstrumentSuitable(instrument))
+        if (IsInstrumentSuitable(item))
         {
-            TakeDamage(instrument);
+            TakeDamage(item);
             return true;
         }
         return false;
     }
 
-    private void TakeDamage(Instrument instrument)
+    private void TakeDamage(Item item)
     {
-        _currentHp -= instrument.Damage;
+        _currentHp -= item.Damage;
         OnDamage.Invoke();
     }
 
@@ -99,7 +99,6 @@ public bool IsInstrumentSuitable(Instrument instrument)
 
     private void DropLoot()
     {
-        InventoryManager inventory = InventoryManager.GetInstance;
         foreach (var drop in _blockData.GetTable)
         {
             float dropChance = _rand.Next(100) / 100f;
@@ -107,9 +106,9 @@ public bool IsInstrumentSuitable(Instrument instrument)
         }
     }
 
-    private void Spawn(CraftMaterial material)
+    private void Spawn(ItemType type)
     {
-        Instantiate(_materialToPrefab[material], transform.position, Quaternion.identity);
+        Instantiate(_typeToPrefab[type], transform.position, Quaternion.identity);
     }
 
     private void PlayDamageAnimation()
