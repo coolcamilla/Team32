@@ -16,4 +16,5 @@ Then the resource is automatically added to my inventory without manual pick-up.
 4. **Claude** was used to analyze and summarize meeting with the customer.
 5. **Evernote AI** was used for extracting text from audio recording of the interview. This text was checked by Alexander.
 6. **DeepL** was used for translating interview questions and transcripts to English. Alexander checked translation correctness.
+7. **Claude** was used to write Definition of Done and issue templates
 

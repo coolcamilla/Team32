@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased](https://github.com/coolcamilla/Team32/compare/v0.1.0...HEAD)
 
-## [0.1.0](https://github.com/coolcamilla/Team32/releases/tag/v0.1.0) - June 21, 2026
+## [0.1.0](https://github.com/coolcamilla/Team32/releases/tag/v0.1.0) - 2026-06-21
 
 ### Added
 
