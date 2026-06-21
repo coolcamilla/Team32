@@ -128,7 +128,7 @@ Main implementation process was in Unity Version Control, that is why we merged 
 ### [Roadmap](../../docs/roadmap.md)
 ### [Definition of Done](../../docs/definition-of-done.md)
 ### Links to the issue and PR/MR template
-Issue templates for [bug reports](../../.github/ISSUE_TEMPLATE/bug_report.yml), [course tasks](./../.github/ISSUE_TEMPLATE/course_task.yml), [PBI](./../.github/ISSUE_TEMPLATE/other_pbi.yml), and [user story](./../.github/ISSUE_TEMPLATE/user_story.yml)
+Issue templates for [bug reports](../../.github/ISSUE_TEMPLATE/bug_report.yml), [course tasks](../../.github/ISSUE_TEMPLATE/course_task.yml), [PBI](../../.github/ISSUE_TEMPLATE/other_pbi.yml), and [user story](../../.github/ISSUE_TEMPLATE/user_story.yml)
 Extended [PR/MR template](../../.github/pull_request_template.md)
 ### [Link to reviewed issue-linked PRs/MRs](https://github.com/coolcamilla/Team32/pulls?q=is%3Apr+label%3A%22Assignment+3%22)
 
@@ -170,8 +170,8 @@ Follow [local setup instructions](../../README.md#local_setup_instructions) and 
 ![alt](images/reviewedPR_6.png)
 ![alt](images/reviewedPR_7.png)
 
-### [Transcript](customer-meeting-transcript.md)
-### [Customer meeting summary](customer-meeting-summary.md)
+### [Transcript](customer-review-transcript.md)
+### [Customer review summary](customer-review-summary.md)
 ### [Week 3 reflection](reflection.md)
 ### [Retrospective](retrospective.md)
 ### [LLm report](llm-report.md)
