@@ -127,3 +127,11 @@ body:
         **Open questions:** ...
     validations:
       required: false
+      
+  - type: textarea
+    id: deliverable
+    attributes:
+      label: "Deliverable / Evidence"
+      description: "Describe the expected output or evidence of completion, especially if not obvious from a linked PR/MR."
+    validations:
+      required: false

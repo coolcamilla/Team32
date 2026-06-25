@@ -1,0 +1,1718 @@
+fileFormatVersion: 2
+guid: aa85cf39885c8f6488903681fa68ee05
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2346101429374688032
+    second: 752f2108-3b3b-4b68-acb4-63cd898a949a_0
+  - first:
+      213: 7190993070284689094
+    second: 752f2108-3b3b-4b68-acb4-63cd898a949a_1
+  - first:
+      213: 881645476828471660
+    second: 752f2108-3b3b-4b68-acb4-63cd898a949a_2
+  - first:
+      213: -4686637988952492433
+    second: 752f2108-3b3b-4b68-acb4-63cd898a949a_3
+  - first:
+      213: 6640087586700704117
+    second: 752f2108-3b3b-4b68-acb4-63cd898a949a_4
+  - first:
+      213: -9155445485703281638
+    second: 752f2108-3b3b-4b68-acb4-63cd898a949a_5
+  - first:
+      213: -6275143563129673595
+    second: 752f2108-3b3b-4b68-acb4-63cd898a949a_6
+  - first:
+      213: -7015370794389804624
+    second: 752f2108-3b3b-4b68-acb4-63cd898a949a_7
+  - first:
+      213: -6748850892351177713
+    second: 752f2108-3b3b-4b68-acb4-63cd898a949a_8
+  - first:
+      213: -294621453530415034
+    second: 752f2108-3b3b-4b68-acb4-63cd898a949a_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_1
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 2750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9929188f4251364bb825a28130b98a4
+      internalID: -5783312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a53ffe5d72d3fb749ba7d8df06ecb5bb
+      internalID: 379823880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_3
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 2750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e3e813cad3010647b5ec8e8d87b5f67
+      internalID: 728015169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_5
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 2750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5316afb1927af5e48832aa7588831add
+      internalID: 1633111672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_6
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 947176a704fa9cd4f82a3007362de42d
+      internalID: -1678553723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_7
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 2750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0914e8d2e03bd4745995f8d19927e745
+      internalID: 1022077742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e92d9c7200e5854bbe5b51d0918df94
+      internalID: 567633483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_11
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 2500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed329ab5a2d9e8f49a822ad6218c996f
+      internalID: 1002723139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_12
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e547827f79bec9f488bd6703dd424587
+      internalID: 685489228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_13
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 2500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82ff6681e8edbb34b8b9a0c29afde089
+      internalID: -202268760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_14
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 2500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1959d30ee409102409582702a5070fc2
+      internalID: -153583391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94f76309f57f0cc45aec230c1c612eb8
+      internalID: 961024858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_22
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 2250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cc1899af0477fd4fb1d017a71cd1b34
+      internalID: 1701853079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_23
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10e677bac9e002c4c99476b833701919
+      internalID: -1652994434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_24
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 2250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8afae3ed4b910a34f9c4e9afd64c5c41
+      internalID: -208379238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_25
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 2250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726054d34caef0843b36a7a8d7f01fef
+      internalID: 580827901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_28
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 2250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd3a11f29b595f44080840c3a72c728e
+      internalID: 1084899820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_29
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c4822f993ee9424fbc7b402370bf729
+      internalID: 1009223703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_30
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 2250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 858f9d43fd2c38b4c8e3fad0f8068654
+      internalID: 2109895172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe14bbf8accb754a89e34240949b00c
+      internalID: 20716622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_34
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 2000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd0e38e0be6f0204db26a6b9733976cf
+      internalID: -474609514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_35
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adffbae9ad203bb448e8b4f50e5426c8
+      internalID: 789583964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_36
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 2000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcef5262e79dd3246b0a2d16fb893392
+      internalID: -363913316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_37
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 2000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1283577441ab2aa49add28c647dfe8de
+      internalID: -1325049560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_39
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c238904f915fc446ab2a5441b3df8c0
+      internalID: -155338176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_40
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 2000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a693a84da1b834244931f31ee091fae0
+      internalID: -592909038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_41
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eca75e5cc6b39174590b7bd876eabeff
+      internalID: 524052732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_42
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 2000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac007e916306c264b9f3f126685e602f
+      internalID: 1507195509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_43
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 2000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16e5fdcb380254d429f66fbb5e90a224
+      internalID: -1084522671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_46
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f59d3aef5d02e364a8c0f519ceb3cdfa
+      internalID: 310879128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_47
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 810e708695f122145afd520d54e53c92
+      internalID: 87580525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_48
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16e098833f2f014ea0f11340c236d28
+      internalID: -1059884589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_51
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58792927b143072478aa6ac2bb4fbdd0
+      internalID: 1168609834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_52
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 1750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 448dcfbbfd900324c831ac109f851877
+      internalID: 105319998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_53
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7250518abb733ec4cb3fc74caa67af38
+      internalID: 2044137190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_54
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 1750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d8e2a834a184f646868b0f31efe46fd
+      internalID: 1797949798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_55
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 846161ce269800647bb29068931ec00a
+      internalID: 308865224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_62
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5d6af2d4326144f8156f67c1a94801
+      internalID: 2146229702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_63
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 1500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e58e6228465018409a31a1b9a94c3a0
+      internalID: -2120721772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_64
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e80c425ce2a9384f991258d43b6f7d0
+      internalID: -1233696327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_65
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 1500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a0c19a46cd32941ad0ea57c1a4b4ae
+      internalID: 983505939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_66
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b46b0fdf83d874a93c356a3edb4f13
+      internalID: -736339931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_68
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e252a2e17ec70ed40b31da7f7f58764a
+      internalID: -1439417570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_69
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3298de3fcbf8964a9cd5e265d7a465c
+      internalID: 1666523575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_70
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 687f73d3a3f771144a23f054a0b65e39
+      internalID: -223242806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_74
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 1250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c38a8849a92664f8dbf1225d71a5b9
+      internalID: 47079326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_75
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff907f0ae20c76a459776c2c32288fc6
+      internalID: -850491489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_76
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 1250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c94595a4f8b08f0429351ee269983cc6
+      internalID: -404187897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_79
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e417416d0a5d9bc4ca2e884ca36537dc
+      internalID: -518618000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_80
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cbea029dbbbb5b48ba43aed05938636
+      internalID: -909139533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_81
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abbb827da026a10418ed0f490731d389
+      internalID: 1959150901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_82
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f88a82d7175896a479125547bfdbd828
+      internalID: -1050117758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_83
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1000
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4764607cd640df4ab9129179d093cf6
+      internalID: 1563861718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_91
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b58e714d6a245447a1576b213e592f2
+      internalID: -208076425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_92
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424e9300802e18d46883efd771606a3d
+      internalID: -1753106507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_93
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa12b61804cdcd418b025581c857921
+      internalID: 347130797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_94
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c2a2c716c51750498d0429ee7c91497
+      internalID: -1082148257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_95
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 750
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 855909ac9c856804a9ebcfa9d0c00819
+      internalID: 565141302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_98
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd4a6dcabd8cf8447ad264b2aba1e538
+      internalID: 31018246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_99
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160123a13fe6a5c4398c20652ca6eb12
+      internalID: -806776109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_100
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43b8bbc98e91100428c540eabb9d3f9c
+      internalID: 467647869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_101
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff30712de32e0e240a3581de43cc9385
+      internalID: 1696774017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_102
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 500
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a56cee9944fbe42a5e028970dfa66b
+      internalID: -1361862488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_106
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d232af071a4039045a4f3079bfc6dbc9
+      internalID: 1914512498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_107
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf29502c233ac7e4b85fcf22bfb2681d
+      internalID: -1268682254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DIrtAndStoneSpreitesMap_108
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 250
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d14c71f0731e834cbbc60a6e067c4eb
+      internalID: -795691082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a15c45db420dcc444a63706c2d393a79
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":250.0,"y":250.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      DIrtAndStoneSpreitesMap_0: -1082437708
+      DIrtAndStoneSpreitesMap_1: -5783312
+      DIrtAndStoneSpreitesMap_10: 567633483
+      DIrtAndStoneSpreitesMap_100: 467647869
+      DIrtAndStoneSpreitesMap_101: 1696774017
+      DIrtAndStoneSpreitesMap_102: -1361862488
+      DIrtAndStoneSpreitesMap_103: -612625425
+      DIrtAndStoneSpreitesMap_104: -1876769297
+      DIrtAndStoneSpreitesMap_105: -854520172
+      DIrtAndStoneSpreitesMap_106: 1914512498
+      DIrtAndStoneSpreitesMap_107: -1268682254
+      DIrtAndStoneSpreitesMap_108: -795691082
+      DIrtAndStoneSpreitesMap_109: -648189329
+      DIrtAndStoneSpreitesMap_11: 1002723139
+      DIrtAndStoneSpreitesMap_110: 1291210501
+      DIrtAndStoneSpreitesMap_111: 213031990
+      DIrtAndStoneSpreitesMap_112: 788983202
+      DIrtAndStoneSpreitesMap_113: -2063798056
+      DIrtAndStoneSpreitesMap_114: 1841685961
+      DIrtAndStoneSpreitesMap_115: 1950280819
+      DIrtAndStoneSpreitesMap_116: -1743817302
+      DIrtAndStoneSpreitesMap_12: 685489228
+      DIrtAndStoneSpreitesMap_13: -202268760
+      DIrtAndStoneSpreitesMap_14: -153583391
+      DIrtAndStoneSpreitesMap_15: -1611569448
+      DIrtAndStoneSpreitesMap_16: 703605539
+      DIrtAndStoneSpreitesMap_17: 545681977
+      DIrtAndStoneSpreitesMap_18: -945883726
+      DIrtAndStoneSpreitesMap_19: -627587586
+      DIrtAndStoneSpreitesMap_2: 379823880
+      DIrtAndStoneSpreitesMap_20: -1478435520
+      DIrtAndStoneSpreitesMap_21: 961024858
+      DIrtAndStoneSpreitesMap_22: 1701853079
+      DIrtAndStoneSpreitesMap_23: -1652994434
+      DIrtAndStoneSpreitesMap_24: -208379238
+      DIrtAndStoneSpreitesMap_25: 580827901
+      DIrtAndStoneSpreitesMap_26: 1118420638
+      DIrtAndStoneSpreitesMap_27: 1030031566
+      DIrtAndStoneSpreitesMap_28: 1084899820
+      DIrtAndStoneSpreitesMap_29: 1009223703
+      DIrtAndStoneSpreitesMap_3: 728015169
+      DIrtAndStoneSpreitesMap_30: 2109895172
+      DIrtAndStoneSpreitesMap_31: -66777725
+      DIrtAndStoneSpreitesMap_32: -535378876
+      DIrtAndStoneSpreitesMap_33: 20716622
+      DIrtAndStoneSpreitesMap_34: -474609514
+      DIrtAndStoneSpreitesMap_35: 789583964
+      DIrtAndStoneSpreitesMap_36: -363913316
+      DIrtAndStoneSpreitesMap_37: -1325049560
+      DIrtAndStoneSpreitesMap_38: -1652620300
+      DIrtAndStoneSpreitesMap_39: -155338176
+      DIrtAndStoneSpreitesMap_4: 116217830
+      DIrtAndStoneSpreitesMap_40: -592909038
+      DIrtAndStoneSpreitesMap_41: 524052732
+      DIrtAndStoneSpreitesMap_42: 1507195509
+      DIrtAndStoneSpreitesMap_43: -1084522671
+      DIrtAndStoneSpreitesMap_44: 1887913729
+      DIrtAndStoneSpreitesMap_45: 1666213355
+      DIrtAndStoneSpreitesMap_46: 310879128
+      DIrtAndStoneSpreitesMap_47: 87580525
+      DIrtAndStoneSpreitesMap_48: -1059884589
+      DIrtAndStoneSpreitesMap_49: 275977359
+      DIrtAndStoneSpreitesMap_5: 1633111672
+      DIrtAndStoneSpreitesMap_50: -1672891524
+      DIrtAndStoneSpreitesMap_51: 1168609834
+      DIrtAndStoneSpreitesMap_52: 105319998
+      DIrtAndStoneSpreitesMap_53: 2044137190
+      DIrtAndStoneSpreitesMap_54: 1797949798
+      DIrtAndStoneSpreitesMap_55: 308865224
+      DIrtAndStoneSpreitesMap_56: -10062990
+      DIrtAndStoneSpreitesMap_57: -1493806667
+      DIrtAndStoneSpreitesMap_58: 1928004223
+      DIrtAndStoneSpreitesMap_59: -1841008477
+      DIrtAndStoneSpreitesMap_6: -1678553723
+      DIrtAndStoneSpreitesMap_60: 1287785323
+      DIrtAndStoneSpreitesMap_61: -1098876087
+      DIrtAndStoneSpreitesMap_62: 2146229702
+      DIrtAndStoneSpreitesMap_63: -2120721772
+      DIrtAndStoneSpreitesMap_64: -1233696327
+      DIrtAndStoneSpreitesMap_65: 983505939
+      DIrtAndStoneSpreitesMap_66: -736339931
+      DIrtAndStoneSpreitesMap_67: 1708550906
+      DIrtAndStoneSpreitesMap_68: -1439417570
+      DIrtAndStoneSpreitesMap_69: 1666523575
+      DIrtAndStoneSpreitesMap_7: 1022077742
+      DIrtAndStoneSpreitesMap_70: -223242806
+      DIrtAndStoneSpreitesMap_71: 291736727
+      DIrtAndStoneSpreitesMap_72: 1098215097
+      DIrtAndStoneSpreitesMap_73: 1347132828
+      DIrtAndStoneSpreitesMap_74: 47079326
+      DIrtAndStoneSpreitesMap_75: -850491489
+      DIrtAndStoneSpreitesMap_76: -404187897
+      DIrtAndStoneSpreitesMap_77: -216596700
+      DIrtAndStoneSpreitesMap_78: 636187702
+      DIrtAndStoneSpreitesMap_79: -518618000
+      DIrtAndStoneSpreitesMap_8: 1552574456
+      DIrtAndStoneSpreitesMap_80: -909139533
+      DIrtAndStoneSpreitesMap_81: 1959150901
+      DIrtAndStoneSpreitesMap_82: -1050117758
+      DIrtAndStoneSpreitesMap_83: 1563861718
+      DIrtAndStoneSpreitesMap_84: -1123885687
+      DIrtAndStoneSpreitesMap_85: 1243911166
+      DIrtAndStoneSpreitesMap_86: 1629522767
+      DIrtAndStoneSpreitesMap_87: -337528136
+      DIrtAndStoneSpreitesMap_88: 1444946929
+      DIrtAndStoneSpreitesMap_89: 411866281
+      DIrtAndStoneSpreitesMap_9: -314841826
+      DIrtAndStoneSpreitesMap_90: 2143949599
+      DIrtAndStoneSpreitesMap_91: -208076425
+      DIrtAndStoneSpreitesMap_92: -1753106507
+      DIrtAndStoneSpreitesMap_93: 347130797
+      DIrtAndStoneSpreitesMap_94: -1082148257
+      DIrtAndStoneSpreitesMap_95: 565141302
+      DIrtAndStoneSpreitesMap_96: -1371547609
+      DIrtAndStoneSpreitesMap_97: -89185829
+      DIrtAndStoneSpreitesMap_98: 31018246
+      DIrtAndStoneSpreitesMap_99: -806776109
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
