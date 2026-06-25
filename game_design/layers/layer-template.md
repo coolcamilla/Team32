@@ -30,7 +30,7 @@ Table of which blocks it falls from
 ### `Deposit 1 title`
 
 - `number of deposits (e.g. 2-3)` per layer
-- Reserves of the deposit: `number (e.g. 100-150)` `resource type` units
+- Reserves of the deposit: `number (e.g. 100-150)` `resource type`
 - Mining station `mining station title`
 
 ## Tools
@@ -48,6 +48,5 @@ Table of which blocks it falls from
 
 - `short description`
 - Recipe: `number` `resource 1` (+ `number` `resource 2`)
-- Can dig through: `list blocks`
 - Extracts `resource title`
 - Mining speed: `number` `resource title`/minute
