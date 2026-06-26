@@ -10,7 +10,7 @@ Deliver a 2D mining exploration game where the player character is a mole. The m
 **Current Sprint:** Sprint 2  
 **Next Sprint:** Sprint 3  
 
-The current sprint prioritizes code quality, testability, and core drill mechanics over new feature volume. Future phases will introduce mining stations, layer transitions, mole's upgrading and risk mechanics.
+The current sprint prioritizes code quality, testability, and core drill mechanics over new feature volume. Future sprints will introduce mining stations, layer transitions, mole's upgrading and risk mechanics.
 
 ---
 
@@ -99,6 +99,7 @@ The following quality and automation practices established in Sprint 2 must cont
 ### Automated Testing
 - **Unit tests (EditMode):** All critical game-logic modules must maintain ≥30% line coverage
 - **Integration tests (PlayMode):** Component interactions must be verified through automated tests
+- **Quality Requirement Tests (QRT):** Each quality requirement must have at least one automated test verifying the measurable scenario  
 
 ### CI Pipeline
 - **Automated checks:** Linting, formatting, type-checking, build verification must pass on every PR
