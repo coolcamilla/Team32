@@ -130,7 +130,7 @@
 
 **Resulting PBIs:** _TBD_
 
-## UAT-005: Refuel and Upgrade the Drill !!!!!!!!!!!!!!!
+## UAT-005: Refuel and Upgrade the Drill 
 
 **Status:** Active
 
@@ -140,25 +140,25 @@
 
 - New game session started
 - The drill's fuel tank is empty
-- Player has sufficient at least `N` sticks and `M` `TODO`
+- Player has sufficient at least 6 sticks and 5 pebbles
 
 **Step-by-step instructions:**
 
-1. Go the left side of the map
+1. Go next to the sign on the left side of the map
 2. Press `F`
 3. Check the current fuel level on the left
 4. Add one stick to the fuel tank
-5. Look to the right side and find one `available upgrade (e.g., increased fuel capacity or faster digging speed)`
-6. Click `Upgrade` button on the `TODO`
+5. Look to the right side and find one available upgrade (e.g., increased fuel capacity or faster digging speed)
+6. Click `Upgrade` button on the bottom of the upgrade panel
 
 **Expected outcome:**
 
 1. Hint `Press F` is highlighted
 2. The drill UI is opened
-3. The fuel tank is empty, and the drill is not active (all stats are 0)
-4. Fuel tank now have a liitle bit fuel and speed is `TODO` and power is `TODO`, drill is active
-5. Three information panels on the right demonstrate three improvement areas: `TODO`
-6. Next upgrade displayed on the infomation panel, and drill stats are updated
+3. The fuel tank is empty, and the drill is not active
+4. Fuel tank now has a litle bit fuel and speed is 0.2 m/min and power is 5 W, drill is active
+5. Three information panels on the right demonstrate three improvement areas: Drill Engine, Boer Drill, Fuel Tank
+6. The upgrade disappears from the upgrade table, and drill stats are updated
 
 **Execution results:** _TBD during customer session_
 
