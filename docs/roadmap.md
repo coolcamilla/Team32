@@ -65,21 +65,20 @@ Sunday, June 28, 2026
 
 ### Goal  
 
-Finalize core gameplay loop and improve game feel by adding a drill system with fuel and durability mechanics. Refactor core modules (inventory, crafting, world generation) for testability. Deliver a playable Windows and Linux build in which players can explore the surface and stone layer with resource deposits.
+Deliver a playable Windows/Linux build with finalized core gameplay loop, including drill mechanics, improved game feel and resource-gathering experience. Verify product quality and stability by applying tests.
 
 ### Planned items
 
 - [US-018](https://github.com/coolcamilla/Team32/issues/82)
-- [US-020](https://github.com/coolcamilla/Team32/issues/84)
 - [Fix Mole's Movement](https://github.com/coolcamilla/Team32/issues/136)
 - [Layer Description Template](https://github.com/coolcamilla/Team32/issues/143)
 - [Improve Surface Layer Description](https://github.com/coolcamilla/Team32/issues/141)
 - [Stone Layer Description](https://github.com/coolcamilla/Team32/issues/142)
 - [Draw Items for the Stone Layer](https://github.com/coolcamilla/Team32/issues/146)
 - [Mining Animation Stone Layer](https://github.com/coolcamilla/Team32/issues/147)
-- [Refactor Procedural Generation](https://github.com/coolcamilla/Team32/issues/149)
+- [Refactor Block Logic](https://github.com/coolcamilla/Team32/issues/149)
 - [Refactor Inventory System](https://github.com/coolcamilla/Team32/issues/150)
-- [Refactor Crafting System](https://github.com/coolcamilla/Team32/issues/151);
+- [Refactor Pause Menu](https://github.com/coolcamilla/Team32/issues/151);
 - [Quality Requirement, Unit, Integration Tests and QA check](https://github.com/coolcamilla/Team32/issues/152)
 - [Testing Documentation](https://github.com/coolcamilla/Team32/issues/155)
 - [Write UATs](https://github.com/coolcamilla/Team32/issues/156)
