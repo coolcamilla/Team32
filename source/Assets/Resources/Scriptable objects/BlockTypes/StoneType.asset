@@ -18,6 +18,8 @@ MonoBehaviour:
   _dropTable:
   - _material: 302
     _chance: 0.8
+  - _material: 301
+    _chance: 0.4
   possibleSprites:
   - {fileID: -1439417570, guid: aa85cf39885c8f6488903681fa68ee05, type: 3}
   randomSprite: 0

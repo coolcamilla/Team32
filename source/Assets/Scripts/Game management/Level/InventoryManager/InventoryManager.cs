@@ -74,12 +74,12 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
-    public bool IsEnough(Item item, int count)
+    public bool IsEnough(Item item, int count = 1)
     {
         return _logic.IsEnough(item, count);
     }
 
-    public void Spend(Item item, int count)
+    public void Spend(Item item, int count = 1)
     {
         _logic.Spend(item, count);
     }

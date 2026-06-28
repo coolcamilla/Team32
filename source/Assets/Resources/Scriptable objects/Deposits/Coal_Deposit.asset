@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 24ccb55188876394caa8347c7ea86f79, type: 3}
   m_Name: Coal_Deposit
   m_EditorClassIdentifier: GameScripts::DepositDefinition
   oreType: 5
