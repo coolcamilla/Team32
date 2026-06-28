@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 8deaaeeda16295747a79da89e5a9b8b8, type: 3}
   m_Name: Layer_Dirt
   m_EditorClassIdentifier: GameScripts::LayerDefinition
   minY: -4
-  maxY: 4
+  maxY: 10
   borderReliefAmplitude: 1
   baseBlock: 2
   baseBackground: 1
   deposits:
-  - {fileID: 11400000, guid: aae0919e97e6fc94ab04a4b85cbfc08b, type: 2}
+  - {fileID: 11400000, guid: 94f1eb0d51f36ea48a9123c902577505, type: 2}

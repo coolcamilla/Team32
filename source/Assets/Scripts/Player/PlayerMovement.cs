@@ -9,6 +9,11 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _jumpForce = 2f;
+    
+    [Header("Climbing")]
+    [SerializeField] private float climbSpeed = 5f;
+    [SerializeField] public float maxClimbingHeight = 12f;
+
     private PlayerInput _input;
 
     private bool _grounded;
@@ -16,18 +21,17 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
     private PlayerDig _playerDig;
     private Collider2D _feetCollider;
+    private bool _isClimbing;
 
     private event UnityAction<float> OnDirectionChange;
 
     public float Direction { get { return _horizontalDirection; } }
+    public bool IsClimbing => _isClimbing;
 
-    [Header("Climbing")]
-    public bool IsClimbing = false;
-    public float climbSpeed = 5f;
-    public float maxClimbingHeight = 8f;
 
     private void Awake()
     {
+        _isClimbing = false;
         _rb = GetComponent<Rigidbody2D>();
         _playerDig = GetComponent<PlayerDig>();
         _feetCollider = transform.Find("Collider/Feet").GetComponent<Collider2D>();
@@ -50,12 +54,12 @@ public class PlayerMovement : MonoBehaviour
             ToggleClimbMode();
         }
 
-        if (IsClimbing)
+        if (_isClimbing)
             DoClimb();
         else
             DoMovement();
 
-        if (IsClimbing)
+        if (_isClimbing)
         {
             Vector3 pos = transform.position;
             if (pos.y > maxClimbingHeight)
@@ -100,10 +104,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void ToggleClimbMode()
     {
-        IsClimbing = !IsClimbing;
-        _rb.gravityScale = IsClimbing ? 0f : 1f;
+        _isClimbing = !_isClimbing;
+        _rb.gravityScale = _isClimbing ? 0f : 1.5f;
 
-        if (!IsClimbing)
+        if (!_isClimbing)
         {
             _rb.linearVelocity = Vector2.zero;
             PlayerAnimator.ChangeWalkingState(false);
@@ -138,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (IsClimbing) return;
+        if (_isClimbing) return;
         if (_grounded) {
             _rb.AddForce(Vector2.up * _jumpForce);
         }
@@ -152,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Collider2D GetBelowColliderWithBoxCast()
     {
-        Collider2D result = Physics2D.BoxCast(_feetCollider.transform.position - new Vector3(0, 0.5f, 0), new Vector2(1f, 0.01f), 0f, Vector2.down).collider;
+        Collider2D result = Physics2D.BoxCast(_feetCollider.transform.position - new Vector3(0, 0.5f, 0), new Vector2(0.1f, 0.01f), 0f, Vector2.down).collider;
         return result;
     }
 }
