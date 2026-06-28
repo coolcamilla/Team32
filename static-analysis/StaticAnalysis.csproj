@@ -7,10 +7,11 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <AnalysisMode>Minimum</AnalysisMode>
     <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <!-- Prevents the SDK from auto-including all .cs files in the folder -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
   <PropertyGroup>
-    <!-- Rules that catch real bugs and won't false-positive on our Logic classes -->
     <WarningsAsErrors>CA2000;CA1806;CA1821</WarningsAsErrors>
   </PropertyGroup>
 
@@ -21,11 +22,6 @@
     </PackageReference>
   </ItemGroup>
 
-  <!--
-    Pure C# Logic files — refactored out of MonoBehaviour classes.
-    These have no MonoBehaviour dependencies and are safe to analyze
-    outside of the Unity runtime.
-  -->
   <ItemGroup>
     <!-- Blocks -->
     <Compile Include="../../source/Assets/Scripts/Blocks/BlockBehaviour/BlockBehaviourLogic.cs" />
@@ -47,7 +43,7 @@
     <!-- Player -->
     <Compile Include="../../source/Assets/Scripts/Player/PlayerDig/PlayerDigLogic.cs" />
 
-    <!-- Unity stubs — lets the above files compile without Unity installed -->
+    <!-- Unity stubs -->
     <Compile Include="UnityStubs.cs" />
   </ItemGroup>
 
