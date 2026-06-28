@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9839151ce2a4646af76779c0cc771b, type: 3}
   m_Name: Shovel
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  _type: 0
+  _type: 100
   _sprite: {fileID: -7603589313562666499, guid: 4f8ad233b5bbea6429be1028e8d31725, type: 3}
   _isStackable: 0
   _damage: 3

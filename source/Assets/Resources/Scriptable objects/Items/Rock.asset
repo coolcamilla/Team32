@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9839151ce2a4646af76779c0cc771b, type: 3}
   m_Name: Rock
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  _type: 4
+  _type: 302
   _sprite: {fileID: -3187268863615244572, guid: 3b8d1b6dc777629498a5f1d732003207, type: 3}
   _isStackable: 1
   _damage: 1
+  _diggingCooldown: 0.45
+  _recipe: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9839151ce2a4646af76779c0cc771b, type: 3}
   m_Name: Seedling
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  _type: 6
+  _type: 304
   _sprite: {fileID: -7817730251053360046, guid: 2b7ba1a1ea9b6354f9688f75c7bd0d40, type: 3}
   _isStackable: 1
   _damage: 1
