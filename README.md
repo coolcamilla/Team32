@@ -13,7 +13,7 @@ For Windows
  3. Run `TheMoleProject2D.exe` to start the game
 
 For Linux
- 1. Extract files `unzip MVP_м0.1.0.zip`
+ 1. Extract files `unzip MVP_v0.2.0.zip` (instead of `MVP_v0.2.0` write filename of the build archive you want)
  2. Make executable: `chmod +x LinuxBuild.x86_64`
  3. Run `./LinuxBuild.x86_64` to start the game
 
