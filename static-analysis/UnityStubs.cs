@@ -44,9 +44,19 @@ namespace UnityEngine
         public override int GetHashCode() => x * 397 ^ y;
     }
 
-    public class GameObject { }
+    // UPDATED: Added CompareTag
+    public class GameObject 
+    { 
+        public bool CompareTag(string tag) => false;
+    }
 
-    public class ScriptableObject { }
+    // UPDATED: Added CreateInstance<T>
+    public class ScriptableObject 
+    { 
+        public static T CreateInstance<T>() where T : ScriptableObject, new() => new T();
+    }
+
+    public class MonoBehaviour { }
 
     public class SerializeField : System.Attribute { }
     public class CreateAssetMenu : System.Attribute
@@ -95,8 +105,39 @@ public class DepositDefinition
     public CellType oreType;
 }
 
-public class BlockTypeData { }
-public class Drill { }
-public class FuelTank { }
-public class Engine { }
-public class PlayerManager { }
+// ==========================================
+// UPDATED GAME-SPECIFIC STUBS
+// ==========================================
+
+public class BlockTypeData 
+{ 
+    public int MaxHp;
+    public int MinDamage;
+    // Returns a list of DropChance (which is compiled in your csproj)
+    public System.Collections.Generic.List<DropChance> GetDropTable() => null; 
+}
+
+public class Drill : UnityEngine.ScriptableObject 
+{ 
+    public void SetBasic() {}
+    public float Speed;
+}
+
+public class FuelTank : UnityEngine.ScriptableObject 
+{ 
+    public void SetBasic() {}
+    public float Capacity;
+}
+
+public class Engine : UnityEngine.ScriptableObject 
+{ 
+    public void SetBasic() {}
+    public float Speed;
+    public float Power;
+}
+
+public class PlayerManager : UnityEngine.MonoBehaviour
+{
+    public static PlayerManager Instance;
+    public UnityEngine.GameObject EquippedItem;
+}

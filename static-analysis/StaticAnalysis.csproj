@@ -9,6 +9,7 @@
     <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
     <!-- Prevents the SDK from auto-including all .cs files in the folder -->
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <LangVersion>latest</LangVersion> 
   </PropertyGroup>
 
   <PropertyGroup>
