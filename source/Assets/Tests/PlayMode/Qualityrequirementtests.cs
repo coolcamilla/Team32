@@ -86,7 +86,9 @@ public class QualityRequirementTests
 
         Assert.AreEqual(1f, Time.timeScale,
             "QRT-003 FAIL: Time.timeScale should be 1 on scene load.");
-        Assert.IsFalse(PauseManager.IsPaused,
+        PauseManager _pauseManager = GameObject.FindObjectOfType<PauseManager>();
+        Assert.IsFalse(_pauseManager.IsPaused,
             "QRT-003 FAIL: PauseManager.IsPaused should be false on scene load.");
+
     }
 }

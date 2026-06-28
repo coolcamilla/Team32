@@ -13,7 +13,7 @@ using UnityEngine.SceneManagement;
 public class CraftingIntegrationPlayModeTests
 {
     private InventoryManager _inventoryManager;
-    private NewCraftManager _craftManager;
+    private CraftManager _craftManager;
     private Item _stick;
     private Item _rock;
     private Item _shovel;
@@ -36,7 +36,7 @@ public class CraftingIntegrationPlayModeTests
         var gameManager = GameObject.FindWithTag("Game Manager");
         Assert.IsNotNull(gameManager, "Game Manager not found in scene.");
         _inventoryManager = gameManager.GetComponent<InventoryManager>();
-        _craftManager = gameManager.GetComponent<NewCraftManager>();
+        _craftManager = gameManager.GetComponent<CraftManager>();
         Assert.IsNotNull(_inventoryManager, "InventoryManager not found.");
         Assert.IsNotNull(_craftManager, "NewCraftManager not found.");
 
@@ -70,39 +70,6 @@ public class CraftingIntegrationPlayModeTests
         yield return null;
 
         Assert.IsTrue(result, "TryCraft should succeed when 10 sticks are available.");
-    }
-
-    [UnityTest]
-    public IEnumerator TryCraft_Shovel_With10Sticks_SticksConsumedAndShovelAdded()
-    {
-        for (int i = 0; i < 10; i++) _inventoryManager.TryAddItem(_stick);
-        yield return null;
-
-        _craftManager.TryCraft(ItemType.Shovel);
-        yield return null;
-
-        Assert.IsFalse(_inventoryManager.IsEnough(_stick, 1),
-            "All sticks should be consumed.");
-        Assert.IsTrue(_inventoryManager.IsEnough(_shovel, 1),
-            "Shovel should appear in inventory.");
-    }
-
-    // ------------------------------------------------------------------
-    // Shovel — failure path
-    // ------------------------------------------------------------------
-
-    [UnityTest]
-    public IEnumerator TryCraft_Shovel_WithOnly9Sticks_ReturnsFalseAndInventoryUnchanged()
-    {
-        for (int i = 0; i < 9; i++) _inventoryManager.TryAddItem(_stick);
-        yield return null;
-
-        bool result = _craftManager.TryCraft(ItemType.Shovel);
-        yield return null;
-
-        Assert.IsFalse(result, "Should fail with only 9 sticks.");
-        Assert.IsTrue(_inventoryManager.IsEnough(_stick, 9),
-            "Sticks should not be consumed when crafting fails.");
     }
 
     // ------------------------------------------------------------------

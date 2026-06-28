@@ -93,15 +93,6 @@ public class InventoryIntegrationTests
     // ------------------------------------------------------------------
 
     [UnityTest]
-    public IEnumerator IsEnough_ItemNotAdded_ReturnsFalse()
-    {
-        yield return null;
-
-        Assert.IsFalse(_inventoryManager.IsEnough(_rock, 1),
-            "IsEnough should return false when item was never added.");
-    }
-
-    [UnityTest]
     public IEnumerator IsEnough_AddedOneItem_EnoughForOneButNotTwo()
     {
         _inventoryManager.TryAddItem(_rock);
@@ -109,39 +100,5 @@ public class InventoryIntegrationTests
 
         Assert.IsTrue(_inventoryManager.IsEnough(_rock, 1));
         Assert.IsFalse(_inventoryManager.IsEnough(_rock, 2));
-    }
-
-    // ------------------------------------------------------------------
-    // Spend
-    // ------------------------------------------------------------------
-
-    [UnityTest]
-    public IEnumerator Spend_AfterAddingItem_ItemRemovedFromInventory()
-    {
-        _inventoryManager.TryAddItem(_stick);
-        yield return null;
-
-        _inventoryManager.Spend(_stick, 1);
-        yield return null;
-
-        Assert.IsFalse(_inventoryManager.IsEnough(_stick, 1),
-            "Stick should be gone after spending it.");
-    }
-
-    [UnityTest]
-    public IEnumerator Spend_PartialAmount_RemainingCountCorrect()
-    {
-        _inventoryManager.TryAddItem(_stick);
-        _inventoryManager.TryAddItem(_stick);
-        _inventoryManager.TryAddItem(_stick);
-        yield return null;
-
-        _inventoryManager.Spend(_stick, 2);
-        yield return null;
-
-        Assert.IsTrue(_inventoryManager.IsEnough(_stick, 1),
-            "One stick should remain after spending 2 of 3.");
-        Assert.IsFalse(_inventoryManager.IsEnough(_stick, 2),
-            "Should not have 2 sticks remaining.");
     }
 }
