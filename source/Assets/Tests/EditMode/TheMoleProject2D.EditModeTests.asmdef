@@ -1,0 +1,17 @@
+{
+    "name": "TheMoleProject2D.EditModeTests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5435cf82b65342141be51ee43dd7d78e",
+        "GUID:0acc523941302664db1f4e527237feb3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
