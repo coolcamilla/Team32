@@ -24,24 +24,24 @@
 
   <ItemGroup>
     <!-- Blocks -->
-    <Compile Include="../../source/Assets/Scripts/Blocks/BlockBehaviour/BlockBehaviourLogic.cs" />
-    <Compile Include="../../source/Assets/Scripts/Blocks/DropChance.cs" />
+    <Compile Include="../source/Assets/Scripts/Blocks/BlockBehaviour/BlockBehaviourLogic.cs" />
+    <Compile Include="../source/Assets/Scripts/Blocks/DropChance.cs" />
 
     <!-- Game management / Level -->
-    <Compile Include="../../source/Assets/Scripts/Game management/Level/CraftManager/CraftLogic.cs" />
-    <Compile Include="../../source/Assets/Scripts/Game management/Level/DrillManager/DrillLogic.cs" />
-    <Compile Include="../../source/Assets/Scripts/Game management/Level/InventoryManager/InventoryLogic.cs" />
-    <Compile Include="../../source/Assets/Scripts/Game management/Level/PauseLogic.cs" />
-    <Compile Include="../../source/Assets/Scripts/Game management/Level/WorldGenerator.cs" />
+    <Compile Include="../source/Assets/Scripts/Game management/Level/CraftManager/CraftLogic.cs" />
+    <Compile Include="../source/Assets/Scripts/Game management/Level/DrillManager/DrillLogic.cs" />
+    <Compile Include="../source/Assets/Scripts/Game management/Level/InventoryManager/InventoryLogic.cs" />
+    <Compile Include="../source/Assets/Scripts/Game management/Level/PauseLogic.cs" />
+    <Compile Include="../source/Assets/Scripts/Game management/Level/WorldGenerator.cs" />
 
     <!-- Items -->
-    <Compile Include="../../source/Assets/Scripts/Items/Scriptable objects/CraftRecipe.cs" />
-    <Compile Include="../../source/Assets/Scripts/Items/Scriptable objects/Item.cs" />
-    <Compile Include="../../source/Assets/Scripts/Items/Scriptable objects/Fuel.cs" />
-    <Compile Include="../../source/Assets/Scripts/Items/ItemType.cs" />
+    <Compile Include="../source/Assets/Scripts/Items/Scriptable objects/CraftRecipe.cs" />
+    <Compile Include="../source/Assets/Scripts/Items/Scriptable objects/Item.cs" />
+    <Compile Include="../source/Assets/Scripts/Items/Scriptable objects/Fuel.cs" />
+    <Compile Include="../source/Assets/Scripts/Items/ItemType.cs" />
 
     <!-- Player -->
-    <Compile Include="../../source/Assets/Scripts/Player/PlayerDig/PlayerDigLogic.cs" />
+    <Compile Include="../source/Assets/Scripts/Player/PlayerDig/PlayerDigLogic.cs" />
 
     <!-- Unity stubs -->
     <Compile Include="UnityStubs.cs" />
