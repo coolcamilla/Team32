@@ -44,13 +44,13 @@ namespace UnityEngine
         public override int GetHashCode() => x * 397 ^ y;
     }
 
-    // UPDATED: Added CompareTag
+    // UPDATED: Added Cooldown to fix PlayerDigLogic error
     public class GameObject 
     { 
         public bool CompareTag(string tag) => false;
+        public float Cooldown; 
     }
 
-    // UPDATED: Added CreateInstance<T>
     public class ScriptableObject 
     { 
         public static T CreateInstance<T>() where T : ScriptableObject, new() => new T();
@@ -113,8 +113,10 @@ public class BlockTypeData
 { 
     public int MaxHp;
     public int MinDamage;
-    // Returns a list of DropChance (which is compiled in your csproj)
-    public System.Collections.Generic.List<DropChance> GetDropTable() => null; 
+    
+    // CHANGED FROM METHOD TO PROPERTY
+    // The "method group" error means your code uses `GetDropTable` without parentheses.
+    public System.Collections.Generic.List<DropChance> GetDropTable => new System.Collections.Generic.List<DropChance>(); 
 }
 
 public class Drill : UnityEngine.ScriptableObject 
