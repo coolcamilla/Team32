@@ -80,9 +80,9 @@ scenarios and automated test details.
 
 ### [CI pipeline](https://github.com/coolcamilla/Team32/actions)
 
-### [Latest CI run on main]([https://github.com/coolcamilla/Team32/actions/runs/TODO](https://github.com/coolcamilla/Team32/actions/runs/28335656963))
+### [Latest CI run on main](https://github.com/coolcamilla/Team32/actions/runs/28335656963)
 
-### [Branch protection rules](https://github.com/coolcamilla/Team32/settings/rules/17516535)
+### [Branch protection rules](...)
 
 ### Screenshots or report links for linting, coverage, tests, and the additional QA check
 
