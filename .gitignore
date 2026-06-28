@@ -42,6 +42,7 @@
 ExportedObj/
 .consulo/
 *.csproj
+!StaticAnalysis.csproj
 *.unityproj
 *.sln
 *.slnx
