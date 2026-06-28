@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9839151ce2a4646af76779c0cc771b, type: 3}
   m_Name: Clay
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  _type: 5
+  _type: 303
   _sprite: {fileID: 2710319956276519651, guid: df606227e7290d94ea83d0c1a5a17e62, type: 3}
   _isStackable: 1
   _damage: 1
+  _diggingCooldown: 0.45
+  _recipe: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9839151ce2a4646af76779c0cc771b, type: 3}
   m_Name: Stick
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  _type: 2
+  _type: 300
   _sprite: {fileID: -3908756130311122006, guid: a31027dc171e7984284f4c90b4f94f9d, type: 3}
   _isStackable: 1
   _damage: 1

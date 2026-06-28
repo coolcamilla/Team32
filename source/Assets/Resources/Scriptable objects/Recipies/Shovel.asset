@@ -16,5 +16,5 @@ MonoBehaviour:
   _description: Handy digging tool
   _sprite: {fileID: -7603589313562666499, guid: 4f8ad233b5bbea6429be1028e8d31725, type: 3}
   _materials:
-  - _type: 2
+  - _type: 300
     _quantity: 10

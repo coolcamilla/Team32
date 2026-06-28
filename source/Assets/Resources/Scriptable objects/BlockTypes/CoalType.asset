@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bedb08791680da545bb2bf1b831c06d4, type: 3}
+  m_Name: CoalType
+  m_EditorClassIdentifier: GameScripts::BlockTypeData
+  _blockName: Coal
+  _maxHp: 10
+  _minDamage: 5
+  _dropTable:
+  - _material: 303
+    _chance: 1
+  possibleSprites:
+  - {fileID: -4616598773014292954, guid: a446536390608654581037e309c118f4, type: 3}
+  randomSprite: 0

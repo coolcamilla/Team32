@@ -16,7 +16,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "DIg",
+                    "name": "Dig",
                     "type": "Button",
                     "id": "7db47163-dc31-4fe4-a683-885626ad374d",
                     "expectedControlType": "",
@@ -41,6 +41,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Climb",
+                    "type": "Button",
+                    "id": "58ff634c-fd5d-40c0-b27b-dcfcc7ccf63b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -51,7 +60,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "DIg",
+                    "action": "Dig",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -131,6 +140,17 @@
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "05a51b78-6919-4f26-b0ba-2167cc24e5c1",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Climb",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

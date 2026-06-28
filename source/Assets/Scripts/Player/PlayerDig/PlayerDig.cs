@@ -1,0 +1,80 @@
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
+
+[RequireComponent(typeof(PlayerMovement))]
+
+public class PlayerDig : MonoBehaviour
+{
+    [SerializeField] private float _raycastDistance = 1.5f;
+
+    // The offset is used to adjust the starting position of the raycast based on the player's size
+    private readonly Vector2 START_POSITION_OFFSET = new Vector2(1.2f, 2f);
+
+    private PlayerInput _input;
+    private PlayerMovement _playerMovement;
+    private PlayerManager _playerManager;
+    private PlayerDigLogic _logic;
+
+    public event UnityAction<float> OnVerticalDirectionChange;
+    public event UnityAction OnAnyDig;
+    private void Awake()
+    {
+        _playerMovement = GetComponent<PlayerMovement>();
+        _playerManager = PlayerManager.Instance;
+
+        _input = new PlayerInput();
+        _input.Player.Look.performed += ChangeVerticalDirection;
+        _input.Player.Look.canceled += ResetVerticalDirection;
+        _input.Player.Dig.performed += TryDig;
+
+        _logic = PlayerDigLogic.Instance;
+        OnVerticalDirectionChange += _logic.ChangeVerticalDirection;
+    }
+
+    private void Update()
+    {
+        _logic.UpdateTimer(Time.deltaTime);
+    }
+
+    private void OnEnable()
+    {
+        _input.Enable();
+    }
+    private void OnDisable()
+    {
+        _input.Disable();
+    }
+
+    public void ChangeHorizontalDirection(float direction)
+    {
+        _logic.ChangeHorizontalDirection(direction);
+    }
+    private void ChangeVerticalDirection(InputAction.CallbackContext context)
+    {
+        float value = context.action.ReadValue<float>();
+        OnVerticalDirectionChange?.Invoke(value);
+    }
+    private void ResetVerticalDirection(InputAction.CallbackContext context)
+    {
+        OnVerticalDirectionChange?.Invoke(0);
+    }
+    private void TryDig(InputAction.CallbackContext context)
+    {
+        OnAnyDig?.Invoke();
+        GameObject objectHit = GetObjectOnDigDirection();
+
+        if (_logic.BlockHit(objectHit))
+        {
+            objectHit.GetComponent<BlockBehaviour>().TryTakeDamage(_playerManager.EquippedItem);
+        }
+    }
+    private GameObject GetObjectOnDigDirection()
+    {
+        Vector2 raycastDirection = _logic.ComputeRaycastDirection(_playerMovement.IsClimbing);
+
+        RaycastHit2D hit = Physics2D.Raycast((Vector2) transform.position + Vector2.Scale(raycastDirection, START_POSITION_OFFSET), raycastDirection, _raycastDistance);
+        
+        return hit.collider?.gameObject ?? null;
+    }
+}

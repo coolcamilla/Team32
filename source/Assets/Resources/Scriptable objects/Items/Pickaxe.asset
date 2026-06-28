@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9839151ce2a4646af76779c0cc771b, type: 3}
   m_Name: Pickaxe
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  _type: 1
+  _type: 101
   _sprite: {fileID: 5463335759745693671, guid: 794a463d0e18d044fbc98c661e8fc7a5, type: 3}
   _isStackable: 0
   _damage: 5
