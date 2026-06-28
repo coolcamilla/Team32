@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <AnalysisMode>Minimum</AnalysisMode>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <!-- Prevents the SDK from auto-including all .cs files in the folder -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <LangVersion>latest</LangVersion> 
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <WarningsAsErrors>CA2000;CA1806;CA1821</WarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Blocks -->
+    <Compile Include="../source/Assets/Scripts/Blocks/BlockBehaviour/BlockBehaviourLogic.cs" />
+    <Compile Include="../source/Assets/Scripts/Blocks/DropChance.cs" />
+
+    <!-- Game management / Level -->
+    <Compile Include="../source/Assets/Scripts/Game management/Level/CraftManager/CraftLogic.cs" />
+    <Compile Include="../source/Assets/Scripts/Game management/Level/DrillManager/DrillLogic.cs" />
+    <Compile Include="../source/Assets/Scripts/Game management/Level/InventoryManager/InventoryLogic.cs" />
+    <Compile Include="../source/Assets/Scripts/Game management/Level/PauseLogic.cs" />
+    <Compile Include="../source/Assets/Scripts/Game management/Level/WorldGenerator.cs" />
+
+    <!-- Items -->
+    <Compile Include="../source/Assets/Scripts/Items/Scriptable objects/CraftRecipe.cs" />
+    <Compile Include="../source/Assets/Scripts/Items/Scriptable objects/Item.cs" />
+    <Compile Include="../source/Assets/Scripts/Items/Scriptable objects/Fuel.cs" />
+    <Compile Include="../source/Assets/Scripts/Items/ItemType.cs" />
+
+    <!-- Player -->
+    <Compile Include="../source/Assets/Scripts/Player/PlayerDig/PlayerDigLogic.cs" />
+
+    <!-- Unity stubs -->
+    <Compile Include="UnityStubs.cs" />
+  </ItemGroup>
+
+</Project>

@@ -8,6 +8,8 @@ TagManager:
   - Game Manager
   - Block
   - Cursor
+  - Slot
+  - Droppable
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9839151ce2a4646af76779c0cc771b, type: 3}
+  m_Name: Pebbles
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  _type: 301
+  _sprite: {fileID: -1431359083, guid: 5a22b409f85d8914d819f1b6caed2494, type: 3}
+  _isStackable: 1
+  _damage: 1
+  _diggingCooldown: 0.45
+  _recipe: {fileID: 0}
