@@ -82,7 +82,7 @@ scenarios and automated test details.
 
 ### Links to unit tests
 
-- [EditMode unit tests — Block Logic](https://github.com/coolcamilla/Team32/blob/main/source/Assets/Tests/EditMode/) (`TODO: direct link to the file`)
+- [EditMode unit tests — Block Logic](https://github.com/coolcamilla/Team32/blob/main/source/Assets/Tests/EditMode/)
 
 ### Links to integration tests
 
