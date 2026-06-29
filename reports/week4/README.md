@@ -96,7 +96,7 @@ scenarios and automated test details.
 
 ### [Latest CI run on main](https://github.com/coolcamilla/Team32/actions/runs/28335656963)
 
-### [Branch protection rules](...)
+### [Branch protection rules](https://github.com/coolcamilla/Team32/rules/17516535?ref=refs%2Fheads%2Fmain)
 
 ### Screenshots or report links for linting, coverage, tests, and the additional QA check
 
