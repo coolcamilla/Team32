@@ -96,11 +96,30 @@ scenarios and automated test details.
 
 ### [Latest CI run on main](https://github.com/coolcamilla/Team32/actions/runs/28335656963)
 
-### [Branch protection rules](https://github.com/coolcamilla/Team32/settings/rules/17516535)
+### [Branch protection rules](...)
 
 ### Screenshots or report links for linting, coverage, tests, and the additional QA check
 
+[linting + additional QA check](https://github.com/coolcamilla/Team32/actions/runs/28336191613)
+[coverage report](../../docs/CodeCoverageReport.htm)
+[automated tests](https://github.com/coolcamilla/Team32/actions/runs/28336191608)
+
 ### Short explanation of how the Assignment 4 tests, CI checks, quality requirement tests, and Definition of Done will continue to govern later project work
+
+The tests, CI checks, quality requirement tests, and Definition of Done introduced in
+Assignment 4 are maintained project assets. All future PBIs must satisfy the same gates:
+
+- **Unit and integration tests** in `Assets/Tests/` must continue to pass on every PR
+  targeting the protected default branch. New modules are expected to have corresponding tests.
+- **Quality requirement tests** QRT-001, QRT-002, and QRT-003 remain active and must pass
+  in CI. If a future change affects `GridGenerator`, `BlockBehaviour`, or `PauseManager`,
+  the relevant QRT must be updated to match the new measurable scenario rather than removed.
+- **CI pipeline** enforces test execution, coverage measurement, linting, and the additional
+  QA check on every push to the protected default branch. These gates must not be disabled
+  or bypassed in later Sprints.
+- **Definition of Done** in `docs/definition-of-done.md` requires all CI gates to pass
+  before a PBI can be marked Done. Later Sprints must maintain or extend this standard;
+  weakening it requires an explicit team decision documented in the Definition of Done itself.
 
 ### [SemVer](https://github.com/coolcamilla/Team32/releases/tag/v0.2.0) release mapped to MVP v2 (Sprint 2 Increment)
 
