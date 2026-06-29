@@ -1,0 +1,26 @@
+name: Static Analysis
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  roslyn-analysis:
+    name: Roslyn Static Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore analyzer packages
+        run: dotnet restore static-analysis/StaticAnalysis.csproj
+
+      - name: Run Roslyn analyzers
+        run: dotnet build static-analysis/StaticAnalysis.csproj --no-restore
