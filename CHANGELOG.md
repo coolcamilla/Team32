@@ -4,31 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## [Unreleased](https://github.com/coolcamilla/Team32/compare/v0.1.0...HEAD)
+## [Unreleased](https://github.com/coolcamilla/Team32/compare/v0.2.0...HEAD)
 
-\### Added
+## [0.2.0](https://github.com/coolcamilla/Team32/releases/tag/v0.2.0) - 2026-06-28
 
+### Added
 
+- [Autonomous Drill Operation](https://github.com/coolcamilla/Team32/issues/137)
+- [Interaction with Drill Upgrading UI](https://github.com/coolcamilla/Team32/issues/144)
 
-\- \[Autonomous Drill Operation](https://github.com/coolcamilla/Team32/issues/137)
+### Deprecated
 
-\- \[Interaction with Drill Upgrading UI](https://github.com/coolcamilla/Team32/issues/144)
+- [Drag and Drop mechanic](https://github.com/coolcamilla/Team32/issues/97)
 
+### Fixed
 
-
-\### Deprecated
-
-
-
-\- \[Drag and Drop mechanic](https://github.com/coolcamilla/Team32/issues/97)
-
-
-
-\### Fixed
-
-
-
-\- \[Fix infinite jump near a wall](https://github.com/coolcamilla/Team32/issues/136)
+- [Fix infinite jump near a wall](https://github.com/coolcamilla/Team32/issues/136)
 
 
 
@@ -46,4 +37,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 * [Base Menu](https://github.com/coolcamilla/Team32/issues/87)
 * [Switching between inventory modes](https://github.com/coolcamilla/Team32/issues/94)
 * [Dragging an Item across the inventory](https://github.com/coolcamilla/Team32/issues/97)
+
 

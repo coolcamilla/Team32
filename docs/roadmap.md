@@ -70,16 +70,15 @@ Finalize core gameplay loop and improve game feel by adding a drill system with 
 ### Planned items
 
 - [US-018](https://github.com/coolcamilla/Team32/issues/82)
-- [US-020](https://github.com/coolcamilla/Team32/issues/84)
 - [Fix Mole's Movement](https://github.com/coolcamilla/Team32/issues/136)
 - [Layer Description Template](https://github.com/coolcamilla/Team32/issues/143)
 - [Improve Surface Layer Description](https://github.com/coolcamilla/Team32/issues/141)
 - [Stone Layer Description](https://github.com/coolcamilla/Team32/issues/142)
 - [Draw Items for the Stone Layer](https://github.com/coolcamilla/Team32/issues/146)
 - [Mining Animation Stone Layer](https://github.com/coolcamilla/Team32/issues/147)
-- [Refactor Procedural Generation](https://github.com/coolcamilla/Team32/issues/149)
+- [Refactor Block Logic](https://github.com/coolcamilla/Team32/issues/149)
 - [Refactor Inventory System](https://github.com/coolcamilla/Team32/issues/150)
-- [Refactor Crafting System](https://github.com/coolcamilla/Team32/issues/151);
+- [Refactor Pause Menu](https://github.com/coolcamilla/Team32/issues/151);
 - [Quality Requirement, Unit, Integration Tests and QA check](https://github.com/coolcamilla/Team32/issues/152)
 - [Testing Documentation](https://github.com/coolcamilla/Team32/issues/155)
 - [Write UATs](https://github.com/coolcamilla/Team32/issues/156)
@@ -88,7 +87,15 @@ Finalize core gameplay loop and improve game feel by adding a drill system with 
 ### Outcome
 
 Playable build released for Windows and Linux, in which
-- TODO
+- Players can upgrade the drill in drill upgrading UI
+- Drill drops resources near itself from time to time
+- Known bugs fixed
+
+Non user-visible outcomes:
+- Refactored system of inventory, block logic and pause menu
+- Automated unit, integration and quality requirement tests
+- Added the additional QA roslyn analyzers check
+- Procedural generation enhanced, which now can spawn deposits
 
 ---
 
