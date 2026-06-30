@@ -6,11 +6,13 @@ Deliver a 2D mining exploration game where the player character is a mole. The m
 
 ## Current Status
 
-**Completed Sprints:** Sprint 1  
-**Current Sprint:** Sprint 2  
-**Next Sprint:** Sprint 3  
+**Completed Sprints:** Sprint 1, Sprint 2  
+**Current Sprint:** Sprint 3  
+**Next Sprint:** Sprint 4  
 
-The current sprint prioritizes code quality, testability, and core drill mechanics over new feature volume. Future sprints will introduce mining stations, layer transitions, mole's upgrading and risk mechanics.
+## Current Direction
+
+The current sprint focuses acting on customer feedback by simplifying the UI and introducing immersive mechanics. Other one priority is strengthening technical foundations through architecture documentation and configuration management. Future sprints will introduce layer transitions, mining stations, mole upgrades, an overheating mechanic, and a save system to complete the core gameplay loop.
 
 ---
 
@@ -96,6 +98,67 @@ Non user-visible outcomes:
 - Automated unit, integration and quality requirement tests
 - Added the additional QA roslyn analyzers check
 - Procedural generation enhanced, which now can spawn deposits
+
+# Sprint 3
+
+### [Milestone](https://github.com/coolcamilla/Team32/milestone/3)  
+
+### Start
+
+Moday, June 29, 2026  
+
+### End
+
+Sunday, July 5, 2026  
+
+### Goal  
+
+Deliver a playable Windows and Linux build that addresses cutomer feedback by simplifying the inventory/crafting flow and improving game feel with immersive mechanics, while strengthening product quality and stability through refactoring, automated tests and architecture documentation.
+
+### Planned items
+
+- [US-006: Burrow depth](https://github.com/coolcamilla/Team32/issues/68)
+- [US-020: Deposit Discovery](https://github.com/coolcamilla/Team32/issues/84)
+- [Timer-based Climbing Mode](https://github.com/coolcamilla/Team32/issues/171)
+- [Stamina](https://github.com/coolcamilla/Team32/issues/167)
+- [Update Tools Crafting Workflow](https://github.com/coolcamilla/Team32/issues/172)
+- [Simplify Inventory](https://github.com/coolcamilla/Team32/issues/174)
+- [Update Tools Crafting Workflow](https://github.com/coolcamilla/Team32/issues/172)
+- [Infinite jump](https://github.com/coolcamilla/Team32/issues/168)
+- [Jump Force Accumulation](https://github.com/coolcamilla/Team32/issues/182)
+- [Climbing Animation](https://github.com/coolcamilla/Team32/issues/148)
+- [Draw Workbench](https://github.com/coolcamilla/Team32/issues/183)
+- [Draw Drill Sign](https://github.com/coolcamilla/Team32/issues/184)
+- [Draw Environment Tilesets](https://github.com/coolcamilla/Team32/issues/186)
+- [Integrate Sprites and Animations into Unity](https://github.com/coolcamilla/Team32/issues/185)
+- [Update Tests week 5](https://github.com/coolcamilla/Team32/issues/192)
+- [Music and Sound Effects](https://github.com/coolcamilla/Team32/issues/86)
+- [Maintain Architecture directory and ADRs](https://github.com/coolcamilla/Team32/issues/191)
+- [Update Roadmap for Sprint 3](https://github.com/coolcamilla/Team32/issues/190)
+- [Update and Execute UATs for MVP v2](https://github.com/coolcamilla/Team32/issues/188)
+- [Create Release for MVP v2](https://github.com/coolcamilla/Team32/issues/187)
+
+### Outcome
+
+MVP v2 as a playable build released for Windows and Linux, in which:
+- The mole can explore the dirt layer
+- Resources drop from broken blocks and are collected automatically into the inventory
+- The mole can upgrade tools at the workbench
+- The drill can be fuelled and upgraded at the drill interface
+- Deposits of various resource types spawn and can be discovered by digging
+- The mole has a stamina bar that depletes while climbing and regenerates at rest
+- Two depth counters in the top-right corner show the mole's and the drill's current depth in meters
+- The hotbar at the bottom of the screen displays the mole's equipped tool and upgrades
+- The resource inventory can be viewed by pressing E
+
+
+Non user-visible outcomes:
+- Refactored `TODO`
+- Automated unit, integration and quality requirement tests for `TODO`
+
+# Sprint 4
+
+This sprint will introduce stone layer, layer transitions, mining stations, limited visibility and overheating mechanics.
 
 ---
 
