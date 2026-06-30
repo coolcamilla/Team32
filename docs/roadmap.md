@@ -162,29 +162,36 @@ This sprint will introduce stone layer, layer transitions, mining stations, limi
 
 ---
 
-# Quality and Automation Work
+# Work that must continue later
 
-The following quality and automation practices established in Sprint 2 must continue throughout all future project work:
+The following practices must continue throughout all future project work:
+
+### Documentation
+- **docs/testing.md:** Must be updated when critical modules change or new quality gates are added
+- **docs/definition-of-done.md:** Must reflect current CI requirements and coverage expectations
+- **docs/quality-requirements.md:** Must be updated when new quality requirements are identified, and each relevant quality requirement must link to at least one related ADR
+- **docs/quality-requirement-tests.md:** Must be updated when QRTs are added or modified
+- **docs/architecture/README.md:** Must be updated as new systems (mining stations, layer transitions, save system) are introduced, including updated static, dynamic, and deployment view diagrams
+- **docs/architecture/adr/:** Each significant architecture decision must be recorded as an ADR and linked from `docs/architecture/README.md`
+- **docs/development-process.md:** Must reflect the current git workflow, Sprint cadence, and configuration management practices, illustrated with a Mermaid `gitGraph` diagram
+- **docs/user-acceptance-tests.md:** Must be kept current with all active UAT scenarios, each linked to relevant acceptance criteria, user story, or supporting PBI
+- **Layer design documents:** Each new layer must have a corresponding design document following `game_design/layers/layer-template.md` before implementation begins
+- **CHANGELOG.md:** Every user-visible change must be recorded under `Unreleased` as part of the PR workflow
 
 ### Automated Testing
 - **Unit tests (EditMode):** All critical game-logic modules must maintain ≥30% line coverage
 - **Integration tests (PlayMode):** Component interactions must be verified through automated tests
-- **Quality Requirement Tests (QRT):** Each quality requirement must have at least one automated test verifying the measurable scenario  
+- **Quality Requirement Tests (QRT):** Each quality requirement must have at least one automated test verifying the measurable scenario
 
 ### CI Pipeline
 - **Automated checks:** Linting, formatting, type-checking, build verification must pass on every PR
 - **Test execution:** All unit, integration, and QRT tests must pass before merge
 - **Coverage reporting:** Coverage reports must be generated and archived for each CI run
 
-### Documentation Maintenance
-- **docs/testing.md:** Must be updated when critical modules change or new quality gates are added
-- **docs/definition-of-done.md:** Must reflect current CI requirements and coverage expectations
-- **docs/quality-requirements.md:** Must be updated when new quality requirements are identified
-- **docs/quality-requirement-tests.md:** Must be updated when QRTs are added or modified
-
 ### Code Quality Standards
 - **Testability pattern:** New features must follow the Model/Service + MonoBehaviour wrapper pattern to enable EditMode unit testing
 - **Deterministic generation:** Procedural systems must use seed-based randomness for reproducibility
 - **Atomic operations:** Resource transactions (crafting, building, refueling) must be atomic to prevent data loss
+- **Configuration management:** Game constants and tunable parameters must remain in centralised configuration files rather than hardcoded in game logic
 
 These practices ensure that the codebase remains maintainable, testable, and reliable.
