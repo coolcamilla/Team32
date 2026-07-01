@@ -1,0 +1,110 @@
+@startuml component-diagram
+title Operation: EarthCore - Component Diagram (Static View)
+
+skinparam componentStyle rectangle
+skinparam wrapWidth 200
+skinparam maxMessageSize 200
+
+actor Player as player
+
+package "Unity Platform" {
+  [Unity Input System\n(PlayerInput actions)] as input
+  [Unity Physics2D] as physics
+  [Unity Animator] as animator_engine
+  [Unity Scene Manager] as scenemgr
+}
+
+package "Game Management" as gm {
+  [GameInitializer] as gameinit
+  [GridGenerator] as gridgen
+  [GameExit] as gameexit
+  [PauseManager] as pausemgr
+  note right of gm
+    All co-located on the single
+    "Game Manager" GameObject in
+    the Level scene.
+  end note
+}
+
+package "Player Subsystem" as player_pkg {
+  [PlayerMovement] as movement
+  [PlayerDig] as dig
+  [PlayerDigLogic\n(singleton)] as diglogic
+  [PlayerAnimator\n(singleton)] as playeranim
+  [PlayerManager\n(singleton, plain C#)] as playermgr
+}
+
+package "Blocks / World" as blocks_pkg {
+  [BlockBehaviour] as block
+  [BlockBehaviourLogic] as blocklogic
+  [BlockTypeData\n(ScriptableObject)] as blockdata
+}
+
+package "Items" as items_pkg {
+  [Item\n(ScriptableObject)] as item
+  [CollectableBehaviour] as collectable
+  [TypeToItemData\n(static converter)] as typetodata
+  [TypeToPrefab\n(static converter)] as typetoprefab
+}
+
+package "Inventory Subsystem" as inv_pkg {
+  [InventoryManager] as invmgr
+  [InventoryLogic] as invlogic
+  [InventorySlot / InventoryItem\n(UI, drag-drop)] as invui
+}
+
+package "Crafting Subsystem" as craft_pkg {
+  [CraftManager] as craftmgr
+  [CraftLogic] as craftlogic
+  [CraftPanelRenderer\n(UI)] as craftui
+}
+
+' --- Player subsystem wiring ---
+player --> input : key/mouse/gamepad
+input --> movement : Move, Jump actions
+input --> dig : Dig, Look actions
+movement --> physics : Rigidbody2D velocity
+dig ..> movement : requires\n(RequireComponent)
+dig --> diglogic : raycast direction,\ntimer, block-hit checks
+dig --> physics : Physics2D.Raycast
+dig --> playermgr : reads EquippedItem
+playeranim --> dig : subscribes to\nOnAnyDig, OnVerticalDirectionChange
+playeranim --> animator_engine : SetTrigger/SetBool/SetInteger
+
+' --- Dig -> Block interaction ---
+dig --> block : TryTakeDamage(EquippedItem)
+block --> blocklogic : TryTakeDamage,\nIsDestroyed, CalculateDrops
+block --> blockdata : reads MaxHp, MinDamage,\nDropTable, sprites
+block --> typetoprefab : Convert(ItemType)\nto spawn dropped item prefab
+
+' --- World generation ---
+gameinit --> gridgen : initializes level
+gridgen --> block : instantiates block prefabs
+gridgen --> blockdata : assigns per-block data
+pausemgr --> scenemgr : pause/unpause,\nTime.timeScale
+
+' --- Item pickup ---
+collectable --> physics : OnTriggerEnter2D\n(Player tag check)
+collectable --> invmgr : TryAddItem(item)
+collectable --> typetodata : Convert(ItemType)\nto resolve Item asset
+
+' --- Inventory subsystem ---
+invmgr --> invlogic : TryAddItem, Spend,\nIsEnough, MoveOrSwap
+invmgr --> playermgr : OnSlotChanged event\n-> ChangeItem
+playermgr --> playeranim : ChangeInstrument(ItemType)
+invui --> invmgr : slot select,\ndrag-drop MoveItem
+invmgr --> input : Switchinventoryslot,\nOpenClose actions
+
+' --- Crafting subsystem ---
+craftmgr ..> invmgr : requires\n(RequireComponent)
+craftmgr --> craftlogic : TryCraft(ItemType)
+craftlogic --> invlogic : Spend materials,\nTryAddItem(crafted item)
+craftlogic --> typetodata : Converter\n(ItemType -> Item)
+craftui --> craftmgr : DelegateCurrentCraft
+craftui --> typetodata : Convert(ItemType)\nfor recipe display
+
+' --- Shared item data ---
+item ..> typetodata : loaded via\nResources.Load
+typetoprefab ..> item : Resources.Load\nprefab per ItemType
+
+@enduml
