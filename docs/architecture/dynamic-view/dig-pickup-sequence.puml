@@ -1,0 +1,79 @@
+@startuml dig-pickup-sequence
+title Dig, Destroy Block, Drop Item, and Collect (Dynamic View)
+
+actor Player as player
+participant "PlayerDig" as dig
+participant "PlayerDigLogic" as diglogic
+participant "PlayerManager" as playermgr
+participant "BlockBehaviour" as block
+participant "BlockBehaviourLogic" as blocklogic
+participant "TypeToPrefab" as typetoprefab
+participant "CollectableBehaviour" as collectable
+participant "InventoryManager" as invmgr
+participant "InventoryLogic" as invlogic
+participant "PlayerAnimator" as playeranim
+
+player -> dig : Dig input performed
+activate dig
+dig -> playeranim : OnAnyDig event
+playeranim -> playeranim : SetMiningTrigger()
+dig -> diglogic : ComputeRaycastDirection(IsClimbing)
+diglogic --> dig : raycastDirection
+dig -> dig : Physics2D.Raycast(...)
+dig -> diglogic : BlockHit(objectHit)
+diglogic --> dig : true (valid block)
+dig -> playermgr : read EquippedItem
+playermgr --> dig : Item
+
+dig -> block : TryTakeDamage(EquippedItem)
+activate block
+block -> blocklogic : TryTakeDamage(item)
+blocklogic -> blocklogic : IsItemSuitable(item)?
+alt item damage >= block MinDamage
+  blocklogic -> blocklogic : TakeDamage(item)
+  blocklogic --> block : true
+  block -> block : OnDamage.Invoke()\n(PlayDamageAnimation, UpdateSprite)
+  block -> blocklogic : IsDestroyed()?
+  alt currentHp <= 0
+    blocklogic --> block : true
+    block -> blocklogic : CalculateDrops()
+    blocklogic --> block : List<ItemType>
+    loop for each dropped ItemType
+      block -> typetoprefab : Convert(dropType)
+      typetoprefab --> block : item prefab
+      block -> block : Instantiate(prefab, position)
+      note right: spawns a world GameObject\nwith CollectableBehaviour attached
+    end
+    block -> block : Destroy(gameObject)
+  else block still has HP
+    blocklogic --> block : false
+  end
+else item too weak for block
+  blocklogic --> block : false
+end
+deactivate block
+deactivate dig
+
+... player moves into the dropped item's trigger collider ...
+
+player -> collectable : OnTriggerEnter2D(Player)
+activate collectable
+collectable -> collectable : CompareTag("Player")?
+collectable -> invmgr : TryAddItem(TypeToItemData.Convert(itemType))
+activate invmgr
+invmgr -> invlogic : TryAddItem(item)
+invlogic -> invlogic : find stackable slot\nor first empty slot
+invlogic --> invmgr : slotIndex (-1 if inventory full)
+invmgr --> collectable : true / false
+deactivate invmgr
+alt item was added
+  collectable -> collectable : Destroy(gameObject)
+else inventory full
+  collectable -> collectable : item remains in world
+end
+deactivate collectable
+
+invlogic -> invmgr : OnInventoryChanged event
+invmgr -> invmgr : SyncUI(), RefreshChosenSlot()
+
+@enduml
