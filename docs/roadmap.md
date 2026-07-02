@@ -124,6 +124,7 @@ Deliver a playable Windows and Linux build that addresses cutomer feedback by si
 - [Update Tools Crafting Workflow](https://github.com/coolcamilla/Team32/issues/172)
 - [Simplify Inventory](https://github.com/coolcamilla/Team32/issues/174)
 - [Update Tools Crafting Workflow](https://github.com/coolcamilla/Team32/issues/172)
+- [Limited Visibility Mechanic](https://github.com/coolcamilla/Team32/issues/154)
 - [Infinite jump](https://github.com/coolcamilla/Team32/issues/168)
 - [Jump Force Accumulation](https://github.com/coolcamilla/Team32/issues/182)
 - [Climbing Animation](https://github.com/coolcamilla/Team32/issues/148)
