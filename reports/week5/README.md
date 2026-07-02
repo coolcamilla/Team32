@@ -41,7 +41,7 @@ TODO
 | Unique movement mechanic for the mole | [#88](https://github.com/coolcamilla/Team32/issues/88) | Done in the previous sprint | Added climbing mode to climb background walls                                                                |
 | No risk or pressure element | [#153](https://github.com/coolcamilla/Team32/issues/153) | Not planned for this Sprint | Deferred because the team concentrates on improving existing mechanics, not adding new ones |
 | Missing surface-return loop | [#144](https://github.com/coolcamilla/Team32/issues/144) | Done in the previous sprint | The player needs to climb to the surface to refuel and upgrade the drill                                     |
-| Limited visibility mechanic for exploration | [#154](https://github.com/coolcamilla/Team32/issues/154) | Not planned for this Sprint | Deferred because the team concentrates on improving existing mechanics, not adding new ones |
+| Limited visibility mechanic for exploration | [#154](https://github.com/coolcamilla/Team32/issues/154) | Done | Added a lighting system so that only blocks within a 5-meter radius of the mole are visible and distinguishable |
 | Save system is missing | [#65](https://github.com/coolcamilla/Team32/issues/65)   | Not planned for this Sprint | Deferred because current gameplay is too small and not finished |
 | Corner-Grab Jump | [#170](https://github.com/coolcamilla/Team32/issues/170) | Not planned for this Sprint | Deferred because the team concentrates on improving existing mechanics, not adding new ones |
 | Add Stamina  | [#167](https://github.com/coolcamilla/Team32/issues/167) | Done | Added stamina stat to the mole which limits its movement in the climbing mode |
