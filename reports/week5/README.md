@@ -16,15 +16,34 @@ Is a 2D PC game where the player character is a mole. The mole tries to reach Ea
 
 **End:** Sunday, July 5, 2026  
 
-**Scope**: TODO
+**Scope**: Gameplay improvements based on customer feedback: reworked Climbing Mode with stamina, limited underground visibility, depth tracking, simplified inventory and crafting flow. The Sprint also introduces audio, new art assets and animations, and strengthens the technical foundation through unit, integration, QRT tests, and architecture documentation.
 
 ### Total current Sprint size
 
 TODO Story Points
 
-### Summary of delivered MVP v2 changes
+## Summary of Delivered MVP v2 Changes
 
-TODO
+**Gameplay**
+- Climbing Mode reworked: entry and exit are now timer-based, movement in climbing uses `W`/`S` for up/down and `A`/`D` for rotation
+- Stamina bar added: depletes while moving in Climbing Mode and recovers when the mole is in normal mode
+- Underground visibility limited to a 5-blocks radius around the mole, creating a sense of exploration and risk
+- Two depth counters added in the top-right corner showing the mole's and the drill's current depth in meters
+- Jump stacking bug fixed: repeated spacebar presses mid-jump no longer increase jump height
+- Pause menu jump bug fixed: spacebar presses while paused no longer accumulate and apply on resume
+
+**Inventory and Crafting**
+- Crafting moved from the inventory to a dedicated workbench on the surface, accessible by pressing `F`
+- The mole now holds a single tool at a time; crafting a new tool replaces the previous one
+- Hotbar moved to the bottom of the screen and now displays equipment only (tool, upgrades)
+- Resource inventory is now view-only, opened by pressing `E`
+- Drag-and-drop and digit key slot selection removed
+
+**Art and Audio**
+- Climbing animation added for all directions via rotation
+- Workbench and "Drill ↓" sign sprites added
+- New animations integrated into Unity
+- Music and sound effects are added for the main menu and surface layer
 
 ### Link to product access artifact
 
@@ -117,11 +136,11 @@ TODO
 
 ### Summary of the current product status
 
-TODO
+The game is a playable Windows and Linux build delivering the core "collect → craft → progress" loop across the surface layer. The mole can explore underground, collect resources, craft tools at the workbench, and fuel and upgrade the drill. Sprint 3 improved immersion through reworked climbing mechanic, stamina, limited visibility, depth tracking, simplified inventory and crafting flow based on customer feedback. The codebase is covered by unit, integration, and QRT tests with a CI pipeline enforcing quality gates on every PR. Architecture documentation and ADRs are in place and reflect the current system structure.
 
 ### Summary of the next steps
 
-TODO
+The next Sprint will extend the game world to three layers and introduce layer transition logic, allowing the mole to progress beyond the surface layer for the first time. Following that, the team plans to implement autonomous mining stations that collect resources from deposits automatically, mole upgrades that grant unique abilities (such as gravity reversal), and an overheating mechanic as a risk system to create urgency and meaningful decision-making in the gameplay loop. Throughout all future Sprints, the team will continue extending test coverage, improving architecture and maintainability as new systems are introduced, and keeping documentation current so the product remains understandable, usable, and verifiable.
 
 ### Contribution traceability table
 
