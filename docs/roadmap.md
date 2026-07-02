@@ -142,16 +142,19 @@ Deliver a playable Windows and Linux build that addresses cutomer feedback by si
 ### Outcome
 
 MVP v2 as a playable build released for Windows and Linux, in which:
-- The mole can explore the dirt layer
+### Outcome
+
+MVP v2 as a playable build released for Windows and Linux, in which:
+- The mole can explore the surface layer with limited underground visibility (5-meter radius)
 - Resources drop from broken blocks and are collected automatically into the inventory
-- The mole can upgrade tools at the workbench
-- The drill can be fuelled and upgraded at the drill interface
-- Deposits of various resource types spawn and can be discovered by digging
-- The mole has a stamina bar that depletes while climbing and regenerates at rest
+- The mole can craft tools at the workbench by pressing F; each new tool replaces the previous one in a fixed crafting order
+- The drill can be fuelled and upgraded at the drill interface to progress deeper through layers
+- Deposits of various resource types spawn across both layers and can be discovered by digging
+- The mole can climb background walls using a timer-based Climbing Mode, with stamina that depletes while moving and regenerates when in normal mode
 - Two depth counters in the top-right corner show the mole's and the drill's current depth in meters
 - The hotbar at the bottom of the screen displays the mole's equipped tool and upgrades
-- The resource inventory can be viewed by pressing E
-
+- The resource inventory purely visual and can be viewed by pressing E
+- New sprites added for the stone layer blocks, resources, tools, deposits, workbench, and drill sign
 
 Non user-visible outcomes:
 - Refactored `TODO`
