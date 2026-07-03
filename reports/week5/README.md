@@ -25,10 +25,10 @@ TODO Story Points
 ## Summary of Delivered MVP v2 Changes
 
 **Gameplay**
-- Climbing Mode reworked: entry and exit are now timer-based, movement in climbing uses `W`/`S` for up/down and `A`/`D` for rotation
+- Climbing Mode reworked: movement in climbing uses `W`/`S` for up/down and `A`/`D` for rotation
 - Stamina bar added: depletes while moving in Climbing Mode and recovers when the mole is in normal mode
-- Underground visibility limited to a 5-blocks radius around the mole, creating a sense of exploration and risk
-- Two depth counters added in the top-right corner showing the mole's and the drill's current depth in meters
+- Underground visibility limited to a 3-blocks radius around the mole, creating a sense of exploration and risk
+- The depth counters added in the top-left corner showing the mole's current depth in meters
 - Jump stacking bug fixed: repeated spacebar presses mid-jump no longer increase jump height
 - Pause menu jump bug fixed: spacebar presses while paused no longer accumulate and apply on resume
 
@@ -36,14 +36,14 @@ TODO Story Points
 - Crafting moved from the inventory to a dedicated workbench on the surface, accessible by pressing `F`
 - The mole now holds a single tool at a time; crafting a new tool replaces the previous one
 - Hotbar moved to the bottom of the screen and now displays equipment only (tool, upgrades)
-- Resource inventory is now view-only, opened by pressing `E`
-- Drag-and-drop and digit key slot selection removed
+- Resource inventory opened in the center of the screen by pressing `E`
+- Digit key slot selection in horbar removed
 
 **Art and Audio**
 - Climbing animation added for all directions via rotation
-- Workbench and "Drill ↓" sign sprites added
+- Workbench and Drill sign sprites added
 - New animations integrated into Unity
-- Music and sound effects are added for the main menu and surface layer
+- Music and sound effects are written for the main menu and surface layer
 
 ### Link to product access artifact
 
@@ -57,14 +57,14 @@ TODO
 | Feedback point | Resulting PBI or issue | Status |Response |
 | ---| --- | --- | --- |
 | Movement needs to feel more natural and engaging | [#136](https://github.com/coolcamilla/Team32/issues/136) | Done in the previous sprint | Fixed infinite jump bug near a white wall |
-| Unique movement mechanic for the mole | [#88](https://github.com/coolcamilla/Team32/issues/88) | Done in the previous sprint | Added climbing mode to climb background walls                                                                |
+| Unique movement mechanic for the mole | [#88](https://github.com/coolcamilla/Team32/issues/88) | Done in the previous sprint | Added climbing mode to climb background walls |
 | No risk or pressure element | [#153](https://github.com/coolcamilla/Team32/issues/153) | Not planned for this Sprint | Deferred because the team concentrates on improving existing mechanics, not adding new ones |
-| Missing surface-return loop | [#144](https://github.com/coolcamilla/Team32/issues/144) | Done in the previous sprint | The player needs to climb to the surface to refuel and upgrade the drill                                     |
-| Limited visibility mechanic for exploration | [#154](https://github.com/coolcamilla/Team32/issues/154) | Done | Added a lighting system so that only blocks within a 5-meter radius of the mole are visible and distinguishable |
+| Missing surface-return loop | [#144](https://github.com/coolcamilla/Team32/issues/144) | Done in the previous sprint | The player needs to climb to the surface to refuel and upgrade the drill |
+| Limited visibility mechanic for exploration | [#154](https://github.com/coolcamilla/Team32/issues/154) | Done | Added a lighting system so that only blocks within a 3-block radius of the mole are visible and distinguishable |
 | Save system is missing | [#65](https://github.com/coolcamilla/Team32/issues/65)   | Not planned for this Sprint | Deferred because current gameplay is too small and not finished |
 | Corner-Grab Jump | [#170](https://github.com/coolcamilla/Team32/issues/170) | Not planned for this Sprint | Deferred because the team concentrates on improving existing mechanics, not adding new ones |
 | Add Stamina  | [#167](https://github.com/coolcamilla/Team32/issues/167) | Done | Added stamina stat to the mole which limits its movement in the climbing mode |
-| Make climbing mode more intuitive | [#171](https://github.com/coolcamilla/Team32/issues/171) | Done | Created timer-based Climbing Mode, removed the dedicated C button for transition into this mode, digging is prohibited |
+| Make climbing mode more intuitive | [#171](https://github.com/coolcamilla/Team32/issues/171) | Done | Created roation-based Climbing Mode, digging is prohibited |
 | Single-tool crafting workflow | [#172](https://github.com/coolcamilla/Team32/issues/172) | Done | Tools Crafting UI moved from inventory to workbench, and owning multiple tools simultaneously is prohibited |
 | Simplify inventory | [#174](https://github.com/coolcamilla/Team32/issues/174) | Done | Updated inventory to be purely visual without any interaction (such as drag-and-drop mechanic), made the hotbar equipment-only |
 
