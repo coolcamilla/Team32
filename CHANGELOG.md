@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased](https://github.com/coolcamilla/Team32/compare/v0.2.0...HEAD)
 
+### Added
+
+- [Deposit Spawning](https://github.com/coolcamilla/Team32/issues/84)
+- [Stamina System](https://github.com/coolcamilla/Team32/issues/167)
+
+### Changed
+
+- [Reworked Climbing Mode Controls](https://github.com/coolcamilla/Team32/issues/171)
 ## [0.2.0](https://github.com/coolcamilla/Team32/releases/tag/v0.2.0) - 2026-06-28
 
 ### Added
