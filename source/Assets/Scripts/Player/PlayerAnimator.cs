@@ -44,6 +44,7 @@ public class PlayerAnimator : MonoBehaviour
 
     public static void ChangeVerticalDirection(float direction)
     {
+        Debug.Log(direction);
         if (Instance != null)
             Instance._animator.SetInteger("Vertical direction", (int)direction);
     }

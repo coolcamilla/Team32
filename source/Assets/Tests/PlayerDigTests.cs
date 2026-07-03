@@ -39,32 +39,32 @@ public class PlayerDigTests
     public void PlayerDigBlockHitReturnsTrueWhenConditionsMet()
     {
         PlayerDigLogic testDig = PlayerDigLogic.Instance;
+
         GameObject block = new GameObject();
         block.tag = "Block";
+
+        Item equippedItem = Item.CreateInstance<Item>();
+        equippedItem.ConfigureToNotDefaultForTesting();
         
         //Assuming 5 seconds last after last block hit
         testDig.UpdateTimer(5f);
 
-        // Set up the player's equipped item to a non-default item for testing
-        // Cooldown = 1
-        PlayerManager.Instance.EquippedItem = Item.CreateInstance<Item>();
-        PlayerManager.Instance.EquippedItem.ConfigureToNotDefaultForTesting();
 
-        bool resultWithFiveSeconds = testDig.BlockHit(block);
+        bool resultWithFiveSeconds = testDig.BlockHit(block, equippedItem);
 
         //After first BlockHit timer is 0
 
-        bool resultWithZeroSeconds = testDig.BlockHit(block);
+        bool resultWithZeroSeconds = testDig.BlockHit(block, equippedItem);
 
         // Reset timer to 5 seconds for the next test
         testDig.UpdateTimer(5f);
 
-        bool resultWithWrongBLock = testDig.BlockHit(new GameObject());
+        bool resultWithWrongBLock = testDig.BlockHit(new GameObject(), equippedItem);
 
         // Reset timer to 5 seconds for the next test
         testDig.UpdateTimer(5f);
 
-        bool resultWithNullBlock = testDig.BlockHit(null);
+        bool resultWithNullBlock = testDig.BlockHit(null, equippedItem);
 
         Assert.IsTrue(resultWithFiveSeconds, "BlockHit should return true when conditions are met");
         Assert.IsFalse(resultWithZeroSeconds, "BlockHit should return false when timer is less than cooldown");

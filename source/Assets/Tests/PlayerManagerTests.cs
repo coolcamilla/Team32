@@ -3,20 +3,15 @@ using NUnit.Framework;
 public class PlayerManagerTests
 {
     [Test]
-    public void PlayerManagerIsNotNull()
-    {
-        var playerManager = PlayerManager.Instance;
-        Assert.NotNull(playerManager, "Player manager instance must be initialized");
-    }
-
-    [Test]
     public void PlayerManagerChangesItem()
     {
+        PlayerManagerLogic _manager;
+        _manager = new PlayerManagerLogic();
         Item testItem = Item.CreateInstance<Item>();
         testItem.ConfigureToNotDefaultForTesting();
 
-        PlayerManager.Instance.EquippedItem = testItem;
+        _manager.ChangeItem(testItem);
 
-        Assert.AreEqual(testItem, PlayerManager.Instance.EquippedItem, "Asserting that the equipped item is set correctly");
+        Assert.AreEqual(testItem, _manager.EquippedItem, "Asserting that the equipped item is set correctly");
     }
 }

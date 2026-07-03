@@ -287,13 +287,22 @@
             ]
         },
         {
-            "name": "Inventory",
-            "id": "700f96e4-c3b5-48d5-b6e4-808f08e0d13d",
+            "name": "InGameMenu",
+            "id": "a9da186a-7b0d-46dc-b137-4a3d07f94a3b",
             "actions": [
                 {
-                    "name": "Open/Close",
+                    "name": "ToggleInventory",
                     "type": "Button",
-                    "id": "75530aed-9bf8-4693-a536-cfa4d7b4cb72",
+                    "id": "4430a565-b410-4f48-8652-dd0a878a5862",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TogglePause",
+                    "type": "Button",
+                    "id": "4169c82a-c2d5-477f-9b77-017e18fd005d",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -303,12 +312,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "91eb701a-bf65-4d65-9134-b80edf43a547",
+                    "id": "c637ec2a-1a03-4475-a517-542ab88710f2",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Open/Close",
+                    "groups": "",
+                    "action": "ToggleInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c78312d8-70e8-442a-bc03-26631bdb6db2",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TogglePause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

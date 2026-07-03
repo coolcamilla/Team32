@@ -1,4 +1,3 @@
-using Codice.Client.BaseCommands.CheckIn;
 using UnityEngine;
 
 public class PlayerMovementLogic
