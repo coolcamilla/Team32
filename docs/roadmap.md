@@ -113,7 +113,7 @@ Sunday, July 5, 2026
 
 ### Goal  
 
-Deliver a playable Windows and Linux build that addresses cutomer feedback by simplifying the inventory/crafting flow and improving game feel with immersive mechanics, while strengthening product quality and stability through refactoring, automated tests and architecture documentation.
+Deliver a playable Windows and Linux build that addresses customer feedback by simplifying the inventory/crafting flow and improving game feel with immersive mechanics, while strengthening product quality and stability through automated tests and architecture documentation.
 
 ### Planned items
 
@@ -123,7 +123,6 @@ Deliver a playable Windows and Linux build that addresses cutomer feedback by si
 - [Stamina](https://github.com/coolcamilla/Team32/issues/167)
 - [Update Tools Crafting Workflow](https://github.com/coolcamilla/Team32/issues/172)
 - [Simplify Inventory](https://github.com/coolcamilla/Team32/issues/174)
-- [Update Tools Crafting Workflow](https://github.com/coolcamilla/Team32/issues/172)
 - [Limited Visibility Mechanic](https://github.com/coolcamilla/Team32/issues/154)
 - [Infinite jump](https://github.com/coolcamilla/Team32/issues/168)
 - [Jump Force Accumulation](https://github.com/coolcamilla/Team32/issues/182)
@@ -132,9 +131,10 @@ Deliver a playable Windows and Linux build that addresses cutomer feedback by si
 - [Draw Drill Sign](https://github.com/coolcamilla/Team32/issues/184)
 - [Draw Environment Tilesets](https://github.com/coolcamilla/Team32/issues/186)
 - [Integrate Sprites and Animations into Unity](https://github.com/coolcamilla/Team32/issues/185)
-- [Update Tests week 5](https://github.com/coolcamilla/Team32/issues/192)
 - [Music and Sound Effects](https://github.com/coolcamilla/Team32/issues/86)
+- [Update Tests week 5](https://github.com/coolcamilla/Team32/issues/192)
 - [Maintain Architecture directory and ADRs](https://github.com/coolcamilla/Team32/issues/191)
+- [Maintain Development Process](https://github.com/coolcamilla/Team32/issues/189)
 - [Update Roadmap for Sprint 3](https://github.com/coolcamilla/Team32/issues/190)
 - [Update and Execute UATs for MVP v2](https://github.com/coolcamilla/Team32/issues/188)
 - [Create Release for MVP v2](https://github.com/coolcamilla/Team32/issues/187)
