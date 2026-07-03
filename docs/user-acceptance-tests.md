@@ -51,7 +51,7 @@
 
 **Status:** Active
 
-**Linked to:** [Mole's Movement and Climb Mode](https://github.com/coolcamilla/Team32/issues/88), [Timer-based Climbing Mode](https://github.com/coolcamilla/Team32/issues/171)
+**Linked to:** [Mole's Movement and Climb Mode](https://github.com/coolcamilla/Team32/issues/88), [Rotation-based Climbing Mode](https://github.com/coolcamilla/Team32/issues/171)
 
 **User goal:** Verify that the mole can enter climbing mode and climb the background walls.
 
@@ -62,35 +62,23 @@
 
 **Step-by-step instructions:**
 1. Move the mole to the climbing zone
-2. Hold `W` for 3 seconds
+2. Press `C`
 3. Press `W`
 4. Press `S`
 5. Hold `S` and press `LMB`
-6. Press `A` 
+6. Press `A`
 7. Press `D`
-8. Return the mole to an upright position using `A` or `D`
-9. Hold `S` until the mole collides with the bottom
-10. Hold `S` for 3 seconds
-11. Hold `W` for 3 seconds
-12. Using `W`, `A`, and `D` approach any block on the side column that has open air above it
-13. Rotate the mole using `A` and `D` so that its head collides with this block
-14. Hold `W` for 3 seconds
+8. Press `C`
 
 **Expected outcome:**
 1. The mole is positioned in front of the climbing wall
 2. The mole enters Climbing Mode
-3. The mole moves upward along the background wall
-4. The mole moves downward along the background wall
-5. The mole moves downward along the background wall and do not dig
-6. The mole rotetes counter clockwise
-7. The mole rotetes clockwise
-8. The mole returnes to a straight vertical position
-9. The mole moves downward along the background wall
-10. The mole exits Climbing Mode and stands on the physical block below
-11. The mole enters Climbing Mode
-12. The mole moves and rotates accordingly
-13. The mole rotates to face the side column
-14. The mole exits Climbing Mode and appears standing on top of the adjacent block
+3. The mole moves forward along the background wall
+4. The mole moves backward along the background wall
+5. The mole moves backward along the background wall and does not dig
+6. The mole rotates counter-clockwise
+7. The mole rotates clockwise
+8. The mole exits Climbing Mode and lands on the nearest physical block below it
 
 ### Execution History
 
@@ -120,24 +108,38 @@
 
 **Preconditions:**
 - New game session started
-- Player do not have any tool yet
-- Player has collected enough resources for one wooden shovel (12 sticks)
-- Player does not collect enough resources for the stone pickaxe (5 sticks and 5 stones)
+- Player does not have any tool yet
+- Player has collected enough resources for a wooden shovel (12 sticks)
+- Player has not collected enough resources for a stone pickaxe (5 sticks and 5 stones)
 - Mole is near the workbench on the surface
 
 **Step-by-step instructions:**
 1. Move the mole to the workbench
-2. Press `F` to open the crafting menu
-3. View the available recipe in the crafting menu
+2. Press `F`
+3. Click on the stone shovel in the crafting chain to view its recipe
 4. Click the `Craft` button
-5. Click the `Craft` button again
+5. Click on the wooden shovel in the crafting chain to view its recipe
+6. Click the `Craft` button
+7. Press `F`
+8. Collect 5 sticks and 5 stones
+9. Move the mole to the workbench
+10. Press `F`
+11. Click on the stone shovel in the crafting chain to view its recipe
+12. Click the `Craft` button
 
 **Expected outcome:**
-1. Hint "Press F to interact with workbench" is highlighted
+1. Hint "Press F to open craft menu" is highlighted
 2. The crafting menu opens
-3. The wooden shovel recipe is displayed with required resources and stats
-4. 12 sticks are removed from the inventory, the wooden shovel appears in the euipment hotbar, and the next tool is displayed in the crafting menu
-5. Nothing happens (the button is disabled, no resources are removed, no second tool is crafted)
+3. The stone shovel recipe is displayed with required resources and stats
+4. Nothing happens (the button is disabled, no resources are removed, no tool is crafted)
+5. The wooden shovel recipe is displayed with required resources and stats
+6. 12 sticks are removed from the inventory, the wooden shovel appears in the euipment hotbar
+7. The crafting menu closes
+8. Collected resources are added to the inventory
+9. Hint "Press F to open craft menu" is highlighted
+10. The crafting menu opens
+11. The stone shovel recipe is displayed with required resources and stats
+12. 5 sticks and 5 stones are removed from the inventory, the stone shovel replaces the wooden shovel in the euipment hotbar
 
 ### Execution History
 
@@ -243,7 +245,11 @@ _Not executed._
 
 #### Sprint 3 - 2026-07-03
 
-_Not executed._
+**Execution results:**
+
+**Customer comments:**
+
+**Resulting PBIs:**
 
 ## UAT-006: Stamina Depletion and Recovery
 
@@ -259,16 +265,18 @@ _Not executed._
 - Stamina bar is fully charged
 
 **Step-by-step instructions:**
-1. Hold `W` for 3 seconds
-2. Hold `W` continuously to move upward along the background wall
-3. Hold `W` again until stamina reaches zero
-4. Exit Climbing Mode (as in [UAT-002](#uat-002-climbing-mode))
+1. Press `C`
+2. Hold `W` continuously
+3. Continue holding `W` until stamina reaches zero
+4. Stop pressing any movement key while remaining in Climbing Mode
+5. Press `C` to exit Climbing Mode
 
 **Expected outcome:**
 1. The mole enters Climbing Mode and the stamina bar is visible
-2. The stamina bar visibly decreases while the mole moves upward
-3. The stamina bar reaches zero and the mole starts moving very slow
-4. The stamina bar recovers
+2. The stamina bar visibly decreases while the mole moves forward
+3. The stamina bar reaches zero and the mole starts moving very slowly
+4. The stamina bar does not recover while the mole is stationary in Climbing Mode
+5. The mole lands on the nearest physical block below it and stamina bar recovers
 
 ### Execution History
 
@@ -345,7 +353,7 @@ All UATs are passed.
 - [Infinite jump](https://github.com/coolcamilla/Team32/issues/168)
 - [Corner-Grab Jump](https://github.com/coolcamilla/Team32/issues/170)
 - [Stamina](https://github.com/coolcamilla/Team32/issues/167)
-- [Timer-based Climbing Mode](https://github.com/coolcamilla/Team32/issues/171)
+- [Rotation-based Climbing Mode](https://github.com/coolcamilla/Team32/issues/171)
 - [Update Tools Crafting Workflow](https://github.com/coolcamilla/Team32/issues/172)
 - [Single leveling tool workflow](https://github.com/coolcamilla/Team32/issues/173)
 - [Simplify Inventory](https://github.com/coolcamilla/Team32/issues/174)
@@ -355,7 +363,7 @@ All UATs are passed.
 
 Before session with the customer [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu) were updated to align with current implementation. [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-007](#uat-007-jump-bug-fixes) were created.
 
-[UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-007](#uat-007-jump-bug-fixes) were executed.  
+[UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-007](#uat-007-jump-bug-fixes) were executed.  
 `list UATs` are passed.  
 `list UATS` need product changes.  
 
