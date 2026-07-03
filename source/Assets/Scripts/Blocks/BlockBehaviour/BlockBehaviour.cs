@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,12 +9,14 @@ using UnityEngine.Events;
 public class BlockBehaviour : MonoBehaviour
 {
     [SerializeField] private BlockTypeData _blockData;
+    [SerializeField] private float _blockOpenDuration;
 
     private event UnityAction OnDamage;
     
     private Animator _animator;
     private System.Random _rand;
     private SpriteRenderer _spriteRenderer;
+    private Color _baseColor;
 
     private BlockBehaviourLogic _logic;
 
@@ -32,7 +35,10 @@ public class BlockBehaviour : MonoBehaviour
 
         _animator = GetComponent<Animator>();
 
+
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _baseColor = _spriteRenderer.color;
+        if (_blockData.Type != CellType.Grass) _spriteRenderer.color = Color.black;
 
         if (_blockData.randomSprite && _blockData.possibleSprites != null && _blockData.possibleSprites.Length > 0)
         {
@@ -51,6 +57,14 @@ public class BlockBehaviour : MonoBehaviour
     {
         OnDamage -= PlayDamageAnimation;
         OnDamage -= UpdateSprite;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            OpenBlock();
+        }
     }
 
     public void SetSprite(Sprite sprite)
@@ -80,6 +94,25 @@ public class BlockBehaviour : MonoBehaviour
         
     }
 
+    public void OpenBlock()
+    {
+        StartCoroutine(ChangeColorCoroutine(_baseColor, _blockOpenDuration));
+    }
+
+    private IEnumerator ChangeColorCoroutine(Color targetColor, float duration)
+    {
+        Color startColor = _spriteRenderer.color;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            _spriteRenderer.color = Color.Lerp(startColor, targetColor, time / duration);
+
+            yield return null;
+        }
+        _spriteRenderer.color = targetColor;
+    }
 
     private void DropLoot()
     {

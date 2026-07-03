@@ -61,6 +61,8 @@ public class PlayerDig : MonoBehaviour
     }
     private void TryDig(InputAction.CallbackContext context)
     {
+        if (_playerMovement.IsClimbing) return;
+
         OnAnyDig?.Invoke();
         GameObject objectHit = GetObjectOnDigDirection();
 

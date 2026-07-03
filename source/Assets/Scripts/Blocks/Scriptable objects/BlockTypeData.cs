@@ -10,7 +10,8 @@ public class BlockTypeData : ScriptableObject
     [Header("Main parameters")]
     [SerializeField] private string _blockName;
     [SerializeField] private float _maxHp = 3;
-    [SerializeField] private float _minDamage = 0; 
+    [SerializeField] private float _minDamage = 0;
+    [SerializeField] private CellType type = CellType.Empty;
 
     [Header("Drop")]
     [SerializeField] private List<DropChance> _dropTable = new();
@@ -23,6 +24,7 @@ public class BlockTypeData : ScriptableObject
     public string Name => _blockName;
     public float MaxHp => _maxHp;
     public float MinDamage => _minDamage;
+    public CellType Type => type;
     public List<DropChance> GetDropTable => _dropTable;
 
     #endregion

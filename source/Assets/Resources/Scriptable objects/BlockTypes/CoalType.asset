@@ -15,6 +15,7 @@ MonoBehaviour:
   _blockName: Coal
   _maxHp: 10
   _minDamage: 5
+  type: 5
   _dropTable:
   - _material: 303
     _chance: 1

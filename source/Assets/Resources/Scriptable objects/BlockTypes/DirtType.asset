@@ -15,6 +15,7 @@ MonoBehaviour:
   _blockName: Dirt
   _maxHp: 3
   _minDamage: 1
+  type: 2
   _dropTable:
   - _material: 300
     _chance: 0.4
