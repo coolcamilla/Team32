@@ -119,7 +119,7 @@ Deliver a playable Windows and Linux build that addresses cutomer feedback by si
 
 - [US-006: Burrow depth](https://github.com/coolcamilla/Team32/issues/68)
 - [US-020: Deposit Discovery](https://github.com/coolcamilla/Team32/issues/84)
-- [Timer-based Climbing Mode](https://github.com/coolcamilla/Team32/issues/171)
+- [Rotation-based Climbing Mode](https://github.com/coolcamilla/Team32/issues/171)
 - [Stamina](https://github.com/coolcamilla/Team32/issues/167)
 - [Update Tools Crafting Workflow](https://github.com/coolcamilla/Team32/issues/172)
 - [Simplify Inventory](https://github.com/coolcamilla/Team32/issues/174)
@@ -142,18 +142,15 @@ Deliver a playable Windows and Linux build that addresses cutomer feedback by si
 ### Outcome
 
 MVP v2 as a playable build released for Windows and Linux, in which:
-### Outcome
-
-MVP v2 as a playable build released for Windows and Linux, in which:
-- The mole can explore the surface layer with limited underground visibility (5-meter radius)
+- The mole can explore the surface layer with limited underground visibility (3-block radius)
 - Resources drop from broken blocks and are collected automatically into the inventory
 - The mole can craft tools at the workbench by pressing F; each new tool replaces the previous one in a fixed crafting order
 - The drill can be fuelled and upgraded at the drill interface to progress deeper through layers
-- Deposits of various resource types spawn across both layers and can be discovered by digging
-- The mole can climb background walls using a timer-based Climbing Mode, with stamina that depletes while moving and regenerates when in normal mode
-- Two depth counters in the top-right corner show the mole's and the drill's current depth in meters
-- The hotbar at the bottom of the screen displays the mole's equipped tool and upgrades
-- The resource inventory purely visual and can be viewed by pressing E
+- Deposits of various resource types spawn across surface layer and can be discovered by digging
+- The mole can climb background walls using a rotation-based Climbing Mode, with stamina that depletes while moving and regenerates when in normal mode
+- Depth counter in the top-left corner show the mole's current depth in meters
+- The hotbar at the bottom of the screen displays the mole's equipped tool
+- The resource inventory can be viewed by pressing E
 - New sprites added for the stone layer blocks, resources, tools, deposits, workbench, and drill sign
 
 Non user-visible outcomes:
