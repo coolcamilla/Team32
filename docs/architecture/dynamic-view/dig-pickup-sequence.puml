@@ -5,53 +5,70 @@ actor Player as player
 participant "PlayerDig" as dig
 participant "PlayerDigLogic" as diglogic
 participant "PlayerManager" as playermgr
+participant "PlayerAnimator" as playeranim
 participant "BlockBehaviour" as block
 participant "BlockBehaviourLogic" as blocklogic
 participant "TypeToPrefab" as typetoprefab
 participant "CollectableBehaviour" as collectable
 participant "InventoryManager" as invmgr
 participant "InventoryLogic" as invlogic
-participant "PlayerAnimator" as playeranim
+
+note over dig
+  Every frame (Update()), independent of input:
+  PlayerDig calls PlayerDigLogic.UpdateTimer(deltaTime),
+  advancing the cooldown timer used below.
+end note
 
 player -> dig : Dig input performed
 activate dig
-dig -> playeranim : OnAnyDig event
-playeranim -> playeranim : SetMiningTrigger()
-dig -> diglogic : ComputeRaycastDirection(IsClimbing)
-diglogic --> dig : raycastDirection
-dig -> dig : Physics2D.Raycast(...)
-dig -> diglogic : BlockHit(objectHit)
-diglogic --> dig : true (valid block)
-dig -> playermgr : read EquippedItem
-playermgr --> dig : Item
-
-dig -> block : TryTakeDamage(EquippedItem)
-activate block
-block -> blocklogic : TryTakeDamage(item)
-blocklogic -> blocklogic : IsItemSuitable(item)?
-alt item damage >= block MinDamage
-  blocklogic -> blocklogic : TakeDamage(item)
-  blocklogic --> block : true
-  block -> block : OnDamage.Invoke()\n(PlayDamageAnimation, UpdateSprite)
-  block -> blocklogic : IsDestroyed()?
-  alt currentHp <= 0
-    blocklogic --> block : true
-    block -> blocklogic : CalculateDrops()
-    blocklogic --> block : List<ItemType>
-    loop for each dropped ItemType
-      block -> typetoprefab : Convert(dropType)
-      typetoprefab --> block : item prefab
-      block -> block : Instantiate(prefab, position)
-      note right: spawns a world GameObject\nwith CollectableBehaviour attached
+dig -> dig : IsClimbing?
+alt player is climbing
+  dig --> player : dig ignored, no further action
+else player is not climbing
+  dig -> playeranim : OnAnyDig event
+  playeranim -> playeranim : SetMiningTrigger()
+  dig -> diglogic : ComputeRaycastDirection(IsClimbing)
+  diglogic --> dig : raycastDirection
+  dig -> dig : Physics2D.Raycast(...) -> objectHit
+  dig -> playermgr : read EquippedItem
+  playermgr --> dig : Item
+  dig -> diglogic : BlockHit(objectHit, EquippedItem)
+  diglogic -> diglogic : timer >= EquippedItem.Cooldown\n&& objectHit tagged "Block"?
+  alt cooldown elapsed and objectHit is a valid Block
+    diglogic -> diglogic : reset timer to 0
+    diglogic --> dig : true
+    dig -> block : TryTakeDamage(EquippedItem)
+    activate block
+    block -> blocklogic : TryTakeDamage(item)
+    blocklogic -> blocklogic : IsItemSuitable(item)?
+    alt item damage >= block MinDamage
+      blocklogic -> blocklogic : TakeDamage(item)
+      blocklogic --> block : true
+      block -> block : OnDamage.Invoke()\n(PlayDamageAnimation, UpdateSprite)
+      block -> blocklogic : IsDestroyed()?
+      alt currentHp <= 0
+        blocklogic --> block : true
+        block -> blocklogic : CalculateDrops()
+        blocklogic --> block : List<ItemType>
+        loop for each dropped ItemType
+          block -> typetoprefab : Convert(dropType)
+          typetoprefab --> block : item prefab
+          block -> block : Instantiate(prefab, position)
+          note right: spawns a world GameObject\nwith CollectableBehaviour attached
+        end
+        block -> block : Destroy(gameObject)
+      else block still has HP
+        blocklogic --> block : false
+      end
+    else item too weak for block
+      blocklogic --> block : false
     end
-    block -> block : Destroy(gameObject)
-  else block still has HP
-    blocklogic --> block : false
+    deactivate block
+  else cooldown not yet elapsed, or objectHit is not a valid Block
+    diglogic --> dig : false
+    note right: dig has no effect - block takes no\ndamage and the timer is not reset
   end
-else item too weak for block
-  blocklogic --> block : false
 end
-deactivate block
 deactivate dig
 
 ... player moves into the dropped item's trigger collider ...

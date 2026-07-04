@@ -1,5 +1,5 @@
 @startuml component-diagram
-title Operation: EarthCore - Component Diagram (Static View)
+title Operation: EarthCore — Component Diagram (Static View)
 
 skinparam componentStyle rectangle
 skinparam wrapWidth 200
@@ -8,7 +8,7 @@ skinparam maxMessageSize 200
 actor Player as player
 
 package "Unity Platform" {
-  [Unity Input System\n(PlayerInput actions)] as input
+  [Unity Input System\n(PlayerInput actions:\nPlayer, InGameMenu maps)] as input
   [Unity Physics2D] as physics
   [Unity Animator] as animator_engine
   [Unity Scene Manager] as scenemgr
@@ -16,60 +16,101 @@ package "Unity Platform" {
 
 package "Game Management" as gm {
   [GameInitializer] as gameinit
-  [GridGenerator] as gridgen
+  [GridGenerator\n(singleton)] as gridgen
+  [WorldGenerator\n(plain C#)] as worldgen
   [GameExit] as gameexit
-  [PauseManager] as pausemgr
   note right of gm
-    All co-located on the single
-    "Game Manager" GameObject in
-    the Level scene.
+    GameInitializer, GridGenerator, GameExit are
+    co-located on the "Game Manager" GameObject
+    in the Level scene. InGameMenuManager's exact
+    placement is not directly confirmed.
+  end note
+}
+
+package "Menu System" as menu_pkg {
+  [InGameMenuManager] as menumgr
+  note right of menu_pkg
+    Replaces the removed PauseManager.
+    Handles both pause and inventory
+    toggle via a single Toggle(GameObject)
+    state machine.
   end note
 }
 
 package "Player Subsystem" as player_pkg {
   [PlayerMovement] as movement
+  [PlayerMovementLogic\n(plain C#)] as movementlogic
   [PlayerDig] as dig
-  [PlayerDigLogic\n(singleton)] as diglogic
-  [PlayerAnimator\n(singleton)] as playeranim
-  [PlayerManager\n(singleton, plain C#)] as playermgr
+  [PlayerDigLogic\n(plain C#, singleton)] as diglogic
+  [PlayerStamina] as stamina
+  [StaminaLogic\n(plain C#)] as staminalogic
+  [PlayerManager\n(MonoBehaviour,\nnot a singleton)] as playermgr
+  [PlayerManagerLogic\n(plain C#)] as playermgrlogic
+  [PlayerAnimator\n(MonoBehaviour singleton)] as playeranim
 }
 
 package "Blocks / World" as blocks_pkg {
   [BlockBehaviour] as block
-  [BlockBehaviourLogic] as blocklogic
+  [BlockBehaviourLogic\n(plain C#)] as blocklogic
   [BlockTypeData\n(ScriptableObject)] as blockdata
+  [LayerDefinition /\nDepositDefinition] as layerdata
 }
 
 package "Items" as items_pkg {
   [Item\n(ScriptableObject)] as item
   [CollectableBehaviour] as collectable
-  [TypeToItemData\n(static converter)] as typetodata
+  [TypeToItemData\n(static converter,\ntypes >= 100 only)] as typetodata
   [TypeToPrefab\n(static converter)] as typetoprefab
 }
 
 package "Inventory Subsystem" as inv_pkg {
   [InventoryManager] as invmgr
-  [InventoryLogic] as invlogic
+  [InventoryLogic\n(plain C#)] as invlogic
   [InventorySlot / InventoryItem\n(UI, drag-drop)] as invui
 }
 
 package "Crafting Subsystem" as craft_pkg {
   [CraftManager] as craftmgr
-  [CraftLogic] as craftlogic
+  [CraftLogic\n(plain C#)] as craftlogic
+  [CraftTracker\n(static class)] as crafttracker
   [CraftPanelRenderer\n(UI)] as craftui
+}
+
+package "Hotbar" as hotbar_pkg {
+  [HotbarBehaviour / HotbarSlot] as hotbar
+}
+
+package "Drill Subsystem" as drill_pkg {
+  [DrillBehaviour] as drillbehaviour
+  [DrillLogic\n(plain C#)] as drilllogic
+  note right of drill_pkg
+    Identified via coverage report and
+    naming convention; internal structure
+    not directly explored this session.
+  end note
 }
 
 ' --- Player subsystem wiring ---
 player --> input : key/mouse/gamepad
 input --> movement : Move, Jump actions
-input --> dig : Dig, Look actions
-movement --> physics : Rigidbody2D velocity
+input --> dig : Dig action
+input --> menumgr : InGameMenu.ToggleInventory,\nTogglePause actions
 dig ..> movement : requires\n(RequireComponent)
-dig --> diglogic : raycast direction,\ntimer, block-hit checks
-dig --> physics : Physics2D.Raycast
+movement ..> stamina : requires\n(RequireComponent)
+movement --> movementlogic : delegates movement,\nclimb, jump rules
+movement --> stamina : Drain/Regenerate,\nreads IsExhausted
+movement --> dig : GetComponent\n(direction sync)
+movement --> playermgr : GetComponent
+stamina --> staminalogic : delegates drain/\nregen/threshold rules
+dig --> diglogic : raycast direction,\nblock-hit checks
 dig --> playermgr : reads EquippedItem
-playeranim --> dig : subscribes to\nOnAnyDig, OnVerticalDirectionChange
-playeranim --> animator_engine : SetTrigger/SetBool/SetInteger
+playeranim --> dig : subscribes to\nOnAnyDig event
+playeranim --> movement : ChangeClimbingState,\nChangeWalkingState
+playeranim --> animator_engine : SetTrigger/SetBool
+
+' --- Menu system wiring ---
+menumgr --> playermgr : GetComponent\n(via Player tag),\nreads .Input
+menumgr --> scenemgr : Time.timeScale\n0 / 1 toggle
 
 ' --- Dig -> Block interaction ---
 dig --> block : TryTakeDamage(EquippedItem)
@@ -78,10 +119,11 @@ block --> blockdata : reads MaxHp, MinDamage,\nDropTable, sprites
 block --> typetoprefab : Convert(ItemType)\nto spawn dropped item prefab
 
 ' --- World generation ---
-gameinit --> gridgen : initializes level
-gridgen --> block : instantiates block prefabs
-gridgen --> blockdata : assigns per-block data
-pausemgr --> scenemgr : pause/unpause,\nTime.timeScale
+gameinit --> gridgen : initializes level\n(Start() -> GenerateWorld())
+gridgen --> worldgen : GenerateBaseTerrain,\nGenerateDeposits
+worldgen --> layerdata : reads layer/deposit\nconfiguration
+gridgen --> block : instantiates block prefabs\n(SpawnForeground)
+gridgen --> blockdata : assigns dirtGrassBlockData
 
 ' --- Item pickup ---
 collectable --> physics : OnTriggerEnter2D\n(Player tag check)
@@ -91,17 +133,22 @@ collectable --> typetodata : Convert(ItemType)\nto resolve Item asset
 ' --- Inventory subsystem ---
 invmgr --> invlogic : TryAddItem, Spend,\nIsEnough, MoveOrSwap
 invmgr --> playermgr : OnSlotChanged event\n-> ChangeItem
-playermgr --> playeranim : ChangeInstrument(ItemType)
-invui --> invmgr : slot select,\ndrag-drop MoveItem
-invmgr --> input : Switchinventoryslot,\nOpenClose actions
+playermgr --> playermgrlogic : delegates\nEquippedItem state,\nChangeItem(item)
+playermgrlogic --> playeranim : ChangeInstrument(ItemType)
+invui --> invmgr : slot select,\ndrag-drop MoveItem\n(via "Game Manager" tag)
 
 ' --- Crafting subsystem ---
 craftmgr ..> invmgr : requires\n(RequireComponent)
 craftmgr --> craftlogic : TryCraft(ItemType)
+craftmgr --> crafttracker : IsCrafted(type),\nIsCrafted(RequiredItem)
+craftmgr --> hotbar : ChangeItem\n(for instrument types)
 craftlogic --> invlogic : Spend materials,\nTryAddItem(crafted item)
-craftlogic --> typetodata : Converter\n(ItemType -> Item)
-craftui --> craftmgr : DelegateCurrentCraft
+craftlogic --> typetodata : converter dictionary\n(ItemType -> Item)
+craftui --> craftmgr : DelegateCurrentCraft\n(via "Game Manager" tag)
 craftui --> typetodata : Convert(ItemType)\nfor recipe display
+
+' --- Drill subsystem (lightly detailed) ---
+drillbehaviour --> drilllogic : delegates drill\nstate/fuel rules
 
 ' --- Shared item data ---
 item ..> typetodata : loaded via\nResources.Load
