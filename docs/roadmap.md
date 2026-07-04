@@ -150,7 +150,7 @@ MVP v2 as a playable build released for Windows and Linux, in which:
 - The mole can climb background walls using a rotation-based Climbing Mode, with stamina that depletes while moving and regenerates when in normal mode
 - Depth counter in the top-left corner show the mole's current depth in meters
 - The hotbar at the bottom of the screen displays the mole's equipped tool
-- The resource inventory can be viewed by pressing E
+- The resource inventory can be viewed by pressing E, inventory stack size is 99
 - New sprites added for the stone layer blocks, resources, tools, deposits, workbench, and drill sign
 
 Non user-visible outcomes:
