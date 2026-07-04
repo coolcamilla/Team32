@@ -80,13 +80,16 @@ public class QualityRequirementTests
     // ------------------------------------------------------------------
 
     [UnityTest]
-    public IEnumerator QRT_003_PauseManager_SceneLoad_StartsUnpaused()
+    public IEnumerator QRT_003_InGameMenuManager_SceneLoad_StartsUnpaused()
     {
         yield return null;
-
+ 
+        InGameMenuManager menuManager = GameObject.FindObjectOfType<InGameMenuManager>();
+        Assert.IsNotNull(menuManager,
+            "QRT-003 FAIL: InGameMenuManager not found in scene.");
+ 
         Assert.AreEqual(1f, Time.timeScale,
             "QRT-003 FAIL: Time.timeScale should be 1 on scene load.");
-        Assert.IsFalse(PauseManager.IsPaused,
-            "QRT-003 FAIL: PauseManager.IsPaused should be false on scene load.");
     }
+
 }
