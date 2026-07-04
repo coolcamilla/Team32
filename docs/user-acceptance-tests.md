@@ -37,15 +37,15 @@
 
 **Customer comments:** A corner-grab mechanic was observed - when the mole grabs a corner it can make a higher jump. Customer reacted positively. Suggested adding a special move or animation for the corner-jump mechanic. Investigate the pause-accumulation bug: when the game is paused and Space is pressed repeatedly, forces accumulate and the mole launches into the sky on unpause.
 
-**Resulting PBIs:** [#168](https://github.com/coolcamilla/Team32/issues/168), [#170](https://github.com/coolcamilla/Team32/issues/170)
+**Resulting PBIs:** [Infinite jump](https://github.com/coolcamilla/Team32/issues/168), [Corner-grab Jump](https://github.com/coolcamilla/Team32/issues/170)
 
 #### Sprint 3 - 2026-07-03
 
-**Execution results:**
+**Execution results:** PASSED. The mole jumped once along white wall with standard height. Additional Space presses mid-jump had no effect. The mole landed normally without height stacking.
 
-**Customer comments:** 
+**Customer comments:** Noted the corner-grab mechanic positively - when the mole grabs a corner it can make a higher jump. Suggested highlighting the corner visually so the player recognizes it as an intentional mechanic.
 
-**Resulting PBIs:** 
+**Resulting PBIs:** [Corner-grab Jump](https://github.com/coolcamilla/Team32/issues/170)
 
 ## UAT-002: Climbing Mode
 
@@ -88,15 +88,15 @@
 
 **Customer comments:** The mole cannot dig while in climbing mode (neither up nor down). Suggested making climbing mode more intuitive — either strictly up/down only, or always-on with stamina drain (like Zelda). Recommended removing the dedicated C button and tying climbing to W automatically when against a wall.
 
-**Resulting PBIs:** [#167](https://github.com/coolcamilla/Team32/issues/167), [#171](https://github.com/coolcamilla/Team32/issues/171)
+**Resulting PBIs:** [Stamina](https://github.com/coolcamilla/Team32/issues/167), [Rotation-based Climbing Mode](https://github.com/coolcamilla/Team32/issues/171)
 
 #### Sprint 3 - 2026-07-03
 
-**Execution results:**
+**Execution results:** PASSED. The mole entered Climbing Mode by pressing C. W moved the mole forward, S moved it backward. A rotated counter-clockwise, D rotated clockwise. Pressing C again exited Climbing Mode and the mole landed on the nearest physical block. Digging while in Climbing Mode was confirmed to be disabled.
 
-**Customer comments:** 
+**Customer comments:** No functional objections to the new controls. Suggested explaining the climbing system to the player more clearly before they try it.
 
-**Resulting PBIs:** 
+**Resulting PBIs:** [Interactive Game Tutorial](https://github.com/coolcamilla/Team32/issues/200)
 
 ## UAT-003: Craft a Tool Using the Crafting Menu
 
@@ -149,15 +149,15 @@
 
 **Customer comments:** Praised the new craft animations. No blockers reported. Suggested simplifying the inventory and crafting flow. Restrict multiple crafting of one tool. Replace the creation of multiple tools with the improvement of a single tool
 
-**Resulting PBIs:** [#172](https://github.com/coolcamilla/Team32/issues/172), [#173](https://github.com/coolcamilla/Team32/issues/173)
+**Resulting PBIs:** [Update Tools Crafting Workflow](https://github.com/coolcamilla/Team32/issues/172), [Single leveling tool workflow](https://github.com/coolcamilla/Team32/issues/173)
 
 #### Sprint 3 - 2026-07-03
 
-**Execution results:**
+**Execution results:** PASSED. The workbench hint appeared on approach. The crafting menu opened via F and displayed tools in a fixed horizontal chain. Clicking a tool showed its recipe. Crafting was blocked when resources were insufficient. After collecting enough resources, crafting succeeded and the new tool replaced the previous one in the equipment hotbar.
 
-**Customer comments:** 
+**Customer comments:** Suggested improving the crafting UI - ideally showing required resources inline without needing to open a separate panel. Requested mouse cursor support for navigating the interface.
 
-**Resulting PBIs:** 
+**Resulting PBIs:** [Mouse-based Navigation in Crafting UI](https://github.com/coolcamilla/Team32/issues/201)
 
 ## UAT-004: Inventory Management
 
@@ -195,7 +195,7 @@
 
 **Customer comments:** No functional objections. Noted that the current stack size of 16 felt limiting during extended play. Suggested simplifying the overall inventory UI and considering slot-based limits tied to drill upgrades.
 
-**Resulting PBIs:** [#174](https://github.com/coolcamilla/Team32/issues/174)
+**Resulting PBIs:** [Simplify Inventory](https://github.com/coolcamilla/Team32/issues/174)
 
 #### Sprint 3 - 2026-07-03
 
@@ -241,15 +241,15 @@ _Not executed._
 
 **Customer comments:** The drill's role in the core game loop was clarified during the session: the drill digs to new layers and supplies the mole with materials, rather than the mole digging directly. Customer responded very positively to this design. Recommended making the drill the central key mechanic. Suggested combining the drill UI with a workbench for crafting and upgrades.
 
-**Resulting PBIs:** [#172](https://github.com/coolcamilla/Team32/issues/172), [#83](https://github.com/coolcamilla/Team32/issues/83)
+**Resulting PBIs:** [Update Tools Crafting Workflow](https://github.com/coolcamilla/Team32/issues/172), [US-019: Layer Transition](https://github.com/coolcamilla/Team32/issues/83)
 
 #### Sprint 3 - 2026-07-03
 
-**Execution results:**
+**Execution results:** PASSED. The drill UI opened via F near the sign. Fuel was added successfully and the drill activated. Upgrade panels were displayed correctly.
 
-**Customer comments:**
+**Customer comments:** Suggested placing the drill in the center of the level as the central element. Recommended reallocate drill interface elements. Noted that the overall drill concept is strong and should remain the core mechanic.
 
-**Resulting PBIs:**
+**Resulting PBIs:** [Improve Drill UI](https://github.com/coolcamilla/Team32/issues/203), [Change World Layout](https://github.com/coolcamilla/Team32/issues/204)
 
 ## UAT-006: Stamina Depletion and Recovery
 
@@ -282,11 +282,11 @@ _Not executed._
 
 #### Sprint 3 - 2026-07-03
 
-**Execution results:**
+**Execution results:** PASSED. Stamina bar was visible upon entering Climbing Mode. Stamina depleted while moving and the mole slowed down significantly when it reached zero. Stamina recovered after exiting Climbing Mode.
 
-**Customer comments:** 
+**Customer comments:** Suggested making the initial stamina bar small so upgrading it feels meaningful. Proposed that beer could act as a stamina booster item. Suggested exploring a risk mechanic where stamina depletion underground has consequences for the mole.
 
-**Resulting PBIs:** 
+**Resulting PBIs:** [Death Mechanic](https://github.com/coolcamilla/Team32/issues/153) (actually it was overheating mechanic but the customer asked us to replace it)
 
 ## UAT-007: Jump Bug Fixes
 
@@ -320,12 +320,11 @@ _Not executed._
 
 #### Sprint 3 - 2026-07-03
 
-**Execution results:**
+**Execution results:** PASSED. Pressing Space repeatedly mid-jump had no effect on jump height. Pressing spacebar multiple times while paused and then resuming caused no unintended jump or upward force.
 
-**Customer comments:** 
+**Customer comments:** No issues reported.
 
-**Resulting PBIs:** 
-
+**Resulting PBIs:** _None_
 
 ---
 
@@ -333,8 +332,8 @@ _Not executed._
 
 ### Sprint 2 - 2026-06-27
 
-All UATs were executed.  
-All UATs are passed.  
+[UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-004](#uat-004-inventory-management), and [UAT-005](#uat-005-refuel-and-upgrade-the-drill) were executed.  
+[UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-004](#uat-004-inventory-management), and [UAT-005](#uat-005-refuel-and-upgrade-the-drill) are passed.  
 [UAT-002](#uat-002-climbing-mode) and [UAT-005](#uat-005-refuel-and-upgrade-the-drill) need product changes.  
 
 #### Key Feedback Points
@@ -364,11 +363,38 @@ All UATs are passed.
 Before session with the customer [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu) were updated to align with current implementation. [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-007](#uat-007-jump-bug-fixes) were created.
 
 [UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-007](#uat-007-jump-bug-fixes) were executed.  
-`list UATs` are passed.  
-`list UATS` need product changes.  
+[UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-007](#uat-007-jump-bug-fixes) are passed.  
+[UAT-005](#uat-005-refuel-and-upgrade-the-drill) and [UAT-006](#uat-006-stamina-depletion-and-recovery) need product changes.  
 
 #### Need to be fixed
 
+- The corner-grab mechanic is functional but invisible to the player: the corner of the block should be visually highlighted.
+- The current crafting interface requires opening a separate panel to view required resources: required resources should be visible inline without additional clicks.
+- The drill UI should be simplified: it has too many separate panels and buttons.
+- The transition between visible areas should be smooth with no edge artifacts.
+- The seen blocks should become undiscovered again after some time.
+- Replace interface placeholders with art assests.
+- Make the block destructoin engaging (add particles, sound effect, animation).
+
+
 #### Key Feedback Points
 
+- Crafting UI needs improvement - show required resources inline without a separate panel
+- Drill should remain the central mechanic; place it in the center of the level
+- Simplify the drill interface to fewer buttons where possible
+- Make initial stamina bar small so upgrading feels rewarding
+- Explore a risk mechanic tied to stamina depletion underground
+- Improve block destruction feel - add particles or visual effects (reference: SteamWorld Dig, Forager)
+- Beer could act as a stamina booster item
+
 #### Resulting PBIs
+
+- [Corner-grab Jump](https://github.com/coolcamilla/Team32/issues/170)
+- [Interactive Game Tutorial](https://github.com/coolcamilla/Team32/issues/200)
+- [Mouse-based Navigation in Crafting UI](https://github.com/coolcamilla/Team32/issues/201)
+- [Improve Drill UI](https://github.com/coolcamilla/Team32/issues/203)
+- [Change World Layout](https://github.com/coolcamilla/Team32/issues/204)
+- [Death Mechanic](https://github.com/coolcamilla/Team32/issues/153)
+- [Block Destruction](https://github.com/coolcamilla/Team32/issues/205)
+- [Beer](https://github.com/coolcamilla/Team32/issues/206)
+- [Make Discovered Block Temporary](https://github.com/coolcamilla/Team32/issues/207)
