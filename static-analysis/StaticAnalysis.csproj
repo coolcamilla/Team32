@@ -32,7 +32,6 @@
     <Compile Include="../source/Assets/Scripts/Game management/Level/CraftManager/CraftLogic.cs" />
     <Compile Include="../source/Assets/Scripts/Game management/Level/DrillManager/DrillLogic.cs" />
     <Compile Include="../source/Assets/Scripts/Game management/Level/InventoryManager/InventoryLogic.cs" />
-    <Compile Include="../source/Assets/Scripts/Game management/Level/PauseLogic.cs" />
     <Compile Include="../source/Assets/Scripts/Game management/Level/WorldGenerator.cs" />
 
     <!-- Items -->
