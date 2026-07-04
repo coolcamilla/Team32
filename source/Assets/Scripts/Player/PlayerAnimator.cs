@@ -47,4 +47,10 @@ public class PlayerAnimator : MonoBehaviour
         if (Instance != null)
             Instance._animator.SetInteger("Vertical direction", (int)direction);
     }
+
+    public static void ChangeClimbingState(bool isClimbing)
+    {
+        if (Instance != null)
+            Instance._animator.SetBool("IsClimbing", isClimbing);
+    }
 }

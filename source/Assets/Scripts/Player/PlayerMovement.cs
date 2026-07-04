@@ -3,7 +3,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(PlayerStamina))]
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,61 +14,117 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("Climbing")]
     [SerializeField] private float climbSpeed = 5f;
-    [SerializeField] public float maxClimbingHeight = 12f;
+    [SerializeField] private float exhaustedSpeedMultiplier = 0.4f;
+    [SerializeField] private float rotationSpeed = 90f;
+    [SerializeField] private float maxClimbHeight = 12f;
 
     private PlayerInput _input;
+    private PlayerMovementLogic _logic;
+    private PlayerStamina _stamina;
 
-    private bool _grounded;
-    private float _horizontalDirection;
     private Rigidbody2D _rb;
     private PlayerDig _playerDig;
     private Collider2D _feetCollider;
-    private bool _isClimbing;
+    private SpriteRenderer _spriteRenderer;
 
     private event UnityAction<float> OnDirectionChange;
 
-    public float Direction { get { return _horizontalDirection; } }
-    public bool IsClimbing => _isClimbing;
+    public float Direction => _logic.IsClimbing ? 0 : _logic.HorizontalInput;
+    public bool IsClimbing => _logic.IsClimbing;
 
 
     private void Awake()
     {
-        _isClimbing = false;
+        _logic = new PlayerMovementLogic
+        {
+            Speed = _speed,
+            JumpForce = _jumpForce,
+            ClimbSpeed = climbSpeed,
+            ExhaustedSpeedMultiplier = exhaustedSpeedMultiplier,
+            RotationSpeed = rotationSpeed,
+            BaseGravityScale = 1.5f
+        };
+
         _rb = GetComponent<Rigidbody2D>();
         _playerDig = GetComponent<PlayerDig>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _stamina = GetComponent<PlayerStamina>();
         _feetCollider = transform.Find("Collider/Feet").GetComponent<Collider2D>();
 
         ConfigureInput();
-
-        _horizontalDirection = 0;
     }
 
     private void Update()
     {
-        //if (PauseManager.IsPaused) return;
-        //if (FindObjectOfType<PauseManager>().IsPaused) return;
         if (FindAnyObjectByType<PauseManager>().IsPaused) return;
 
-        _grounded = _feetCollider.IsTouching(GetBelowColliderWithBoxCast());
+        _logic.IsGrounded = _feetCollider.IsTouching(GetBelowColliderWithBoxCast());
+        _logic.SetVerticalDirection(Input.GetAxisRaw("Vertical"));
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (_logic.IsClimbing && _logic.IsMoving())
+            _stamina.Drain(Time.deltaTime);
+        else if (!_logic.IsClimbing)
+            _stamina.Regenerate(Time.deltaTime);
+
+        _logic.Tick(Time.deltaTime);
+
+        _rb.gravityScale = _logic.GetTargetGravityScale();
+
+        Vector2 targetVelocity = _logic.CalculateMovementVelocity(_stamina.Logic.IsExhausted);
+
+        if (_logic.IsClimbing)
         {
-            ToggleClimbMode();
+            _rb.linearVelocity = targetVelocity;
+            transform.rotation = Quaternion.Euler(0, 0, -_logic.CurrentAngle);
+        }
+        else
+        {
+            _rb.linearVelocityX = targetVelocity.x;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, Time.deltaTime * 10f);
         }
 
-        if (_isClimbing)
-            DoClimb();
-        else
-            DoMovement();
-
-        if (_isClimbing)
+        if (_logic.IsClimbing)
         {
             Vector3 pos = transform.position;
-            if (pos.y > maxClimbingHeight)
+            if (pos.y > maxClimbHeight)
             {
-                pos.y = maxClimbingHeight;
+                pos.y = maxClimbHeight;
                 transform.position = pos;
                 _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, 0f);
+            }
+        }
+
+        bool isMoving = _logic.IsMoving();
+
+        PlayerAnimator.ChangeClimbingState(_logic.IsClimbing);
+
+        if (!_logic.IsClimbing)
+        {
+            PlayerAnimator.ChangeWalkingState(isMoving);
+            if (Mathf.Abs(_logic.HorizontalInput) > 0.1f)
+                _spriteRenderer.flipX = _logic.ShouldFlipX();
+
+            PlayerAnimator.ChangeVerticalDirection(0);
+        }
+        else
+        {
+            PlayerAnimator.ChangeWalkingState(false);
+            PlayerAnimator.ChangeVerticalDirection(_logic.VerticalInput);
+        }
+
+        UpdateClimbToggle();
+    }
+
+    private void UpdateClimbToggle()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            bool changed = _logic.ToggleClimbMode(_stamina.CanClimb());
+
+            if (changed)
+            {
+                _rb.gravityScale = _logic.GetTargetGravityScale();
+                if (!_logic.IsClimbing) _rb.linearVelocity = Vector2.zero;
             }
         }
     }
@@ -94,70 +152,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMove(InputAction.CallbackContext context)
     {
-        _horizontalDirection = context.action.ReadValue<float>();
-        OnDirectionChange(_horizontalDirection);
+        float dir  = context.action.ReadValue<float>();
+        _logic.SetHorizontalDirection(dir);
+        if (!_logic.CanJump()) OnDirectionChange?.Invoke(dir);
     }
 
     private void OnJump(InputAction.CallbackContext context)
     {
-        Jump();
-    }
-    private void ToggleClimbMode()
-    {
-        _isClimbing = !_isClimbing;
-        _rb.gravityScale = _isClimbing ? 0f : 1.5f;
-
-        if (!_isClimbing)
+        if (_logic.CanJump())
         {
-            _rb.linearVelocity = Vector2.zero;
-            PlayerAnimator.ChangeWalkingState(false);
-        }
-    }
-    private void DoClimb()
-    {
-        Vector2 moveInput = new Vector2(_horizontalDirection, Input.GetAxisRaw("Vertical"));
-
-        float speed = climbSpeed > 0 ? climbSpeed : _speed;
-        _rb.linearVelocity = moveInput * speed;
-
-        bool isWalking = moveInput.magnitude > 0.1f;
-        PlayerAnimator.ChangeWalkingState(isWalking);
-
-        if (Mathf.Abs(_horizontalDirection) > 0.1f)
-        {
-            GetComponent<SpriteRenderer>().flipX = _horizontalDirection > 0;
-        }
-    }
-    private void DoMovement()
-    {
-        if (_horizontalDirection == 0)
-        {
-            PlayerAnimator.ChangeWalkingState(false);
-            return;
-        }
-        PlayerAnimator.ChangeWalkingState(true);
-        _rb.linearVelocityX = _horizontalDirection * _speed;
-        GetComponent<SpriteRenderer>().flipX = _horizontalDirection > 0;
-    }
-
-    private void Jump()
-    {
-        if (_isClimbing) return;
-        if (_grounded) {
-            _rb.AddForce(Vector2.up * _jumpForce);
+            _rb.AddForce(_logic.GetJumpForceVector());
         }
     }
 
     private void StopMovement(InputAction.CallbackContext context)
     {
-        _horizontalDirection = 0;
-        _rb.linearVelocityX = 0;
+        _logic.SetHorizontalDirection(0);
+        if (!_logic.IsClimbing) OnDirectionChange?.Invoke(0);
     }
 
     private Collider2D GetBelowColliderWithBoxCast()
     {
-        Collider2D result = Physics2D.BoxCast(_feetCollider.transform.position - new Vector3(0, 0.5f, 0), new Vector2(0.1f, 0.01f), 0f, Vector2.down).collider;
-        return result;
+        return Physics2D.BoxCast(_feetCollider.transform.position - new Vector3(0, 0.5f, 0), new Vector2(0.1f, 0.01f), 0f, Vector2.down).collider;
     }
 }
 
