@@ -90,7 +90,7 @@ scenarios and automated test details.
 
 ### Links to automated quality requirement tests
 
-- [QRT-001, QRT-002, QRT-003 — `Qualityrequirementtests.cs`](../../source/Assets/Tests/PlayMode/Qualityrequirementtests.cs)
+- [QRT-001, QRT-002, QRT-003 — `Qualityrequirementtests.cs`](../../source/Assets/Tests/PlayMode/)
 
 ### [CI pipeline](https://github.com/coolcamilla/Team32/actions)
 
