@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9839151ce2a4646af76779c0cc771b, type: 3}
+  m_Name: StoneShovel
+  m_EditorClassIdentifier: GameScripts::Item
+  _type: 101
+  _sprite: {fileID: 6447721058822747938, guid: 540544949e39006428fc35e15c04a63f, type: 3}
+  _isStackable: 0
+  _damage: 3
+  _diggingCooldown: 0.4
+  _recipe: {fileID: 11400000, guid: 34841915608a24a42af93b4caea7b5c5, type: 2}

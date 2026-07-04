@@ -10,14 +10,15 @@ TagManager:
   - Cursor
   - Slot
   - Droppable
+  - Hotbar
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Collectable
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
