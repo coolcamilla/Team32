@@ -26,3 +26,4 @@ public class CraftManager : MonoBehaviour
         return true;
     }
 }
+
