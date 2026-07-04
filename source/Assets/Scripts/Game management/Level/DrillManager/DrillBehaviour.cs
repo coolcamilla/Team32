@@ -43,7 +43,7 @@ public class DrillBehaviour : MonoBehaviour
         
         _rand = new System.Random();
 
-        _chances = new();
+        _chances = new List<DropChance>();
 
         _chances.Add(new DropChance(ItemType.Clay, 0.1f));
         _chances.Add(new DropChance(ItemType.Pebbles, 0.15f));

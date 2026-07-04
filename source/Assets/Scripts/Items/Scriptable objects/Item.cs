@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/Item")]
 public class Item : ScriptableObject
 {
-    [SerializeField] private ItemType _type;
+    [SerializeField] private ItemType _type = ItemType.None;
     [SerializeField] private Sprite _sprite;
     [SerializeField] private bool _isStackable = true;
     [SerializeField] private float _damage = 1f;

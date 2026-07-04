@@ -19,11 +19,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxClimbHeight = 12f;
 
     private PlayerInput _input;
-    private PlayerMovementLogic _logic;
     private PlayerStamina _stamina;
+    private PlayerMovementLogic _logic;
+    private PlayerDig _playerDig;
+    private PlayerManager _playerManager;
 
     private Rigidbody2D _rb;
-    private PlayerDig _playerDig;
     private Collider2D _feetCollider;
     private SpriteRenderer _spriteRenderer;
 
@@ -49,15 +50,28 @@ public class PlayerMovement : MonoBehaviour
         _playerDig = GetComponent<PlayerDig>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _stamina = GetComponent<PlayerStamina>();
+        _playerManager = GetComponent<PlayerManager>();
         _feetCollider = transform.Find("Collider/Feet").GetComponent<Collider2D>();
 
         ConfigureInput();
     }
 
+    private void UpdateClimbToggle()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            bool changed = _logic.ToggleClimbMode(_stamina.CanClimb());
+
+            if (changed)
+            {
+                _rb.gravityScale = _logic.GetTargetGravityScale();
+                if (!_logic.IsClimbing) _rb.linearVelocity = Vector2.zero;
+            }
+        }
+    }
+
     private void Update()
     {
-        if (FindAnyObjectByType<PauseManager>().IsPaused) return;
-
         _logic.IsGrounded = _feetCollider.IsTouching(GetBelowColliderWithBoxCast());
         _logic.SetVerticalDirection(Input.GetAxisRaw("Vertical"));
 
@@ -103,30 +117,13 @@ public class PlayerMovement : MonoBehaviour
             PlayerAnimator.ChangeWalkingState(isMoving);
             if (Mathf.Abs(_logic.HorizontalInput) > 0.1f)
                 _spriteRenderer.flipX = _logic.ShouldFlipX();
-
-            PlayerAnimator.ChangeVerticalDirection(0);
         }
         else
         {
             PlayerAnimator.ChangeWalkingState(false);
-            PlayerAnimator.ChangeVerticalDirection(_logic.VerticalInput);
         }
 
         UpdateClimbToggle();
-    }
-
-    private void UpdateClimbToggle()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            bool changed = _logic.ToggleClimbMode(_stamina.CanClimb());
-
-            if (changed)
-            {
-                _rb.gravityScale = _logic.GetTargetGravityScale();
-                if (!_logic.IsClimbing) _rb.linearVelocity = Vector2.zero;
-            }
-        }
     }
 
     private void OnEnable()
@@ -144,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ConfigureInput()
     {
-        _input = new PlayerInput();
+        _input = _playerManager.Input;
         _input.Player.Move.performed += OnMove;
         _input.Player.Move.canceled += StopMovement;
         _input.Player.Jump.performed += OnJump;
@@ -154,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float dir  = context.action.ReadValue<float>();
         _logic.SetHorizontalDirection(dir);
-        if (!_logic.CanJump()) OnDirectionChange?.Invoke(dir);
+        OnDirectionChange?.Invoke(dir);
     }
 
     private void OnJump(InputAction.CallbackContext context)
