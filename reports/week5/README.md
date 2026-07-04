@@ -28,7 +28,7 @@ TODO Story Points
 - Climbing Mode reworked: movement in climbing uses `W`/`S` for up/down and `A`/`D` for rotation
 - Stamina bar added: depletes while moving in Climbing Mode and recovers when the mole is in normal mode
 - Underground visibility limited to a 3-blocks radius around the mole, creating a sense of exploration and risk
-- The depth counters added in the top-left corner showing the mole's current depth in meters
+- The depth counter added in the top-left corner showing the mole's current depth in meters
 - Jump stacking bug fixed: repeated spacebar presses mid-jump no longer increase jump height
 - Pause menu jump bug fixed: spacebar presses while paused no longer accumulate and apply on resume
 
@@ -37,6 +37,7 @@ TODO Story Points
 - The mole now holds a single tool at a time; crafting a new tool replaces the previous one
 - Hotbar moved to the bottom of the screen and now displays equipment only (tool, upgrades)
 - Resource inventory opened in the center of the screen by pressing `E`
+- Stack size increased to 99
 - Digit key slot selection in horbar removed
 
 **Art and Audio**
@@ -120,7 +121,43 @@ TODO
 
 ### UAT results summary
 
-TODO
+Before session with the customer [UAT-002](../../docs/user-acceptance-tests.md#uat-002-climbing-mode), [UAT-003](../../docs/user-acceptance-tests.md#uat-003-craft-a-tool-using-the-crafting-menu) were updated to align with current implementation. [UAT-006](../../docs/user-acceptance-tests.md#uat-006-stamina-depletion-and-recovery), [UAT-007](../../docs/user-acceptance-tests.md#uat-007-jump-bug-fixes) were created.
+
+[UAT-001](../../docs/user-acceptance-tests.md#uat-001-mole-movement-fix), [UAT-002](../../docs/user-acceptance-tests.md#uat-002-climbing-mode), [UAT-003](../../docs/user-acceptance-tests.md#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](../../docs/user-acceptance-tests.md#uat-005-refuel-and-upgrade-the-drill), [UAT-006](../../docs/user-acceptance-tests.md#uat-006-stamina-depletion-and-recovery), [UAT-007](../../docs/user-acceptance-tests.md#uat-007-jump-bug-fixes) were executed.  
+[UAT-001](../../docs/user-acceptance-tests.md#uat-001-mole-movement-fix), [UAT-002](../../docs/user-acceptance-tests.md#uat-002-climbing-mode), [UAT-003](../../docs/user-acceptance-tests.md#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](../../docs/user-acceptance-tests.md#uat-005-refuel-and-upgrade-the-drill), [UAT-006](../../docs/user-acceptance-tests.md#uat-006-stamina-depletion-and-recovery), [UAT-007](../../docs/user-acceptance-tests.md#uat-007-jump-bug-fixes) are passed.  
+[UAT-005](../../docs/user-acceptance-tests.md#uat-005-refuel-and-upgrade-the-drill) and [UAT-006](../../docs/user-acceptance-tests.md#uat-006-stamina-depletion-and-recovery) need product changes.  
+
+#### Need to be fixed
+
+- The corner-grab mechanic is functional but invisible to the player: the corner of the block should be visually highlighted.
+- The current crafting interface requires opening a separate panel to view required resources: required resources should be visible inline without additional clicks.
+- The drill UI should be simplified: it has too many separate panels and buttons.
+- The transition between visible areas should be smooth with no edge artifacts.
+- The seen blocks should become undiscovered again after some time.
+- Replace interface placeholders with art assests.
+- Make the block destructoin engaging (add particles, sound effect, animation).
+
+#### Key Feedback Points
+
+- Crafting UI needs improvement - show required resources inline without a separate panel
+- Drill should remain the central mechanic; place it in the center of the level
+- Simplify the drill interface to fewer buttons where possible
+- Make initial stamina bar small so upgrading feels rewarding
+- Explore a risk mechanic tied to stamina depletion underground
+- Improve block destruction feel - add particles or visual effects (reference: SteamWorld Dig, Forager)
+- Beer could act as a stamina booster item
+
+#### Resulting PBIs
+
+- [Corner-grab Jump](https://github.com/coolcamilla/Team32/issues/170)
+- [Interactive Game Tutorial](https://github.com/coolcamilla/Team32/issues/200)
+- [Mouse-based Navigation in Crafting UI](https://github.com/coolcamilla/Team32/issues/201)
+- [Improve Drill UI](https://github.com/coolcamilla/Team32/issues/203)
+- [Change World Layout](https://github.com/coolcamilla/Team32/issues/204)
+- [Death Mechanic](https://github.com/coolcamilla/Team32/issues/153)
+- [Block Destruction](https://github.com/coolcamilla/Team32/issues/205)
+- [Beer](https://github.com/coolcamilla/Team32/issues/206)
+- [Make Discovered Block Temporary](https://github.com/coolcamilla/Team32/issues/207)
 
 ### Link to the hosted documentation site
 
