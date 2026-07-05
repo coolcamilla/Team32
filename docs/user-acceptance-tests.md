@@ -109,8 +109,8 @@
 **Preconditions:**
 - New game session started
 - Player does not have any tool yet
-- Player has collected enough resources for a wooden shovel (12 sticks)
-- Player has not collected enough resources for a stone pickaxe (5 sticks and 5 stones)
+- Player has collected enough resources for a wooden shovel (10 sticks)
+- Player has not collected enough resources for a stone pickaxe (10 sticks and 5 pebbels)
 - Mole is near the workbench on the surface
 
 **Step-by-step instructions:**
