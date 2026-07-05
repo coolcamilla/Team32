@@ -18,3 +18,5 @@ For Linux
  3. Run `./LinuxBuild.x86_64` to start the game
 
 _Note_: Folders and runnable files names may differ
+
+## [Development Process & Configuration Management](docs/development-process.md)
