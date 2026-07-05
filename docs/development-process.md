@@ -2,7 +2,7 @@
 
 This document describes how the Operation EarthCore team develops, reviews, tests, and releases the product, and how the project's configuration is managed. It is a maintained project asset: it must be kept current whenever the branching strategy, CI pipeline, release process, or configuration approach changes.
 
-See [Process Requirements](../Process_Requirements.md) for the shared Scrum, Work Status, Definition of Done, and traceability semantics this process implements, and [Product Repository Requirements](../Repository_Requirements.md) for the underlying repository mechanics and enforcement rules.
+See [Process Requirements](../Process_Requirements.md) for the shared Scrum, Work Status, Definition of Done, and traceability semantics this process implements, and Product Repository Requirements for the underlying repository mechanics and enforcement rules.
 
 ## Git Workflow
 
