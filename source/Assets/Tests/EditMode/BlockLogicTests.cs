@@ -1,82 +1,131 @@
 using NUnit.Framework;
 using UnityEngine;
 
+/// <summary>
+/// EditMode unit tests for BlockBehaviourLogic - plain C#, no scene dependency.
+///
+/// Uses only the test configurator methods that actually exist on BlockTypeData
+/// and Item (ConfigureForUnsuccessfulDamageTest, ConfigureForDropTest,
+/// ConfigureToNotDefaultForTesting) rather than attempting to set MaxHp/MinDamage
+/// directly - those are read-only computed properties backed by private
+/// SerializeField data with no public setter.
+/// </summary>
 public class BlockLogicTests
 {
+    // Default BlockTypeData (no configurator called): MaxHp = 3, MinDamage = 0, empty drop table.
+    // Default Item (no configurator called): Damage = 1f, Cooldown = 0.45f, Stackable = true.
+
     [Test]
-    public void BlockTakesDamageWhenInstrumentIsStrongEnough()
+    public void Constructor_SetsCurrentHpToMaxHp_UsingDefaultBlockData()
     {
-        //Basic HP and damage values for the test
-        //MaxHP = 3
-        //MinDamage = 0
-        BlockTypeData testData = ScriptableObject.CreateInstance<BlockTypeData>();
+        var data = ScriptableObject.CreateInstance<BlockTypeData>();
 
-        //Basic damage value for the test
-        //Damage = 1
-        Item testItem = Item.CreateInstance<Item>();
+        var logic = new BlockBehaviourLogic(data);
 
-        BlockBehaviourLogic logic = new BlockBehaviourLogic(testData);
-
-        bool damageApplied = logic.TryTakeDamage(testItem);
-
-        Assert.IsTrue(damageApplied, "The pickaxe should have damaged the block.");
-        Assert.AreEqual(2, logic.CurrentHp, $"HP should be reduced by {testItem.Damage}.");
+        Assert.AreEqual(3f, logic.CurrentHp); // default MaxHp = 3
+        Assert.AreEqual(data, logic.BlockData);
     }
 
     [Test]
-    public void BlockIgnoresDamageWhenInstrumentIsTooWeak()
+    public void IsItemSuitable_TrueWhenDamageMeetsMinDamage_UsingDefaults()
     {
-        //Basic HP and damage values for the test
-        //MaxHP = 3
-        //MinDamage = 0
-        BlockTypeData testData = ScriptableObject.CreateInstance<BlockTypeData>();
+        var data = ScriptableObject.CreateInstance<BlockTypeData>(); // MinDamage = 0
+        var logic = new BlockBehaviourLogic(data);
+        var item = ScriptableObject.CreateInstance<Item>(); // Damage = 1f, 1f >= 0
 
-        // This sets MinDamage to a value higher than the weak item's damage
-        //MaxHP = 100
-        //MinDamage = 50
-        testData.ConfigureForUnsuccessfulDamageTest();
-
-        //Basic damage value for the test
-        //Damage = 1
-        Item weakHand = Item.CreateInstance<Item>();
-
-        BlockBehaviourLogic logic = new BlockBehaviourLogic(testData);
-
-
-        bool damageApplied = logic.TryTakeDamage(weakHand);
-
-
-        Assert.IsFalse(damageApplied, "Weak item should not damage the block.");
-        Assert.AreEqual(100, logic.CurrentHp, "HP should remain unchanged.");
+        Assert.IsTrue(logic.IsItemSuitable(item));
     }
 
     [Test]
-    public void BlockDropsLootWhenHpReachesZero()
+    public void IsItemSuitable_FalseWhenDamageBelowMinDamage()
     {
-        //Basic HP and damage values for the test
-        //MaxHP = 3
-        //MinDamage = 0
-        BlockTypeData testData = ScriptableObject.CreateInstance<BlockTypeData>();
+        var data = ScriptableObject.CreateInstance<BlockTypeData>();
+        data.ConfigureForUnsuccessfulDamageTest(); // MaxHp = 100, MinDamage = 50
+        var logic = new BlockBehaviourLogic(data);
+        var item = ScriptableObject.CreateInstance<Item>();
+        item.ConfigureToNotDefaultForTesting(); // Damage = 15f, still well below MinDamage = 50
 
-        // Assuming GetTable is set up with a 100% drop chance for the test
-        //MaxHP = 1
-        //MinDamage = 0
-        //Stick, Rock, and Pebbles inside droptable with 1.0 chance each
-        testData.ConfigureForDropTest();
+        Assert.IsFalse(logic.IsItemSuitable(item));
+    }
 
-        //Basic damage value for the test
-        //Damage = 1
-        Item testItem = Item.CreateInstance<Item>();
+    [Test]
+    public void TryTakeDamage_ReturnsTrueAndReducesHp_UsingDefaults()
+    {
+        var data = ScriptableObject.CreateInstance<BlockTypeData>(); // MaxHp = 3, MinDamage = 0
+        var logic = new BlockBehaviourLogic(data);
+        var item = ScriptableObject.CreateInstance<Item>(); // Damage = 1f
 
+        bool result = logic.TryTakeDamage(item);
 
-        BlockBehaviourLogic logic = new BlockBehaviourLogic(testData);
+        Assert.IsTrue(result);
+        Assert.AreEqual(2f, logic.CurrentHp, 0.0001f); // 3 - 1
+    }
 
+    [Test]
+    public void TryTakeDamage_ReturnsFalseAndDoesNotReduceHp_WhenItemNotSuitable()
+    {
+        var data = ScriptableObject.CreateInstance<BlockTypeData>();
+        data.ConfigureForUnsuccessfulDamageTest(); // MaxHp = 100, MinDamage = 50
+        var logic = new BlockBehaviourLogic(data);
+        var item = ScriptableObject.CreateInstance<Item>();
+        item.ConfigureToNotDefaultForTesting(); // Damage = 15f, below MinDamage = 50
 
-        logic.TryTakeDamage(testItem); // This should kill the block
+        bool result = logic.TryTakeDamage(item);
+
+        Assert.IsFalse(result);
+        Assert.AreEqual(100f, logic.CurrentHp);
+    }
+
+    [Test]
+    public void IsDestroyed_FalseWhileHpAboveZero_UsingDefaults()
+    {
+        var data = ScriptableObject.CreateInstance<BlockTypeData>(); // MaxHp = 3
+        var logic = new BlockBehaviourLogic(data);
+
+        Assert.IsFalse(logic.IsDestroyed());
+    }
+
+    [Test]
+    public void IsDestroyed_TrueWhenHpReachesExactlyZero_UsingDropTestConfig()
+    {
+        var data = ScriptableObject.CreateInstance<BlockTypeData>();
+        data.ConfigureForDropTest(); // MaxHp = 1, MinDamage = 0
+        var logic = new BlockBehaviourLogic(data);
+        var item = ScriptableObject.CreateInstance<Item>(); // Damage = 1f, exactly enough
+
+        logic.TryTakeDamage(item);
+
+        Assert.IsTrue(logic.IsDestroyed()); // 1 - 1 = 0, and IsDestroyed is `<= 0`
+    }
+
+    [Test]
+    public void CalculateDrops_ReturnsAllGuaranteedDrops_UsingDropTestConfig()
+    {
+        // ConfigureForDropTest() sets up three DropChance entries, each with chance = 1f
+        // (Stick, Rock, Pebbles), meaning they are always included regardless of the
+        // random roll - deterministic, no flaky randomness in this test.
+        var data = ScriptableObject.CreateInstance<BlockTypeData>();
+        data.ConfigureForDropTest();
+        var logic = new BlockBehaviourLogic(data);
+
         var drops = logic.CalculateDrops();
 
+        Assert.AreEqual(3, drops.Count,
+            "ConfigureForDropTest sets up exactly 3 guaranteed (chance=1) drops.");
+        CollectionAssert.Contains(drops, ItemType.Stick);
+        CollectionAssert.Contains(drops, ItemType.Rock);
+        CollectionAssert.Contains(drops, ItemType.Pebbles);
+    }
 
-        Assert.IsTrue(logic.IsDestroyed(), "Block HP should be 0 or less.");
-        Assert.IsNotEmpty(drops, "Block should have dropped Stick, Rock, and Pebbles");
+    [Test]
+    public void CalculateDrops_ReturnsEmptyList_WhenDropTableIsEmpty_UsingDefaults()
+    {
+        var data = ScriptableObject.CreateInstance<BlockTypeData>(); // empty drop table by default
+        var logic = new BlockBehaviourLogic(data);
+
+        var drops = logic.CalculateDrops();
+
+        Assert.IsNotNull(drops);
+        Assert.AreEqual(0, drops.Count);
     }
 }

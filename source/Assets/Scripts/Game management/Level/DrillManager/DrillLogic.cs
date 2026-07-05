@@ -68,7 +68,7 @@ public class DrillLogic
 
         _availableEnergy = 0f;
         _depth = 0f;
-        _markDistance = 0.2f;
+        _markDistance = 0.1f;
 
         _previousDepthMultiplier = 0;
 

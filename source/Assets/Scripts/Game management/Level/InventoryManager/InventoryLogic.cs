@@ -67,6 +67,9 @@ public class InventoryLogic
 
     public int TryAddItem(Item item)
     {
+        //Item is instrument or service type
+        if ((int)item.Type < 300) return -1;
+
         if (item.IsStackable)
         {
             int slotWithItem = FindSlotWithItem(item);

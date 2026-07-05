@@ -6,11 +6,13 @@ Deliver a 2D mining exploration game where the player character is a mole. The m
 
 ## Current Status
 
-**Completed Sprints:** Sprint 1  
-**Current Sprint:** Sprint 2  
-**Next Sprint:** Sprint 3  
+**Completed Sprints:** Sprint 1, Sprint 2  
+**Current Sprint:** Sprint 3  
+**Next Sprint:** Sprint 4  
 
-The current sprint prioritizes code quality, testability, and core drill mechanics over new feature volume. Future sprints will introduce mining stations, layer transitions, mole's upgrading and risk mechanics.
+## Current Direction
+
+The current sprint focuses acting on customer feedback by simplifying the UI and introducing immersive mechanics. Other one priority is strengthening technical foundations through architecture documentation and configuration management. Future sprints will introduce layer transitions, mining stations, mole upgrades, an overheating mechanic, and a save system to complete the core gameplay loop.
 
 ---
 
@@ -97,31 +99,103 @@ Non user-visible outcomes:
 - Added the additional QA roslyn analyzers check
 - Procedural generation enhanced, which now can spawn deposits
 
+# Sprint 3
+
+### [Milestone](https://github.com/coolcamilla/Team32/milestone/3)  
+
+### Start
+
+Moday, June 29, 2026  
+
+### End
+
+Sunday, July 5, 2026  
+
+### Goal  
+
+Deliver a playable Windows and Linux build that addresses customer feedback by simplifying the inventory/crafting flow and improving game feel with immersive mechanics, while strengthening product quality and stability through automated tests and architecture documentation.
+
+### Planned items
+
+- [US-006: Burrow depth](https://github.com/coolcamilla/Team32/issues/68)
+- [US-020: Deposit Discovery](https://github.com/coolcamilla/Team32/issues/84)
+- [Rotation-based Climbing Mode](https://github.com/coolcamilla/Team32/issues/171)
+- [Stamina](https://github.com/coolcamilla/Team32/issues/167)
+- [Update Tools Crafting Workflow](https://github.com/coolcamilla/Team32/issues/172)
+- [Simplify Inventory](https://github.com/coolcamilla/Team32/issues/174)
+- [Limited Visibility Mechanic](https://github.com/coolcamilla/Team32/issues/154)
+- [Infinite jump](https://github.com/coolcamilla/Team32/issues/168)
+- [Jump Force Accumulation](https://github.com/coolcamilla/Team32/issues/182)
+- [Climbing Animation](https://github.com/coolcamilla/Team32/issues/148)
+- [Draw Workbench](https://github.com/coolcamilla/Team32/issues/183)
+- [Draw Drill Sign](https://github.com/coolcamilla/Team32/issues/184)
+- [Draw Environment Tilesets](https://github.com/coolcamilla/Team32/issues/186)
+- [Integrate Sprites and Animations into Unity](https://github.com/coolcamilla/Team32/issues/185)
+- [Music and Sound Effects](https://github.com/coolcamilla/Team32/issues/86)
+- [Update Tests week 5](https://github.com/coolcamilla/Team32/issues/192)
+- [Maintain Architecture directory and ADRs](https://github.com/coolcamilla/Team32/issues/191)
+- [Maintain Development Process](https://github.com/coolcamilla/Team32/issues/189)
+- [Update Roadmap for Sprint 3](https://github.com/coolcamilla/Team32/issues/190)
+- [Update and Execute UATs for MVP v2](https://github.com/coolcamilla/Team32/issues/188)
+- [Create Release for MVP v2](https://github.com/coolcamilla/Team32/issues/187)
+
+### Outcome
+
+MVP v2 as a playable build released for Windows and Linux, in which:
+- The mole can explore the surface layer with limited underground visibility (3-block radius)
+- Resources drop from broken blocks and are collected automatically into the inventory
+- The mole can craft tools at the workbench by pressing F; each new tool replaces the previous one in a fixed crafting order
+- The drill can be fuelled and upgraded at the drill interface to progress deeper through layers
+- Deposits of various resource types spawn across surface layer and can be discovered by digging
+- The mole can climb background walls using a rotation-based Climbing Mode, with stamina that depletes while moving and regenerates when in normal mode
+- Depth counter in the top-left corner show the mole's current depth in meters
+- The hotbar at the bottom of the screen displays the mole's equipped tool
+- The resource inventory can be viewed by pressing E, inventory stack size is 99
+- New sprites added for the stone layer blocks, resources, tools, deposits, workbench, and drill sign
+
+Non user-visible outcomes:
+- Refactored tests, PauseManager, PlayerMovement, PlayerManager and GridGenerator
+- Added automated unit and integration tests for the Stamina Logic, Stamina Behaviour, In Game Menu Manager
+- Updated the testing documentation to reflect changes
+- Added architecture documentation, static, dynamic and deployment views, ADRs
+- Added development-process.md as the maintained artifact for the development and version control practices
+
+# Sprint 4
+
+This sprint will introduce stone layer, layer transitions, mining stations, limited visibility and overheating mechanics.
+
 ---
 
-# Quality and Automation Work
+# Work that must continue later
 
-The following quality and automation practices established in Sprint 2 must continue throughout all future project work:
+The following practices must continue throughout all future project work:
+
+### Documentation
+- **docs/testing.md:** Must be updated when critical modules change or new quality gates are added
+- **docs/definition-of-done.md:** Must reflect current CI requirements and coverage expectations
+- **docs/quality-requirements.md:** Must be updated when new quality requirements are identified, and each relevant quality requirement must link to at least one related ADR
+- **docs/quality-requirement-tests.md:** Must be updated when QRTs are added or modified
+- **docs/architecture/README.md:** Must be updated as new systems (mining stations, layer transitions, save system) are introduced, including updated static, dynamic, and deployment view diagrams
+- **docs/architecture/adr/:** Each significant architecture decision must be recorded as an ADR and linked from `docs/architecture/README.md`
+- **docs/development-process.md:** Must reflect the current git workflow, Sprint cadence, and configuration management practices, illustrated with a Mermaid `gitGraph` diagram
+- **docs/user-acceptance-tests.md:** Must be kept current with all active UAT scenarios, each linked to relevant acceptance criteria, user story, or supporting PBI
+- **Layer design documents:** Each new layer must have a corresponding design document following `game_design/layers/layer-template.md` before implementation begins
+- **CHANGELOG.md:** Every user-visible change must be recorded under `Unreleased` as part of the PR workflow
 
 ### Automated Testing
 - **Unit tests (EditMode):** All critical game-logic modules must maintain ≥30% line coverage
 - **Integration tests (PlayMode):** Component interactions must be verified through automated tests
-- **Quality Requirement Tests (QRT):** Each quality requirement must have at least one automated test verifying the measurable scenario  
+- **Quality Requirement Tests (QRT):** Each quality requirement must have at least one automated test verifying the measurable scenario
 
 ### CI Pipeline
 - **Automated checks:** Linting, formatting, type-checking, build verification must pass on every PR
 - **Test execution:** All unit, integration, and QRT tests must pass before merge
 - **Coverage reporting:** Coverage reports must be generated and archived for each CI run
 
-### Documentation Maintenance
-- **docs/testing.md:** Must be updated when critical modules change or new quality gates are added
-- **docs/definition-of-done.md:** Must reflect current CI requirements and coverage expectations
-- **docs/quality-requirements.md:** Must be updated when new quality requirements are identified
-- **docs/quality-requirement-tests.md:** Must be updated when QRTs are added or modified
-
 ### Code Quality Standards
 - **Testability pattern:** New features must follow the Model/Service + MonoBehaviour wrapper pattern to enable EditMode unit testing
 - **Deterministic generation:** Procedural systems must use seed-based randomness for reproducibility
 - **Atomic operations:** Resource transactions (crafting, building, refueling) must be atomic to prevent data loss
+- **Configuration management:** Game constants and tunable parameters must remain in centralised configuration files rather than hardcoded in game logic
 
 These practices ensure that the codebase remains maintainable, testable, and reliable.

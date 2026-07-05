@@ -5,36 +5,12 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
-    private Image _image;
     private InventoryManager _inventoryManager;
-    private static Color _selectedColor;
-    private static Color _basicColor;
-
     public int SlotIndex;
-
-    private void InitializeFields()
-    {
-        _image = GetComponent<Image>();
-        _inventoryManager = GameObject.FindWithTag("Game Manager").GetComponent<InventoryManager>();
-        _selectedColor = Color.aquamarine;
-        _basicColor = Color.white;
-    }
 
     private void Awake()
     {
-        Deselect();
-    }
-
-    public void Select()
-    {
-        if (_image == null) InitializeFields();
-        _image.color = _selectedColor;
-    }
-
-    public void Deselect()
-    {
-        if (_image == null) InitializeFields();
-        _image.color = _basicColor;
+        _inventoryManager = GameObject.FindWithTag("Game Manager").GetComponent<InventoryManager>();
     }
 
     public void OnDrop(PointerEventData eventData)

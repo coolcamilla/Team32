@@ -373,13 +373,22 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Inventory"",
-            ""id"": ""700f96e4-c3b5-48d5-b6e4-808f08e0d13d"",
+            ""name"": ""InGameMenu"",
+            ""id"": ""a9da186a-7b0d-46dc-b137-4a3d07f94a3b"",
             ""actions"": [
                 {
-                    ""name"": ""Open/Close"",
+                    ""name"": ""ToggleInventory"",
                     ""type"": ""Button"",
-                    ""id"": ""75530aed-9bf8-4693-a536-cfa4d7b4cb72"",
+                    ""id"": ""4430a565-b410-4f48-8652-dd0a878a5862"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TogglePause"",
+                    ""type"": ""Button"",
+                    ""id"": ""4169c82a-c2d5-477f-9b77-017e18fd005d"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -389,12 +398,23 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""91eb701a-bf65-4d65-9134-b80edf43a547"",
+                    ""id"": ""c637ec2a-1a03-4475-a517-542ab88710f2"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Open/Close"",
+                    ""groups"": """",
+                    ""action"": ""ToggleInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c78312d8-70e8-442a-bc03-26631bdb6db2"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TogglePause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -477,16 +497,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_UI_CursorPosition = m_UI.FindAction("CursorPosition", throwIfNotFound: true);
         m_UI_Callpausemenu = m_UI.FindAction("Call pause menu", throwIfNotFound: true);
         m_UI_Switchinventoryslot = m_UI.FindAction("Switch inventory slot", throwIfNotFound: true);
-        // Inventory
-        m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
-        m_Inventory_OpenClose = m_Inventory.FindAction("Open/Close", throwIfNotFound: true);
+        // InGameMenu
+        m_InGameMenu = asset.FindActionMap("InGameMenu", throwIfNotFound: true);
+        m_InGameMenu_ToggleInventory = m_InGameMenu.FindAction("ToggleInventory", throwIfNotFound: true);
+        m_InGameMenu_TogglePause = m_InGameMenu.FindAction("TogglePause", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, PlayerInput.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, PlayerInput.UI.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_Inventory.enabled, "This will cause a leak and performance issues, PlayerInput.Inventory.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_InGameMenu.enabled, "This will cause a leak and performance issues, PlayerInput.InGameMenu.Disable() has not been called.");
     }
 
     /// <summary>
@@ -828,29 +849,34 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     /// </summary>
     public UIActions @UI => new UIActions(this);
 
-    // Inventory
-    private readonly InputActionMap m_Inventory;
-    private List<IInventoryActions> m_InventoryActionsCallbackInterfaces = new List<IInventoryActions>();
-    private readonly InputAction m_Inventory_OpenClose;
+    // InGameMenu
+    private readonly InputActionMap m_InGameMenu;
+    private List<IInGameMenuActions> m_InGameMenuActionsCallbackInterfaces = new List<IInGameMenuActions>();
+    private readonly InputAction m_InGameMenu_ToggleInventory;
+    private readonly InputAction m_InGameMenu_TogglePause;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Inventory".
+    /// Provides access to input actions defined in input action map "InGameMenu".
     /// </summary>
-    public struct InventoryActions
+    public struct InGameMenuActions
     {
         private @PlayerInput m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public InventoryActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InGameMenuActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Inventory/OpenClose".
+        /// Provides access to the underlying input action "InGameMenu/ToggleInventory".
         /// </summary>
-        public InputAction @OpenClose => m_Wrapper.m_Inventory_OpenClose;
+        public InputAction @ToggleInventory => m_Wrapper.m_InGameMenu_ToggleInventory;
+        /// <summary>
+        /// Provides access to the underlying input action "InGameMenu/TogglePause".
+        /// </summary>
+        public InputAction @TogglePause => m_Wrapper.m_InGameMenu_TogglePause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_Inventory; }
+        public InputActionMap Get() { return m_Wrapper.m_InGameMenu; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -858,9 +884,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="InventoryActions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="InGameMenuActions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(InventoryActions set) { return set.Get(); }
+        public static implicit operator InputActionMap(InGameMenuActions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -868,14 +894,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="InventoryActions" />
-        public void AddCallbacks(IInventoryActions instance)
+        /// <seealso cref="InGameMenuActions" />
+        public void AddCallbacks(IInGameMenuActions instance)
         {
-            if (instance == null || m_Wrapper.m_InventoryActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_InventoryActionsCallbackInterfaces.Add(instance);
-            @OpenClose.started += instance.OnOpenClose;
-            @OpenClose.performed += instance.OnOpenClose;
-            @OpenClose.canceled += instance.OnOpenClose;
+            if (instance == null || m_Wrapper.m_InGameMenuActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_InGameMenuActionsCallbackInterfaces.Add(instance);
+            @ToggleInventory.started += instance.OnToggleInventory;
+            @ToggleInventory.performed += instance.OnToggleInventory;
+            @ToggleInventory.canceled += instance.OnToggleInventory;
+            @TogglePause.started += instance.OnTogglePause;
+            @TogglePause.performed += instance.OnTogglePause;
+            @TogglePause.canceled += instance.OnTogglePause;
         }
 
         /// <summary>
@@ -884,21 +913,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="InventoryActions" />
-        private void UnregisterCallbacks(IInventoryActions instance)
+        /// <seealso cref="InGameMenuActions" />
+        private void UnregisterCallbacks(IInGameMenuActions instance)
         {
-            @OpenClose.started -= instance.OnOpenClose;
-            @OpenClose.performed -= instance.OnOpenClose;
-            @OpenClose.canceled -= instance.OnOpenClose;
+            @ToggleInventory.started -= instance.OnToggleInventory;
+            @ToggleInventory.performed -= instance.OnToggleInventory;
+            @ToggleInventory.canceled -= instance.OnToggleInventory;
+            @TogglePause.started -= instance.OnTogglePause;
+            @TogglePause.performed -= instance.OnTogglePause;
+            @TogglePause.canceled -= instance.OnTogglePause;
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="InventoryActions.UnregisterCallbacks(IInventoryActions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="InGameMenuActions.UnregisterCallbacks(IInGameMenuActions)" />.
         /// </summary>
-        /// <seealso cref="InventoryActions.UnregisterCallbacks(IInventoryActions)" />
-        public void RemoveCallbacks(IInventoryActions instance)
+        /// <seealso cref="InGameMenuActions.UnregisterCallbacks(IInGameMenuActions)" />
+        public void RemoveCallbacks(IInGameMenuActions instance)
         {
-            if (m_Wrapper.m_InventoryActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_InGameMenuActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -908,21 +940,21 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="InventoryActions.AddCallbacks(IInventoryActions)" />
-        /// <seealso cref="InventoryActions.RemoveCallbacks(IInventoryActions)" />
-        /// <seealso cref="InventoryActions.UnregisterCallbacks(IInventoryActions)" />
-        public void SetCallbacks(IInventoryActions instance)
+        /// <seealso cref="InGameMenuActions.AddCallbacks(IInGameMenuActions)" />
+        /// <seealso cref="InGameMenuActions.RemoveCallbacks(IInGameMenuActions)" />
+        /// <seealso cref="InGameMenuActions.UnregisterCallbacks(IInGameMenuActions)" />
+        public void SetCallbacks(IInGameMenuActions instance)
         {
-            foreach (var item in m_Wrapper.m_InventoryActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_InGameMenuActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_InventoryActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_InGameMenuActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="InventoryActions" /> instance referencing this action map.
+    /// Provides a new <see cref="InGameMenuActions" /> instance referencing this action map.
     /// </summary>
-    public InventoryActions @Inventory => new InventoryActions(this);
+    public InGameMenuActions @InGameMenu => new InGameMenuActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1068,18 +1100,25 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnSwitchinventoryslot(InputAction.CallbackContext context);
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Inventory" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "InGameMenu" which allows adding and removing callbacks.
     /// </summary>
-    /// <seealso cref="InventoryActions.AddCallbacks(IInventoryActions)" />
-    /// <seealso cref="InventoryActions.RemoveCallbacks(IInventoryActions)" />
-    public interface IInventoryActions
+    /// <seealso cref="InGameMenuActions.AddCallbacks(IInGameMenuActions)" />
+    /// <seealso cref="InGameMenuActions.RemoveCallbacks(IInGameMenuActions)" />
+    public interface IInGameMenuActions
     {
         /// <summary>
-        /// Method invoked when associated input action "Open/Close" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "ToggleInventory" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnOpenClose(InputAction.CallbackContext context);
+        void OnToggleInventory(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TogglePause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTogglePause(InputAction.CallbackContext context);
     }
 }

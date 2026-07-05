@@ -58,7 +58,8 @@ public class WorldGenerator
 
             for (int x = 0; x < columns; x++)
             {
-                prevY = Mathf.Clamp(prevY + Random.Range(-amp, amp + 1), baseY - amp, baseY + amp);
+                int minClamp = Mathf.Max(worldDepth, baseY - amp);
+                prevY = Mathf.Clamp(prevY + Random.Range(-amp, amp + 1), minClamp, baseY + amp);
                 LayerBottoms[x, i] = prevY;
             }
         }
@@ -125,14 +126,36 @@ public class WorldGenerator
 
     private bool TrySpawnCluster(LayerDefinition layer, int layerIndex, DepositDefinition deposit, List<LayerDefinition> allLayers)
     {
-        int startX = Random.Range(0, width - initX);
+        int columns = width - initX;
+        if (columns < 2) return false;
+
+        int startX = Random.Range(0, columns - 1);
         Vector2Int startPos = GetRandomPositionInLayer(startX, layerIndex, allLayers);
 
-        if (_blockedDepositCells.Contains(startPos)) return false;
-        if (GetCell(startPos.x, startPos.y).foreground != layer.baseBlock) return false;
+        Vector2Int c1 = startPos;
+        Vector2Int c2 = new Vector2Int(startPos.x + 1, startPos.y);
+        Vector2Int c3 = new Vector2Int(startPos.x, startPos.y + 1);
+        Vector2Int c4 = new Vector2Int(startPos.x + 1, startPos.y + 1);
 
-        List<Vector2Int> bgCluster = GenerateBackgroundCluster(startPos, deposit, layer, layerIndex, allLayers);
-        List<Vector2Int> fgCluster = GetForegroundCluster(bgCluster, deposit);
+        if (!IsCellValidForDeposit(c1, layer, layerIndex) ||
+            !IsCellValidForDeposit(c2, layer, layerIndex) ||
+            !IsCellValidForDeposit(c3, layer, layerIndex) ||
+            !IsCellValidForDeposit(c4, layer, layerIndex))
+        {
+            return false;
+        }
+
+        List<Vector2Int> bgCluster = new List<Vector2Int> { c1, c2, c3, c4 };
+        List<Vector2Int> fgCluster = new List<Vector2Int>();
+
+        int pairChoice = Random.Range(0, 4);
+        switch (pairChoice)
+        {
+            case 0: fgCluster.Add(c1); fgCluster.Add(c2); break;
+            case 1: fgCluster.Add(c3); fgCluster.Add(c4); break;
+            case 2: fgCluster.Add(c1); fgCluster.Add(c3); break;
+            case 3: fgCluster.Add(c2); fgCluster.Add(c4); break;
+        }
 
         ApplyClusterToGrid(bgCluster, fgCluster, deposit);
         return true;
@@ -147,35 +170,11 @@ public class WorldGenerator
         else if (layerIndex > 0 && LayerBottoms[x, layerIndex - 1] - 1 < topY) topY = LayerBottoms[x, layerIndex - 1] - 1;
 
         if (topY < bottomY) topY = bottomY;
-        int y = Random.Range(bottomY, topY + 1);
+        int y = Random.Range(bottomY, topY);
         return new Vector2Int(x, y);
     }
 
-    private List<Vector2Int> GenerateBackgroundCluster(Vector2Int startPos, DepositDefinition deposit, LayerDefinition layer, int layerIndex, List<LayerDefinition> allLayers)
-    {
-        int targetSize = Random.Range(deposit.minBackgroundSize, deposit.maxBackgroundSize + 1);
-        List<Vector2Int> cluster = new List<Vector2Int> { startPos };
-        int safetyCounter = 0;
-
-        while (cluster.Count < targetSize && safetyCounter < 50)
-        {
-            safetyCounter++;
-            Vector2Int baseCell = cluster[Random.Range(0, cluster.Count)];
-            Vector2Int nextCell = GetRandomNeighbor(baseCell);
-
-            if (IsValidClusterCell(nextCell, layer, layerIndex, cluster, allLayers))
-                cluster.Add(nextCell);
-        }
-        return cluster;
-    }
-
-    private Vector2Int GetRandomNeighbor(Vector2Int cell)
-    {
-        Vector2Int[] directions = { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right };
-        return cell + directions[Random.Range(0, 4)];
-    }
-
-    private bool IsValidClusterCell(Vector2Int cell, LayerDefinition layer, int layerIndex, List<Vector2Int> cluster, List<LayerDefinition> allLayers)
+    private bool IsCellValidForDeposit(Vector2Int cell, LayerDefinition layer, int layerIndex)
     {
         int yIndex = cell.y - worldDepth;
         if (cell.x < 0 || cell.x >= width - initX || yIndex < 0 || yIndex >= Grid.GetLength(1))
@@ -188,28 +187,9 @@ public class WorldGenerator
         else if (layerIndex > 0 && LayerBottoms[cell.x, layerIndex - 1] - 1 < topY) topY = LayerBottoms[cell.x, layerIndex - 1] - 1;
 
         if (cell.y < bottomY || cell.y > topY) return false;
-        if (cluster.Contains(cell)) return false;
-
         if (_blockedDepositCells.Contains(cell)) return false;
 
         return GetCell(cell.x, cell.y).foreground == layer.baseBlock;
-    }
-
-    private List<Vector2Int> GetForegroundCluster(List<Vector2Int> bgCluster, DepositDefinition deposit)
-    {
-        int targetSize = Mathf.Min(Random.Range(deposit.minForegroundSize, deposit.maxForegroundSize + 1), bgCluster.Count);
-        List<Vector2Int> fgCluster = new List<Vector2Int>();
-
-        for (int i = 0; i < bgCluster.Count; i++)
-        {
-            int randIdx = Random.Range(i, bgCluster.Count);
-            (bgCluster[i], bgCluster[randIdx]) = (bgCluster[randIdx], bgCluster[i]);
-        }
-
-        for (int i = 0; i < targetSize; i++)
-            fgCluster.Add(bgCluster[i]);
-
-        return fgCluster;
     }
 
     private void ApplyClusterToGrid(List<Vector2Int> bgCluster, List<Vector2Int> fgCluster, DepositDefinition deposit)

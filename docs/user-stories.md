@@ -8,8 +8,8 @@
 | US-018 | Drill Upgrading | Must Have | [#82](https://github.com/coolcamilla/Team32/issues/82#issue-4686109671) | Active | Done | [Sprint 2](https://github.com/coolcamilla/Team32/milestone/2) |
 | US-019 | Layer Transition | Must Have | [#83](https://github.com/coolcamilla/Team32/issues/83#issue-4686121313) | Active | To Do | — |
 | US-001 | Saving | Should Have | [#65](https://github.com/coolcamilla/Team32/issues/65#issue-4677570033) | Active | To Do | — |
-| US-006 | Burrow depth | Should Have | [#68](https://github.com/coolcamilla/Team32/issues/68#issue-4680898477) | Active | To Do | — |
-| US-020 | Deposit Discovery | Should Have | [#84](https://github.com/coolcamilla/Team32/issues/84#issue-4686156183) | Active | To Do | — |
+| US-006 | Burrow depth | Should Have | [#68](https://github.com/coolcamilla/Team32/issues/68#issue-4680898477) | Active | Done | [Sprint 3](https://github.com/coolcamilla/Team32/milestone/3) |
+| US-020 | Deposit Discovery | Should Have | [#84](https://github.com/coolcamilla/Team32/issues/84#issue-4686156183) | Active | Done | [Sprint 3](https://github.com/coolcamilla/Team32/milestone/3) |
 | US-021 | Mining Station Placement | Should Have | [#85](https://github.com/coolcamilla/Team32/issues/85#issue-4686173309) | Active | To Do | — |
 | US-005 | Keys Remapping | Could Have | [#67](https://github.com/coolcamilla/Team32/issues/67#issue-4680887617) | Active | To Do | — |
 | US-012 | Mole Upgrades | Could Have | [#73](https://github.com/coolcamilla/Team32/issues/73#issue-4681133577) | Active | To Do | — |
