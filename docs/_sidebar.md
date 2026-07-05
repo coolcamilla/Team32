@@ -9,7 +9,7 @@
 
 - **Quality & Testing**
   - [Testing Status](testing.md)
-  - [Coverage Report](CodeCoverageReport.htm)
+  - [Coverage Report](CodeCoverageReport/index.htm ':ignore')
   - [Quality Requirements](quality-requirements.md)
   - [Quality Requirement Tests](quality-requirement-tests.md)
   - [User Acceptance Tests](user-acceptance-tests.md)
@@ -19,6 +19,6 @@
   - [ADR-001: Unity as the Game Engine](architecture/adr/ADR-001-unity-as-the-game-engine.md)
   - [ADR-002: Singleton Access for Player State](architecture/adr/ADR-002-singleton-access-for-cross-cutting-player-state.md)
   - [ADR-003: Separate Logic from MonoBehaviour Wrappers](architecture/adr/ADR-003-separate-logic-classes-from-monobehaviour-wrappers.md)
-  - [Component Diagram](architecture/static-view/component-diagram.svg)
-  - [Dig-Pickup Sequence Diagram](architecture/dynamic-view/dig-pickup-sequence.svg)
-  - [Deployment Diagram](architecture/deployment-view/deployment-diagram.svg)
+  - [Component Diagram](architecture/static-view/component-diagram.svg ':ignore')
+  - [Dig-Pickup Sequence Diagram](architecture/dynamic-view/dig-pickup-sequence.svg ':ignore')
+  - [Deployment Diagram](architecture/deployment-view/deployment-diagram.svg ':ignore')
