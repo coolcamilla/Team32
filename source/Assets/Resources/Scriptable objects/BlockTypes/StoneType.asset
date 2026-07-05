@@ -15,6 +15,7 @@ MonoBehaviour:
   _blockName: Stone
   _maxHp: 10
   _minDamage: 5
+  type: 3
   _dropTable:
   - _material: 302
     _chance: 0.8

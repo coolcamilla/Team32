@@ -1,10 +1,10 @@
 # Definition of Done
 
-A User Story is one type of Product Backlog Item (PBI), not a separate category that merely "consists of" PBIs. Every User Story must therefore satisfy the same baseline Definition of Done as any other PBI (**Section 1**).  
+A User Story is one type of Product Backlog Item (PBI), not a separate category that merely "consists of" PBIs. Every User Story must therefore satisfy the same baseline Definition of Done as any other PBI (**Section 1**).
 
-Some User Stories are simple enough to be implemented directly against their own linked PR/MR, exactly like any other PBI — Section 1 alone applies to these. Other User Stories are too large or too cross-cutting to implement directly and are instead decomposed into separate linked supporting PBIs (implementation, design, testing, deployment, etc.). For these **complex User Stories**, the additional requirements in **Section 2** apply on top of Section 1.  
+Some User Stories are simple enough to be implemented directly against their own linked PR/MR, exactly like any other PBI - Section 1 alone applies to these. Other User Stories are too large or too cross-cutting to implement directly and are instead decomposed into separate linked supporting PBIs (implementation, design, testing, deployment, etc.). For these **complex User Stories**, the additional requirements in **Section 2** apply on top of Section 1.
 
-A PBI (including a User Story) may be marked `Done` only when its issue-specific acceptance criteria and every applicable criterion below are satisfied.  
+A PBI (including a User Story) may be marked `Done` only when its issue-specific acceptance criteria and every applicable criterion below are satisfied.
 
 ## Work Status Reference
 
@@ -27,6 +27,7 @@ This section applies to every PBI: user stories, bugs, technical work, infrastru
 - [ ] All relevant automated Quality Requirement Tests (QRTs) pass, or are explicitly documented in the PR/MR as not applicable.
 - [ ] Critical modules meet the minimum automated line coverage threshold (currently **30%** per Assignment 4 requirements).
 - [ ] Relevant quality requirements are satisfied or explicitly documented as not applicable.
+- [ ] Relevant architecture documentation (`docs/architecture/README.md`, the static/dynamic/deployment views, and any affected ADRs) is satisfied or explicitly documented in the PR/MR as not applicable.
 - [ ] Testing performed (automated and/or manual, as applicable) is documented in the relevant PR/MR description(s).
 - [ ] Any relevant PR/MR is submitted from a branch named `<issue-number>-short-description` and is merged into the protected default branch using a merge commit (no squash or rebase).
 - [ ] If the change is user-visible, `CHANGELOG.md` has been updated with an issue-linked entry under `[Unreleased]`; otherwise the PR/MR changelog checklist is marked "Not applicable."
@@ -34,19 +35,19 @@ This section applies to every PBI: user stories, bugs, technical work, infrastru
 - [ ] Verification evidence (issue, PR/MR description, review comments, approval, CI results, coverage reports, QRT results, and merge commit) is preserved in the normal workflow artifacts and is not deleted.
 - [ ] The issue is closed and linked to its implementation evidence.
 
-A non-complex User Story (one implemented directly, without separate supporting PBIs) is `Done` once it satisfies Section 1 in full. A complex User Story must also satisfy Section 2.  
+A non-complex User Story (one implemented directly, without separate supporting PBIs) is `Done` once it satisfies Section 1 in full. A complex User Story must also satisfy Section 2.
 
-## Section 2 — Additional Requirements for Complex User Stories
+## Section 2 - Additional Requirements for Complex User Stories
 
-Apply this section only to User Stories that needed one or more separately linked supporting PBIs to satisfy their acceptance criteria. A User Story issue is never used as the container for implementation subtasks, and it does not require its own dedicated implementation PR/MR — its evidence comes from its supporting PBIs.
+Apply this section only to User Stories that needed one or more separately linked supporting PBIs to satisfy their acceptance criteria. A User Story issue is never used as the container for implementation subtasks, and it does not require its own dedicated implementation PR/MR - its evidence comes from its supporting PBIs.
 
 - [ ] Every linked supporting PBI required to satisfy the User Story's acceptance criteria is itself `Done` per Section 1 (reviewed, merged, and verified).
 - [ ] Together, those supporting PBIs provide the implementation, review, and verification evidence required by the story's acceptance criteria.
 - [ ] The implemented behavior has been manually verified end-to-end in Unity (Editor Play Mode or a build) and matches the story's acceptance criteria.
 - [ ] The implemented behavior satisfies all linked Quality Requirements and passes relevant automated QRTs.
 - [ ] No regressions are introduced to previously working functionality.
-- [ ] The User Story issue is closed and linked to all of its supporting PBIs.  
-  
+- [ ] The User Story issue is closed and linked to all of its supporting PBIs.
+
 ## Evidence Preservation
 
 The following must remain visible in the normal repository workflow artifacts and must not be deleted before the relevant assignment has been graded:

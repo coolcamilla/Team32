@@ -30,7 +30,8 @@ public static class TypeToItemData
         foreach(ItemType type in Enum.GetValues(typeof(ItemType)))
         {
             if ((int) type < 100) continue;
-            Item newItem = Resources.Load<Item>($"Scriptable objects/Items/{type.ToString()}");
+            Item newItem = Resources.Load<Item>($"Scriptable objects/Items/Resources/{type.ToString()}");
+            if (newItem == null) newItem = Resources.Load<Item>($"Scriptable objects/Items/Instruments/{type.ToString()}");
             if (newItem == null) Debug.LogWarning($"Unable to load {type.ToString()}");
             else _converter.Add(type, newItem);
         }
