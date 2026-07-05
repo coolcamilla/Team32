@@ -14,11 +14,11 @@
 
 ## Artifacts Demonstrated
 
-- Playable Windows/Linux build ([MVP v2](https://github.com/coolcamilla/Team32/releases/tag/v0.3.0))
+- Playable Windows/Linux build ([MVP v2](../../releases/Windows/MVP_v0.3.0_Windows.zip))
 - [Sprint 3 backlog](https://github.com/users/coolcamilla/projects/2/views/6)
 - Static view ([component diagram](../../docs/architecture/static-view/component-diagram.svg))
-- Dynamic view ([sequence diagram](../../docs/architecture/static-view/sequence-diagram.svg))
-- Deployment view ([deployment diagram](../../docs/architecture/static-view/sequence-diagram.svg))
+- Dynamic view ([sequence diagram](../../docs/architecture/dynamic-view/dig-pickup-sequence.svg))
+- Deployment view ([deployment diagram](../../docs/architecture/deployment-view/deployment-diagram.svg))
 - [Arhitecture Desicions](../../docs/architecture/README.md#architecture-decisions)
 
 ## Sprint Goal Reviewed
@@ -55,8 +55,8 @@ Address customer feedback by simplifying the inventory and crafting flow and int
 Presented architecture documentation:
 
 - **Static view ([component diagram](../../docs/architecture/static-view/component-diagram.svg)):** Shows all major Unity scripts, their dependencies, and interactions.
-- **Dynamic view ([sequence diagram](../../docs/architecture/static-view/sequence-diagram.svg)):** Documents the digging flow - what gets checked and calculated when the player digs. Customer asked why digging was chosen as the scenario; team explained it is the most fundamental mechanic the game is built around.
-- **Deployment view ([deployment diagram](../../docs/architecture/static-view/sequence-diagram.svg)):** Shows the development machine -> CI pipeline -> player download path. Customer acknowledged it as straightforward for this type of product.
+- **Dynamic view ([sequence diagram](../../docs/architecture/dynamic-view/dig-pickup-sequence.svg)):** Documents the digging flow - what gets checked and calculated when the player digs. Customer asked why digging was chosen as the scenario; team explained it is the most fundamental mechanic the game is built around.
+- **Deployment view ([deployment diagram](../../docs/architecture/deployment-view/deployment-diagram.svg)):** Shows the development machine -> CI pipeline -> player download path. Customer acknowledged it as straightforward for this type of product.
 - **ADRs presented:**
     - [ADR-001](../../docs/architecture/adr/ADR-001-unity-as-the-game-engine.md): Unity chosen as the game engine
     - [ADR-002](../../docs/architecture/adr/ADR-002-singleton-access-for-cross-cutting-player-state.md): Singletons used without MonoBehaviour to enable testing and debugging
