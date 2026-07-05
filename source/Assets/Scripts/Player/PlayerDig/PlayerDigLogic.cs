@@ -8,8 +8,6 @@ public class PlayerDigLogic
     private float _horizontalDirection;
     private float _verticalDirection;
     private float _timer;
-    private PlayerManager _playerManager;
-
     public float HorizontalDirection => _horizontalDirection;
     public float VerticalDirection => _verticalDirection;
 
@@ -29,7 +27,6 @@ public class PlayerDigLogic
         _horizontalDirection = 0;
         _verticalDirection = 0;
         _timer = 0;
-        _playerManager = PlayerManager.Instance;
     }
 
     public void UpdateTimer(float deltaTime)
@@ -47,9 +44,9 @@ public class PlayerDigLogic
         _verticalDirection = Math.Clamp(direction, -1f, 1f);
     }
 
-    public bool BlockHit(GameObject objectHit)
+    public bool BlockHit(GameObject objectHit, Item equippedItem)
     {
-        if (_timer >= _playerManager.EquippedItem.Cooldown && objectHit != null && objectHit.CompareTag("Block"))
+        if (_timer >= equippedItem.Cooldown && objectHit != null && objectHit.CompareTag("Block"))
         {
             _timer = 0;
             return true;

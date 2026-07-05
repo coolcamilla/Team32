@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerManager))]
 
 public class PlayerDig : MonoBehaviour
 {
@@ -21,9 +22,9 @@ public class PlayerDig : MonoBehaviour
     private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
-        _playerManager = PlayerManager.Instance;
+        _playerManager = GetComponent<PlayerManager>();
 
-        _input = new PlayerInput();
+        _input = _playerManager.Input;
         _input.Player.Look.performed += ChangeVerticalDirection;
         _input.Player.Look.canceled += ResetVerticalDirection;
         _input.Player.Dig.performed += TryDig;
@@ -48,6 +49,7 @@ public class PlayerDig : MonoBehaviour
 
     public void ChangeHorizontalDirection(float direction)
     {
+        if (direction == 0) return;
         _logic.ChangeHorizontalDirection(direction);
     }
     private void ChangeVerticalDirection(InputAction.CallbackContext context)
@@ -61,10 +63,12 @@ public class PlayerDig : MonoBehaviour
     }
     private void TryDig(InputAction.CallbackContext context)
     {
+        if (_playerMovement.IsClimbing) return;
+
         OnAnyDig?.Invoke();
         GameObject objectHit = GetObjectOnDigDirection();
 
-        if (_logic.BlockHit(objectHit))
+        if (_logic.BlockHit(objectHit, _playerManager.EquippedItem))
         {
             objectHit.GetComponent<BlockBehaviour>().TryTakeDamage(_playerManager.EquippedItem);
         }

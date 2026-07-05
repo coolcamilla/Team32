@@ -9,12 +9,14 @@ public class CraftRecipe : ScriptableObject
     [SerializeField] private string _description = "Description";
     [SerializeField] private Sprite _sprite;
     [SerializeField] private List<MaterialAndQuantity> _materials;
+    [SerializeField] private ItemType _requiredItem;
 
     #region Getters
     public string Name => _name;
     public string Description => _description;
     public Sprite GetSprite => _sprite;
     public List<MaterialAndQuantity> Materials => _materials;
+    public ItemType RequiredItem => _requiredItem;
 
     #endregion
 

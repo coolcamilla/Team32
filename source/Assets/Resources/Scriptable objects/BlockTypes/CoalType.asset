@@ -15,9 +15,12 @@ MonoBehaviour:
   _blockName: Coal
   _maxHp: 10
   _minDamage: 5
+  type: 5
   _dropTable:
-  - _material: 303
-    _chance: 1
+  - _material: 307
+    _chance: 0.9
+  - _material: 307
+    _chance: 0.5
   possibleSprites:
   - {fileID: -4616598773014292954, guid: a446536390608654581037e309c118f4, type: 3}
   randomSprite: 0

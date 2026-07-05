@@ -90,6 +90,5 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
 
         transform.SetParent(_parentAfterDrag);
         _image.raycastTarget = true;
-        _inventoryManager.RefreshChosenSlot();
     }
 }
