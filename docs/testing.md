@@ -9,9 +9,9 @@ Critical modules are defined as source files responsible for core gameplay workf
 
 | Critical module | Why critical | Required line coverage | Current line coverage | Evidence |
 | --- | --- | --- | --- | --- |
-| [`InventoryManager.cs`](../source/Assets/Scripts/Game%20management/Level/InventoryManager/InventoryManager.cs) | Core inventory logic - adding, spending, and stacking items. Used by every gameplay system. | 30% | **96%** | [Coverage report](../CodeCoverageReport/index.htm) |
-| [`CraftManager.cs`](../source/Assets/Scripts/Game%20management/Level/CraftManager/CraftManager.cs) | Crafting business rules - validates recipes, deducts materials, adds crafted items. | 30% | **100%** | [Coverage report](../CodeCoverageReport/index.htm) |
-| [`GridGenerator.cs`](../source/Assets/Scripts/Game%20management/Level/GridGenerator.cs) | World generation - spawns all blocks on scene load. Failure breaks the entire game. | 30% | **88.8%** | [Coverage report](../CodeCoverageReport/index.htm) |
+| [`InventoryManager.cs`](../source/Assets/Scripts/Game%20management/Level/InventoryManager/InventoryManager.cs) | Core inventory logic - adding, spending, and stacking items. Used by every gameplay system. | 30% | **96%** | [Coverage report](../docs/CodeCoverageReport.htm) |
+| [`CraftManager.cs`](../source/Assets/Scripts/Game%20management/Level/CraftManager/CraftManager.cs) | Crafting business rules - validates recipes, deducts materials, adds crafted items. | 30% | **100%** | [Coverage report](../docs/CodeCoverageReport.htm) |
+| [`GridGenerator.cs`](../source/Assets/Scripts/Game%20management/Level/GridGenerator.cs) | World generation - spawns all blocks on scene load. Failure breaks the entire game. | 30% | **88.8%** | [Coverage report](../docs/CodeCoverageReport.htm) |
 
 All three critical modules clear the 30% threshold individually, with substantial margin.
 
@@ -84,7 +84,7 @@ See [`docs/quality-requirement-tests.md`](quality-requirement-tests.md) for full
 | Linting (included in Roslyn NetAnalyzers) | Yes | Passing | [CI run](https://github.com/coolcamilla/Team32/actions/runs/28713657500) |
 | EditMode unit tests | Yes | Passing (52/52) | [CI run](https://github.com/coolcamilla/Team32/actions/runs/28713657497) |
 | PlayMode integration + QRT tests | Yes | Passing (27/27) | [CI run](https://github.com/coolcamilla/Team32/actions/runs/28713657497) |
-| Line coverage reporting | Yes | Generated | [Coverage report](../CodeCoverageReport/index.htm) |
+| Line coverage reporting | Yes | Generated | [Coverage report](../docs/CodeCoverageReport.htm) |
 | Lychee link checking | Yes | Passing | [CI run](https://github.com/coolcamilla/Team32/actions/runs/28713657485) |
 
 ## Additional QA Check Rationale
