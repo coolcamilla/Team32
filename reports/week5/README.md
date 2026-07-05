@@ -46,6 +46,12 @@ Is a 2D PC game where the player character is a mole. The mole tries to reach Ea
 - New animations integrated into Unity
 - Music and sound effects are written for the main menu and surface layer
 
+**Testing and Documentation**
+- Static, Dynamic, Deployment views created
+- Development process artifact maintained
+- New Unit and Integration tests introduced
+- Two new user acceptance tests introduced
+
 ### Link to product access artifact
 
 Go to the [`releases`](https://github.com/coolcamilla/Team32/tree/main/releases) folder and download `MVP_v0.3.0.zip` appropriate to your OS  
@@ -96,32 +102,42 @@ Find explanations in [customer feedback response table](#customer-feedback-respo
 
 ### Links view artifacts
 
-static, dynamic, and deployment 
-TODO
+[Static view](../../docs/architecture/static-view/component-diagram.puml)  
+[Dynamic view](../../docs/architecture/dynamic-view/dig-pickup-sequence.puml)  
+[Deployment view](../../docs/architecture/deployment-view/deployment-diagram.puml)    
+Rendered [static](../../docs/architecture/static-view/component-diagram.svg), [dynamic](../../docs/architecture/dynamic-view/dig-pickup-sequence.svg) and [deployment](../../docs/architecture/deployment-view/deployment-diagram.svg) views are also available
 
-### Link to the ADR directory/index
-
-TODO
+### [ADR directory](../../docs/architecture/adr)
 
 ### Summary of the architecture and how it supports the current product
 
-TODO
+Operation: EarthCore runs entirely inside the Unity Editor/Player runtime with no backend, database, or external API. Each subsystem (Player, Blocks/World, Items, Inventory, Crafting) follows the same pattern: a thin `MonoBehaviour` wrapper handles Unity-specific concerns while a plain C# Logic class holds the actual game rules with no `UnityEngine` dependency ([ADR-003](../../docs/architecture/adr/ADR-003-separate-logic-classes-from-monobehaviour-wrappers.md)). This is what makes most of the codebase's business logic - damage calculation, inventory stacking, crafting validation, stamina drain - unit-testable without loading a scene.  
+
+This Sprint's key changes were replacing `PauseManager` with `InGameMenuManager` (now handling both pausing and inventory toggling), extending the Logic/MonoBehaviour split to `PlayerMovement` and `PlayerManager` for the first time, and rewriting `GridGenerator` to delegate terrain generation to a new `WorldGenerator` class. The full static, dynamic, and deployment views are maintained in [docs/architecture/README.md](../../docs/architecture/README.md).  
+
+The summary is also available in [docs/architecture/README.md](../../docs/architecture/README.md)
 
 ### Short explanation of how quality requirements are linked to the architecture decisions.
 
-TODO
+Each ADR is tied to the quality requirement it exists to support: [ADR-001](../../docs/architecture/adr/ADR-001-unity-as-the-game-engine.md) (Unity as the engine) supports [**QR-001**](../../docs/quality-requirements.md#qr-001-grid-generation-performance) (time behaviour), since the engine's instantiation pipeline bounds `GridGenerator`'s spawn time. [ADR-003](../../docs/architecture/adr/ADR-003-separate-logic-classes-from-monobehaviour-wrappers.md) (Logic/MonoBehaviour split) supports [**QR-002**](../../docs/quality-requirements.md#qr-002-block-initialization-fault-tolerance) (fault tolerance), since it's what makes [QRT-002's](../../docs/quality-requirement-tests.md#qrt-002) null-data test possible without a fully wired scene. [ADR-002](../../docs/architecture/adr/ADR-002-singleton-access-for-cross-cutting-player-state.md) (singleton access) supports [**QR-003**](../../docs/quality-requirements.md#qr-003-initial-game-state-operability) (operability), reducing "forgot to wire a reference" bugs at the cost of implicit coupling.  
+
+This linkage is bidirectional: [`docs/quality-requirements.md`](../../docs/quality-requirements.md) lists a "Linked ADRs" field on each QR, and each ADR's "Quality Requirements Addressed" section links back.
 
 ### Testing and CI status summary for the delivered increment.
 
-TODO
+The Sprint 5 increment is covered by **79 automated tests** (52 EditMode, 27 PlayMode), all passing on the latest protected-branch run - a full rewrite from Assignment 4's suite, made necessary by this Sprint's architecture changes. All three critical modules clear the 30% coverage threshold with margin: `InventoryManager` (96%), `CraftManager` (100%), `GridGenerator` (88.8%), and several new logic classes (`BlockBehaviourLogic`, `CraftLogic`, `StaminaLogic`, `PlayerManagerLogic`) reach 100%.  
+
+All three QRTs ([QRT-001](../../docs/quality-requirement-tests.md#qrt-001), [QRT-002](../../docs/quality-requirement-tests.md#qrt-002), [QRT-003](../../docs/quality-requirement-tests.md#qrt-003)) pass, and the full CI pipeline - Roslyn static analysis, EditMode/PlayMode tests, coverage reporting, and Lychee link checking - is green on `main` branch. See [`docs/testing.md`](../../docs/testing.md) for the complete breakdown.
 
 ### [CI pipeline](https://github.com/coolcamilla/Team32/actions)
+
+### [Latest protected-default-branch CI run](https://github.com/coolcamilla/Team32/actions/runs/28744132184)
 
 ### [SemVer](https://github.com/coolcamilla/Team32/releases/tag/v0.3.0) release mapped to MVP v2 (Sprint 3 Increment)
 
 ### [CHANGELOG](../../CHANGELOG.md)
 
-### [Video demonstration](https://drive.google.com/file/d/1CenKdFyAKNCJMqNtJe_Xj3u-rK2HiZqD/view?usp=sharing)
+### [Video demonstration](https://drive.google.com/file/d/1i5iP5m3bHiPQC8vKlMGDfqiPL2S68P4Z/view?usp=sharing)
 
 ### UAT results summary
 
@@ -163,11 +179,11 @@ Before session with the customer [UAT-002](../../docs/user-acceptance-tests.md#u
 - [Beer](https://github.com/coolcamilla/Team32/issues/206)
 - [Make Discovered Block Temporary](https://github.com/coolcamilla/Team32/issues/207)
 
-### Link to the hosted documentation site
+### [Hosted documentation site](https://coolcamilla.github.io/Team32/)
 
-TODO
+### [Sprint review transcript](sprint-review-transcript.md)
 
-### [Customer review summary](customer-review-summary.md)
+### [Sprint review summary](sprint-review-summary.md)
 
 ### [Week 5 reflection](reflection.md)
 
@@ -177,7 +193,7 @@ TODO
 
 ### Summary of the current product status
 
-The game is a playable Windows and Linux build delivering the core "collect → craft → progress" loop across the surface layer. The mole can explore underground, collect resources, craft tools at the workbench, and fuel and upgrade the drill. Sprint 3 improved immersion through reworked climbing mechanic, stamina, limited visibility, depth tracking, simplified inventory and crafting flow based on customer feedback. The codebase is covered by unit, integration, and QRT tests with a CI pipeline enforcing quality gates on every PR. Architecture documentation and ADRs are in place and reflect the current system structure.
+The game is a playable Windows and Linux build delivering the core "collect -> craft -> progress" loop across the surface layer. The mole can explore underground, collect resources, craft tools at the workbench, and fuel and upgrade the drill. Sprint 3 improved immersion through reworked climbing mechanic, stamina, limited visibility, depth tracking, simplified inventory and crafting flow based on customer feedback. The codebase is covered by unit, integration, and QRT tests with a CI pipeline enforcing quality gates on every PR. Architecture documentation and ADRs are in place and reflect the current system structure.
 
 ### Summary of the next steps
 
@@ -193,18 +209,29 @@ Main implementation process was in Unity Version Control, that is why we merged 
 | **Pro100Vorona** | [#84](https://github.com/coolcamilla/Team32/issues/84) [#167](https://github.com/coolcamilla/Team32/issues/167) [#171](https://github.com/coolcamilla/Team32/issues/171) [#185](https://github.com/coolcamilla/Team32/issues/185) | [#196](https://github.com/coolcamilla/Team32/pull/196) | [#197](https://github.com/coolcamilla/Team32/pull/197) | | [Add new features and reworked existing ones](https://github.com/coolcamilla/Team32/pull/196/changes/a3c23334193d92c5a94d007a560308365edb9c90) | | Maintain [`CHANGELOG.md`](https://github.com/coolcamilla/Team32/pull/196/changes/e10a6ebbd8e39b4bcf0f411d3af87224575fd369) |
 | **Lilia-Shagidullina** | [#148](https://github.com/coolcamilla/Team32/issues/148) [#183](https://github.com/coolcamilla/Team32/issues/183) [#184](https://github.com/coolcamilla/Team32/issues/184) [#186](https://github.com/coolcamilla/Team32/issues/186) | [#195](https://github.com/coolcamilla/Team32/pull/195) | [#198](https://github.com/coolcamilla/Team32/pull/198) | | [Draw new sprites and create animations](https://github.com/coolcamilla/Team32/pull/195/changes/26161f7c18c95b705ab8699ec2a932b85fc9d88e) | | |
 | **MarikSH** | [#86](https://github.com/coolcamilla/Team32/issues/86) | [#198](https://github.com/coolcamilla/Team32/pull/198) | [#195](https://github.com/coolcamilla/Team32/pull/195) | | [Write music and find sounds](https://github.com/coolcamilla/Team32/pull/198/changes/9b02da6728f8318a2ff2fbfb14730bab730e9ad9) | | |
-| **coolcamilla** | [#187](https://github.com/coolcamilla/Team32/issues/187) [#188](https://github.com/coolcamilla/Team32/issues/188) [#190](https://github.com/coolcamilla/Team32/issues/190) [#194](https://github.com/coolcamilla/Team32/issues/194) | [#199](https://github.com/coolcamilla/Team32/pull/199) [#208](https://github.com/coolcamilla/Team32/pull/208) [#209](https://github.com/coolcamilla/Team32/pull/209) [#211](https://github.com/coolcamilla/Team32/pull/211) | | | | | Maintain `roadmap.md`, [`user-stories.md`](https://github.com/coolcamilla/Team32/pull/208/commits), [`user-acceptance-tests.md`](https://github.com/coolcamilla/Team32/pull/209/commits), [`CHANGELOG.md`], root [`README.md`] |
-| **SunrisEe41** | [#189](https://github.com/coolcamilla/Team32/issues/189) [#191](https://github.com/coolcamilla/Team32/issues/191) [#192](https://github.com/coolcamilla/Team32/issues/192) [#193](https://github.com/coolcamilla/Team32/issues/193) | [#202](https://github.com/coolcamilla/Team32/pull/202) [#210](https://github.com/coolcamilla/Team32/pull/210) [#212](https://github.com/coolcamilla/Team32/pull/212) [#213](https://github.com/coolcamilla/Team32/pull/213) [#214](https://github.com/coolcamilla/Team32/pull/214) | | [Add and refine unit and integration tests](https://github.com/coolcamilla/Team32/pull/214/changes/6fc0f070d781bce3d4ac46f5166e8c3242020e8d) (79 tests in total) | | Automated new unit and integration tests in the GitHub Actions CI | Maintain [`docs/architecture/`](https://github.com/coolcamilla/Team32/pull/213/commits), [`development-process.md`](https://github.com/coolcamilla/Team32/pull/212/changes/dd87466964e7105e561957be29f866766c460a8c#diff-cfbe23e5f12cbf4607b519dc0bae7e747c744e89b0eb96a71b61b56527ca5fd8), [`testing.md`](https://github.com/coolcamilla/Team32/pull/214/changes/6fc0f070d781bce3d4ac46f5166e8c3242020e8d#diff-c22885d97fa21ad974a3f5f982d92b6f45edc251fd34bc14223492ebd7391245), [`quality-requirements.md`](https://github.com/coolcamilla/Team32/pull/214/changes/6fc0f070d781bce3d4ac46f5166e8c3242020e8d#diff-820cd8103e0c548e536479be74968460001999806c48211192b79b8e55a2cde1), [`quality-requirement-tests.md`](https://github.com/coolcamilla/Team32/pull/214/changes/6fc0f070d781bce3d4ac46f5166e8c3242020e8d#diff-fd32d580fe79e66c6c8e54c5d6c4b19fe9591576bc379bb103440e621e7de6f2), [`definition-of-done.md`](https://github.com/coolcamilla/Team32/pull/212/changes/dd87466964e7105e561957be29f866766c460a8c#diff-4fdcf56163138ede83504624a6daec4e69731ca7603b769e89bcb8525729e355), root [`README.md`](https://github.com/coolcamilla/Team32/pull/212/changes/dd87466964e7105e561957be29f866766c460a8c#diff-b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5) |
+| **coolcamilla** | [#187](https://github.com/coolcamilla/Team32/issues/187) [#188](https://github.com/coolcamilla/Team32/issues/188) [#190](https://github.com/coolcamilla/Team32/issues/190) [#194](https://github.com/coolcamilla/Team32/issues/194) | [#199](https://github.com/coolcamilla/Team32/pull/199) [#208](https://github.com/coolcamilla/Team32/pull/208) [#209](https://github.com/coolcamilla/Team32/pull/209) [#211](https://github.com/coolcamilla/Team32/pull/211) [#215](https://github.com/coolcamilla/Team32/pull/215) [#220](https://github.com/coolcamilla/Team32/pull/220) [#221](https://github.com/coolcamilla/Team32/pull/221) | [#202](https://github.com/coolcamilla/Team32/pull/202) [#210](https://github.com/coolcamilla/Team32/pull/210) [#212](https://github.com/coolcamilla/Team32/pull/212) [#213](https://github.com/coolcamilla/Team32/pull/213) [#214](https://github.com/coolcamilla/Team32/pull/214) [#216](https://github.com/coolcamilla/Team32/pull/216) [#217](https://github.com/coolcamilla/Team32/pull/217) [#218](https://github.com/coolcamilla/Team32/pull/218) [#219](https://github.com/coolcamilla/Team32/pull/219) | | Create v0.3.0 release  | | Maintain [`roadmap.md`](https://github.com/coolcamilla/Team32/pull/215/commits), [`user-stories.md`](https://github.com/coolcamilla/Team32/pull/208/commits), [`user-acceptance-tests.md`](https://github.com/coolcamilla/Team32/pull/209/commits), [`CHANGELOG.md`](https://github.com/coolcamilla/Team32/pull/220/changes/934ac3635ba2cb202aaa6e8a363792b02228c728), root [`README.md`](https://github.com/coolcamilla/Team32/pull/220/changes/0145f50caac03a4764eb30c0b54802f00d54fb9b) |
+| **SunrisEe41** | [#189](https://github.com/coolcamilla/Team32/issues/189) [#191](https://github.com/coolcamilla/Team32/issues/191) [#192](https://github.com/coolcamilla/Team32/issues/192) [#193](https://github.com/coolcamilla/Team32/issues/193) | [#202](https://github.com/coolcamilla/Team32/pull/202) [#210](https://github.com/coolcamilla/Team32/pull/210) [#212](https://github.com/coolcamilla/Team32/pull/212) [#213](https://github.com/coolcamilla/Team32/pull/213) [#214](https://github.com/coolcamilla/Team32/pull/214) [#216](https://github.com/coolcamilla/Team32/pull/216) [#217](https://github.com/coolcamilla/Team32/pull/217) [#218](https://github.com/coolcamilla/Team32/pull/218) [#219](https://github.com/coolcamilla/Team32/pull/219) | [#199](https://github.com/coolcamilla/Team32/pull/199) [#208](https://github.com/coolcamilla/Team32/pull/208) [#209](https://github.com/coolcamilla/Team32/pull/209) [#211](https://github.com/coolcamilla/Team32/pull/211) [#215](https://github.com/coolcamilla/Team32/pull/215) [#220](https://github.com/coolcamilla/Team32/pull/220) [#221](https://github.com/coolcamilla/Team32/pull/221) | [Add and refine unit and integration tests](https://github.com/coolcamilla/Team32/pull/214/changes/6fc0f070d781bce3d4ac46f5166e8c3242020e8d) (79 tests in total) | | Automated new unit and integration tests in the GitHub Actions CI | Maintain [`docs/architecture/`](https://github.com/coolcamilla/Team32/pull/213/commits), [`development-process.md`](https://github.com/coolcamilla/Team32/pull/212/changes/dd87466964e7105e561957be29f866766c460a8c#diff-cfbe23e5f12cbf4607b519dc0bae7e747c744e89b0eb96a71b61b56527ca5fd8), [`testing.md`](https://github.com/coolcamilla/Team32/pull/214/changes/6fc0f070d781bce3d4ac46f5166e8c3242020e8d#diff-c22885d97fa21ad974a3f5f982d92b6f45edc251fd34bc14223492ebd7391245), [`quality-requirements.md`](https://github.com/coolcamilla/Team32/pull/214/changes/6fc0f070d781bce3d4ac46f5166e8c3242020e8d#diff-820cd8103e0c548e536479be74968460001999806c48211192b79b8e55a2cde1), [`quality-requirement-tests.md`](https://github.com/coolcamilla/Team32/pull/214/changes/6fc0f070d781bce3d4ac46f5166e8c3242020e8d#diff-fd32d580fe79e66c6c8e54c5d6c4b19fe9591576bc379bb103440e621e7de6f2), [`definition-of-done.md`](https://github.com/coolcamilla/Team32/pull/212/changes/dd87466964e7105e561957be29f866766c460a8c#diff-4fdcf56163138ede83504624a6daec4e69731ca7603b769e89bcb8525729e355), root [`README.md`](https://github.com/coolcamilla/Team32/pull/212/changes/dd87466964e7105e561957be29f866766c460a8c#diff-b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5); Set up documentation website hosting([#217](https://github.com/coolcamilla/Team32/pull/217/changes/4f106c466b41f49fcc7d8bc45eac03fa495788c6), [#218](https://github.com/coolcamilla/Team32/pull/218/commits) [#219](https://github.com/coolcamilla/Team32/pull/219/changes/b46be31ed6521d0f7a1a410dd2c9be0372e234fd) ) |
 
 Empty cells means that team member did not work on this area
 
 ### Screenshots
 
-TODO
-
-Sprint milestone
-Board or project workflow view
-Latest protected-default-branch CI run
-SemVer release
-Example reviewed issue-linked PR or MR
-Hosted docs site
+- Sprint milestone
+![alt](images/sprint_milestone_1.png)
+![alt](images/sprint_milestone_2.png)
+- Project workflow view
+![alt](images/sprint_backlog_view.png)
+- Latest protected-default-branch CI run
+![alt](images/CI_run_1.png)
+![alt](images/CI_run_2.png)
+- SemVer release
+![alt](images/release_1.png)
+![alt](images/release_2.png)
+- Example reviewed issue-linked PR  
+![alt](images/pr_reviewed_1.png)
+![alt](images/pr_reviewed_2.png)
+![alt](images/pr_reviewed_3.png)
+![alt](images/pr_reviewed_4.png)
+![alt](images/pr_reviewed_5.png)
+- Hosted docs site
+![alt](images/documentation_site.png)
