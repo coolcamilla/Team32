@@ -154,8 +154,11 @@ MVP v2 as a playable build released for Windows and Linux, in which:
 - New sprites added for the stone layer blocks, resources, tools, deposits, workbench, and drill sign
 
 Non user-visible outcomes:
-- Refactored `TODO`
-- Automated unit, integration and quality requirement tests for `TODO`
+- Refactored tests, PauseManager, PlayerMovement, PlayerManager and GridGenerator
+- Added automated unit and integration tests for the Stamina Logic, Stamina Behaviour, In Game Menu Manager
+- Updated the testing documentation to reflect changes
+- Added architecture documentation, static, dynamic and deployment views, ADRs
+- Added development-process.md as the maintained artifact for the development and version control practices
 
 # Sprint 4
 
