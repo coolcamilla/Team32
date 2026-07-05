@@ -13,10 +13,15 @@ For Windows
  3. Run `TheMoleProject2D.exe` to start the game
 
 For Linux
- 1. Extract files `unzip MVP_v0.2.0.zip` (instead of `MVP_v0.2.0` write filename of the build archive you want)
+ 1. Extract files `unzip MVP_v0.3.0.zip` (instead of `MVP_v0.3.0` write filename of the build archive you want)
  2. Make executable: `chmod +x LinuxBuild.x86_64`
  3. Run `./LinuxBuild.x86_64` to start the game
 
 _Note_: Folders and runnable files names may differ
 
 ## [Development Process & Configuration Management](docs/development-process.md)
+
+## [Documentation site](https://coolcamilla.github.io/Team32/)
+
+## License
+This project is licensed under the [MIT License](LICENSE)
