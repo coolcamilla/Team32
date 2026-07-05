@@ -9,7 +9,7 @@
 
 - **Quality & Testing**
   - [Testing Status](testing.md)
-  - [Coverage Report](CodeCoverageReport/index.htm ':ignore')
+  - [Coverage Report](CodeCoverageReport.htm ':ignore')
   - [Quality Requirements](quality-requirements.md)
   - [Quality Requirement Tests](quality-requirement-tests.md)
   - [User Acceptance Tests](user-acceptance-tests.md)
