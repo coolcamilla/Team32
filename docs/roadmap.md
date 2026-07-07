@@ -12,7 +12,7 @@ Deliver a 2D mining exploration game where the player character is a mole. The m
 
 ## Current Direction
 
-The current sprint focuses acting on customer feedback by simplifying the UI and introducing immersive mechanics. Other one priority is strengthening technical foundations through architecture documentation and configuration management. Future sprint will introduce mole upgrades, keys remapping and a save system.
+The current sprint delivers new gameplay mechanics (layer transition, mining stations, death mechanic, and coins), responds to customer UI feedback, and prepares customer-facing handover documentation ahead of the final course delivery. The next sprint will use customer trial feedback to produce the final release, MVP v3, and will introduce mole upgrades, key remapping, and a save system.
 
 ---
 
@@ -174,7 +174,7 @@ Sunday, July 12, 2026
 
 ### Goal  
 
-`TODO`
+Deliver a stable trial release for Windows and Linux which finalizes gameplay with new mechanics and addresses customer UI feedback, and prepare customer-facing handover documentation to demonstrate transition readiness.
 
 ### Planned items
 
@@ -202,11 +202,25 @@ Sunday, July 12, 2026
 
 ### Outcome
 
-Released playable build for Windows and Linux, in which:
-- `TODO`
+Trial release as a playable build for Windows and Linux, in which:
+`TODO`
+- The drill triggers a layer transition when it reaches the stone layer, drops the resources required to craft the stone pickaxe, and updates the drill UI background to reflect the new layer
+- Mining stations can be built on deposits; each station autonomously extracts resources into the mole's inventory
+- The mole dies when stamina runs out, losing all resources and respawning at the drill on the surface
+- Coins drop from blocks during digging and are displayed as a separate counter in the UI; the beer vending machine on the surface permanently increases maximum stamina for 5 coins
+- The tool information panel in the crafting menu now appears on mouse hover rather than on click
+- Block destruction now shows progressive crack animation and emits particles and a hit sound effect on every strike
+- New sprites added for mining stations, coins, beer vending machine, UI buttons, and icons
+- Hit sound effects added for dirt and stone blocks
+- Edge glow artifact between block sprites is fixed
 
 Non user-visible outcomes:
-- `TODO`
+`TODO`
+- Drill UI redesigned based on customer feedback and approved mockup
+- `README.md` updated as the main public entry point with links to all maintained documentation
+- `CONTRIBUTING.md` and `AGENTS.md` created with contributor and agent guidance
+- `docs/customer-handover.md` created describing the current handover state of the product
+- Testing suite and documentation updated to reflect Sprint 4 changes
 
 # Sprint 5
 
