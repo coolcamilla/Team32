@@ -6,13 +6,13 @@ Deliver a 2D mining exploration game where the player character is a mole. The m
 
 ## Current Status
 
-**Completed Sprints:** Sprint 1, Sprint 2  
-**Current Sprint:** Sprint 3  
-**Next Sprint:** Sprint 4  
+**Completed Sprints:** Sprint 1, Sprint 2, Sprint 3  
+**Current Sprint:** Sprint 4  
+**Next Sprint:** Sprint 5  
 
 ## Current Direction
 
-The current sprint focuses acting on customer feedback by simplifying the UI and introducing immersive mechanics. Other one priority is strengthening technical foundations through architecture documentation and configuration management. Future sprints will introduce layer transitions, mining stations, mole upgrades, an overheating mechanic, and a save system to complete the core gameplay loop.
+The current sprint focuses acting on customer feedback by simplifying the UI and introducing immersive mechanics. Other one priority is strengthening technical foundations through architecture documentation and configuration management. Future sprint will introduce mole upgrades, keys remapping and a save system.
 
 ---
 
@@ -162,7 +162,55 @@ Non user-visible outcomes:
 
 # Sprint 4
 
-This sprint will introduce stone layer, layer transitions, mining stations, limited visibility and overheating mechanics.
+### [Milestone](https://github.com/coolcamilla/Team32/milestone/4)  
+
+### Start
+
+Moday, July 6, 2026  
+
+### End
+
+Sunday, July 12, 2026  
+
+### Goal  
+
+`TODO`
+
+### Planned items
+
+- [US-019: Layer Transition](https://github.com/coolcamilla/Team32/issues/83)
+- [US-021: Mining Stations Placement](https://github.com/coolcamilla/Team32/issues/85)
+  - [Construction of Stations](https://github.com/coolcamilla/Team32/issues/139)
+  - [Resource Extraction](https://github.com/coolcamilla/Team32/issues/145)
+- [Coins and Beer](https://github.com/coolcamilla/Team32/issues/206)
+- [Death Mechanic](https://github.com/coolcamilla/Team32/issues/153)
+- [Update Drill UI](https://github.com/coolcamilla/Team32/issues/203)
+- [Block Destruction](https://github.com/coolcamilla/Team32/issues/225)
+- [Mouse-based Navigation in Crafting UI](https://github.com/coolcamilla/Team32/issues/201)
+- [Edge Glow Artifact](https://github.com/coolcamilla/Team32/issues/227)
+- [Construction Sprites](https://github.com/coolcamilla/Team32/issues/140)
+- [Draw Coin and Vending Machine](https://github.com/coolcamilla/Team32/issues/222)
+- [Draw UI Buttons and Icons](https://github.com/coolcamilla/Team32/issues/223)
+- [Hit Sounds](https://github.com/coolcamilla/Team32/issues/226)
+- [Define New Drill UI](https://github.com/coolcamilla/Team32/issues/224)
+- [Update the Testing Suite and Documentation Week 6](https://github.com/coolcamilla/Team32/issues/233)
+- [Maintain Roadmap and User Stories for Sprint 4](https://github.com/coolcamilla/Team32/issues/228)
+- [Update and Execute UATs for trial release](https://github.com/coolcamilla/Team32/issues/229)
+- [Create Trial Release](https://github.com/coolcamilla/Team32/issues/230)
+- [Update Root README, create AGENTS, CONTRIBUTING](https://github.com/coolcamilla/Team32/issues/231)
+- [Maintain Customer Handover Documentation](https://github.com/coolcamilla/Team32/issues/232)
+
+### Outcome
+
+Released playable build for Windows and Linux, in which:
+- `TODO`
+
+Non user-visible outcomes:
+- `TODO`
+
+# Sprint 5
+
+This sprint will introduce mole's upgrades, keys remapping, saving system and cometic improvements of the game.
 
 ---
 
