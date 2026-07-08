@@ -205,6 +205,7 @@ Deliver a stable trial release for Windows and Linux which finalizes gameplay wi
 Trial release as a playable build for Windows and Linux, in which:
 `TODO`
 - The drill triggers a layer transition when it reaches the stone layer, drops the resources required to craft the stone pickaxe, and updates the drill UI background to reflect the new layer
+- Drill UI was updated to be more intuitive and user-friendly
 - Mining stations can be built on deposits; each station autonomously extracts resources into the mole's inventory
 - The mole dies when stamina runs out, losing all resources and respawning at the drill on the surface
 - Coins drop from blocks during digging and are displayed as a separate counter in the UI; the beer vending machine on the surface permanently increases maximum stamina for 5 coins
