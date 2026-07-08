@@ -224,7 +224,11 @@ Non user-visible outcomes:
 
 # Sprint 5
 
-This sprint will introduce mole's upgrades, keys remapping, saving system and cometic improvements of the game.
+This sprint will introduce MVP v3 which includes mole's upgrades, keys remapping, saving system and cometic improvements of the game.
+
+# State reached by the end of the course
+
+`TODO` in the end of the Sprint 5
 
 ---
 
