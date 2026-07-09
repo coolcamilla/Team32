@@ -10,7 +10,7 @@
 | US-001 | Saving | Should Have | [#65](https://github.com/coolcamilla/Team32/issues/65#issue-4677570033) | Active | To Do | — |
 | US-006 | Burrow depth | Should Have | [#68](https://github.com/coolcamilla/Team32/issues/68#issue-4680898477) | Active | Done | [Sprint 3](https://github.com/coolcamilla/Team32/milestone/3) |
 | US-020 | Deposit Discovery | Should Have | [#84](https://github.com/coolcamilla/Team32/issues/84#issue-4686156183) | Active | Done | [Sprint 3](https://github.com/coolcamilla/Team32/milestone/3) |
-| US-021 | Mining Station Placement | Should Have | [#85](https://github.com/coolcamilla/Team32/issues/85#issue-4686173309) | Active | To Do | [Sprint 4](https://github.com/coolcamilla/Team32/milestone/4) |
+| US-021 | Mining Station Placement | Should Have | [#85](https://github.com/coolcamilla/Team32/issues/85#issue-4686173309) | Active | In progress | [Sprint 4](https://github.com/coolcamilla/Team32/milestone/4) |
 | US-005 | Keys Remapping | Could Have | [#67](https://github.com/coolcamilla/Team32/issues/67#issue-4680887617) | Active | To Do | — |
 | US-012 | Mole Upgrades | Could Have | [#73](https://github.com/coolcamilla/Team32/issues/73#issue-4681133577) | Active | To Do | — |
 | US-002 | Digging | — | — | Removed | — | — |
