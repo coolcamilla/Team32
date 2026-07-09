@@ -141,13 +141,13 @@ _Not executed._
 3. The stone shovel recipe is displayed with required resources, description and the `Craft` button
 4. Nothing happens (the button is disabled, no resources are removed, no tool is crafted)
 5. The wooden shovel recipe is displayed with required resources, description and the `Craft` button
-6. 10 sticks are removed from the inventory, the wooden shovel appears in the euipment hotbar
+6. 10 sticks are removed from the inventory, the wooden shovel appears in the equipment hotbar
 7. The crafting menu closes
 8. Collected resources are added to the inventory
 9. Hint "Press F to open craft menu" is highlighted
 10. The crafting menu opens
 11. The stone shovel recipe is displayed with required resources, description and the `Craft` button
-12. 5 sticks and 5 stones are removed from the inventory, the stone shovel replaces the wooden shovel in the euipment hotbar
+12. 5 sticks and 5 stones are removed from the inventory, the stone shovel replaces the wooden shovel in the equipment hotbar
 
 ### Execution History
 
@@ -273,11 +273,7 @@ _Not executed._
 
 #### Sprint 4 - 2026-07-10
 
-**Execution results:** `TODO`
-
-**Customer comments:** `TODO`
-
-**Resulting PBIs:** `TODO`
+_Not executed._
 
 ## UAT-006: Stamina Depletion and Recovery
 
@@ -443,7 +439,7 @@ _Not executed._
 5. The drill UI background changes to reflect the stone layer
 6. The crafting menu opens and shows stone pickaxe in the chain
 7. The wooden shovel recipe is displayed with required resources, description and the `Craft` button
-8. `TBD` sticks and `TBD` stones are removed from the inventory, the stone pickaxe replaces the stone shovel in the euipment hotbar
+8. `TBD` sticks and `TBD` stones are removed from the inventory, the stone pickaxe replaces the stone shovel in the equipment hotbar
 9. Rock block is destroyed
 
 ### Execution History
@@ -533,6 +529,6 @@ Before session with the customer [UAT-002](#uat-002-climbing-mode), [UAT-003](#u
 
 Before session with the customer [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), and [UAT-006](#uat-006-stamina-depletion-and-recovery) were updated to align with current implementation. [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) were created.
 
-[UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) were executed.  
+[UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) were executed.  
 `TODO` are passed.  
 `TODO` need product changes.
