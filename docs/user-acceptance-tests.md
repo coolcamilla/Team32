@@ -318,11 +318,11 @@ _Not executed._
 
 #### Sprint 4 - 2026-07-10
 
-**Execution results:** `TODO`
+**Execution results:** PASSED. The mole entered Climbing Mode correctly via C. Stamina depleted while moving and the mole died when stamina reached zero - the death screen appeared and the mole respawned near the drill with an empty inventory and full stamina, keeping the equipped tool. The beer vending machine correctly increased maximum stamina for 5 coins.
 
-**Execution results:** `TODO`
+**Execution results:** Reacted positively to the death mechanic. Noted that particles on block destruction already improve the game feel significantly. Suggested warning the player when stamina is running low before the mole dies.
 
-**Resulting PBIs:** `TODO`
+**Resulting PBIs:** [Stamina warning indicator](https://github.com/coolcamilla/Team32/issues/236)
 
 ## UAT-007: Jump Bug Fixes
 
@@ -396,11 +396,11 @@ _Not executed._
 
 #### Sprint 4 - 2026-07-10
 
-**Execution results:** `TODO`
+**Execution results:** PASSED. The clay deposit was visually distinguishable on the background layer. The hint appeared on approach and information panel opened via `F`. The BUILD button correctly placed the station and deducted the required resources. The station autonomously dropped clay near the deposit at the defined rate.
 
-**Execution results:** `TODO`
+**Execution results:** Reacted positively. "Noted that clay currently has no meaningful use beyond the station and suggested adding more upgrades that consume it.
 
-**Resulting PBIs:** `TODO`
+**Resulting PBIs:** [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237)
 
 ## UAT-009: Layer transition
 
@@ -443,11 +443,11 @@ _Not executed._
 
 #### Sprint 4 - 2026-07-10
 
-**Execution results:** `TODO`
+**Execution results:** PASSED. The stone shovel could not dig rock blocks. The drill dropped the correct resources upon reaching the stone layer. The drill UI background updated to reflect the new layer. The stone pickaxe was crafted successfully at the workbench and replaced the previous tool. Rock blocks were successfully destroyed with the stone pickaxe.
 
-**Execution results:** `TODO`
+**Execution results:** No functional objections. Noted that the drill currently takes too long to reach the stone layer without upgrades (approximately 7.5 minutes). Suggested rebalancing drill speed.
 
-**Resulting PBIs:** `TODO`
+**Resulting PBIs:** [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237)
 
 ---
 
@@ -527,5 +527,27 @@ Before session with the customer [UAT-002](#uat-002-climbing-mode), [UAT-003](#u
 Before session with the customer [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), and [UAT-006](#uat-006-stamina-depletion-and-recovery) were updated to align with current implementation. [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) were created.
 
 [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) were executed.  
-`TODO` are passed.  
-`TODO` need product changes.
+[UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition)  are passed.  
+No UATs require immediate product changes, but several balance and UX issues were identified.
+
+#### Need to be fixed
+
+- **Stamina warning indicator:** The player receives no warning before the mole dies from stamina depletion; a visual or audio warning should appear when stamina is critically low
+- **Drill progression speed:** Without upgrades, the drill takes approximately 7.5 minutes to reach the stone layer; the depth or drill speed should be rebalanced to make early progression feel less slow
+- **Clay resource utility:** Clay currently accumulates without meaningful use; additional drill upgrades or recipes consuming clay should be added
+
+#### Key Feedback Points
+
+- Add a stamina warning before the mole dies so players can react
+- Rebalance stamina so it depletes faster, making beer upgrades feel more necessary
+- Beer vending machine should show a visible capacity increase when purchased - consider using cells or segments for the stamina bar
+- Add a clear win condition - a screen or event when the mole reaches the bottom of the final layer
+- Deploy the game to itch.io as part of the final handover
+- Focus next Sprint on UI improvements, game balance, and visual polish rather than new mechanics
+
+#### Resulting PBIs
+
+- [Stamina warning indicator](https://github.com/coolcamilla/Team32/issues/236)
+- [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237)
+- [Start and End Cutscenes](https://github.com/coolcamilla/Team32/issues/238)
+- [Publish Game](https://github.com/coolcamilla/Team32/issues/239)
