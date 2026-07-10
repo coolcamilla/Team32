@@ -12,7 +12,7 @@ Deliver a 2D mining exploration game where the player character is a mole. The m
 
 ## Current Direction
 
-The current sprint delivers new gameplay mechanics (layer transition, mining stations, death mechanic, and coins), responds to customer UI feedback, and prepares customer-facing handover documentation ahead of the final course delivery. The next sprint will use customer trial feedback to produce the final release, MVP v3, and will introduce mole upgrades, key remapping, and a save system.
+The current sprint delivers new gameplay mechanics (layer transition, mining stations, death mechanic, and coins), responds to customer UI feedback, and prepares customer-facing handover documentation ahead of the final course delivery. The next sprint will use customer trial feedback to produce the final release, MVP v3, focusing on UI improvements and game balance rather than introducing new mechanics.
 
 ---
 
@@ -174,7 +174,7 @@ Sunday, July 12, 2026
 
 ### Goal  
 
-Deliver a stable trial release for Windows and Linux which finalizes gameplay with new mechanics and addresses customer UI feedback, and prepare customer-facing handover documentation to demonstrate transition readiness.
+Deliver a stable trial release for Windows and Linux which finalizes gameplay with new mechanics and addresses customer UI and game feel feedback, and prepare customer-facing handover documentation to demonstrate transition readiness.
 
 ### Planned items
 
@@ -201,7 +201,7 @@ Deliver a stable trial release for Windows and Linux which finalizes gameplay wi
 
 Trial release as a playable build for Windows and Linux, in which:
 - The drill triggers a layer transition when it reaches the stone layer, drops the resources required to craft the stone pickaxe, and updates the drill UI background to reflect the new layer
-- Mining stations can be built on deposits; each station autonomously extracts resources and drops them near itself
+- Mining stations can be built on deposits; each station autonomously extracts resources and drops them near the deposit
 - The mole dies when stamina runs out, losing all resources and respawning at the drill on the surface
 - Coins drop from blocks during digging and are displayed as a separate counter in the UI; the beer vending machine on the surface permanently increases maximum stamina for 5 coins
 - Block destruction now shows progressive crack animation and emits particles on every strike
@@ -217,7 +217,7 @@ Non user-visible outcomes:
 
 # Sprint 5
 
-This sprint will introduce MVP v3 which includes mole's upgrades, keys remapping, saving system and cometic improvements of the game.
+This sprint will introduce MVP v3 which foсuses on UI improvements, game balance and game publishing.
 
 # State reached by the end of the course
 
