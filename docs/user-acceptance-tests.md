@@ -303,7 +303,7 @@ _Not executed._
 4. The mole lands on the nearest physical block below it and stamina bar recovers
 5. The mole enters Climbing Mode
 6. Stamina descreases as mole moves. When stamina is zero, the mole dies: death screen appears for 10 seconds, then the mole respawns near the drill sign with full stamina and empty inventory
-7. Hint "Press F to drink beer and increase stamina" is highlighted
+7. Hint "Press F to become happier" is highlighted
 8. Stamina capacity is increased and 5 coins are deducted
 
 ### Execution History
