@@ -108,7 +108,33 @@ Find explanations in [customer feedback response table](#customer-feedback-respo
 
 ### UAT results summary
 
-`TODO`
+Before session with the customer [UAT-003](../../docs/user-acceptance-tests.md#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](../../docs/user-acceptance-tests.md#uat-005-refuel-and-upgrade-the-drill), and [UAT-006](../../docs/user-acceptance-tests.md#uat-006-stamina-depletion-and-recovery) were updated to align with current implementation. [UAT-008](../../docs/user-acceptance-tests.md#uat-008-mining-stations-construction-and-operation) and [UAT-009](../../docs/user-acceptance-tests.md#uat-009-layer-transition) were created.
+
+[UAT-006](../../docs/user-acceptance-tests.md#uat-006-stamina-depletion-and-recovery), [UAT-008](../../docs/user-acceptance-tests.md#uat-008-mining-stations-construction-and-operation) and [UAT-009](../../docs/user-acceptance-tests.md#uat-009-layer-transition) were executed.  
+[UAT-006](../../docs/user-acceptance-tests.md#uat-006-stamina-depletion-and-recovery), [UAT-008](../../docs/user-acceptance-tests.md#uat-008-mining-stations-construction-and-operation) and [UAT-009](../../docs/user-acceptance-tests.md#uat-009-layer-transition) are passed.  
+No UATs require immediate product changes, but several balance and UX issues were identified.
+
+#### Need to be fixed
+
+- **Stamina warning indicator:** The player receives no warning before the mole dies from stamina depletion; a visual or audio warning should appear when stamina is critically low
+- **Drill progression speed:** Without upgrades, the drill takes approximately 7.5 minutes to reach the stone layer; the depth or drill speed should be rebalanced to make early progression feel less slow
+- **Clay resource utility:** Clay currently accumulates without meaningful use; additional drill upgrades or recipes consuming clay should be added
+
+#### Key Feedback Points
+
+- Add a stamina warning before the mole dies so players can react
+- Rebalance stamina so it depletes faster, making beer upgrades feel more necessary
+- Beer vending machine should show a visible capacity increase when purchased - consider using cells or segments for the stamina bar
+- Add a clear win condition - a screen or event when the mole reaches the bottom of the final layer
+- Deploy the game to itch.io as part of the final handover
+- Focus next Sprint on UI improvements, game balance, and visual polish rather than new mechanics
+
+#### Resulting PBIs
+
+- [Stamina warning indicator](https://github.com/coolcamilla/Team32/issues/236)
+- [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237)
+- [Start and End Cutscenes](https://github.com/coolcamilla/Team32/issues/238)
+- [Publish Game](https://github.com/coolcamilla/Team32/issues/239)
 
 ### Customer-trial results
 
