@@ -13,7 +13,7 @@ public class Drill : ScriptableObject
 
     public void SetBasic()
     {
-        _name = "Basic drill";
+        _name = "Basic Drill";
         _speed = 0.1f;
     }
 }

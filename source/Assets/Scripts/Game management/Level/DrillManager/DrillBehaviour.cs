@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using UnityEngine.Tilemaps;
 
 public class DrillBehaviour : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class DrillBehaviour : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _depthCounter;
     [SerializeField] private TextMeshProUGUI _powerStatistics;
     [SerializeField] private TextMeshProUGUI _speedStatistics;
+    [SerializeField] private List<DrillLayer> _dropMapsQueueFields;
+    [SerializeField] private Tilemap _fgBlocks;
+    [SerializeField] private Tilemap _bgBlocks;
 
     [Header("Panels")]
     [SerializeField] private GameObject _engineCraftPanel;
@@ -26,12 +30,14 @@ public class DrillBehaviour : MonoBehaviour
 
     [SerializeField] private float _dropForceMultiplier = 10.0f;
 
+    private Queue<DrillLayer> _dropMapQueue;
     private InventoryManager _inventoryManager;
     private DrillLogic _logic;
-    private List<DropChance> _chances;
+    private DrillLayer _currentLayer;
     private System.Random _rand;
 
     private event UnityAction OnSecondPassed;
+    private event UnityAction OnLayerUpdate;
     
     private void Awake()
     {
@@ -43,13 +49,8 @@ public class DrillBehaviour : MonoBehaviour
         
         _rand = new System.Random();
 
-        _chances = new List<DropChance>();
-
-        _chances.Add(new DropChance(ItemType.Clay, 0.1f));
-        _chances.Add(new DropChance(ItemType.Pebbles, 0.15f));
-        _chances.Add(new DropChance(ItemType.Stick, 0.35f));
-        _chances.Add(new DropChance(ItemType.Seedling, 0.7f));
-
+        CreateQueue();
+        UpdateCurrentLayer();
         SyncStatistics();
     }
 
@@ -57,6 +58,7 @@ public class DrillBehaviour : MonoBehaviour
     {
         _logic.Tick(Time.deltaTime);
         TryProcessSecond();
+        TryUpdateLayer();
     }
 
     private void OnEnable()
@@ -66,6 +68,10 @@ public class DrillBehaviour : MonoBehaviour
         OnSecondPassed += TryDrop;
         OnSecondPassed += SyncVisuals;
         OnSecondPassed += SyncStatistics;
+
+        OnLayerUpdate += UpdateSprites;
+        OnLayerUpdate += UpdateParticles;
+        OnLayerUpdate += UpdateModifier;
     }
 
     private void OnDisable()
@@ -75,6 +81,25 @@ public class DrillBehaviour : MonoBehaviour
         OnSecondPassed -= TryDrop;
         OnSecondPassed -= SyncVisuals;
         OnSecondPassed -= SyncStatistics;
+
+        OnLayerUpdate -= UpdateSprites;
+        OnLayerUpdate -= UpdateParticles;
+        OnLayerUpdate -= UpdateModifier;
+    }
+
+    private void CreateQueue()
+    {
+        _dropMapQueue = new();
+        foreach(DrillLayer map in _dropMapsQueueFields)
+        {
+            _dropMapQueue.Enqueue(map);
+        }
+    }
+
+    private void UpdateCurrentLayer()
+    {
+        if (_dropMapQueue.Count > 0)
+            _currentLayer = _dropMapQueue.Dequeue();
     }
 
     public void SyncDepth()
@@ -89,11 +114,11 @@ public class DrillBehaviour : MonoBehaviour
 
     private void SyncVisuals()
     {
-        if (_logic.Energy >= _logic.Power || _logic.FuelCount > 0)
+        if (!_logic.IsStuck() && (_logic.Energy >= _logic.Power || _logic.FuelCount > 0))
         {
             _drillAnimator.SetBool("IsGotEnergy", true);
             _backgroundAnimator.SetBool("IsMoving", true);
-            _particleSystem.Play(true);
+            if (!_particleSystem.isPlaying)_particleSystem.Play(true);
         }
         else
         {
@@ -106,7 +131,7 @@ public class DrillBehaviour : MonoBehaviour
     private void SyncStatistics()
     {
         _powerStatistics.SetText($"{_logic.Power} W");
-        _speedStatistics.SetText($"{_logic.Speed * 60} m/min");
+        _speedStatistics.SetText($"{_logic.Speed * 60:F2} m/min");
     }
 
     public void TryAddFuel(Fuel fuel)
@@ -127,6 +152,9 @@ public class DrillBehaviour : MonoBehaviour
         if (_logic.TryProcessSecond())
         {
             OnSecondPassed?.Invoke();
+        } else
+        {
+            SyncVisuals();
         }
     }
 
@@ -140,7 +168,7 @@ public class DrillBehaviour : MonoBehaviour
 
     private void Drop()
     {
-        foreach(var dropChance in _chances)
+        foreach(var dropChance in _currentLayer.DropChances)
         {
             float randomNumber = _rand.Next(0, 100) / 100f;
             if (randomNumber < dropChance.Chance)
@@ -149,6 +177,56 @@ public class DrillBehaviour : MonoBehaviour
                 newGO.GetComponent<Rigidbody2D>().AddForce(new Vector2(_rand.Next(-1, 2), 1) * _dropForceMultiplier);
             }
         }
+    }
+
+    private bool TryUpdateLayer()
+    {
+        if (!_logic.IsLayeNeedToBeUpdated()) return false;
+        Debug.Log("Try true");
+
+        UpdateLayer();
+        return true;
+    }
+
+    private void UpdateLayer()
+    {
+        UpdateCurrentLayer();
+        _logic.MarkDistance = _currentLayer.DropFrequencyInMeters;
+        _logic.NewLayerDepth = 10000f;
+
+        OnLayerUpdate?.Invoke();
+    }
+
+    private void UpdateModifier()
+    {
+        _logic.LayerDurability = _currentLayer.DurabilityModifier;
+    }
+
+    private void UpdateSprites()
+    {
+        _bgBlocks.SwapTile(GetFirstActiveTile(_bgBlocks), _currentLayer.BackgroundTile);
+        _fgBlocks.SwapTile(GetFirstActiveTile(_fgBlocks), _currentLayer.ForegroundTile);
+    }
+
+    private TileBase GetFirstActiveTile(Tilemap tilemap)
+    {
+        BoundsInt bounds = tilemap.cellBounds;
+
+        foreach (Vector3Int pos in bounds.allPositionsWithin)
+        {
+            TileBase tile = tilemap.GetTile(pos);
+            if (tile != null)
+            {
+                return tile;
+            }
+        }
+        return null; 
+    }
+
+    private void UpdateParticles()
+    {
+        var mainSystem = _particleSystem.main;
+        mainSystem.startColor = Color.gray;
     }
 
     public void TryUpgradeEngine()

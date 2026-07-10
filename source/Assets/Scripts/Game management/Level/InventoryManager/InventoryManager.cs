@@ -57,6 +57,12 @@ public class InventoryManager : MonoBehaviour
     {
         _logic.MoveOrSwap(from, to);
     }
+
+    public void ClearResources()
+    {
+        _logic.ClearResources();
+    }
+
     private void SyncUI()
     {
         for (int i = 0; i < _inventoryUI.Length; i++)

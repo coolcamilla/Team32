@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("Climbing")]
     [SerializeField] private float climbSpeed = 5f;
-    [SerializeField] private float exhaustedSpeedMultiplier = 0.4f;
     [SerializeField] private float rotationSpeed = 90f;
     [SerializeField] private float maxClimbHeight = 12f;
 
@@ -28,6 +27,10 @@ public class PlayerMovement : MonoBehaviour
     private Collider2D _feetCollider;
     private SpriteRenderer _spriteRenderer;
 
+    private Vector3 _startPosition;
+    private bool _isDead = false;
+    public bool IsDead => _isDead;
+
     private event UnityAction<float> OnDirectionChange;
 
     public float Direction => _logic.IsClimbing ? 0 : _logic.HorizontalInput;
@@ -36,12 +39,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        _startPosition = transform.position;
+
         _logic = new PlayerMovementLogic
         {
             Speed = _speed,
             JumpForce = _jumpForce,
             ClimbSpeed = climbSpeed,
-            ExhaustedSpeedMultiplier = exhaustedSpeedMultiplier,
             RotationSpeed = rotationSpeed,
             BaseGravityScale = 1.5f
         };
@@ -72,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (_isDead) return;
+
         _logic.IsGrounded = _feetCollider.IsTouching(GetBelowColliderWithBoxCast());
         _logic.SetVerticalDirection(Input.GetAxisRaw("Vertical"));
 
@@ -84,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
         _rb.gravityScale = _logic.GetTargetGravityScale();
 
-        Vector2 targetVelocity = _logic.CalculateMovementVelocity(_stamina.Logic.IsExhausted);
+        Vector2 targetVelocity = _logic.CalculateMovementVelocity();
 
         if (_logic.IsClimbing)
         {
@@ -126,6 +132,24 @@ public class PlayerMovement : MonoBehaviour
         UpdateClimbToggle();
     }
 
+    public void HandleDeath()
+    {
+        _isDead = true;
+        _logic.SetHorizontalDirection(0);
+        _logic.SetVerticalDirection(0);
+        _logic.ForceStopClimbing();
+
+        _rb.linearVelocity = Vector2.zero;
+        _rb.gravityScale = 0;
+    }
+
+    public void Respawn()
+    {
+        transform.position = _startPosition;
+        _isDead = false;
+        _rb.gravityScale = 0;
+    }
+
     private void OnEnable()
     {
         _input.Enable();
@@ -149,6 +173,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMove(InputAction.CallbackContext context)
     {
+        if (_isDead) return;
         float dir  = context.action.ReadValue<float>();
         _logic.SetHorizontalDirection(dir);
         OnDirectionChange?.Invoke(dir);
@@ -156,6 +181,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
+        if (_isDead) return;
         if (_logic.CanJump())
         {
             _rb.AddForce(_logic.GetJumpForceVector());
@@ -164,6 +190,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void StopMovement(InputAction.CallbackContext context)
     {
+        if (_isDead) return;
         _logic.SetHorizontalDirection(0);
         if (!_logic.IsClimbing) OnDirectionChange?.Invoke(0);
     }

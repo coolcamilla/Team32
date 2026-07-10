@@ -15,4 +15,7 @@ public class DepositDefinition : ScriptableObject
 
     [Header("Generation Count")]
     public int depositsPerLayer = 3;
+
+    [Header("Mining Station")]
+    public StationRecipe stationRecipe;
 }
