@@ -6,6 +6,8 @@ using UnityEngine;
     None = 0,
     Test = 1,
 
+    Coin = 77,
+
     // INSTRUMENTS
     // Hotbar constraints:
     // 100 to 139 - primary

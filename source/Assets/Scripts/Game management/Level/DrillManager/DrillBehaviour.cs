@@ -182,7 +182,6 @@ public class DrillBehaviour : MonoBehaviour
     private bool TryUpdateLayer()
     {
         if (!_logic.IsLayeNeedToBeUpdated()) return false;
-        Debug.Log("Try true");
 
         UpdateLayer();
         return true;

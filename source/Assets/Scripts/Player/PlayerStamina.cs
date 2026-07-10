@@ -31,4 +31,9 @@ public class PlayerStamina : MonoBehaviour
     public void ModifyMaxStamina(float newMax) => Logic.MaxStamina = newMax;
 
     public void Respawn() => Logic.ResetStamina();
+
+    public void Upgrade()
+    {
+        ModifyMaxStamina(MaxStamina + 5);
+    }
 }

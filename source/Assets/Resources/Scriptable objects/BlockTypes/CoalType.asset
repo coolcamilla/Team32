@@ -16,11 +16,14 @@ MonoBehaviour:
   _maxHp: 10
   _minDamage: 5
   type: 5
+  _color: {r: 0, g: 0, b: 0, a: 1}
   _dropTable:
   - _material: 307
     _chance: 0.9
   - _material: 307
     _chance: 0.5
+  - _material: 77
+    _chance: 0.05
   possibleSprites:
   - {fileID: -4616598773014292954, guid: a446536390608654581037e309c118f4, type: 3}
   randomSprite: 0

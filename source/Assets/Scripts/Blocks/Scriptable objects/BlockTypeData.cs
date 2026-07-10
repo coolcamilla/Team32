@@ -12,6 +12,7 @@ public class BlockTypeData : ScriptableObject
     [SerializeField] private float _maxHp = 3;
     [SerializeField] private float _minDamage = 0;
     [SerializeField] private CellType type = CellType.Empty;
+    [SerializeField] private Color _color = Color.white;
 
     [Header("Drop")]
     [SerializeField] private List<DropChance> _dropTable = new();
@@ -19,6 +20,8 @@ public class BlockTypeData : ScriptableObject
     [Header("Visual variety")]
     public Sprite[] possibleSprites;
     public bool randomSprite = true;
+    [SerializeField] List<Sprite> _hittedSprites;
+    public int ChosenSprite;
 
     #region Getters
     public string Name => _blockName;
@@ -26,6 +29,8 @@ public class BlockTypeData : ScriptableObject
     public float MinDamage => _minDamage;
     public CellType Type => type;
     public List<DropChance> GetDropTable => _dropTable;
+    public Color Color => _color;
+    public List<Sprite> HittedSprites => _hittedSprites;
 
     #endregion
 
