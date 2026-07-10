@@ -82,19 +82,19 @@ Follow installation instructions from [v0.4.0 release](https://github.com/coolca
 | Unique movement mechanic for the mole | [#88](https://github.com/coolcamilla/Team32/issues/88) | Done in Sprint 2 | Added climbing mode to climb background walls |
 | No risk or pressure element | [#153](https://github.com/coolcamilla/Team32/issues/153) | Done | Added death mechanic: when mole's stamina runs out, death screen appears, all resources are removed from the inventory, and the mole respawn on the surface |
 | Missing surface-return loop | [#144](https://github.com/coolcamilla/Team32/issues/144) | Done in Sprint 2 | The player needs to climb to the surface to refuel and upgrade the drill |
-| Limited visibility mechanic for exploration | [#154](https://github.com/coolcamilla/Team32/issues/154) | Done | Added a lighting system so that only blocks within a 3-block radius of the mole are visible and distinguishable |
+| Limited visibility mechanic for exploration | [#154](https://github.com/coolcamilla/Team32/issues/154) | Done in Sprint 3 | Added a lighting system so that only blocks within a 3-block radius of the mole are visible and distinguishable |
 | Save system is missing | [#65](https://github.com/coolcamilla/Team32/issues/65)   | Not planned for this Sprint | Deferred because core gameplay was not implemented yet |
 | Corner-Grab Jump | [#170](https://github.com/coolcamilla/Team32/issues/170) | Not planned for this Sprint | Deferred because the team prioritize  more valuable mechanics |
 | Add Stamina  | [#167](https://github.com/coolcamilla/Team32/issues/167) | Done in Sprint 3 | Added stamina stat to the mole which limits its movement in the climbing mode |
 | Make climbing mode more intuitive | [#171](https://github.com/coolcamilla/Team32/issues/171) | Done in Sprint 3 | Created roation-based Climbing Mode, digging is prohibited |
 | Single-tool crafting workflow | [#172](https://github.com/coolcamilla/Team32/issues/172) | Done in Sprint 3 | Tools Crafting UI moved from inventory to workbench, and owning multiple tools simultaneously is prohibited |
 | Simplify inventory | [#174](https://github.com/coolcamilla/Team32/issues/174) | Done in Sprint 3 | Updated inventory to be purely visual without any interaction (such as drag-and-drop mechanic), made the hotbar equipment-only |
-| Simplify tool information panel opening | [#201](https://github.com/coolcamilla/Team32/issues/201) | Done | Tool information panels opens when hovering a mouse over the tool icon instead of clicking on it | 
-| Drill UI is overly complex | [#203](https://github.com/coolcamilla/Team32/issues/203) and [#224](https://github.com/coolcamilla/Team32/issues/224) | Done | Intuitive Drill UI was investigated via analog analysis and implemented |
+| Simplify tool information panel opening | [#201](https://github.com/coolcamilla/Team32/issues/201) | Not planned for this Sprint | Deferred because the team prioritize more valuable mechanics | 
+| Drill UI is overly complex | [#203](https://github.com/coolcamilla/Team32/issues/203) and [#224](https://github.com/coolcamilla/Team32/issues/224) | Partially Done | Intuitive Drill UI was investigated via analog analysis and presented to the customer. They approved mock-up |
 | Improve block destruction feel | [#205](https://github.com/coolcamilla/Team32/issues/205) | Done | Added sound effects, particles and animations |
 | Introduce beer as a stamina booster | [#206](https://github.com/coolcamilla/Team32/issues/206) | Done | Added beer vending machine which sells beer, beer increases maximum stamina |
-| Make discovered block temporary | [#207](https://github.com/coolcamilla/Team32/issues/207) | Not planned for this Sprint | Deferred because the team prioritize  more valuable mechanics |
-| Place drill in the center of the map | [#204](https://github.com/coolcamilla/Team32/issues/204) | Not planned for this Sprint | Deferred because not gameplay mechanics should be implemented first |
+| Make discovered block temporary | [#207](https://github.com/coolcamilla/Team32/issues/207) | Not planned for this Sprint | Deferred because the team prioritize more valuable mechanics |
+| Place drill in the center of the map | [#204](https://github.com/coolcamilla/Team32/issues/204) | Not planned for this Sprint | Deferred because core gameplay mechanics should be implemented first |
 
 ### Explanation of feedback not addressed
 
