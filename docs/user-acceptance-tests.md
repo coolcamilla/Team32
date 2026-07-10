@@ -118,7 +118,7 @@ _Not executed._
 - New game session started
 - Player does not have any tool yet
 - Player has collected enough resources for a wooden shovel (10 sticks)
-- Player has not collected enough resources for a stone pickaxe (10 sticks and 5 pebbels)
+- Player has not collected enough resources for a stone pickaxe (10 sticks and 5 pebbles)
 - Mole is near the workbench on the surface
 
 **Step-by-step instructions:**
@@ -129,14 +129,14 @@ _Not executed._
 5. Hover the mouse over wooden shovel icon
 6. Click the `Craft` button
 7. Press `F`
-8. Collect 5 sticks and 5 stones
+8. Collect 10 sticks and 5 pebbles
 9. Move the mole to the workbench
 10. Press `F`
 11. Hover the mouse over stone shovel icon
 12. Click the `Craft` button
 
 **Expected outcome:**
-1. Hint "Press F to open craft menu" is highlighted
+1. Hint `Press F to open craft menu` is highlighted
 2. The crafting menu opens
 3. The stone shovel recipe is displayed with required resources, description and the `Craft` button
 4. Nothing happens (the button is disabled, no resources are removed, no tool is crafted)
@@ -144,10 +144,10 @@ _Not executed._
 6. 10 sticks are removed from the inventory, the wooden shovel appears in the equipment hotbar
 7. The crafting menu closes
 8. Collected resources are added to the inventory
-9. Hint "Press F to open craft menu" is highlighted
+9. Hint `Press F to open craft menu` is highlighted
 10. The crafting menu opens
 11. The stone shovel recipe is displayed with required resources, description and the `Craft` button
-12. 5 sticks and 5 stones are removed from the inventory, the stone shovel replaces the wooden shovel in the equipment hotbar
+12. 10 sticks and 5 pebbles are removed from the inventory, the stone shovel replaces the wooden shovel in the equipment hotbar
 
 ### Execution History
 
@@ -229,7 +229,7 @@ _Not executed._
 
 - New game session started
 - The drill's fuel tank is empty
-- Player has sufficient at least 6 sticks and 5 pebbles
+- Player has sufficient at least 5 sticks and 5 pebbles
 
 **Step-by-step instructions:**
 
@@ -238,15 +238,15 @@ _Not executed._
 3. Check the current fuel level on the left
 4. Add one stick to the fuel tank
 5. Look to the right side and find one available upgrade (e.g., increased fuel capacity or faster digging speed)
-6. Click `Upgrade` button on the bottom of the upgrade panel
+6. Click `Upgrade` button on the bottom of the "Drill Drill" upgrade panel
 
 **Expected outcome:**
 
-1. Hint `Press F` is highlighted
+1. Hint `Press F to interact` is highlighted
 2. The drill UI is opened
 3. The fuel tank is empty, and the drill is not active
-4. Fuel tank now has a litle bit fuel and speed is 0.2 m/min and power is 5 W, drill is active
-5. Three information panels on the right demonstrate three improvement areas: Drill Engine, Boer Drill, Fuel Tank
+4. Fuel tank now has a litle bit fuel and speed is 0.40 m/min and power is 5 W, drill is active
+5. Three information panels on the right demonstrate three improvement areas: Drill Engine, Drill Drill, Fuel Tank
 6. The upgrade disappears from the upgrade table, and drill stats are updated
 
 ### Execution History
@@ -303,7 +303,7 @@ _Not executed._
 4. The mole lands on the nearest physical block below it and stamina bar recovers
 5. The mole enters Climbing Mode
 6. Stamina descreases as mole moves. When stamina is zero, the mole dies: death screen appears for 10 seconds, then the mole respawns near the drill sign with full stamina and empty inventory
-7. Hint "Press F to become happier" is highlighted
+7. Hint `Press F to become happier` is highlighted
 8. Stamina capacity is increased and 5 coins are deducted
 
 ### Execution History
@@ -376,7 +376,7 @@ _Not executed._
 
 **Preconditions:** 
 - New game session started
-- Player has enough resources to build a clay station (8 sticks and 5 pebbels)
+- Player has enough resources to build a clay station (8 sticks and 5 pebbles)
 
 **Step-by-step instructions:**
 1. Dig into the surface layer until you find clay deposit
@@ -387,9 +387,9 @@ _Not executed._
 
 **Expected outcome:**
 1. Clay deposit is distinguishable on background layer
-2. Hint "Press F to interact" appears
+2. Hint `Press F to interact` appears
 3. Information panel appears with station type, its recipe, extraction rate, and a `Build` button
-4. The station is placed on the deposit and the required resources (8 sticks and 5 pebbels) are deducted from the inventory
+4. The station is placed on the deposit and the required resources (8 sticks and 5 pebbles) are deducted from the inventory
 5. Clay is falling near station
 
 ### Execution History
@@ -419,14 +419,14 @@ _Not executed._
 
 **Step-by-step instructions:**
 1. Try to dig rock block with the stone shovel
-2. Fuel the drill and let it operate until it reaches the depth of 100 meters
+2. Fuel the drill and let it operate until it reaches the depth of 3 meters
 3. Observe the drill behavior at the moment of transition
 4. Walk through the dropped resources
 5. Open the drill UI
 6. Go to the workbench and press `F`
 7. Hover the mouse over stone pickaxe icon
 8. Click the `Craft` button
-9. Go to the stone layer and try to dig rock block with the stone shovel
+9. Go to the stone layer and try to dig rock block with the stone pickaxe
 
 **Expected outcome:**
 1. Rock block is not destroyed
@@ -435,7 +435,7 @@ _Not executed._
 4. The dropped resources are automatically collected into the inventory
 5. The drill UI background changes to reflect the stone layer
 6. The crafting menu opens and shows stone pickaxe in the chain
-7. The wooden shovel recipe is displayed with required resources, description and the `Craft` button
+7. The stone pickaxe recipe is displayed with required resources, description and the `Craft` button
 8. 5 sticks and 5 stones are removed from the inventory, the stone pickaxe replaces the stone shovel in the equipment hotbar
 9. Rock block is destroyed
 
