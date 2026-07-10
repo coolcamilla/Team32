@@ -184,10 +184,7 @@ Deliver a stable trial release for Windows and Linux which finalizes gameplay wi
   - [Resource Extraction](https://github.com/coolcamilla/Team32/issues/145)
 - [Coins and Beer](https://github.com/coolcamilla/Team32/issues/206)
 - [Death Mechanic](https://github.com/coolcamilla/Team32/issues/153)
-- [Update Drill UI](https://github.com/coolcamilla/Team32/issues/203)
 - [Block Destruction](https://github.com/coolcamilla/Team32/issues/225)
-- [Mouse-based Navigation in Crafting UI](https://github.com/coolcamilla/Team32/issues/201)
-- [Edge Glow Artifact](https://github.com/coolcamilla/Team32/issues/227)
 - [Construction Sprites](https://github.com/coolcamilla/Team32/issues/140)
 - [Draw Coin and Vending Machine](https://github.com/coolcamilla/Team32/issues/222)
 - [Draw UI Buttons and Icons](https://github.com/coolcamilla/Team32/issues/223)
@@ -203,17 +200,12 @@ Deliver a stable trial release for Windows and Linux which finalizes gameplay wi
 ### Outcome
 
 Trial release as a playable build for Windows and Linux, in which:
-`TODO`
 - The drill triggers a layer transition when it reaches the stone layer, drops the resources required to craft the stone pickaxe, and updates the drill UI background to reflect the new layer
-- Drill UI was updated to be more intuitive and user-friendly
-- Mining stations can be built on deposits; each station autonomously extracts resources into the mole's inventory
+- Mining stations can be built on deposits; each station autonomously extracts resources and drops them near itself
 - The mole dies when stamina runs out, losing all resources and respawning at the drill on the surface
 - Coins drop from blocks during digging and are displayed as a separate counter in the UI; the beer vending machine on the surface permanently increases maximum stamina for 5 coins
-- The tool information panel in the crafting menu now appears on mouse hover rather than on click
-- Block destruction now shows progressive crack animation and emits particles and a hit sound effect on every strike
-- New sprites added for mining stations, coins, beer vending machine, UI buttons, and icons
-- Hit sound effects added for dirt and stone blocks
-- Edge glow artifact between block sprites is fixed
+- Block destruction now shows progressive crack animation and emits particles on every strike
+- New sprites added for mining stations, coins, and beer vending machine.
 
 Non user-visible outcomes:
 `TODO`
