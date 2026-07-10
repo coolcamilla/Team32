@@ -54,7 +54,7 @@ public class BlockBehaviour : MonoBehaviour
     {
         OnDamage += PlayDamageAnimation;
         OnDamage += SpawnHitParticles;
-        if (_blockData.HittedSprites != null && _blockData.HittedSprites.Count > 0)
+        if (_blockData != null && _blockData.HittedSprites != null && _blockData.HittedSprites.Count > 0)
         {
             OnDamage += UpdateSprite;
         }
@@ -64,7 +64,7 @@ public class BlockBehaviour : MonoBehaviour
     {
         OnDamage -= PlayDamageAnimation;
         OnDamage -= SpawnHitParticles;
-        if (_blockData.HittedSprites != null && _blockData.HittedSprites.Count > 0)
+        if (_blockData != null && _blockData.HittedSprites != null && _blockData.HittedSprites.Count > 0)
         {
             OnDamage -= UpdateSprite;
         }
