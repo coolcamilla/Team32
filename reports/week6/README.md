@@ -16,44 +16,37 @@ Is a 2D PC game where the player character is a mole. The mole tries to reach Ea
 
 **End:** Sunday, July 12, 2026  
 
-**Scope**: `TODO`
-Gameplay improvements based on customer feedback: reworked Climbing Mode with stamina, limited underground visibility, depth tracking, simplified inventory and crafting flow. The Sprint also introduces audio, new art assets and animations, and strengthens the technical foundation through unit, integration, QRT tests, and architecture documentation.
+**Scope**: Sprint 4 completes the core gameplay loop through layer transition and mining stations, adds risk and player engagement mechanics (death on stamina depletion, coins, and a beer vending machine), and improves game feel with block destruction visual feedback. The Sprint also introduces customer-facing handover documentation, updated contributor and agent guidance.
 
 ### Total Sprint 4 size
 
-`TODO` Story Points
+36 Story Points
 
 ## Summary of delivered Trial Release Changes
 
-`TODO`
-
 **Gameplay**
-- Climbing Mode reworked: movement in climbing uses `W`/`S` for up/down and `A`/`D` for rotation
-- Stamina bar added: depletes while moving in Climbing Mode and recovers when the mole is in normal mode
-- Underground visibility limited to a 3-blocks radius around the mole, creating a sense of exploration and risk
-- The depth counter added in the top-left corner showing the mole's current depth in meters
-- Jump stacking bug fixed: repeated spacebar presses mid-jump no longer increase jump height
-- Pause menu jump bug fixed: spacebar presses while paused no longer accumulate and apply on resume
+- Layer transition implemented: when the drill reaches the stone layer, it drops the resources required to craft the stone pickaxe and the drill UI background updates to reflect the new layer
+- Mining stations added: when the mole discovers a deposit, a hint card appears with the station recipe and a BUILD button; once built, the station autonomously extracts resources and drops them near the deposit
+- Death mechanic added: when the mole's stamina runs out underground, a death screen displays "The mole is exhausted :("; after 10 seconds the mole respawns at the drill with an empty inventory but keeps its equipped tool
+- Coins added as a collectible currency: coins drop from blocks and are displayed as a separate counter in the UI
+- Beer vending machine added on the surface: spending 5 coins permanently increases the mole's maximum stamina
+- Block destruction feedback improved: particles fly out, cracks appear and become more prominent as the block loses HP
 
-**Inventory and Crafting**
-- Crafting moved from the inventory to a dedicated workbench on the surface, accessible by pressing `F`
-- The mole now holds a single tool at a time; crafting a new tool replaces the previous one
-- Hotbar moved to the bottom of the screen and now displays equipment only (tool, upgrades)
-- Resource inventory opened in the center of the screen by pressing `E`
-- Stack size increased to 99
-- Digit key slot selection in horbar removed
+**Art**
+- Mining station sprites added for dirt and stone layer deposit types
+- Coin and beer vending machine sprites added
+- UI button and icon sprites added (Start, Exit, Resume, Main Menu, backpack, pause)
 
-**Art and Audio**
-- Climbing animation added for all directions via rotation
-- Workbench and Drill sign sprites added
-- New animations integrated into Unity
-- Music and sound effects are written for the main menu and surface layer
+**Audio**
+- Hit sound effects selected for dirt and stone blocks
 
-**Testing and Documentation**
-- Static, Dynamic, Deployment views created
-- Development process artifact maintained
-- New Unit and Integration tests introduced
-- Two new user acceptance tests introduced
+**Documentation and Handover**
+- `README.md` updated as the main public entry point with links to all maintained documentation
+- `CONTRIBUTING.md` created with contributor guidance
+- `AGENTS.md` created with agent guidance and safety constraints
+- `docs/customer-handover.md` created describing the current handover state of the product
+- Roadmap and user story index updated to reflect Sprint 4 scope
+- UAT scenarios updated and two new scenarios added for trial release
 
 ### Link to product access artifact
 
@@ -137,9 +130,7 @@ Find explanations in [customer feedback response table](#customer-feedback-respo
 
 ### Summary of the current product status
 
-`TODO`
-
-The game is a playable Windows and Linux build delivering the core "collect -> craft -> progress" loop across the surface layer. The mole can explore underground, collect resources, craft tools at the workbench, and fuel and upgrade the drill. Sprint 3 improved immersion through reworked climbing mechanic, stamina, limited visibility, depth tracking, simplified inventory and crafting flow based on customer feedback. The codebase is covered by unit, integration, and QRT tests with a CI pipeline enforcing quality gates on every PR. Architecture documentation and ADRs are in place and reflect the current system structure.
+The game is a playable Windows and Linux build delivering the complete core gameplay loop across two layers (surface and stone). The mole can explore underground, collect resources, craft tools at the workbench, build mining stations, fuel and upgrade the drill, and progress to the stone layer once the drill breaks through. Sprint 4 completed the core loop through layer transition and mining stations, added risk mechanics (death on stamina depletion, coins, and a beer vending machine), and improved game feel with block destruction visual feedback. Customer-facing handover documentation is in place, including `README.md`, `CONTRIBUTING.md`, `AGENTS.md`, and `docs/customer-handover.md`. The codebase is covered by unit, integration, and QRT tests with a CI pipeline enforcing quality gates on every PR.
 
 ### Week 7 follow-up work
 
