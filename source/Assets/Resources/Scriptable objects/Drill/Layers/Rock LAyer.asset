@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43990145a0bed2942a3a541055802407, type: 3}
+  m_Name: Rock Layer
+  m_EditorClassIdentifier: GameScripts::DrillLayer
+  _foreground: {fileID: 11400000, guid: 7138055f2aaca884bae8ee785439e486, type: 2}
+  _background: {fileID: 11400000, guid: c35d1cbe26488e441b964cc0528dece0, type: 2}
+  _dropChances:
+  - _material: 302
+    _chance: 0.9
+  - _material: 307
+    _chance: 0.5
+  - _material: 306
+    _chance: 0.12
+  - _material: 305
+    _chance: 0.07
+  _dropFrequencyInMeters: 0.05
+  _durabilityModifier: 1.05

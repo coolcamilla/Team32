@@ -21,10 +21,8 @@ MonoBehaviour:
     _chance: 0.4
   - _material: 301
     _chance: 0.2
-  - _material: 302
-    _chance: 0.2
   - _material: 304
-    _chance: 0.6
+    _chance: 0.4
   - _material: 303
     _chance: 0.1
   possibleSprites:

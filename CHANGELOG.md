@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased](https://github.com/coolcamilla/Team32/compare/v0.3.0...HEAD)
 
+### Added
+
+- [Mining station placement](https://github.com/coolcamilla/Team32/issues/139)
+- [Mining station autonomous operation](https://github.com/coolcamilla/Team32/issues/145)
+- [Death mechanic](https://github.com/coolcamilla/Team32/issues/153)
+
 ## [0.3.0](https://github.com/coolcamilla/Team32/releases/tag/v0.3.0) - 2026-07-05
 
 ### Added

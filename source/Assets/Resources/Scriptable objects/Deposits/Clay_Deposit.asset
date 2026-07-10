@@ -19,3 +19,4 @@ MonoBehaviour:
   minBackgroundSize: 4
   maxBackgroundSize: 7
   depositsPerLayer: 3
+  stationRecipe: {fileID: 11400000, guid: 3c39f262e03ace54498c2444cf9c9f78, type: 2}

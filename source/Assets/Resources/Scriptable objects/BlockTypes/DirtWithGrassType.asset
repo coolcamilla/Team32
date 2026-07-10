@@ -19,7 +19,7 @@ MonoBehaviour:
   _dropTable:
   - _material: 300
     _chance: 0.5
-  - _material: 302
+  - _material: 301
     _chance: 0.2
   - _material: 304
     _chance: 0.7
