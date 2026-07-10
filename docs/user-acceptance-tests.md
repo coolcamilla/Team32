@@ -169,11 +169,7 @@ _Not executed._
 
 #### Sprint 4 - 2026-07-10
 
-**Execution results:** `TODO`
-
-**Customer comments:** `TODO`
-
-**Resulting PBIs:** `TODO`
+_Not executed._
 
 ## UAT-004: Inventory Management
 
@@ -310,7 +306,6 @@ _Not executed._
 7. Hint "Press F to drink beer and increase stamina" is highlighted
 8. Stamina capacity is increased and 5 coins are deducted
 
-
 ### Execution History
 
 #### Sprint 3 - 2026-07-03
@@ -381,19 +376,21 @@ _Not executed._
 
 **Preconditions:** 
 - New game session started
-- Player has enough resources to build an excavator (`TBD` resources)
+- Player has enough resources to build a clay station (8 sticks and 5 pebbels)
 
 **Step-by-step instructions:**
 1. Dig into the surface layer until you find clay deposit
 2. Move mole to the discovered deposit
-3. Click `Build` button
-4. Wait and observe the inventory
+3. Press `F`
+4. Click `Build` button
+5. Wait and observe the inventory
 
 **Expected outcome:**
 1. Clay deposit is distinguishable on background layer
-2. Information panel appears with station type, its recipe, extraction rate, and a `Build` button
-3. The station is placed on the deposit and the required resources (`TBD` resources) are deducted from the inventory
-4. Clay is automatically added to the inventory
+2. Hint "Press F to interact" appears
+3. Information panel appears with station type, its recipe, extraction rate, and a `Build` button
+4. The station is placed on the deposit and the required resources (8 sticks and 5 pebbels) are deducted from the inventory
+5. Clay is falling near station
 
 ### Execution History
 
@@ -417,7 +414,7 @@ _Not executed._
 - New game session started
 - Drill is fuelled and actively drilling
 - Mole is in the surface layer near to the rock blocks
-- Player has `TBD` sticks
+- Player has 5 sticks
 - Mole is equiped with stone shovel
 
 **Step-by-step instructions:**
@@ -434,12 +431,12 @@ _Not executed._
 **Expected outcome:**
 1. Rock block is not destroyed
 2. The drill continues operating without stopping when it reaches the stone layer
-3. The drill drops the resources required to craft the stone pickaxe (`TBD` e.g. 5 stones)
+3. The drill drops the resources (5 stones) required to craft the stone pickaxe
 4. The dropped resources are automatically collected into the inventory
 5. The drill UI background changes to reflect the stone layer
 6. The crafting menu opens and shows stone pickaxe in the chain
 7. The wooden shovel recipe is displayed with required resources, description and the `Craft` button
-8. `TBD` sticks and `TBD` stones are removed from the inventory, the stone pickaxe replaces the stone shovel in the equipment hotbar
+8. 5 sticks and 5 stones are removed from the inventory, the stone pickaxe replaces the stone shovel in the equipment hotbar
 9. Rock block is destroyed
 
 ### Execution History
@@ -529,6 +526,6 @@ Before session with the customer [UAT-002](#uat-002-climbing-mode), [UAT-003](#u
 
 Before session with the customer [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), and [UAT-006](#uat-006-stamina-depletion-and-recovery) were updated to align with current implementation. [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) were created.
 
-[UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) were executed.  
+[UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) were executed.  
 `TODO` are passed.  
 `TODO` need product changes.
