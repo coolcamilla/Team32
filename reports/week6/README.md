@@ -72,7 +72,23 @@ Follow installation instructions from [v0.4.0 release](https://github.com/coolca
 
 ### Summary of the customer-facing documentation review
 
+The customer reviewed `docs/customer-handover.md` live during the Sprint Review, reading it directly rather than being walked through it. Feedback was strongly positive: the customer called it important, and said that it is in order
+
+`CONTRIBUTING.md` was also reviewed; the customer specifically praised its structure as *"very cohesive"*
+
+The customer's one follow-up question was about locating the actual project source - clarified that it lives in the repository's source code, not as a separate clean-build folder. No unclear or missing content was flagged in either document during this review.
+
 ### Transition-readiness summary
+
+The customer confirmed the product is **not yet ready for full transition** when asked directly. The stated blockers are:
+- The game currently lacks a clear player goal or ending state - the customer specifically requested an ending/completion state be added when the player reaches the bottom.
+- General polish is needed across the areas already identified in this Sprint's feedback (see the [feedback response table](#customer-feedback-response-table)), prioritized by importance given limited remaining time.
+
+The customer confirmed they are **not currently using the product**, primarily because it has not yet been deployed anywhere ([itch.io](https://itch.io), web, or otherwise) - no build has been uploaded to any platform as of this meeting. The customer framed the project's primary value so far as a learning experience for the team rather than something they intend to actively use pre-release.
+
+When asked what would satisfy a completed handover, the customer confirmed that transferring the GitHub repository, Unity Version Control access, and an [itch.io](https://itch.io) upload would be sufficient - no additional platform or infrastructure requirement was raised.
+
+**What must happen in Week 7 to complete transition:** deploy the build to [itch.io](https://itch.io) (the customer's explicit primary request), address the prioritized feedback from this Sprint's review (see [Action Points](sprint-review-summary.md#action-points) in `sprint-review-summary.md`), and add the missing goal/ending state. No further transition-blocking requirements were raised beyond these.
 
 ### Customer feedback response table
 
@@ -102,9 +118,12 @@ Find explanations in [customer feedback response table](#customer-feedback-respo
 
 ### [Roadmap](../../docs/roadmap.md)
 
-### Link to the maintained quality, testing, architecture, development-process, and other customer-relevant documentation updated during Sprint 4.
+### Documentation updated during Sprint 4.
 
-`TODO`
+- [docs/testing.md](../../docs/testing.md) - test suite and coverage status, updated for the new mining station, layer transition, death, and coin/beer mechanics
+- [docs/architecture/README.md](../../docs/architecture/README.md) (and updated views/ADRs) - architecture documentation reflecting Sprint 4's new systems
+- [docs/development-process.md](../../docs/development-process.md) - development process and CI documentation
+- [docs/roadmap.md](../../docs/roadmap.md) - updated to reflect Sprint 4 delivery and Sprint 5 planning
 
 ### UAT results summary
 
