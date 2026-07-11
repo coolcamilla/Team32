@@ -208,12 +208,11 @@ Trial release as a playable build for Windows and Linux, in which:
 - New sprites added for mining stations, coins, and beer vending machine.
 
 Non user-visible outcomes:
-`TODO`
-- Drill UI redesigned based on customer feedback and approved mockup
-- `README.md` updated as the main public entry point with links to all maintained documentation
-- `CONTRIBUTING.md` and `AGENTS.md` created with contributor and agent guidance
-- `docs/customer-handover.md` created describing the current handover state of the product
-- Testing suite and documentation updated to reflect Sprint 4 changes
+- Updated the testing suite to cover the new mechanics.
+- Updated the `testing.md` to cover the changes to testing
+- Updated the `development-process.md` to show the maintained workflow during the Sprint 4
+- Created and `maintained customer-handover.md` as the "current-state description" document
+- Updated the `architecture/` directory to represent the current structure of the project
 
 # Sprint 5
 
