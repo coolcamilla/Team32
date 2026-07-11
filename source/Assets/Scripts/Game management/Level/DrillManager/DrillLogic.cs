@@ -18,7 +18,7 @@ public class DrillLogic
     private int _previousDepthMultiplier;
 
     public float MarkDistance;
-    public float NewLayerDepth = 5f;
+    public float NewLayerDepth = 3.5f;
 
     #region Properties
     public Drill CurrentDrill { 

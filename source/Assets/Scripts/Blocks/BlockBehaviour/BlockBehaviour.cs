@@ -14,10 +14,11 @@ public class BlockBehaviour : MonoBehaviour
     private event UnityAction OnDamage;
     
     private Animator _animator;
-    private System.Random _rand;
     private SpriteRenderer _spriteRenderer;
     private Color _baseColor;
+    private System.Random _rand;
 
+    private GameObject _hitParticlesPrefab;
     private BlockBehaviourLogic _logic;
 
     public BlockTypeData BlockData => _blockData;
@@ -45,18 +46,28 @@ public class BlockBehaviour : MonoBehaviour
             int randomIndex = _rand.Next(_blockData.possibleSprites.Length);
             _spriteRenderer.sprite = _blockData.possibleSprites[randomIndex];
         }
+
+        _hitParticlesPrefab = Resources.Load<GameObject>("Prefabs/Particles/HitParticles");
     }
 
     private void OnEnable()
     {
         OnDamage += PlayDamageAnimation;
-        OnDamage += UpdateSprite;
+        OnDamage += SpawnHitParticles;
+        if (_blockData != null && _blockData.HittedSprites != null && _blockData.HittedSprites.Count > 0)
+        {
+            OnDamage += UpdateSprite;
+        }
     }
 
     private void OnDisable()
     {
         OnDamage -= PlayDamageAnimation;
-        OnDamage -= UpdateSprite;
+        OnDamage -= SpawnHitParticles;
+        if (_blockData != null && _blockData.HittedSprites != null && _blockData.HittedSprites.Count > 0)
+        {
+            OnDamage -= UpdateSprite;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -91,7 +102,14 @@ public class BlockBehaviour : MonoBehaviour
 
     private void UpdateSprite()
     {
-        
+        for (int i = 5; i > 0; i--)
+        {
+            if (_logic.CurrentHp <= _blockData.MaxHp * (6 - i) / 6.0f)
+            {
+                _spriteRenderer.sprite = _blockData.HittedSprites[i - 1];
+                break;
+            }
+        }
     }
 
     public void OpenBlock()
@@ -132,5 +150,17 @@ public class BlockBehaviour : MonoBehaviour
     private void PlayDamageAnimation()
     {
         _animator.SetBool("Damaged", true);
+    }
+
+    private void SpawnHitParticles()
+    {
+        if (_hitParticlesPrefab != null)
+        {
+            Vector3 spawnPos = transform.position + new Vector3(0, 0.2f, 0);
+            GameObject particles = Instantiate(_hitParticlesPrefab, spawnPos, Quaternion.identity);
+            
+            var mainModule = particles.GetComponent<ParticleSystem>().main;
+            mainModule.startColor = _blockData.Color;
+        }
     }
 }
