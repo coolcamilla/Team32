@@ -157,7 +157,23 @@ No UATs require immediate product changes, but several balance and UX issues wer
 
 ### Customer-trial results
 
-`TODO`
+The customer explored the build freely during the session, covering digging, climbing, mining stations, the coin/beer mechanic, the death mechanic, and the drill upgrade UI mockup.
+
+**What worked well:**
+- Block destruction particles and animations were immediately noticed and praised - the game already feels more engaging than previous builds
+- The death mechanic was accepted positively; losing resources on death felt fair and thematic but the customer requested to save inventory partially
+- Mining stations functioned correctly - the customer observed clay dropping near the deposit and reacted positively
+- The coin/beer stamina upgrade worked as expected - the customer confirmed the permanent increase was visible
+
+**What needs improvement:**
+- No stamina warning before death. The customer was caught off guard when the mole died and suggested adding a low-stamina indicator
+- Clay has no meaningful use beyond the station recipe - it accumulates without purpose
+- The mole's on-screen size while climbing felt too large. The customer suggested reducing it so the mole fits more naturally in tight spaces
+- The drill takes too long to reach the stone layer without upgrades. The customer implicitly flagged this when the team noted it takes 7.5 minutes without upgrades
+- The beer effect design was disputed. The customer suggested a temporary speed boost rather than a permanent stamina increase, contradicting the current implementation
+
+**Customer's overall impression:**
+The customer confirmed the product already has a tangible game feel and that the core mechanics are in place. The focus for the final Sprint should be polish, balance, and deployment rather than new features.
 
 ### [SemVer release](https://github.com/coolcamilla/Team32/releases/tag/v0.4.0) mapped to Trial Release (Sprint 4 Increment)
 
@@ -179,9 +195,7 @@ The game is a playable Windows and Linux build delivering the complete core game
 
 ### Week 7 follow-up work
 
-`TODO`
-
-The next Sprint will extend the game world to three layers and introduce layer transition logic, allowing the mole to progress beyond the surface layer for the first time. Following that, the team plans to implement autonomous mining stations that collect resources from deposits automatically, mole upgrades that grant unique abilities (such as gravity reversal), and an overheating mechanic as a risk system to create urgency and meaningful decision-making in the gameplay loop. Throughout all future Sprints, the team will continue extending test coverage, improving architecture and maintainability as new systems are introduced, and keeping documentation current so the product remains understandable, usable, and verifiable.
+Sprint 5 focuses on polish, balance, and final handover rather than new mechanics. The team will resolve the beer-effect design ambiguity, rebalance stamina depletion and the coin economy, add a stamina warning indicator, and implement a win condition screen when the mole reaches the bottom of the final layer. The world will be looped to remove boundary walls, the drill-upgrade UI will be redesigned based on the approved mockup, and a minimal local-file save system will be added. The build will be deployed to [itch.io](https://itch.io) as the primary public access point for the final handover. Remaining art - general backgrounds, wall sprites, and animation polish - will be completed to bring the visual quality to a consistent level across the game. Throughout Sprint 5, the team will keep `docs/customer-handover.md`, `README.md`, and all maintained documentation current to reflect the final product state and transition status.
 
 ### Contribution traceability table
 
