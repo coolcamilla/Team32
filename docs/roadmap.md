@@ -196,6 +196,7 @@ Deliver a stable trial release for Windows and Linux which finalizes gameplay wi
 - [Create Trial Release](https://github.com/coolcamilla/Team32/issues/230)
 - [Update Root README, create AGENTS, CONTRIBUTING](https://github.com/coolcamilla/Team32/issues/231)
 - [Maintain Customer Handover Documentation](https://github.com/coolcamilla/Team32/issues/232)
+- [Maintain Architecture and Views Sprint 4](https://github.com/coolcamilla/Team32/issues/243)
 
 ### Outcome
 
@@ -210,7 +211,6 @@ Trial release as a playable build for Windows and Linux, in which:
 Non user-visible outcomes:
 - Updated the testing suite to cover the new mechanics.
 - Updated the `testing.md` to cover the changes to testing
-- Updated the `development-process.md` to show the maintained workflow during the Sprint 4
 - Created and `maintained customer-handover.md` as the "current-state description" document
 - Updated the `architecture/` directory to represent the current structure of the project
 
