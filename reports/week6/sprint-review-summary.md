@@ -18,11 +18,11 @@ This single meeting combined the Sprint Review, customer-executed UAT, and the W
 
 ## Artifacts Demonstrated
 
-- The Sprint Backlog board
+- The [Sprint Backlog](https://github.com/users/coolcamilla/projects/2/views/7) board
 - `docs/customer-handover.md` (read live by the customer during the meeting)
 - `CONTRIBUTING.md` (read live by the customer during the meeting)
 - The current build, covering: mining stations, layer transition (stone layer at ~3m depth), the coin/beer stamina-upgrade mechanic, the death mechanic, new digging animations/particles, and hit sounds
-- The drill-upgrade UI redesign mockup
+- The drill-upgrade UI redesign [mockup](../../game_design/ui/drill-ui-mockup.jpg)
 
 ## Scope / Goal Reviewed
 
@@ -95,4 +95,3 @@ Sprint 4's goal was to implement mechanics the team had planned earlier in the p
 - [Sprint 4 Milestone](https://github.com/coolcamilla/Team32/milestone/4)
 - [Product Backlog board](https://github.com/users/coolcamilla/projects/2/views/1)
 - [`docs/customer-handover.md`](../../docs/customer-handover.md)
-- [Week 6 trial release](https://github.com/coolcamilla/Team32/releases/tag/v0.4.0)
