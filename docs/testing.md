@@ -18,7 +18,7 @@ Total line coverage: **66.7%** (2170/3249 coverable lines).
 
 ### Known Untested or Lightly Tested Areas
 
-| Class | Line coverage | Why it's not (yet) covered |
+| Class | Line coverage | Why it's not (yet) covered | 
 | --- | --- | --- |
 | `CoinBehaviour` | 0% | New this Sprint. Coin pickup trigger; not yet covered by a PlayMode test. |
 | `CollectableBehaviour` | 0% | Relies on physics trigger events (`OnTriggerEnter2D`) in a live scene; not exercised by current PlayMode tests. |
