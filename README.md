@@ -23,7 +23,7 @@ This build (`MVP v3`) includes:
 
 ## Download
 
-Get the latest build from the [`MVP v3` release](https://github.com/coolcamilla/Team32/releases/tag/v0.4.0). See **Local Setup Instructions** below for platform-specific run steps.
+Get the latest build from the Trial release(TODO: add link to the release v0.4.0). See **Local Setup Instructions** below for platform-specific run steps.
 
 ## How to Play
 
