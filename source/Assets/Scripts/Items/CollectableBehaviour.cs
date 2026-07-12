@@ -3,6 +3,8 @@ using UnityEngine;
 public class CollectableBehaviour : MonoBehaviour
 {
     [SerializeField] private ItemType _itemType;
+
+    private bool _isHarvested;
     
     private InventoryManager _inventoryManager;
 
@@ -12,9 +14,13 @@ public class CollectableBehaviour : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag("Player") || _isHarvested) return;
 
         bool isAdded = _inventoryManager.TryAddItem(TypeToItemData.Convert(_itemType));
-        if (isAdded) Destroy(gameObject);
+        if (isAdded)
+        {
+            _isHarvested = true;
+            Destroy(gameObject);
+        }
     }
 }

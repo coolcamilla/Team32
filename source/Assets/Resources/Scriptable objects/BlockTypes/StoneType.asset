@@ -16,11 +16,21 @@ MonoBehaviour:
   _maxHp: 10
   _minDamage: 5
   type: 3
+  _color: {r: 0.21176472, g: 0.21176472, b: 0.24313727, a: 1}
   _dropTable:
   - _material: 302
     _chance: 0.8
   - _material: 301
     _chance: 0.4
+  - _material: 77
+    _chance: 0.03
   possibleSprites:
   - {fileID: -1439417570, guid: aa85cf39885c8f6488903681fa68ee05, type: 3}
   randomSprite: 0
+  _hittedSprites:
+  - {fileID: 8115644005664255767, guid: 32fd89e84b9feed42be84caad7b2708b, type: 3}
+  - {fileID: -1974267942269126528, guid: 378922ad2c0d76e4bbcd7bfc3016344d, type: 3}
+  - {fileID: 2536910936557558875, guid: 71142815195ef2e42aa6a8f53cb35fc9, type: 3}
+  - {fileID: 1399413676680894907, guid: f4f1c21a3795b674e9857e1f7f400da8, type: 3}
+  - {fileID: 6636361135747025162, guid: c0d69a6eb37a7c444a6751e2951f1055, type: 3}
+  ChosenSprite: 0

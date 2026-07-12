@@ -1,12 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct DepositSpawnData
+{
+    public Vector2Int startCell;
+    public DepositDefinition depositDefinition;
+}
+
 public class WorldGenerator
 {
     private int initX, width, height, worldDepth, reliefAmplitude;
     public int[] SurfaceY { get; private set; }
     public int[,] LayerBottoms { get; private set; }
     public GridCell[,] Grid { get; private set; }
+
+    public List<DepositSpawnData> GeneratedDeposits { get; private set; }
 
     private HashSet<Vector2Int> _blockedDepositCells;
 
@@ -28,6 +36,7 @@ public class WorldGenerator
         FillGrid(columns, layers);
 
         _blockedDepositCells = new HashSet<Vector2Int>();
+        GeneratedDeposits = new List<DepositSpawnData>();
     }
 
     private void InitializeArrays(int columns)
@@ -214,6 +223,12 @@ public class WorldGenerator
             cell.foreground = deposit.oreType;
             SetCell(pos.x, pos.y, cell.foreground, cell.background);
         }
+
+        GeneratedDeposits.Add(new DepositSpawnData
+        {
+            startCell = bgCluster[0],
+            depositDefinition = deposit
+        });
     }
 
     public int GetLayerBottom(int x, int layerIndex)

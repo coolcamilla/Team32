@@ -5,7 +5,6 @@ public class PlayerMovementLogic
     public float Speed { get; set; } = 5f;
     public float JumpForce { get; set; } = 2f;
     public float ClimbSpeed { get; set; } = 5f;
-    public float ExhaustedSpeedMultiplier { get; set; } = 0.4f;
     public float RotationSpeed { get; set; } = 90f;
     public float BaseGravityScale { get; set; } = 1.5f;
 
@@ -50,19 +49,17 @@ public class PlayerMovementLogic
         return IsClimbing ? 0f : BaseGravityScale;
     }
 
-    public Vector2 CalculateMovementVelocity(bool isExhausted)
+    public Vector2 CalculateMovementVelocity()
     {
         if (!IsClimbing)
         {
             return new Vector2(HorizontalInput * Speed, 0f);
         }
 
-        float currentSpeed = isExhausted ? ClimbSpeed * ExhaustedSpeedMultiplier : ClimbSpeed;
-
         float rad = CurrentAngle * Mathf.Deg2Rad;
         Vector2 forwardDir = new Vector2(Mathf.Sin(rad), Mathf.Cos(rad));
 
-        return forwardDir * VerticalInput * currentSpeed;
+        return forwardDir * VerticalInput * ClimbSpeed;
     }
 
     public bool IsMoving()
@@ -85,5 +82,11 @@ public class PlayerMovementLogic
     public Vector2 GetJumpForceVector()
     {
         return Vector2.up * JumpForce;
+    }
+
+    public void ForceStopClimbing()
+    {
+        IsClimbing = false;
+        CurrentAngle = 0f;
     }
 }

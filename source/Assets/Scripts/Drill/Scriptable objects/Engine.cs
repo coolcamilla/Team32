@@ -16,7 +16,7 @@ public class Engine : ScriptableObject
     public void SetBasic()
     {
         _name = "Basic Engine";
-        _speed = 0.1f;
+        _speed = 0.2f;
         _power = 5f;
     }
 }

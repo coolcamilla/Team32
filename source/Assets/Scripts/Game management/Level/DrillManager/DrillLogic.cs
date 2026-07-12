@@ -3,6 +3,7 @@ using System.Diagnostics;
 
 public class DrillLogic
 {
+
     private Drill _currentDrill;
     private FuelTank _currentFuelTank;
     private Engine _currentEngine;
@@ -13,9 +14,11 @@ public class DrillLogic
     private float _power;
     private float _availableEnergy;
     private float _depth;
-    private float _markDistance;
+    private float _layerDurability;
     private int _previousDepthMultiplier;
 
+    public float MarkDistance;
+    public float NewLayerDepth = 3.5f;
 
     #region Properties
     public Drill CurrentDrill { 
@@ -42,6 +45,16 @@ public class DrillLogic
             UpdatePower();
         }
     }
+    public float LayerDurability
+    {
+        get => _layerDurability;
+        set
+        {
+            _layerDurability = value;
+            UpdateSpeed();
+        }
+    }
+
     public float Depth => _depth;
 
     public int FuelCount => _fuelQueue.Count;
@@ -63,12 +76,13 @@ public class DrillLogic
         _currentEngine = Engine.CreateInstance<Engine>();
         _currentEngine.SetBasic();
 
-        UpdateSpeed();
-        UpdatePower();
-
         _availableEnergy = 0f;
         _depth = 0f;
-        _markDistance = 0.1f;
+        MarkDistance = 0.1f;
+        LayerDurability = 1f;
+
+        UpdateSpeed();
+        UpdatePower();
 
         _previousDepthMultiplier = 0;
 
@@ -78,6 +92,7 @@ public class DrillLogic
 
     public void Tick(float time)
     {
+        if (IsStuck()) return;
         _timer += time;
     }
 
@@ -94,7 +109,8 @@ public class DrillLogic
     private void UpdateSpeed()
     {
         _speed = _currentDrill.Speed + _currentEngine.Speed;
-        _speed /= 60;
+        _speed /= LayerDurability;
+        _speed /= 60f;
     }
 
     private void UpdatePower()
@@ -104,7 +120,7 @@ public class DrillLogic
 
     public bool TryProcessSecond()
     {
-        if (_timer >= 1f)
+        if (_timer >= 1f && !IsStuck())
         {
             _timer -= 1f;
             return ProcessSecond();
@@ -139,11 +155,24 @@ public class DrillLogic
 
     public bool IsMarkPassed()
     {
-        if ((int)(_depth / _markDistance) > _previousDepthMultiplier)
+        if ((int)(_depth / MarkDistance) > _previousDepthMultiplier)
         {
-            _previousDepthMultiplier = (int) (_depth / _markDistance);
+            _previousDepthMultiplier = (int) (_depth / MarkDistance);
             return true;
         }
         return false;
+    }
+
+    public bool IsLayeNeedToBeUpdated()
+    {
+        return (Depth > NewLayerDepth && !IsStuck());
+    }
+
+    public bool IsStuck()
+    {
+        return _depth >= NewLayerDepth && 
+            (_currentDrill.Name == "Basic Drill" || 
+             _currentEngine.Name == "Basic Engine" ||
+             _currentFuelTank.Name == "Basic Fuel Tank");
     }
 }

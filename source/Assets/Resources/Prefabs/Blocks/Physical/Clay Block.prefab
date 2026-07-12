@@ -53,16 +53,28 @@ PrefabInstance:
       value: Clay Block
       objectReference: {fileID: 0}
     - target: {fileID: 5574791669600639013, guid: 7f6ac849ebf22034ca0017d6d2d11a86, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5002894129218382020, guid: 3e0c48202ca7f4244a6dc0fccd4c01af, type: 3}
+    - target: {fileID: 5574791669600639013, guid: 7f6ac849ebf22034ca0017d6d2d11a86, type: 3}
       propertyPath: m_Color.b
-      value: 0.44705886
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5574791669600639013, guid: 7f6ac849ebf22034ca0017d6d2d11a86, type: 3}
       propertyPath: m_Color.g
-      value: 0.6509804
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5574791669600639013, guid: 7f6ac849ebf22034ca0017d6d2d11a86, type: 3}
       propertyPath: m_Color.r
-      value: 0.8313726
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323660610865992943, guid: 7f6ac849ebf22034ca0017d6d2d11a86, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323660610865992943, guid: 7f6ac849ebf22034ca0017d6d2d11a86, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7642281161058162978, guid: 7f6ac849ebf22034ca0017d6d2d11a86, type: 3}
       propertyPath: _blockData

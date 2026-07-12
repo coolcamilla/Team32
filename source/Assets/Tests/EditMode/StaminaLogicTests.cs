@@ -204,4 +204,89 @@ public class StaminaLogicTests
         logic.Drain(1f); // clamps to exactly 0
         Assert.IsTrue(logic.IsExhausted);
     }
+    [Test]
+    public void Drain_WhenReachingExactlyZeroForTheFirstTime_InvokesOnDeath()
+    {
+        var logic = CreateDefault();
+        bool deathFired = false;
+        logic.OnDeath += () => deathFired = true;
+
+        logic.Drain(100f); // far more than available, clamps to exactly 0
+
+        Assert.IsTrue(deathFired,
+            "OnDeath should fire the first time CurrentStamina clamps to exactly 0.");
+    }
+
+    [Test]
+    public void Drain_WhileStaminaRemainsAboveZero_DoesNotInvokeOnDeath()
+    {
+        var logic = CreateDefault();
+        bool deathFired = false;
+        logic.OnDeath += () => deathFired = true;
+
+        logic.Drain(1f); // only drains 1 of 10, stays above 0
+
+        Assert.IsFalse(deathFired);
+    }
+
+    [Test]
+    public void Drain_WhenAlreadyAtZero_DoesNotInvokeOnDeathAgain()
+    {
+        // StaminaLogic.Drain has an early-return guard (`if (CurrentStamina <= 0f) return;`)
+        // at the very top, before the OnDeath-triggering code even runs - so calling
+        // Drain again while already at 0 should not re-fire OnDeath.
+        var logic = CreateDefault();
+        logic.Drain(100f); // first death, clamps to 0
+        bool deathFiredAgain = false;
+        logic.OnDeath += () => deathFiredAgain = true;
+
+        logic.Drain(1f); // called again while already at 0
+
+        Assert.IsFalse(deathFiredAgain,
+            "OnDeath should not fire again from a Drain call while already at 0 stamina, " +
+            "since Drain's early-return guard exits before reaching the OnDeath-invoking code.");
+    }
+
+    [Test]
+    public void ResetStamina_SetsCurrentStaminaBackToMax()
+    {
+        var logic = CreateDefault();
+        logic.Drain(100f); // exhaust it, e.g. simulating a death
+
+        logic.ResetStamina();
+
+        Assert.AreEqual(MaxStamina, logic.CurrentStamina);
+    }
+
+    [Test]
+    public void ResetStamina_InvokesOnValueChanged()
+    {
+        var logic = CreateDefault();
+        logic.Drain(5f);
+        bool eventFired = false;
+        logic.OnValueChanged += (_, _) => eventFired = true;
+
+        logic.ResetStamina();
+
+        Assert.IsTrue(eventFired,
+            "ResetStamina should notify listeners (e.g. a stamina bar UI) that the value changed.");
+    }
+
+    [Test]
+    public void ResetStamina_AfterDeath_AllowsOnDeathToFireAgainOnASubsequentFullDrain()
+    {
+        // Real gameplay cycle: die -> respawn (ResetStamina) -> die again should be
+        // possible. This confirms ResetStamina() genuinely clears the "already at
+        // zero" guard state, not just the numeric value.
+        var logic = CreateDefault();
+        int deathCount = 0;
+        logic.OnDeath += () => deathCount++;
+
+        logic.Drain(100f);   // first death
+        logic.ResetStamina(); // respawn
+        logic.Drain(100f);   // second death
+
+        Assert.AreEqual(2, deathCount,
+            "OnDeath should fire once per full drain-to-zero cycle, including after a respawn.");
+    }
 }
