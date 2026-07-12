@@ -229,6 +229,10 @@ This sprint will introduce MVP v3 which foсuses on UI improvements, game balanc
 The following practices must continue throughout all future project work:
 
 ### Documentation
+- **README.md:** Must remain the main public entry point; update whenever product access, documentation links, setup steps, or handover status change
+- **docs/customer-handover.md:** Must describe the current actual handover state; update whenever access details, deployment steps, limitations, or transition status change
+- **CONTRIBUTING.md:** Must reflect the current git workflow, branching conventions, PR process, and review expectations; update when workflow or tooling changes
+- **AGENTS.md:** Must reflect current scope boundaries, verification commands, safety constraints, and documentation links; update when workflow, setup steps, or documentation links change
 - **docs/testing.md:** Must be updated when critical modules change or new quality gates are added
 - **docs/definition-of-done.md:** Must reflect current CI requirements and coverage expectations
 - **docs/quality-requirements.md:** Must be updated when new quality requirements are identified, and each relevant quality requirement must link to at least one related ADR
