@@ -47,6 +47,10 @@
 
 **Resulting PBIs:** [Corner-grab Jump](https://github.com/coolcamilla/Team32/issues/170)
 
+#### Sprint 4 - 2026-07-10
+
+_Not executed._
+
 ## UAT-002: Climbing Mode
 
 **Status:** Active
@@ -98,11 +102,15 @@
 
 **Resulting PBIs:** [Interactive Game Tutorial](https://github.com/coolcamilla/Team32/issues/200)
 
+#### Sprint 4 - 2026-07-10
+
+_Not executed._
+
 ## UAT-003: Craft a Tool Using the Crafting Menu
 
 **Status:** Active
 
-**Linked to:** [US-016: Tools Crafting UI](https://github.com/coolcamilla/Team32/issues/80), [US-017: Tools Crafting Action](https://github.com/coolcamilla/Team32/issues/81)
+**Linked to:** [US-016: Tools Crafting UI](https://github.com/coolcamilla/Team32/issues/80), [US-017: Tools Crafting Action](https://github.com/coolcamilla/Team32/issues/81), [Update Tools Crafting Workflow](https://github.com/coolcamilla/Team32/issues/172), [Mouse-based Navigation in Crafting UI](https://github.com/coolcamilla/Team32/issues/201)
 
 **User goal:** Verify that the crafting system works correctly, and the player can craft a tool when he or she has sufficient resources.
 
@@ -110,36 +118,36 @@
 - New game session started
 - Player does not have any tool yet
 - Player has collected enough resources for a wooden shovel (10 sticks)
-- Player has not collected enough resources for a stone pickaxe (10 sticks and 5 pebbels)
+- Player has not collected enough resources for a stone pickaxe (10 sticks and 5 pebbles)
 - Mole is near the workbench on the surface
 
 **Step-by-step instructions:**
 1. Move the mole to the workbench
 2. Press `F`
-3. Click on the stone shovel in the crafting chain to view its recipe
+3. Hover the mouse over stone shovel icon
 4. Click the `Craft` button
-5. Click on the wooden shovel in the crafting chain to view its recipe
+5. Hover the mouse over wooden shovel icon
 6. Click the `Craft` button
 7. Press `F`
-8. Collect 5 sticks and 5 stones
+8. Collect 10 sticks and 5 pebbles
 9. Move the mole to the workbench
 10. Press `F`
-11. Click on the stone shovel in the crafting chain to view its recipe
+11. Hover the mouse over stone shovel icon
 12. Click the `Craft` button
 
 **Expected outcome:**
-1. Hint "Press F to open craft menu" is highlighted
+1. Hint `Press F to open craft menu` is highlighted
 2. The crafting menu opens
-3. The stone shovel recipe is displayed with required resources and stats
+3. The stone shovel recipe is displayed with required resources, description and the `Craft` button
 4. Nothing happens (the button is disabled, no resources are removed, no tool is crafted)
-5. The wooden shovel recipe is displayed with required resources and stats
-6. 12 sticks are removed from the inventory, the wooden shovel appears in the euipment hotbar
+5. The wooden shovel recipe is displayed with required resources, description and the `Craft` button
+6. 10 sticks are removed from the inventory, the wooden shovel appears in the equipment hotbar
 7. The crafting menu closes
 8. Collected resources are added to the inventory
-9. Hint "Press F to open craft menu" is highlighted
+9. Hint `Press F to open craft menu` is highlighted
 10. The crafting menu opens
-11. The stone shovel recipe is displayed with required resources and stats
-12. 5 sticks and 5 stones are removed from the inventory, the stone shovel replaces the wooden shovel in the euipment hotbar
+11. The stone shovel recipe is displayed with required resources, description and the `Craft` button
+12. 10 sticks and 5 pebbles are removed from the inventory, the stone shovel replaces the wooden shovel in the equipment hotbar
 
 ### Execution History
 
@@ -159,11 +167,15 @@
 
 **Resulting PBIs:** [Mouse-based Navigation in Crafting UI](https://github.com/coolcamilla/Team32/issues/201)
 
+#### Sprint 4 - 2026-07-10
+
+_Not executed._
+
 ## UAT-004: Inventory Management
 
 **Status:** Active
 
-**Linked to:** [US-010: Inventory](https://github.com/coolcamilla/Team32/issues/70)
+**Linked to:** [US-010: Inventory](https://github.com/coolcamilla/Team32/issues/70), [Simplify Inventory](https://github.com/coolcamilla/Team32/issues/174)
 
 **User goal:** Verify that the inventory correctly tracks resources, allows adding and spending items.
 
@@ -201,11 +213,15 @@
 
 _Not executed._
 
+#### Sprint 4 - 2026-07-10
+
+_Not executed._
+
 ## UAT-005: Refuel and Upgrade the Drill 
 
 **Status:** Active
 
-**Linked to:** [US-018: Drill Upgrading](https://github.com/coolcamilla/Team32/issues/82)
+**Linked to:** [US-018: Drill Upgrading](https://github.com/coolcamilla/Team32/issues/82), [Improve Drill UI](https://github.com/coolcamilla/Team32/issues/203)
 
 **User goal:** Verify that the player can refuel the drill and apply an upgrade to improve its performance.
 
@@ -213,24 +229,24 @@ _Not executed._
 
 - New game session started
 - The drill's fuel tank is empty
-- Player has sufficient at least 6 sticks and 5 pebbles
+- Player has sufficient at least 5 sticks and 5 pebbles
 
 **Step-by-step instructions:**
 
-1. Go next to the sign on the left side of the map
+1. Go next to the drill sign on the left side of the map
 2. Press `F`
 3. Check the current fuel level on the left
 4. Add one stick to the fuel tank
 5. Look to the right side and find one available upgrade (e.g., increased fuel capacity or faster digging speed)
-6. Click `Upgrade` button on the bottom of the upgrade panel
+6. Click `Upgrade` button on the bottom of the "Drill Drill" upgrade panel
 
 **Expected outcome:**
 
-1. Hint `Press F` is highlighted
+1. Hint `Press F to interact` is highlighted
 2. The drill UI is opened
 3. The fuel tank is empty, and the drill is not active
-4. Fuel tank now has a litle bit fuel and speed is 0.2 m/min and power is 5 W, drill is active
-5. Three information panels on the right demonstrate three improvement areas: Drill Engine, Boer Drill, Fuel Tank
+4. Fuel tank now has a litle bit fuel and speed is 0.40 m/min and power is 5 W, drill is active
+5. Three information panels on the right demonstrate three improvement areas: Drill Engine, Drill Drill, Fuel Tank
 6. The upgrade disappears from the upgrade table, and drill stats are updated
 
 ### Execution History
@@ -251,11 +267,15 @@ _Not executed._
 
 **Resulting PBIs:** [Improve Drill UI](https://github.com/coolcamilla/Team32/issues/203), [Change World Layout](https://github.com/coolcamilla/Team32/issues/204)
 
+#### Sprint 4 - 2026-07-10
+
+_Not executed._
+
 ## UAT-006: Stamina Depletion and Recovery
 
 **Status:** Active
 
-**Linked to:** [Stamina](https://github.com/coolcamilla/Team32/issues/167)
+**Linked to:** [Stamina](https://github.com/coolcamilla/Team32/issues/167), [Death Mechanic](https://github.com/coolcamilla/Team32/issues/153)
 
 **User goal:** Verify that stamina depletes while the mole moves in Climbing Mode and recovers when the mole in normal mode.
 
@@ -263,20 +283,28 @@ _Not executed._
 - New game session started
 - Mole is on solid ground adjacent to a background wall
 - Stamina bar is fully charged
+- Player has at least 5 coins
 
 **Step-by-step instructions:**
 1. Press `C`
 2. Hold `W` continuously
-3. Continue holding `W` until stamina reaches zero
-4. Stop pressing any movement key while remaining in Climbing Mode
-5. Press `C` to exit Climbing Mode
+3. Stop pressing any movement key while remaining in Climbing Mode
+4. Press `C`
+5. Press `C` again
+6. Move in Climbing Mode until stamina reaches zero
+7. Move the mole to the beer vending machine on the surface
+8. Press `F`
+
 
 **Expected outcome:**
-1. The mole enters Climbing Mode and the stamina bar is visible
+1. The mole enters Climbing Mode and the stamina bar is visible in the bottom of the screen
 2. The stamina bar visibly decreases while the mole moves forward
-3. The stamina bar reaches zero and the mole starts moving very slowly
-4. The stamina bar does not recover while the mole is stationary in Climbing Mode
-5. The mole lands on the nearest physical block below it and stamina bar recovers
+3. The stamina bar does not recover while the mole is stationary in Climbing Mode
+4. The mole lands on the nearest physical block below it and stamina bar recovers
+5. The mole enters Climbing Mode
+6. Stamina descreases as mole moves. When stamina is zero, the mole dies: death screen appears for 10 seconds, then the mole respawns near the drill sign with full stamina and empty inventory
+7. Hint `Press F to become happier` is highlighted
+8. Stamina capacity is increased and 5 coins are deducted
 
 ### Execution History
 
@@ -287,6 +315,14 @@ _Not executed._
 **Customer comments:** Suggested making the initial stamina bar small so upgrading it feels meaningful. Proposed that beer could act as a stamina booster item. Suggested exploring a risk mechanic where stamina depletion underground has consequences for the mole.
 
 **Resulting PBIs:** [Death Mechanic](https://github.com/coolcamilla/Team32/issues/153) (actually it was overheating mechanic but the customer asked us to replace it)
+
+#### Sprint 4 - 2026-07-10
+
+**Execution results:** PASSED. The mole entered Climbing Mode correctly via C. Stamina depleted while moving and the mole died when stamina reached zero - the death screen appeared and the mole respawned near the drill with an empty inventory and full stamina, keeping the equipped tool. The beer vending machine correctly increased maximum stamina for 5 coins.
+
+**Execution results:** Reacted positively to the death mechanic. Noted that particles on block destruction already improve the game feel significantly. Suggested warning the player when stamina is running low before the mole dies.
+
+**Resulting PBIs:** [Stamina warning indicator](https://github.com/coolcamilla/Team32/issues/236)
 
 ## UAT-007: Jump Bug Fixes
 
@@ -325,6 +361,93 @@ _Not executed._
 **Customer comments:** No issues reported.
 
 **Resulting PBIs:** _None_
+
+#### Sprint 4 - 2026-07-10
+
+_Not executed._
+
+## UAT-008: Mining Stations Construction and Operation
+
+**Status:** Active
+
+**Linked to:** [US-020: Deposit Discovery](https://github.com/coolcamilla/Team32/issues/84), [US-021: Mining Stations Placement](https://github.com/coolcamilla/Team32/issues/85)
+
+**User goal:** Verify that the player can discover a deposit, build a mining station on it, and that the station autonomously collects resources into the inventory.
+
+**Preconditions:** 
+- New game session started
+- Player has enough resources to build a clay station (8 sticks and 5 pebbles)
+
+**Step-by-step instructions:**
+1. Dig into the surface layer until you find clay deposit
+2. Move mole to the discovered deposit
+3. Press `F`
+4. Click `Build` button
+5. Wait and observe the inventory
+
+**Expected outcome:**
+1. Clay deposit is distinguishable on background layer
+2. Hint `Press F to interact` appears
+3. Information panel appears with station type, its recipe, extraction rate, and a `Build` button
+4. The station is placed on the deposit and the required resources (8 sticks and 5 pebbles) are deducted from the inventory
+5. Clay is falling near station
+
+### Execution History
+
+#### Sprint 4 - 2026-07-10
+
+**Execution results:** PASSED. The clay deposit was visually distinguishable on the background layer. The hint appeared on approach and information panel opened via `F`. The BUILD button correctly placed the station and deducted the required resources. The station autonomously dropped clay near the deposit at the defined rate.
+
+**Execution results:** Reacted positively. "Noted that clay currently has no meaningful use beyond the station and suggested adding more upgrades that consume it.
+
+**Resulting PBIs:** [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237)
+
+## UAT-009: Layer transition
+
+**Status:** Active
+
+**Linked to:** [US-019: Layer Transition](https://github.com/coolcamilla/Team32/issues/83)
+
+**User goal:** Verify that the drill correctly triggers a layer transition, drops the required resources, and allows the mole to access and dig in the new layer.
+
+**Preconditions:**
+- New game session started
+- Drill is fuelled and actively drilling
+- Mole is in the surface layer near to the rock blocks
+- Player has 5 sticks
+- Mole is equiped with stone shovel
+
+**Step-by-step instructions:**
+1. Try to dig rock block with the stone shovel
+2. Fuel the drill and let it operate until it reaches the depth of 3 meters
+3. Observe the drill behavior at the moment of transition
+4. Walk through the dropped resources
+5. Open the drill UI
+6. Go to the workbench and press `F`
+7. Hover the mouse over stone pickaxe icon
+8. Click the `Craft` button
+9. Go to the stone layer and try to dig rock block with the stone pickaxe
+
+**Expected outcome:**
+1. Rock block is not destroyed
+2. The drill continues operating without stopping when it reaches the stone layer
+3. The drill drops the resources (5 stones) required to craft the stone pickaxe
+4. The dropped resources are automatically collected into the inventory
+5. The drill UI background changes to reflect the stone layer
+6. The crafting menu opens and shows stone pickaxe in the chain
+7. The stone pickaxe recipe is displayed with required resources, description and the `Craft` button
+8. 5 sticks and 5 stones are removed from the inventory, the stone pickaxe replaces the stone shovel in the equipment hotbar
+9. Rock block is destroyed
+
+### Execution History
+
+#### Sprint 4 - 2026-07-10
+
+**Execution results:** PASSED. The stone shovel could not dig rock blocks. The drill dropped the correct resources upon reaching the stone layer. The drill UI background updated to reflect the new layer. The stone pickaxe was crafted successfully at the workbench and replaced the previous tool. Rock blocks were successfully destroyed with the stone pickaxe.
+
+**Execution results:** No functional objections. Noted that the drill currently takes too long to reach the stone layer without upgrades (approximately 7.5 minutes). Suggested rebalancing drill speed.
+
+**Resulting PBIs:** [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237)
 
 ---
 
@@ -398,3 +521,33 @@ Before session with the customer [UAT-002](#uat-002-climbing-mode), [UAT-003](#u
 - [Block Destruction](https://github.com/coolcamilla/Team32/issues/205)
 - [Beer](https://github.com/coolcamilla/Team32/issues/206)
 - [Make Discovered Block Temporary](https://github.com/coolcamilla/Team32/issues/207)
+
+### Sprint 4 - 2026-07-10
+
+Before session with the customer [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), and [UAT-006](#uat-006-stamina-depletion-and-recovery) were updated to align with current implementation. [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) were created.
+
+[UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) were executed.  
+[UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition)  are passed.  
+No UATs require immediate product changes, but several balance and UX issues were identified.
+
+#### Need to be fixed
+
+- **Stamina warning indicator:** The player receives no warning before the mole dies from stamina depletion; a visual or audio warning should appear when stamina is critically low
+- **Drill progression speed:** Without upgrades, the drill takes approximately 7.5 minutes to reach the stone layer; the depth or drill speed should be rebalanced to make early progression feel less slow
+- **Clay resource utility:** Clay currently accumulates without meaningful use; additional drill upgrades or recipes consuming clay should be added
+
+#### Key Feedback Points
+
+- Add a stamina warning before the mole dies so players can react
+- Rebalance stamina so it depletes faster, making beer upgrades feel more necessary
+- Beer vending machine should show a visible capacity increase when purchased - consider using cells or segments for the stamina bar
+- Add a clear win condition - a screen or event when the mole reaches the bottom of the final layer
+- Deploy the game to itch.io as part of the final handover
+- Focus next Sprint on UI improvements, game balance, and visual polish rather than new mechanics
+
+#### Resulting PBIs
+
+- [Stamina warning indicator](https://github.com/coolcamilla/Team32/issues/236)
+- [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237)
+- [Start and End Cutscenes](https://github.com/coolcamilla/Team32/issues/238)
+- [Publish Game](https://github.com/coolcamilla/Team32/issues/239)
