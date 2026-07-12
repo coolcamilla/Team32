@@ -33,9 +33,11 @@ public static class TypeToPrefab
 
         foreach(ItemType type in Enum.GetValues(typeof(ItemType)))
         {
-            if ((int) type < 100) continue;
+            if ((int) type < 10) continue;
             string name = type.ToString();
             GameObject newPrefab = Resources.Load<GameObject>($"Prefabs/Items/{name}");
+
+            if (type == ItemType.Coin) newPrefab = Resources.Load<GameObject>($"Prefabs/Items/Coin/Coin");
 
             if (newPrefab == null)
             {

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Drill tier 2
   m_EditorClassIdentifier: GameScripts::Drill
   _name: 
-  _speed: 0.2
+  _speed: 0.4
   _recipe: {fileID: 0}

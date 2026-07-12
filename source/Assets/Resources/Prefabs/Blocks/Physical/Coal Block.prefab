@@ -53,16 +53,28 @@ PrefabInstance:
       value: Coal Block
       objectReference: {fileID: 0}
     - target: {fileID: 5574791669600639013, guid: 7f6ac849ebf22034ca0017d6d2d11a86, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1077884322, guid: 2ecec049568e2494f8588d6088ff7526, type: 3}
+    - target: {fileID: 5574791669600639013, guid: 7f6ac849ebf22034ca0017d6d2d11a86, type: 3}
       propertyPath: m_Color.b
-      value: 0.13333334
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5574791669600639013, guid: 7f6ac849ebf22034ca0017d6d2d11a86, type: 3}
       propertyPath: m_Color.g
-      value: 0.13333334
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5574791669600639013, guid: 7f6ac849ebf22034ca0017d6d2d11a86, type: 3}
       propertyPath: m_Color.r
-      value: 0.15294118
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323660610865992943, guid: 7f6ac849ebf22034ca0017d6d2d11a86, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.5000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323660610865992943, guid: 7f6ac849ebf22034ca0017d6d2d11a86, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.5000002
       objectReference: {fileID: 0}
     - target: {fileID: 7642281161058162978, guid: 7f6ac849ebf22034ca0017d6d2d11a86, type: 3}
       propertyPath: _blockData

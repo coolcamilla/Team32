@@ -165,4 +165,16 @@ public class InventoryLogic
             _slots[from] = null;
         }
     }
+
+    public void ClearResources()
+    {
+        for (int i = 0; i < _slots.Length; i++)
+        {
+            if (_slots[i] != null && (int)_slots[i].StoredItem.Type >= 300)
+            {
+                _slots[i] = null;
+            }
+        }
+        OnInventoryChanged?.Invoke();
+    }
 }

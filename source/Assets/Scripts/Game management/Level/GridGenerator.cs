@@ -26,6 +26,9 @@ public class GridGenerator : MonoBehaviour
     [Header("Data")]
     public BlockTypeData dirtGrassBlockData;
 
+    [Header("Station System")]
+    [SerializeField] private GameObject depositNodePrefab;
+
     private WorldGenerator _worldGenerator;
     private float _cellSize = 2.5f;
     private Dictionary<CellType, GameObject> _blockPrefabDict;
@@ -56,6 +59,7 @@ public class GridGenerator : MonoBehaviour
         _worldGenerator.GenerateDeposits(layers);
 
         foreach (Transform t in transform) Destroy(t.gameObject);
+        SpawnDepositNodes();
         RenderWorld();
     }
 
@@ -73,6 +77,26 @@ public class GridGenerator : MonoBehaviour
 
                 SpawnBackground(cell.background, pos);
                 SpawnForeground(cell.foreground, pos, x, y, grassSprites, columns);
+            }
+        }
+    }
+
+    private void SpawnDepositNodes()
+    {
+        if (depositNodePrefab == null) return;
+
+        foreach (var data in _worldGenerator.GeneratedDeposits)
+        {
+            float worldX = (initX + data.startCell.x + 0.5f) * _cellSize;
+            float worldY = (data.startCell.y + 0.5f) * _cellSize;
+            Vector3 spawnPos = new Vector3(worldX, worldY, 0);
+
+            GameObject nodeObj = Instantiate(depositNodePrefab, spawnPos, Quaternion.identity, transform);
+            DepositNode node = nodeObj.GetComponent<DepositNode>();
+
+            if (node != null && data.depositDefinition.stationRecipe != null)
+            {
+                node.Initialize(data.depositDefinition.stationRecipe);
             }
         }
     }

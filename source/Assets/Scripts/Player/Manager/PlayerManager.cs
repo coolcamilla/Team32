@@ -1,9 +1,16 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI _coinsCounterUI;
+
     private PlayerManagerLogic _logic;
     private PlayerInput _input;
+    private UnityAction OnCoinsChanged;
+    private PlayerStamina _playerStamina;
+
     public PlayerManagerLogic Logic => _logic;
     public Item EquippedItem => _logic.EquippedItem;
     public PlayerInput Input
@@ -14,14 +21,56 @@ public class PlayerManager : MonoBehaviour
             return _input;
         }
     }
+
+    public int Coins => _logic.Coins;
+
+    private void OnEnable()
+    {
+        OnCoinsChanged += UpdateCoinsUI;
+    }
+
+    private void OnDisable()
+    {
+        OnCoinsChanged -= UpdateCoinsUI;
+    }
+
+
     private void Initialize()
     {
         _logic = new PlayerManagerLogic();
+        _playerStamina = GetComponent<PlayerStamina>();
     }
 
     public void ChangeItem(Item item)
     {
         if (_logic == null) Initialize();
         _logic.ChangeItem(item);
+    }
+
+    public void AddCoin()
+    {
+        if (_logic == null) Initialize();
+        _logic.AddCoin();
+        OnCoinsChanged?.Invoke();
+    }
+
+    public bool TrySpendCoins(int number)
+    {
+        bool isSpent = _logic.TrySpend(number);
+        if (isSpent)
+        {
+            OnCoinsChanged?.Invoke();
+        }
+        return isSpent;
+    }
+
+    private void UpdateCoinsUI()
+    {
+        _coinsCounterUI.SetText(_logic.Coins.ToString());
+    }
+
+    public void UpgradeStamina()
+    {
+        _playerStamina.Upgrade();
     }
 }

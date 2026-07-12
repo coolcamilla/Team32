@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e3ce2c1ccae4242953ecdee3c0aa44, type: 3}
+  m_Name: CoalStationRecipe
+  m_EditorClassIdentifier: GameScripts::StationRecipe
+  stationName: Coal Station
+  stationSprite: {fileID: -3289065812507174437, guid: 7b0e3421ee9076f4f84e01a6b641fe05, type: 3}
+  producedItemPrefab: {fileID: 6693162012168326158, guid: 859bf10496e1a534f8016e4c3d0d16e0, type: 3}
+  unitsPerMinute: 5
+  buildCost:
+  - item: {fileID: 11400000, guid: 3573a7b3293406a478797db6ddc33302, type: 2}
+    count: 8
+  - item: {fileID: 11400000, guid: 3e4092eb2c073054eb713a391b63c1cc, type: 2}
+    count: 4
