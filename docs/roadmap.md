@@ -6,13 +6,13 @@ Deliver a 2D mining exploration game where the player character is a mole. The m
 
 ## Current Status
 
-**Completed Sprints:** Sprint 1, Sprint 2  
-**Current Sprint:** Sprint 3  
-**Next Sprint:** Sprint 4  
+**Completed Sprints:** Sprint 1, Sprint 2, Sprint 3  
+**Current Sprint:** Sprint 4  
+**Next Sprint:** Sprint 5  
 
 ## Current Direction
 
-The current sprint focuses acting on customer feedback by simplifying the UI and introducing immersive mechanics. Other one priority is strengthening technical foundations through architecture documentation and configuration management. Future sprints will introduce layer transitions, mining stations, mole upgrades, an overheating mechanic, and a save system to complete the core gameplay loop.
+The current sprint delivers new gameplay mechanics (layer transition, mining stations, death mechanic, and coins), responds to customer UI feedback, and prepares customer-facing handover documentation ahead of the final course delivery. The next sprint will use customer trial feedback to produce the final release, MVP v3, focusing on UI improvements and game balance rather than introducing new mechanics.
 
 ---
 
@@ -162,7 +162,65 @@ Non user-visible outcomes:
 
 # Sprint 4
 
-This sprint will introduce stone layer, layer transitions, mining stations, limited visibility and overheating mechanics.
+### [Milestone](https://github.com/coolcamilla/Team32/milestone/4)  
+
+### Start
+
+Moday, July 6, 2026  
+
+### End
+
+Sunday, July 12, 2026  
+
+### Goal  
+
+Deliver a stable trial release for Windows and Linux which finalizes gameplay with new mechanics and addresses customer UI and game feel feedback, and prepare customer-facing handover documentation to demonstrate transition readiness.
+
+### Planned items
+
+- [US-019: Layer Transition](https://github.com/coolcamilla/Team32/issues/83)
+- [US-021: Mining Stations Placement](https://github.com/coolcamilla/Team32/issues/85)
+  - [Construction of Stations](https://github.com/coolcamilla/Team32/issues/139)
+  - [Resource Extraction](https://github.com/coolcamilla/Team32/issues/145)
+- [Coins and Beer](https://github.com/coolcamilla/Team32/issues/206)
+- [Death Mechanic](https://github.com/coolcamilla/Team32/issues/153)
+- [Block Destruction](https://github.com/coolcamilla/Team32/issues/225)
+- [Construction Sprites](https://github.com/coolcamilla/Team32/issues/140)
+- [Draw Coin and Vending Machine](https://github.com/coolcamilla/Team32/issues/222)
+- [Draw UI Buttons and Icons](https://github.com/coolcamilla/Team32/issues/223)
+- [Hit Sounds](https://github.com/coolcamilla/Team32/issues/226)
+- [Define New Drill UI](https://github.com/coolcamilla/Team32/issues/224)
+- [Update the Testing Suite and Documentation Week 6](https://github.com/coolcamilla/Team32/issues/233)
+- [Maintain Roadmap and User Stories for Sprint 4](https://github.com/coolcamilla/Team32/issues/228)
+- [Update and Execute UATs for trial release](https://github.com/coolcamilla/Team32/issues/229)
+- [Create Trial Release](https://github.com/coolcamilla/Team32/issues/230)
+- [Update Root README, create AGENTS, CONTRIBUTING](https://github.com/coolcamilla/Team32/issues/231)
+- [Maintain Customer Handover Documentation](https://github.com/coolcamilla/Team32/issues/232)
+- [Maintain Architecture and Views Sprint 4](https://github.com/coolcamilla/Team32/issues/243)
+
+### Outcome
+
+Trial release as a playable build for Windows and Linux, in which:
+- The drill triggers a layer transition when it reaches the stone layer, drops the resources required to craft the stone pickaxe, and updates the drill UI background to reflect the new layer
+- Mining stations can be built on deposits; each station autonomously extracts resources and drops them near the deposit
+- The mole dies when stamina runs out, losing all resources and respawning at the drill on the surface
+- Coins drop from blocks during digging and are displayed as a separate counter in the UI; the beer vending machine on the surface permanently increases maximum stamina for 5 coins
+- Block destruction now shows progressive crack animation and emits particles on every strike
+- New sprites added for mining stations, coins, and beer vending machine.
+
+Non user-visible outcomes:
+- Updated the testing suite to cover the new mechanics.
+- Updated the `testing.md` to cover the changes to testing
+- Created and `maintained customer-handover.md` as the "current-state description" document
+- Updated the `architecture/` directory to represent the current structure of the project
+
+# Sprint 5
+
+This sprint will introduce MVP v3 which foсuses on UI improvements, game balance and game publishing.
+
+# State reached by the end of the course
+
+`TODO` in the end of the Sprint 5
 
 ---
 
@@ -171,6 +229,10 @@ This sprint will introduce stone layer, layer transitions, mining stations, limi
 The following practices must continue throughout all future project work:
 
 ### Documentation
+- **README.md:** Must remain the main public entry point; update whenever product access, documentation links, setup steps, or handover status change
+- **docs/customer-handover.md:** Must describe the current actual handover state; update whenever access details, deployment steps, limitations, or transition status change
+- **CONTRIBUTING.md:** Must reflect the current git workflow, branching conventions, PR process, and review expectations; update when workflow or tooling changes
+- **AGENTS.md:** Must reflect current scope boundaries, verification commands, safety constraints, and documentation links; update when workflow, setup steps, or documentation links change
 - **docs/testing.md:** Must be updated when critical modules change or new quality gates are added
 - **docs/definition-of-done.md:** Must reflect current CI requirements and coverage expectations
 - **docs/quality-requirements.md:** Must be updated when new quality requirements are identified, and each relevant quality requirement must link to at least one related ADR
