@@ -16,19 +16,32 @@ MonoBehaviour:
   _maxHp: 3
   _minDamage: 1
   type: 2
+  _color: {r: 0.44705886, g: 0.30588236, b: 0.18823531, a: 1}
   _dropTable:
   - _material: 300
     _chance: 0.4
   - _material: 301
     _chance: 0.2
-  - _material: 302
-    _chance: 0.2
   - _material: 304
-    _chance: 0.6
+    _chance: 0.4
   - _material: 303
     _chance: 0.1
+  - _material: 77
+    _chance: 0.02
   possibleSprites:
   - {fileID: -5783312, guid: aa85cf39885c8f6488903681fa68ee05, type: 3}
   - {fileID: 379823880, guid: aa85cf39885c8f6488903681fa68ee05, type: 3}
   - {fileID: 728015169, guid: aa85cf39885c8f6488903681fa68ee05, type: 3}
   randomSprite: 1
+  _hittedSprites:
+  - {fileID: 8115644005664255767, guid: 6407c2269ead717449e4985b44ea1685, type: 3}
+  - {fileID: -1974267942269126528, guid: 449ab9e0dfb1f2a4884330bad5cfda28, type: 3}
+  - {fileID: 2536910936557558875, guid: bf3602465fbebca4680331425b93acf6, type: 3}
+  - {fileID: 1399413676680894907, guid: a06930a6b0802d8438a3daac9050bf6f, type: 3}
+  - {fileID: 6636361135747025162, guid: 70e10bf4e2d9586428d4d5fd62f27ab5, type: 3}
+  - {fileID: 9157014006588339215, guid: 86563e7cf6e121d4693f75bb921d7909, type: 3}
+  - {fileID: 6806491369572896088, guid: 3424cbafd8440434c850b1c49511fe89, type: 3}
+  - {fileID: -114197399250620664, guid: 4ce40eef24009c648b0aee8ae5473e9c, type: 3}
+  - {fileID: -8421150677044587886, guid: e2893b6427bb65a429da9f4aaafa0d50, type: 3}
+  - {fileID: -6854661017989093674, guid: d01b7c17984f8f1488c0c630db5449f5, type: 3}
+  ChosenSprite: 0

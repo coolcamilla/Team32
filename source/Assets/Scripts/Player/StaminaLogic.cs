@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 
 public class StaminaLogic
 {
@@ -13,6 +14,7 @@ public class StaminaLogic
     public bool IsExhausted => CurrentStamina <= 0f;
 
     public event Action<float, float> OnValueChanged;
+    public event Action OnDeath;
 
     public StaminaLogic(float maxStamina, float regenCoefficient, float baseDrainRate)
     {
@@ -27,8 +29,15 @@ public class StaminaLogic
         if (CurrentStamina <= 0f) return;
 
         CurrentStamina -= BaseDrainRate * DrainMultiplier * deltaTime;
-        if (CurrentStamina < 0f) CurrentStamina = 0f;
 
+        if (CurrentStamina < 0f)
+        {
+            CurrentStamina = 0f;
+            OnValueChanged?.Invoke(CurrentStamina, MaxStamina);
+
+            OnDeath?.Invoke();
+            return;
+        }
         OnValueChanged?.Invoke(CurrentStamina, MaxStamina);
     }
 
@@ -45,5 +54,11 @@ public class StaminaLogic
     public bool CanStartClimbing(float requiredStamina = 1f)
     {
         return CurrentStamina >= requiredStamina;
+    }
+
+    public void ResetStamina()
+    {
+        CurrentStamina = MaxStamina;
+        OnValueChanged?.Invoke(CurrentStamina, MaxStamina);
     }
 }

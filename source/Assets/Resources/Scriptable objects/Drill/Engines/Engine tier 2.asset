@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Engine tier 2
   m_EditorClassIdentifier: GameScripts::Engine
   _name: 
-  _speed: 0.4
+  _speed: 0.6
   _power: 7
   _recipe: {fileID: 0}

@@ -29,4 +29,11 @@ public class PlayerStamina : MonoBehaviour
     public void SetDrainMultiplier(float multiplier) => Logic.DrainMultiplier = multiplier;
     public void SetRegenMultiplier(float multiplier) => Logic.RegenMultiplier = multiplier;
     public void ModifyMaxStamina(float newMax) => Logic.MaxStamina = newMax;
+
+    public void Respawn() => Logic.ResetStamina();
+
+    public void Upgrade()
+    {
+        ModifyMaxStamina(MaxStamina + 5);
+    }
 }
