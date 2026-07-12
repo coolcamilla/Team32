@@ -16,11 +16,11 @@ Is a 2D PC game where the player character is a mole. The mole tries to reach Ea
 
 **End:** Sunday, July 12, 2026  
 
-**Scope**: Sprint 4 completes the core gameplay loop through layer transition and mining stations, adds risk and player engagement mechanics (death on stamina depletion, coins, and a beer vending machine), and improves game feel with block destruction visual feedback. The Sprint also introduces customer-facing handover documentation, updated contributor and agent guidance.
+**Scope**: Sprint 4 completes the core gameplay loop through layer transition and mining stations, adds risk and player engagement mechanics (death on stamina depletion, coins, and a beer vending machine), and improves game feel with block destruction visual feedback. The Sprint also introduces customer-facing handover documentation, updated contributor and agent guidance. Existing documentation (testing, architecture, UAT scenarios, roadmap, etc.) is kept current throughout the Sprint.
 
 ### Total Sprint 4 size
 
-36 Story Points
+37 Story Points
 
 ## Summary of delivered Trial Release Changes
 
@@ -47,6 +47,9 @@ Is a 2D PC game where the player character is a mole. The mole tries to reach Ea
 - `docs/customer-handover.md` created describing the current handover state of the product
 - Roadmap and user story index updated to reflect Sprint 4 scope
 - UAT scenarios updated and two new scenarios added for trial release
+- `docs/testing.md` updated with new unit tests for the mining station, drill/layer transition, and stamina death/respawn systems, and refreshed coverage and manual evidence data
+- `docs/architecture/README.md` and the component diagram updated to document the mining station, drill/layer transition, death/respawn, and beer/coin subsystems
+- `docs/quality-requirements.md` and `docs/quality-requirement-tests.md` updated to reference the current pause and inventory menu system
 
 ### Link to product access artifact
 
