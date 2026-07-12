@@ -217,8 +217,28 @@ Empty cells means that team member did not work on this area
 
 ### Screenshots
 
-`TODO`
-- Sprint milestone
-- Week 6 release
-- example reviewed issue-linked PR or MR
-- other inspectable Week 6 evidence where public links may not be reliably inspectable. (???)
+- Sprint milestone  
+![alt](images/sprint_milestone.png)
+
+- Sprint Backlog  
+![alt](images/sprint_backlog.png)
+
+- SemVer release  
+![alt](images/release_1.png)
+![alt](images/release_2.png)
+
+- Reviewed issue-linked PR or MR  
+![alt](images/example_pr_1.png)
+![alt](images/example_pr_2.png)
+![alt](images/example_pr_3.png)
+
+- Code coverage  
+![alt](images/code_coverage_1.png)
+![alt](images/code_coverage_2.png)
+![alt](images/code_coverage_3.png)
+
+- Hosted documentation site  
+![alt](images/documentation_site.png)
+
+- Latest protected-default-branch CI run  
+![alt](images/CI_run.png)
