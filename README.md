@@ -10,7 +10,7 @@ Operation: EarthCore is a 2D exploration and resource-management game. The playe
 
 ## Current Status
 
-This build (`MVP v3`) includes:
+[Trial Release](https://github.com/coolcamilla/Team32/releases/tag/v0.4.0) includes:
 
 - Digging, resource collection, and inventory management
 - Crafting progressively better tools (one craft per tool type per session)
@@ -23,11 +23,11 @@ This build (`MVP v3`) includes:
 
 ## Download
 
-Get the latest build from the Trial release(TODO: add link to the release v0.4.0). See **Local Setup Instructions** below for platform-specific run steps.
+Get the latest build from the [Trial release](https://github.com/coolcamilla/Team32/releases/tag/v0.4.0). See [**Local Setup Instructions**](#local-setup-instructions) below for platform-specific run steps.
 
 ## How to Play
 
-- **Move:** arrow keys / WASD
+- **Move:** `WASD`
 - **Dig:** left mouse button, aimed at block
 - **Climb:** press `C` to toggle the climbing mode (requires stamina to move)
 - **Open inventory:** `E`
