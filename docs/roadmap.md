@@ -6,13 +6,13 @@ Deliver a 2D mining exploration game where the player character is a mole. The m
 
 ## Current Status
 
-**Completed Sprints:** Sprint 1, Sprint 2, Sprint 3  
-**Current Sprint:** Sprint 4  
-**Next Sprint:** Sprint 5  
+**Completed Sprints:** Sprint 1, Sprint 2, Sprint 3, Sprint 4  
+**Current Sprint:** Sprint 5  
+**Next Sprint:** _Not planned_
 
 ## Current Direction
 
-The current sprint delivers new gameplay mechanics (layer transition, mining stations, death mechanic, and coins), responds to customer UI feedback, and prepares customer-facing handover documentation ahead of the final course delivery. The next sprint will use customer trial feedback to produce the final release, MVP v3, focusing on UI improvements and game balance rather than introducing new mechanics.
+The current sprint delivers the final course version, MVP v3, focusing on polish, balance, and handover rather than new mechanics. Key work includes saving, cutscenes, audio integration, UI improvements, stamina rebalancing, and deployment to itch.io. The product is being transitioned to the customer with complete handover documentation, and no further Sprints are planned after this one.
 
 ---
 
@@ -216,11 +216,58 @@ Non user-visible outcomes:
 
 # Sprint 5
 
-This sprint will introduce MVP v3 which foсuses on UI improvements, game balance and game publishing.
+### [Milestone](https://github.com/coolcamilla/Team32/milestone/5)  
+
+### Start
+
+Moday, July 13, 2026  
+
+### End
+
+Sunday, July 19, 2026  
+
+### Goal  
+
+Deliver MVP v3 for Windows and Linux with polished UI and game feel improvements. Deploy it to [itch.io](https://itch.io) and hand over to the customer with complete transition documentation.
+
+### Planned items
+
+- [US-001: Saving](https://github.com/coolcamilla/Team32/issues/65)
+- [Make Discovered Block Temporary](https://github.com/coolcamilla/Team32/issues/207)
+- [Add Cutscences](https://github.com/coolcamilla/Team32/issues/256)
+- [Integrate Music and Sound Effects](https://github.com/coolcamilla/Team32/issues/263)
+- [Mouse-based Navigation in Crafting UI](https://github.com/coolcamilla/Team32/issues/201)
+- [Improve Drill UI](https://github.com/coolcamilla/Team32/issues/203)
+- [Change World Layout](https://github.com/coolcamilla/Team32/issues/204)
+- [Stamina Warning Indicator](https://github.com/coolcamilla/Team32/issues/236)
+- [Rebalance Stamina](https://github.com/coolcamilla/Team32/issues/262)
+- [Edge Glow Artifact](https://github.com/coolcamilla/Team32/issues/227)
+- [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237) 
+- [Start and End Cutscenes](https://github.com/coolcamilla/Team32/issues/238)
+- [Draw Background](https://github.com/coolcamilla/Team32/issues/257)
+- [Animate Block Destruction](https://github.com/coolcamilla/Team32/issues/258)
+- [Animate Falling Mole](https://github.com/coolcamilla/Team32/issues/259)
+- [Draw New Drill UI](https://github.com/coolcamilla/Team32/issues/260)
+- [Music And Sounds for MVP v3](https://github.com/coolcamilla/Team32/issues/261)
+- [Update and Execute UATs for MVP v3](https://github.com/coolcamilla/Team32/issues/265)
+- [Update the Testing Suite and Documentation Week 7](https://github.com/coolcamilla/Team32/issues/270)
+- [Maintain Roadmap and User Stories for Sprint 5](https://github.com/coolcamilla/Team32/issues/267)
+- [Maintain Architecture and Views Sprint 5](https://github.com/coolcamilla/Team32/issues/269)
+- [Maintain Customer Handover Documentation Week 7](https://github.com/coolcamilla/Team32/issues/271)
+- [Create MVP v3 Release](https://github.com/coolcamilla/Team32/issues/266)
+- [Publish Game](https://github.com/coolcamilla/Team32/issues/239)
+
+### Outcome
+
+MVP v3 as a playable build for Windows and Linux, in which:
+- `TODO`
+
+Non user-visible outcomes:
+- `TODO`
 
 # State reached by the end of the course
 
-`TODO` in the end of the Sprint 5
+`TODO`
 
 ---
 
