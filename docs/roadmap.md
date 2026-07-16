@@ -206,7 +206,7 @@ Trial release as a playable build for Windows and Linux, in which:
 - The mole dies when stamina runs out, losing all resources and respawning at the drill on the surface
 - Coins drop from blocks during digging and are displayed as a separate counter in the UI; the beer vending machine on the surface permanently increases maximum stamina for 5 coins
 - Block destruction now shows progressive crack animation and emits particles on every strike
-- New sprites added for mining stations, coins, and beer vending machine.
+- New sprites added for mining stations, coins, and beer vending machine
 
 Non user-visible outcomes:
 - Updated the testing suite to cover the new mechanics.
@@ -244,6 +244,7 @@ Deliver MVP v3 for Windows and Linux with polished UI and game feel improvements
 - [Edge Glow Artifact](https://github.com/coolcamilla/Team32/issues/227)
 - [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237) 
 - [Start and End Cutscenes](https://github.com/coolcamilla/Team32/issues/238)
+- [Make the Game Tutorial](https://github.com/coolcamilla/Team32/issues/200)
 - [Draw Background](https://github.com/coolcamilla/Team32/issues/257)
 - [Animate Block Destruction](https://github.com/coolcamilla/Team32/issues/258)
 - [Animate Falling Mole](https://github.com/coolcamilla/Team32/issues/259)
@@ -260,14 +261,57 @@ Deliver MVP v3 for Windows and Linux with polished UI and game feel improvements
 ### Outcome
 
 MVP v3 as a playable build for Windows and Linux, in which:
-- `TODO`
+- The player can manually save the game state to a local `.txt` file and load it from the main menu
+- An introductory cutscene plays on new game start, presenting the mole's backstory and the game tutorial; an ending cutscene plays when the drill completes the stone layer
+- Music and sound effects are integrated
+- The stamina bar is divided into sections; the initial stamina pool is small, regeneration is slow, and drinking beer fully restores stamina, adds a new section, and increases regeneration rate
+- A red vignette pulses at the edges of the screen when stamina is critically low
+- The drill UI is redesigned
+- The crafting menu information panel appears on mouse hover rather than on click
+- Previously discovered blocks remain visible for a fixed duration after leaving the visibility radius, then return to darkness
+- Boundary walls replaced with transparent barriers; workbench, drill, and beer vending machine relocated to the center of the map
+- New art assets added: sky background, block destruction animations, mole death animation, and drill UI elements
+- Edge glow artifact between block sprites fixed
+- Game balance updated: recipes are rebalanced to ensure all resources are consumed evenly
 
 Non user-visible outcomes:
-- `TODO`
+- [Architecture](architecture) documentation updated to reflect Sprint 5 changes
+- [UAT scenarios](user-acceptance-tests.md) updated and executed for MVP v3
+- [Testing](testing.md) suite and documentation updated
+- [Roadmap](roadmap.md) and [user story](user-stories.md) index updated to reflect Sprint 5 scope
+- [Customer handover](customer-handover.md) documentation updated to reflect final transition state
+
+---
 
 # State reached by the end of the course
 
-`TODO`
+Operation: EarthCore is a complete two-layer 2D game deployed to [itch.io](https://itch.io), with Windows and Linux builds available on GitHub Releases.
+
+## Gameplay
+
+The core gameplay loop is fully implemented: the mole digs through the dirt and stone layers tile by tile, collects resources from broken blocks, and crafts tools at the workbench. The drill operates autonomously, consuming fuel and boring downward until it reaches the stone layer, at which point it drops the resources needed to craft the stone pickaxe and unlocks access to the new layer. Mining stations can be built on discovered deposits and autonomously extract resources.
+
+Risk is introduced through the stamina system: the stamina bar is divided into sections and depletes while climbing; when it reaches zero, the mole dies, losing all inventory resources and respawning at the drill. The beer vending machine on the surface allows the player to spend coins to fully restore stamina and permanently increase the stamina pool and regeneration rate. Coins drop from blocks during digging.
+
+The game has an introductory cutscene presenting the mole's backstory and a tutorial explaining basic mechanics, and an ending cutscene triggered when the drill completes the stone layer. A manual save system allows the player to save and resume progress via a local `.txt` file.
+
+## Documentation
+
+The repository contains a maintained documentation set:
+
+- [**README.md**](../README.md) — main public entry point with links to all maintained documentation and access instructions
+- [**customer-handover.md**](customer-handover.md) — describes the final handover state, access arrangements, and what the customer needs to operate the product
+- [**roadmap.md**](roadmap.md) — Sprint-by-Sprint delivery plan covering all five Sprints
+- [**user-stories.md**](user-stories.md) — authoritative registry of all stable user story IDs and their current status
+- [**user-acceptance-tests.md**](user-acceptance-tests.md) — all active UAT scenarios with execution history across all Sprints
+- [**definition-of-done.md**](definition-of-done.md) — shared minimum completion standard for all PBIs
+- [**testing.md**](testing.md) — testing strategy, coverage expectations, and quality gates
+- [**quality-requirements.md**](quality-requirements.md) — ISO/IEC 25010-based quality requirements
+- [**quality-requirement-tests.md**](quality-requirement-tests.md) — automated tests verifying each quality requirement
+- [**development-process.md**](development-process.md) — git workflow, branching conventions, Sprint cadence, and configuration management practices
+- [**architecture/**](architecture/) — static view (component diagram), dynamic view (sequence diagram for the digging flow), deployment view, and ADRs covering key architectural decisions
+
+Root-level maintained artifacts include [`CONTRIBUTING.md`](../CONTRIBUTING.md) for contributor guidance, [`AGENTS.md`](../AGENTS.md) for AI agent guidance, and [`CHANGELOG.md`](../CHANGELOG.md) tracking all user-visible changes across all releases.
 
 ---
 
