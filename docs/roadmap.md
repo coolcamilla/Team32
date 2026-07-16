@@ -268,7 +268,7 @@ MVP v3 as a playable build for Windows and Linux, in which:
 - A red vignette pulses at the edges of the screen when stamina is critically low
 - The drill UI is redesigned
 - The crafting menu information panel appears on mouse hover rather than on click
-- Previously discovered blocks remain visible for a fixed duration after leaving the visibility radius, then return to darkness
+- Previously discovered blocks return to darkness as soon as they leave the screen, creating a sense that the mole forgets areas it has not recently visited
 - Boundary walls replaced with transparent barriers; workbench, drill, and beer vending machine relocated to the center of the map
 - New art assets added: sky background, block destruction animations, mole death animation, and drill UI elements
 - Edge glow artifact between block sprites fixed
