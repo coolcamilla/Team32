@@ -125,8 +125,8 @@ _Not executed._
 **Preconditions:**
 - New game session started
 - Player does not have any tool yet
-- Player has collected enough resources for a wooden shovel (10 sticks)
-- Player has not collected enough resources for a stone pickaxe (10 sticks and 5 pebbles)
+- Player has collected enough resources for a wooden shovel (10 sticks) `TBD`
+- Player has not collected enough resources for a stone pickaxe (10 sticks and 5 pebbles) `TBD`
 - Mole is near the workbench on the surface
 
 **Step-by-step instructions:**
@@ -404,6 +404,10 @@ _Not executed._
 
 _Not executed._
 
+#### Sprint 5 - 2026-07-17
+
+_Not executed._
+
 ## UAT-008: Mining Stations Construction and Operation
 
 **Status:** Active
@@ -494,6 +498,79 @@ _Not executed._
 #### Sprint 5 - 2026-07-17
 
 _Not executed._
+
+## UAT-010: Cutscenes
+
+**Status:** Active
+
+**Linked to:** [Start and End Cutscenes](https://github.com/coolcamilla/Team32/issues/238), [Make the Game Tutorial](https://github.com/coolcamilla/Team32/issues/200), [Add Cutscences](https://github.com/coolcamilla/Team32/issues/256)
+
+**User goal:** Verify that the introductory cutscene plays when the new game is started, followed by the tutorial pages, and the ending cutscene plays when the drill finishes the stone layer.
+
+**Preconditions:**
+- Player is in main menu
+
+**Step-by-step instructions:**
+1. Click `New Game` button
+2. Сlick on the right arrow using `LMB`
+3. Сlick on the left arrow using `LMB`
+4. Сlick on the right arrow using `LMB` until step 6 in the tutorial
+5. Сlick on the `Start Game` using `LMB`
+6. Complete the game (drill must dig through stone layer)
+
+**Expected outcome:**
+1. A picture explaining mole's backgroung history appears
+2. First tutorial page (step 1) appears
+3. The picture explaining mole's backgroung history appears
+4. Tutoria pages appears one-by-one
+5. Main gameplay scene opens
+6. The ending video plays and then main menu opens
+
+### Execution History
+
+#### Sprint 5 - 2026-07-17
+
+**Execution results:** `TODO` 
+
+**Customer comments:** `TODO`
+
+**Resulting PBIs:** `TODO`
+
+## UAT-011: Save and Load the Game
+
+**Status:** Active
+
+**Linked to:** [US-001: Saving](https://github.com/coolcamilla/Team32/issues/65)
+
+**User goal:** Verify that the game progress can be saved and then loaded in other game session.
+
+**Preconditions:**
+- New game session started
+- No saving file exists
+
+**Step-by-step instructions:**
+1. Do something (e.g. destroy several blocks)
+2. Press `Esc`
+3. Сlick `Save Game` button (TBD)
+4. Сlick `Main Menu` button
+5. Click `Load Game` button
+
+**Expected outcome:**
+1. Game reflects your actions correctly
+2. Pause menu opens
+3. File ` ` is created in TBD
+4. Main menu opens
+5. Game starts in the saved state
+
+### Execution History
+
+#### Sprint 5 - 2026-07-17
+
+**Execution results:** `TODO` 
+
+**Customer comments:** `TODO`
+
+**Resulting PBIs:** `TODO`
 
 ---
 
@@ -597,3 +674,23 @@ No UATs require immediate product changes, but several balance and UX issues wer
 - [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237)
 - [Start and End Cutscenes](https://github.com/coolcamilla/Team32/issues/238)
 - [Publish Game](https://github.com/coolcamilla/Team32/issues/239)
+
+### Sprint 4 - 2026-07-10
+
+Before session with the customer [UAT-005](#uat-005-refuel-and-upgrade-the-drill), and [UAT-006](#uat-006-stamina-depletion-and-recovery) were updated to align with current implementation. [UAT-010](#uat-010-cutscenes) and [UAT-011](#uat-011-save-and-load-the-game) were created.
+
+[UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), and [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-010](#uat-010-cutscenes), and [UAT-011](#uat-011-save-and-load-the-game) were executed.  
+`TODO` are passed.  
+`TODO` require immediate product changes.
+
+#### Need to be fixed
+
+`TODO`
+
+#### Key Feedback Points
+
+`TODO`
+
+#### Resulting PBIs
+
+`TODO`
