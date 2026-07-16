@@ -2,7 +2,7 @@
 
 ## UAT-001: Mole Movement Fix
 
-**Status:** Active
+**Status:** Retired (reason: boundary white walls were removed from the game)
 
 **Linked to:** [Fix Mole's Movement](https://github.com/coolcamilla/Team32/issues/136)
 
@@ -48,6 +48,10 @@
 **Resulting PBIs:** [Corner-grab Jump](https://github.com/coolcamilla/Team32/issues/170)
 
 #### Sprint 4 - 2026-07-10
+
+_Not executed._
+
+#### Sprint 5 - 2026-07-17
 
 _Not executed._
 
@@ -106,6 +110,10 @@ _Not executed._
 
 _Not executed._
 
+#### Sprint 5 - 2026-07-17
+
+_Not executed._
+
 ## UAT-003: Craft a Tool Using the Crafting Menu
 
 **Status:** Active
@@ -136,7 +144,7 @@ _Not executed._
 12. Click the `Craft` button
 
 **Expected outcome:**
-1. Hint `Press F to open craft menu` is highlighted
+1. Hint `F` is highlighted
 2. The crafting menu opens
 3. The stone shovel recipe is displayed with required resources, description and the `Craft` button
 4. Nothing happens (the button is disabled, no resources are removed, no tool is crafted)
@@ -144,7 +152,7 @@ _Not executed._
 6. 10 sticks are removed from the inventory, the wooden shovel appears in the equipment hotbar
 7. The crafting menu closes
 8. Collected resources are added to the inventory
-9. Hint `Press F to open craft menu` is highlighted
+9. Hint `F` is highlighted
 10. The crafting menu opens
 11. The stone shovel recipe is displayed with required resources, description and the `Craft` button
 12. 10 sticks and 5 pebbles are removed from the inventory, the stone shovel replaces the wooden shovel in the equipment hotbar
@@ -170,6 +178,14 @@ _Not executed._
 #### Sprint 4 - 2026-07-10
 
 _Not executed._
+
+#### Sprint 5 - 2026-07-17
+
+**Execution results:** `TODO` 
+
+**Customer comments:** `TODO`
+
+**Resulting PBIs:** `TODO`
 
 ## UAT-004: Inventory Management
 
@@ -217,6 +233,10 @@ _Not executed._
 
 _Not executed._
 
+#### Sprint 5 - 2026-07-17
+
+_Not executed._
+
 ## UAT-005: Refuel and Upgrade the Drill 
 
 **Status:** Active
@@ -229,25 +249,25 @@ _Not executed._
 
 - New game session started
 - The drill's fuel tank is empty
-- Player has sufficient at least 5 sticks and 5 pebbles
+- Player has at least 5 sticks, 5 pebbles and 1 seedling (`TBD`)
 
 **Step-by-step instructions:**
 
 1. Go next to the drill sign on the left side of the map
 2. Press `F`
 3. Check the current fuel level on the left
-4. Add one stick to the fuel tank
+4. Click `Add Seedling` button at the bottom
 5. Look to the right side and find one available upgrade (e.g., increased fuel capacity or faster digging speed)
 6. Click `Upgrade` button on the bottom of the "Drill Drill" upgrade panel
 
 **Expected outcome:**
 
-1. Hint `Press F to interact` is highlighted
+1. Hint `F` is highlighted
 2. The drill UI is opened
 3. The fuel tank is empty, and the drill is not active
-4. Fuel tank now has a litle bit fuel and speed is 0.40 m/min and power is 5 W, drill is active
-5. Three information panels on the right demonstrate three improvement areas: Drill Engine, Drill Drill, Fuel Tank
-6. The upgrade disappears from the upgrade table, and drill stats are updated
+4. Fuel tank now has a litle bit fuel and speed is 0.40 m/min and power is 5 W, drill is active (`TBD`)
+5. Three information panels on the right demonstrate three improvement areas: Engine, Drill Bit, Fuel Tank
+6. The upgrade disappears from the upgrade table, and drill stats are updated (`TBD`)
 
 ### Execution History
 
@@ -271,6 +291,14 @@ _Not executed._
 
 _Not executed._
 
+#### Sprint 5 - 2026-07-17
+
+**Execution results:** `TODO` 
+
+**Customer comments:** `TODO`
+
+**Resulting PBIs:** `TODO`
+
 ## UAT-006: Stamina Depletion and Recovery
 
 **Status:** Active
@@ -291,9 +319,10 @@ _Not executed._
 3. Stop pressing any movement key while remaining in Climbing Mode
 4. Press `C`
 5. Press `C` again
-6. Move in Climbing Mode until stamina reaches zero
-7. Move the mole to the beer vending machine on the surface
-8. Press `F`
+6. Move in Climbing Mode
+7. Move in Climbing Mode until stamina reaches zero
+8. Move the mole to the beer vending machine on the surface
+9. Press `F`
 
 
 **Expected outcome:**
@@ -302,9 +331,10 @@ _Not executed._
 3. The stamina bar does not recover while the mole is stationary in Climbing Mode
 4. The mole lands on the nearest physical block below it and stamina bar recovers
 5. The mole enters Climbing Mode
-6. Stamina descreases as mole moves. When stamina is zero, the mole dies: death screen appears for 10 seconds, then the mole respawns near the drill sign with full stamina and empty inventory
-7. Hint `Press F to become happier` is highlighted
-8. Stamina capacity is increased and 5 coins are deducted
+6. Stamina descreases as mole moves. When stamina is critically low, red vignette pulses at the edges of the screen
+7. Stamina descreases as mole moves. When stamina is zero, the mole dies: death screen appears for 10 seconds, then the mole respawns near the drill sign with full stamina and empty inventory
+8. Hint `F` is highlighted
+9. Stamina capacity is increased and 5 coins are deducted
 
 ### Execution History
 
@@ -323,6 +353,14 @@ _Not executed._
 **Execution results:** Reacted positively to the death mechanic. Noted that particles on block destruction already improve the game feel significantly. Suggested warning the player when stamina is running low before the mole dies.
 
 **Resulting PBIs:** [Stamina warning indicator](https://github.com/coolcamilla/Team32/issues/236)
+
+#### Sprint 5 - 2026-07-17
+
+**Execution results:** `TODO` 
+
+**Customer comments:** `TODO`
+
+**Resulting PBIs:** `TODO`
 
 ## UAT-007: Jump Bug Fixes
 
@@ -402,6 +440,10 @@ _Not executed._
 
 **Resulting PBIs:** [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237)
 
+#### Sprint 5 - 2026-07-17
+
+_Not executed._
+
 ## UAT-009: Layer transition
 
 **Status:** Active
@@ -448,6 +490,10 @@ _Not executed._
 **Execution results:** No functional objections. Noted that the drill currently takes too long to reach the stone layer without upgrades (approximately 7.5 minutes). Suggested rebalancing drill speed.
 
 **Resulting PBIs:** [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237)
+
+#### Sprint 5 - 2026-07-17
+
+_Not executed._
 
 ---
 
