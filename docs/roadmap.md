@@ -320,20 +320,20 @@ Root-level maintained artifacts include [`CONTRIBUTING.md`](../CONTRIBUTING.md) 
 The following practices must continue throughout all future project work:
 
 ### Documentation
-- **README.md:** Must remain the main public entry point; update whenever product access, documentation links, setup steps, or handover status change
-- **docs/customer-handover.md:** Must describe the current actual handover state; update whenever access details, deployment steps, limitations, or transition status change
-- **CONTRIBUTING.md:** Must reflect the current git workflow, branching conventions, PR process, and review expectations; update when workflow or tooling changes
-- **AGENTS.md:** Must reflect current scope boundaries, verification commands, safety constraints, and documentation links; update when workflow, setup steps, or documentation links change
-- **docs/testing.md:** Must be updated when critical modules change or new quality gates are added
-- **docs/definition-of-done.md:** Must reflect current CI requirements and coverage expectations
-- **docs/quality-requirements.md:** Must be updated when new quality requirements are identified, and each relevant quality requirement must link to at least one related ADR
-- **docs/quality-requirement-tests.md:** Must be updated when QRTs are added or modified
-- **docs/architecture/README.md:** Must be updated as new systems (mining stations, layer transitions, save system) are introduced, including updated static, dynamic, and deployment view diagrams
-- **docs/architecture/adr/:** Each significant architecture decision must be recorded as an ADR and linked from `docs/architecture/README.md`
-- **docs/development-process.md:** Must reflect the current git workflow, Sprint cadence, and configuration management practices, illustrated with a Mermaid `gitGraph` diagram
-- **docs/user-acceptance-tests.md:** Must be kept current with all active UAT scenarios, each linked to relevant acceptance criteria, user story, or supporting PBI
-- **Layer design documents:** Each new layer must have a corresponding design document following `game_design/layers/layer-template.md` before implementation begins
-- **CHANGELOG.md:** Every user-visible change must be recorded under `Unreleased` as part of the PR workflow
+- **[README.md](../README.md):** Must remain the main public entry point; update whenever product access, documentation links, setup steps, or handover status change
+- **[docs/customer-handover.md](customer-handover.md):** Must describe the current actual handover state; update whenever access details, deployment steps, limitations, or transition status change
+- **[CONTRIBUTING.md](../CONTRIBUTING.md):** Must reflect the current git workflow, branching conventions, PR process, and review expectations; update when workflow or tooling changes
+- **[AGENTS.md](../AGENTS.md):** Must reflect current scope boundaries, verification commands, safety constraints, and documentation links; update when workflow, setup steps, or documentation links change
+- **[docs/testing.md](testing.md):** Must be updated when critical modules change or new quality gates are added
+- **[docs/definition-of-done.md](definition-of-done.md):** Must reflect current CI requirements and coverage expectations
+- **[docs/quality-requirements.md](quality-requirements.md):** Must be updated when new quality requirements are identified, and each relevant quality requirement must link to at least one related ADR
+- **[docs/quality-requirement-tests.md](quality-requirement-tests.md):** Must be updated when QRTs are added or modified
+- **[docs/architecture/README.md](architecture/README.md):** Must be updated as new systems (mining stations, layer transitions, save system) are introduced, including updated static, dynamic, and deployment view diagrams
+- **[docs/architecture/adr/](architecture/adr/):** Each significant architecture decision must be recorded as an ADR and linked from [`docs/architecture/README.md`](architecture/README.md)
+- **[docs/development-process.md](development-process.md):** Must reflect the current git workflow, Sprint cadence, and configuration management practices, illustrated with a Mermaid `gitGraph` diagram
+- **[docs/user-acceptance-tests.md](user-acceptance-tests.md):** Must be kept current with all active UAT scenarios, each linked to relevant acceptance criteria, user story, or supporting PBI
+- **Layer design documents:** Each new layer must have a corresponding design document following [`game_design/layers/layer-template.md`](../game_design/layers/layer-template.md) before implementation begins
+- **[CHANGELOG.md](../CHANGELOG.md):** Every user-visible change must be recorded under `Unreleased` as part of the PR workflow
 
 ### Automated Testing
 - **Unit tests (EditMode):** All critical game-logic modules must maintain ≥30% line coverage
