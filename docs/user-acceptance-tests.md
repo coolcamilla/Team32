@@ -181,11 +181,11 @@ _Not executed._
 
 #### Sprint 5 - 2026-07-17
 
-**Execution results:** `TODO` 
+**Execution results:** PASSED. The workbench hint appeared on approach. The crafting menu opened via F. Hovering over a tool displayed its recipe and Craft button. Crafting was blocked when resources were insufficient. After collecting enough resources, crafting succeeded and the wooden shovel appeared in the equipment hotbar.  
 
-**Customer comments:** `TODO`
+**Customer comments:** Noted that there is no visual feedback indicating what has been crafted or collected - the player cannot tell what action has been completed. Suggested adding a status indicator showing collected or crafted items.  
 
-**Resulting PBIs:** `TODO`
+**Resulting PBIs:** _None_
 
 ## UAT-004: Inventory Management
 
@@ -293,11 +293,11 @@ _Not executed._
 
 #### Sprint 5 - 2026-07-17
 
-**Execution results:** `TODO` 
+**Execution results:** PASSED. The drill UI opened correctly via F. The new interface layout was approved by the customer as an improvement over the previous one. Fuel was added successfully and the drill activated. Upgrade panels were displayed correctly and upgrades were applied.  
 
-**Customer comments:** `TODO`
+**Customer comments:** Approved the new drill UI as better than the previous version. Noted font inconsistencies and poor button padding — text is too close to button edges, making buttons look visually off. Suggested reducing text size and increasing internal padding to match standard web button conventions. Noted that the player cannot see their resource counts while inside the drill UI, making it unclear whether they have enough resources for an upgrade. Suggested highlighting the Upgrade button in red when the player cannot afford it.
 
-**Resulting PBIs:** `TODO`
+**Resulting PBIs:** _None_
 
 ## UAT-006: Stamina Depletion and Recovery
 
@@ -356,11 +356,11 @@ _Not executed._
 
 #### Sprint 5 - 2026-07-17
 
-**Execution results:** `TODO` 
+**Execution results:** PASSED. Stamina depleted correctly while moving in Climbing Mode. The red vignette appeared when stamina was critically low. The mole died when stamina reached zero, the death screen appeared, and the mole respawned near the drill with full stamina and empty inventory. The beer vending machine increased stamina capacity and deducted 5 coins correctly.  
 
-**Customer comments:** `TODO`
+**Customer comments:** Noted that stamina was still regenerating in normal mode, which the team confirmed was intentional (very slow recovery). Reacted positively to the red warning vignette. No functional objections to the death and respawn flow.
 
-**Resulting PBIs:** `TODO`
+**Resulting PBIs:** _None_
 
 ## UAT-007: Jump Bug Fixes
 
@@ -530,11 +530,11 @@ _Not executed._
 
 #### Sprint 5 - 2026-07-17
 
-**Execution results:** `TODO` 
+**Execution results:** PASSED. The introductory cutscene displayed the mole's backstory as a picture. The tutorial pages appeared and could be navigated with left and right arrows. The Start Game button correctly launched the gameplay scene. The ending cutscene was not fully verified during the session as the drill did not reach the stone layer in time.
 
-**Customer comments:** `TODO`
+**Customer comments:** Reacted positively to the introductory cutscene. Noted that the tutorial arrow buttons are not visually indicated as clickable and suggested highlighting them. Noted that the tutorial contains too many mechanics at once - players are likely to forget most of what they read. Suggested simplifying or condensing the tutorial content.
 
-**Resulting PBIs:** `TODO`
+**Resulting PBIs:** _None_
 
 ---
 
@@ -543,7 +543,7 @@ _Not executed._
 ### Sprint 2 - 2026-06-27
 
 [UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-004](#uat-004-inventory-management), and [UAT-005](#uat-005-refuel-and-upgrade-the-drill) were executed.  
-[UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-004](#uat-004-inventory-management), and [UAT-005](#uat-005-refuel-and-upgrade-the-drill) are passed.  
+[UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-004](#uat-004-inventory-management), and [UAT-005](#uat-005-refuel-and-upgrade-the-drill) passed.  
 [UAT-002](#uat-002-climbing-mode) and [UAT-005](#uat-005-refuel-and-upgrade-the-drill) need product changes.  
 
 #### Key Feedback Points
@@ -573,7 +573,7 @@ _Not executed._
 Before session with the customer [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu) were updated to align with current implementation. [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-007](#uat-007-jump-bug-fixes) were created.
 
 [UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-007](#uat-007-jump-bug-fixes) were executed.  
-[UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-007](#uat-007-jump-bug-fixes) are passed.  
+[UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-007](#uat-007-jump-bug-fixes) passed.  
 [UAT-005](#uat-005-refuel-and-upgrade-the-drill) and [UAT-006](#uat-006-stamina-depletion-and-recovery) need product changes.  
 
 #### Need to be fixed
@@ -614,7 +614,7 @@ Before session with the customer [UAT-002](#uat-002-climbing-mode), [UAT-003](#u
 Before session with the customer [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), and [UAT-006](#uat-006-stamina-depletion-and-recovery) were updated to align with current implementation. [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) were created.
 
 [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) were executed.  
-[UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition)  are passed.  
+[UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) passed.  
 No UATs require immediate product changes, but several balance and UX issues were identified.
 
 #### Need to be fixed
@@ -639,22 +639,33 @@ No UATs require immediate product changes, but several balance and UX issues wer
 - [Start and End Cutscenes](https://github.com/coolcamilla/Team32/issues/238)
 - [Publish Game](https://github.com/coolcamilla/Team32/issues/239)
 
-### Sprint 4 - 2026-07-10
+### Sprint 5 - 2026-07-17
 
 Before session with the customer [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill) and [UAT-006](#uat-006-stamina-depletion-and-recovery) were updated to align with current implementation. [UAT-010](#uat-010-cutscenes) was created.
 
-[UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), and [UAT-006](#uat-006-stamina-depletion-and-recovery), and [UAT-010](#uat-010-cutscenes) were executed.  
-`TODO` are passed.  
-`TODO` require immediate product changes.
+[UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), [UAT-006](#uat-006-stamina-depletion-and-recovery), and [UAT-010](#uat-010-cutscenes) were executed.  
+[UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), [UAT-006](#uat-006-stamina-depletion-and-recovery), and [UAT-010](#uat-010-cutscenes) passed.  
+No UATs require immediate product changes, but several UX and polish issues were identified.
 
 #### Need to be fixed
 
-`TODO`
+- **No resource collection feedback:** The player has no visual indication of what has been collected or crafted; a resource collection banner or status indicator is needed
+- **Tutorial arrows not visually indicated as clickable:** The navigation arrows in the tutorial are not highlighted or styled as interactive elements
+- **Tutorial content overload:** Too many mechanics are explained at once; players are unlikely to retain everything; the tutorial should be simplified or condensed
+- **Drill UI button padding and font:** Text inside buttons is too close to the edges; buttons need more internal padding and smaller text to look polished
+- **Upgrade button not highlighted when unaffordable:** The Upgrade button should be visually distinct (e.g. red) when the player cannot afford the upgrade
+- **Digging animation loops incorrectly:** Two attacks play per button press and the animation runs bottom-to-top instead of top-to-bottom, breaking immersion
+- **Mole clips through air in Climbing Mode:** The mole sometimes crawls through air tiles; Climbing Mode should exit automatically when no wall is detected
 
 #### Key Feedback Points
 
-`TODO`
+- New drill UI is noticeably better than the previous version
+- Tutorial cutscene was well received emotionally but contains too many mechanics at once
+- The game is already addictive in its core loop
+- Exploration is not yet interesting because all blocks look similar
+- The drill's progress is not readable to the player
 
 #### Resulting PBIs
 
-`TODO`
+_None_  
+Note: identified small polish fixes will be done during Sprint 5
