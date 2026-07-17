@@ -125,8 +125,8 @@ _Not executed._
 **Preconditions:**
 - New game session started
 - Player does not have any tool yet
-- Player has collected enough resources for a wooden shovel (10 sticks) `TBD`
-- Player has not collected enough resources for a stone pickaxe (10 sticks and 5 pebbles) `TBD`
+- Player has collected enough resources for a wooden shovel (12 sticks)
+- Player has not collected enough resources for a stone pickaxe (10 sticks and 7 pebbles)
 - Mole is near the workbench on the surface
 
 **Step-by-step instructions:**
@@ -149,13 +149,13 @@ _Not executed._
 3. The stone shovel recipe is displayed with required resources, description and the `Craft` button
 4. Nothing happens (the button is disabled, no resources are removed, no tool is crafted)
 5. The wooden shovel recipe is displayed with required resources, description and the `Craft` button
-6. 10 sticks are removed from the inventory, the wooden shovel appears in the equipment hotbar
+6. 12 sticks are removed from the inventory, the wooden shovel appears in the equipment hotbar
 7. The crafting menu closes
 8. Collected resources are added to the inventory
 9. Hint `F` is highlighted
 10. The crafting menu opens
 11. The stone shovel recipe is displayed with required resources, description and the `Craft` button
-12. 10 sticks and 5 pebbles are removed from the inventory, the stone shovel replaces the wooden shovel in the equipment hotbar
+12. 10 sticks and 7 pebbles are removed from the inventory, the stone shovel replaces the wooden shovel in the equipment hotbar
 
 ### Execution History
 
@@ -249,7 +249,7 @@ _Not executed._
 
 - New game session started
 - The drill's fuel tank is empty
-- Player has at least 5 sticks, 5 pebbles and 1 seedling (`TBD`)
+- Player has at least 5 sticks, 5 pebbles and 1 seedling
 
 **Step-by-step instructions:**
 
@@ -258,16 +258,16 @@ _Not executed._
 3. Check the current fuel level on the left
 4. Click `Add Seedling` button at the bottom
 5. Look to the right side and find one available upgrade (e.g., increased fuel capacity or faster digging speed)
-6. Click `Upgrade` button on the bottom of the "Drill Drill" upgrade panel
+6. Click `Upgrade` button in "Drill Bit" upgrade panel
 
 **Expected outcome:**
 
 1. Hint `F` is highlighted
 2. The drill UI is opened
 3. The fuel tank is empty, and the drill is not active
-4. Fuel tank now has a litle bit fuel and speed is 0.40 m/min and power is 5 W, drill is active (`TBD`)
+4. Fuel tank now has a litle bit fuel and speed is 0.40 m/min and power is 5 W, drill is active
 5. Three information panels on the right demonstrate three improvement areas: Engine, Drill Bit, Fuel Tank
-6. The upgrade disappears from the upgrade table, and drill stats are updated (`TBD`)
+6. Drill stats are updated
 
 ### Execution History
 
@@ -319,7 +319,7 @@ _Not executed._
 3. Stop pressing any movement key while remaining in Climbing Mode
 4. Press `C`
 5. Press `C` again
-6. Move in Climbing Mode
+6. Move in Climbing Mode until only half of the last section remains
 7. Move in Climbing Mode until stamina reaches zero
 8. Move the mole to the beer vending machine on the surface
 9. Press `F`
@@ -536,42 +536,6 @@ _Not executed._
 
 **Resulting PBIs:** `TODO`
 
-## UAT-011: Save and Load the Game
-
-**Status:** Active
-
-**Linked to:** [US-001: Saving](https://github.com/coolcamilla/Team32/issues/65)
-
-**User goal:** Verify that the game progress can be saved and then loaded in other game session.
-
-**Preconditions:**
-- New game session started
-- No saving file exists
-
-**Step-by-step instructions:**
-1. Do something (e.g. destroy several blocks)
-2. Press `Esc`
-3. Сlick `Save Game` button (TBD)
-4. Сlick `Main Menu` button
-5. Click `Load Game` button
-
-**Expected outcome:**
-1. Game reflects your actions correctly
-2. Pause menu opens
-3. File ` ` is created in TBD
-4. Main menu opens
-5. Game starts in the saved state
-
-### Execution History
-
-#### Sprint 5 - 2026-07-17
-
-**Execution results:** `TODO` 
-
-**Customer comments:** `TODO`
-
-**Resulting PBIs:** `TODO`
-
 ---
 
 ## Execution History Summary
@@ -677,9 +641,9 @@ No UATs require immediate product changes, but several balance and UX issues wer
 
 ### Sprint 4 - 2026-07-10
 
-Before session with the customer [UAT-005](#uat-005-refuel-and-upgrade-the-drill), and [UAT-006](#uat-006-stamina-depletion-and-recovery) were updated to align with current implementation. [UAT-010](#uat-010-cutscenes) and [UAT-011](#uat-011-save-and-load-the-game) were created.
+Before session with the customer [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill) and [UAT-006](#uat-006-stamina-depletion-and-recovery) were updated to align with current implementation. [UAT-010](#uat-010-cutscenes) was created.
 
-[UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), and [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-010](#uat-010-cutscenes), and [UAT-011](#uat-011-save-and-load-the-game) were executed.  
+[UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), and [UAT-006](#uat-006-stamina-depletion-and-recovery), and [UAT-010](#uat-010-cutscenes) were executed.  
 `TODO` are passed.  
 `TODO` require immediate product changes.
 
