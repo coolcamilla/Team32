@@ -137,7 +137,7 @@ _Not executed._
 5. Hover the mouse over wooden shovel icon
 6. Click the `Craft` button
 7. Press `F`
-8. Collect 10 sticks and 5 pebbles
+8. Collect 10 sticks and 7 pebbles
 9. Move the mole to the workbench
 10. Press `F`
 11. Hover the mouse over stone shovel icon
