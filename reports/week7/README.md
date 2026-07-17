@@ -114,7 +114,35 @@ Follow installation instructions from [v1.0.0 release](https://github.com/coolca
 Find explanations in [customer feedback response table](#customer-feedback-response-table) in Response column
 
 ### UAT results summary
-`TODO`
+
+Before session with the customer [UAT-003](../../docs/user-acceptance-tests.md#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](../../docs/user-acceptance-tests.md#uat-005-refuel-and-upgrade-the-drill) and [UAT-006](../../docs/user-acceptance-tests.md#uat-006-stamina-depletion-and-recovery) were updated to align with current implementation. [UAT-010](../../docs/user-acceptance-tests.md#uat-010-cutscenes) was created.
+
+[UAT-003](../../docs/user-acceptance-tests.md#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](../../docs/user-acceptance-tests.md#uat-005-refuel-and-upgrade-the-drill), [UAT-006](../../docs/user-acceptance-tests.md#uat-006-stamina-depletion-and-recovery), and [UAT-010](../../docs/user-acceptance-tests.md#uat-010-cutscenes) were executed.  
+[UAT-003](../../docs/user-acceptance-tests.md#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](../../docs/user-acceptance-tests.md#uat-005-refuel-and-upgrade-the-drill), [UAT-006](../../docs/user-acceptance-tests.md#uat-006-stamina-depletion-and-recovery), and [UAT-010](../../docs/user-acceptance-tests.md#uat-010-cutscenes) passed.  
+No UATs require immediate product changes, but several UX and polish issues were identified.
+
+#### Need to be fixed
+
+- **No resource collection feedback:** The player has no visual indication of what has been collected or crafted; a resource collection banner or status indicator is needed
+- **Tutorial arrows not visually indicated as clickable:** The navigation arrows in the tutorial are not highlighted or styled as interactive elements
+- **Tutorial content overload:** Too many mechanics are explained at once; players are unlikely to retain everything; the tutorial should be simplified or condensed
+- **Drill UI button padding and font:** Text inside buttons is too close to the edges; buttons need more internal padding and smaller text to look polished
+- **Upgrade button not highlighted when unaffordable:** The Upgrade button should be visually distinct (e.g. red) when the player cannot afford the upgrade
+- **Digging animation loops incorrectly:** Two attacks play per button press and the animation runs bottom-to-top instead of top-to-bottom, breaking immersion
+- **Mole clips through air in Climbing Mode:** The mole sometimes crawls through air tiles; Climbing Mode should exit automatically when no wall is detected
+
+#### Key Feedback Points
+
+- New drill UI is noticeably better than the previous version
+- Tutorial cutscene was well received emotionally but contains too many mechanics at once
+- The game is already addictive in its core loop
+- Exploration is not yet interesting because all blocks look similar
+- The drill's progress is not readable to the player
+
+#### Resulting PBIs
+
+_None_  
+Note: identified small polish fixes will be done during Sprint 5
 
 ### Customer-trial results
 `TODO`
