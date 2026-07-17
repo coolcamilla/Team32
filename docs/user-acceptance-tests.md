@@ -2,7 +2,7 @@
 
 ## UAT-001: Mole Movement Fix
 
-**Status:** Active
+**Status:** Retired (reason: boundary white walls were removed from the game)
 
 **Linked to:** [Fix Mole's Movement](https://github.com/coolcamilla/Team32/issues/136)
 
@@ -48,6 +48,10 @@
 **Resulting PBIs:** [Corner-grab Jump](https://github.com/coolcamilla/Team32/issues/170)
 
 #### Sprint 4 - 2026-07-10
+
+_Not executed._
+
+#### Sprint 5 - 2026-07-17
 
 _Not executed._
 
@@ -106,6 +110,10 @@ _Not executed._
 
 _Not executed._
 
+#### Sprint 5 - 2026-07-17
+
+_Not executed._
+
 ## UAT-003: Craft a Tool Using the Crafting Menu
 
 **Status:** Active
@@ -117,8 +125,8 @@ _Not executed._
 **Preconditions:**
 - New game session started
 - Player does not have any tool yet
-- Player has collected enough resources for a wooden shovel (10 sticks)
-- Player has not collected enough resources for a stone pickaxe (10 sticks and 5 pebbles)
+- Player has collected enough resources for a wooden shovel (12 sticks)
+- Player has not collected enough resources for a stone pickaxe (10 sticks and 7 pebbles)
 - Mole is near the workbench on the surface
 
 **Step-by-step instructions:**
@@ -129,25 +137,25 @@ _Not executed._
 5. Hover the mouse over wooden shovel icon
 6. Click the `Craft` button
 7. Press `F`
-8. Collect 10 sticks and 5 pebbles
+8. Collect 10 sticks and 7 pebbles
 9. Move the mole to the workbench
 10. Press `F`
 11. Hover the mouse over stone shovel icon
 12. Click the `Craft` button
 
 **Expected outcome:**
-1. Hint `Press F to open craft menu` is highlighted
+1. Hint `F` is highlighted
 2. The crafting menu opens
 3. The stone shovel recipe is displayed with required resources, description and the `Craft` button
 4. Nothing happens (the button is disabled, no resources are removed, no tool is crafted)
 5. The wooden shovel recipe is displayed with required resources, description and the `Craft` button
-6. 10 sticks are removed from the inventory, the wooden shovel appears in the equipment hotbar
+6. 12 sticks are removed from the inventory, the wooden shovel appears in the equipment hotbar
 7. The crafting menu closes
 8. Collected resources are added to the inventory
-9. Hint `Press F to open craft menu` is highlighted
+9. Hint `F` is highlighted
 10. The crafting menu opens
 11. The stone shovel recipe is displayed with required resources, description and the `Craft` button
-12. 10 sticks and 5 pebbles are removed from the inventory, the stone shovel replaces the wooden shovel in the equipment hotbar
+12. 10 sticks and 7 pebbles are removed from the inventory, the stone shovel replaces the wooden shovel in the equipment hotbar
 
 ### Execution History
 
@@ -170,6 +178,14 @@ _Not executed._
 #### Sprint 4 - 2026-07-10
 
 _Not executed._
+
+#### Sprint 5 - 2026-07-17
+
+**Execution results:** PASSED. The workbench hint appeared on approach. The crafting menu opened via F. Hovering over a tool displayed its recipe and Craft button. Crafting was blocked when resources were insufficient. After collecting enough resources, crafting succeeded and the wooden shovel appeared in the equipment hotbar.  
+
+**Customer comments:** Noted that there is no visual feedback indicating what has been crafted or collected - the player cannot tell what action has been completed. Suggested adding a status indicator showing collected or crafted items.  
+
+**Resulting PBIs:** _None_
 
 ## UAT-004: Inventory Management
 
@@ -217,6 +233,10 @@ _Not executed._
 
 _Not executed._
 
+#### Sprint 5 - 2026-07-17
+
+_Not executed._
+
 ## UAT-005: Refuel and Upgrade the Drill 
 
 **Status:** Active
@@ -229,25 +249,25 @@ _Not executed._
 
 - New game session started
 - The drill's fuel tank is empty
-- Player has sufficient at least 5 sticks and 5 pebbles
+- Player has at least 5 sticks, 5 pebbles and 1 seedling
 
 **Step-by-step instructions:**
 
 1. Go next to the drill sign on the left side of the map
 2. Press `F`
 3. Check the current fuel level on the left
-4. Add one stick to the fuel tank
+4. Click `Add Seedling` button at the bottom
 5. Look to the right side and find one available upgrade (e.g., increased fuel capacity or faster digging speed)
-6. Click `Upgrade` button on the bottom of the "Drill Drill" upgrade panel
+6. Click `Upgrade` button in "Drill Bit" upgrade panel
 
 **Expected outcome:**
 
-1. Hint `Press F to interact` is highlighted
+1. Hint `F` is highlighted
 2. The drill UI is opened
 3. The fuel tank is empty, and the drill is not active
 4. Fuel tank now has a litle bit fuel and speed is 0.40 m/min and power is 5 W, drill is active
-5. Three information panels on the right demonstrate three improvement areas: Drill Engine, Drill Drill, Fuel Tank
-6. The upgrade disappears from the upgrade table, and drill stats are updated
+5. Three information panels on the right demonstrate three improvement areas: Engine, Drill Bit, Fuel Tank
+6. Drill stats are updated
 
 ### Execution History
 
@@ -271,6 +291,14 @@ _Not executed._
 
 _Not executed._
 
+#### Sprint 5 - 2026-07-17
+
+**Execution results:** PASSED. The drill UI opened correctly via F. The new interface layout was approved by the customer as an improvement over the previous one. Fuel was added successfully and the drill activated. Upgrade panels were displayed correctly and upgrades were applied.  
+
+**Customer comments:** Approved the new drill UI as better than the previous version. Noted font inconsistencies and poor button padding — text is too close to button edges, making buttons look visually off. Suggested reducing text size and increasing internal padding to match standard web button conventions. Noted that the player cannot see their resource counts while inside the drill UI, making it unclear whether they have enough resources for an upgrade. Suggested highlighting the Upgrade button in red when the player cannot afford it.
+
+**Resulting PBIs:** _None_
+
 ## UAT-006: Stamina Depletion and Recovery
 
 **Status:** Active
@@ -291,9 +319,10 @@ _Not executed._
 3. Stop pressing any movement key while remaining in Climbing Mode
 4. Press `C`
 5. Press `C` again
-6. Move in Climbing Mode until stamina reaches zero
-7. Move the mole to the beer vending machine on the surface
-8. Press `F`
+6. Move in Climbing Mode until only half of the last section remains
+7. Move in Climbing Mode until stamina reaches zero
+8. Move the mole to the beer vending machine on the surface
+9. Press `F`
 
 
 **Expected outcome:**
@@ -302,9 +331,10 @@ _Not executed._
 3. The stamina bar does not recover while the mole is stationary in Climbing Mode
 4. The mole lands on the nearest physical block below it and stamina bar recovers
 5. The mole enters Climbing Mode
-6. Stamina descreases as mole moves. When stamina is zero, the mole dies: death screen appears for 10 seconds, then the mole respawns near the drill sign with full stamina and empty inventory
-7. Hint `Press F to become happier` is highlighted
-8. Stamina capacity is increased and 5 coins are deducted
+6. Stamina descreases as mole moves. When stamina is critically low, red vignette pulses at the edges of the screen
+7. Stamina descreases as mole moves. When stamina is zero, the mole dies: death screen appears for 10 seconds, then the mole respawns near the drill sign with full stamina and empty inventory
+8. Hint `F` is highlighted
+9. Stamina capacity is increased and 5 coins are deducted
 
 ### Execution History
 
@@ -323,6 +353,14 @@ _Not executed._
 **Execution results:** Reacted positively to the death mechanic. Noted that particles on block destruction already improve the game feel significantly. Suggested warning the player when stamina is running low before the mole dies.
 
 **Resulting PBIs:** [Stamina warning indicator](https://github.com/coolcamilla/Team32/issues/236)
+
+#### Sprint 5 - 2026-07-17
+
+**Execution results:** PASSED. Stamina depleted correctly while moving in Climbing Mode. The red vignette appeared when stamina was critically low. The mole died when stamina reached zero, the death screen appeared, and the mole respawned near the drill with full stamina and empty inventory. The beer vending machine increased stamina capacity and deducted 5 coins correctly.  
+
+**Customer comments:** Noted that stamina was still regenerating in normal mode, which the team confirmed was intentional (very slow recovery). Reacted positively to the red warning vignette. No functional objections to the death and respawn flow.
+
+**Resulting PBIs:** _None_
 
 ## UAT-007: Jump Bug Fixes
 
@@ -366,6 +404,10 @@ _Not executed._
 
 _Not executed._
 
+#### Sprint 5 - 2026-07-17
+
+_Not executed._
+
 ## UAT-008: Mining Stations Construction and Operation
 
 **Status:** Active
@@ -401,6 +443,10 @@ _Not executed._
 **Execution results:** Reacted positively. "Noted that clay currently has no meaningful use beyond the station and suggested adding more upgrades that consume it.
 
 **Resulting PBIs:** [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237)
+
+#### Sprint 5 - 2026-07-17
+
+_Not executed._
 
 ## UAT-009: Layer transition
 
@@ -449,6 +495,47 @@ _Not executed._
 
 **Resulting PBIs:** [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237)
 
+#### Sprint 5 - 2026-07-17
+
+_Not executed._
+
+## UAT-010: Cutscenes
+
+**Status:** Active
+
+**Linked to:** [Start and End Cutscenes](https://github.com/coolcamilla/Team32/issues/238), [Make the Game Tutorial](https://github.com/coolcamilla/Team32/issues/200), [Add Cutscences](https://github.com/coolcamilla/Team32/issues/256)
+
+**User goal:** Verify that the introductory cutscene plays when the new game is started, followed by the tutorial pages, and the ending cutscene plays when the drill finishes the stone layer.
+
+**Preconditions:**
+- Player is in main menu
+
+**Step-by-step instructions:**
+1. Click `New Game` button
+2. Сlick on the right arrow using `LMB`
+3. Сlick on the left arrow using `LMB`
+4. Сlick on the right arrow using `LMB` until step 6 in the tutorial
+5. Сlick on the `Start Game` using `LMB`
+6. Complete the game (drill must dig through stone layer)
+
+**Expected outcome:**
+1. A picture explaining mole's backgroung history appears
+2. First tutorial page (step 1) appears
+3. The picture explaining mole's backgroung history appears
+4. Tutoria pages appears one-by-one
+5. Main gameplay scene opens
+6. The ending video plays and then main menu opens
+
+### Execution History
+
+#### Sprint 5 - 2026-07-17
+
+**Execution results:** PASSED. The introductory cutscene displayed the mole's backstory as a picture. The tutorial pages appeared and could be navigated with left and right arrows. The Start Game button correctly launched the gameplay scene. The ending cutscene was not fully verified during the session as the drill did not reach the stone layer in time.
+
+**Customer comments:** Reacted positively to the introductory cutscene. Noted that the tutorial arrow buttons are not visually indicated as clickable and suggested highlighting them. Noted that the tutorial contains too many mechanics at once - players are likely to forget most of what they read. Suggested simplifying or condensing the tutorial content.
+
+**Resulting PBIs:** _None_
+
 ---
 
 ## Execution History Summary
@@ -456,7 +543,7 @@ _Not executed._
 ### Sprint 2 - 2026-06-27
 
 [UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-004](#uat-004-inventory-management), and [UAT-005](#uat-005-refuel-and-upgrade-the-drill) were executed.  
-[UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-004](#uat-004-inventory-management), and [UAT-005](#uat-005-refuel-and-upgrade-the-drill) are passed.  
+[UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-004](#uat-004-inventory-management), and [UAT-005](#uat-005-refuel-and-upgrade-the-drill) passed.  
 [UAT-002](#uat-002-climbing-mode) and [UAT-005](#uat-005-refuel-and-upgrade-the-drill) need product changes.  
 
 #### Key Feedback Points
@@ -486,7 +573,7 @@ _Not executed._
 Before session with the customer [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu) were updated to align with current implementation. [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-007](#uat-007-jump-bug-fixes) were created.
 
 [UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-007](#uat-007-jump-bug-fixes) were executed.  
-[UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-007](#uat-007-jump-bug-fixes) are passed.  
+[UAT-001](#uat-001-mole-movement-fix), [UAT-002](#uat-002-climbing-mode), [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-007](#uat-007-jump-bug-fixes) passed.  
 [UAT-005](#uat-005-refuel-and-upgrade-the-drill) and [UAT-006](#uat-006-stamina-depletion-and-recovery) need product changes.  
 
 #### Need to be fixed
@@ -527,7 +614,7 @@ Before session with the customer [UAT-002](#uat-002-climbing-mode), [UAT-003](#u
 Before session with the customer [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), and [UAT-006](#uat-006-stamina-depletion-and-recovery) were updated to align with current implementation. [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) were created.
 
 [UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) were executed.  
-[UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition)  are passed.  
+[UAT-006](#uat-006-stamina-depletion-and-recovery), [UAT-008](#uat-008-mining-stations-construction-and-operation) and [UAT-009](#uat-009-layer-transition) passed.  
 No UATs require immediate product changes, but several balance and UX issues were identified.
 
 #### Need to be fixed
@@ -551,3 +638,34 @@ No UATs require immediate product changes, but several balance and UX issues wer
 - [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237)
 - [Start and End Cutscenes](https://github.com/coolcamilla/Team32/issues/238)
 - [Publish Game](https://github.com/coolcamilla/Team32/issues/239)
+
+### Sprint 5 - 2026-07-17
+
+Before session with the customer [UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill) and [UAT-006](#uat-006-stamina-depletion-and-recovery) were updated to align with current implementation. [UAT-010](#uat-010-cutscenes) was created.
+
+[UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), [UAT-006](#uat-006-stamina-depletion-and-recovery), and [UAT-010](#uat-010-cutscenes) were executed.  
+[UAT-003](#uat-003-craft-a-tool-using-the-crafting-menu), [UAT-005](#uat-005-refuel-and-upgrade-the-drill), [UAT-006](#uat-006-stamina-depletion-and-recovery), and [UAT-010](#uat-010-cutscenes) passed.  
+No UATs require immediate product changes, but several UX and polish issues were identified.
+
+#### Need to be fixed
+
+- **No resource collection feedback:** The player has no visual indication of what has been collected or crafted; a resource collection banner or status indicator is needed
+- **Tutorial arrows not visually indicated as clickable:** The navigation arrows in the tutorial are not highlighted or styled as interactive elements
+- **Tutorial content overload:** Too many mechanics are explained at once; players are unlikely to retain everything; the tutorial should be simplified or condensed
+- **Drill UI button padding and font:** Text inside buttons is too close to the edges; buttons need more internal padding and smaller text to look polished
+- **Upgrade button not highlighted when unaffordable:** The Upgrade button should be visually distinct (e.g. red) when the player cannot afford the upgrade
+- **Digging animation loops incorrectly:** Two attacks play per button press and the animation runs bottom-to-top instead of top-to-bottom, breaking immersion
+- **Mole clips through air in Climbing Mode:** The mole sometimes crawls through air tiles; Climbing Mode should exit automatically when no wall is detected
+
+#### Key Feedback Points
+
+- New drill UI is noticeably better than the previous version
+- Tutorial cutscene was well received emotionally but contains too many mechanics at once
+- The game is already addictive in its core loop
+- Exploration is not yet interesting because all blocks look similar
+- The drill's progress is not readable to the player
+
+#### Resulting PBIs
+
+_None_  
+Note: identified small polish fixes will be done during Sprint 5
