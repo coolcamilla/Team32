@@ -24,34 +24,46 @@
 
 ## Summary of Week 7 follow-up maintenance and final MVP v3 changes
 
-`TODO`
-
 **Gameplay**
-- Layer transition implemented: when the drill reaches the stone layer, it drops the resources required to craft the stone pickaxe and the drill UI background updates to reflect the new layer
-- Mining stations added: when the mole discovers a deposit, a hint card appears with the station recipe and a BUILD button; once built, the station autonomously extracts resources and drops them near the deposit
-- Death mechanic added: when the mole's stamina runs out underground, a death screen displays "The mole is exhausted :("; after 10 seconds the mole respawns at the drill with an empty inventory but keeps its equipped tool
-- Coins added as a collectible currency: coins drop from blocks and are displayed as a separate counter in the UI
-- Beer vending machine added on the surface: spending 5 coins permanently increases the mole's maximum stamina
-- Block destruction feedback improved: particles fly out, cracks appear and become more prominent as the block loses HP
+- Manual save system added: the player can save the game state to a local file and load it from the main menu via the Load Game button
+- Temporary block visibility added: blocks return to darkness as soon as they leave the screen, creating a sense that the mole forgets areas it has not recently visited
+- Stamina rebalanced: the initial stamina pool is small (only 2 sections), regeneration is very slow in normal mode; drinking beer fully restores stamina, adds a new stamina section, and increases the regeneration rate
+- Stamina bar redesigned: replaced with a sectioned display where each section represents one unit of stamina capacity
+- Stamina warning added: a red vignette pulses at the edges of the screen when stamina is critically low
+- Music and sound effects fully integrated: main menu and surface layer music, hit sounds for dirt and stone blocks, digging, crafting, mole actions, and drill operation
+
+**UI and World**
+- Drill UI redesigned: left panel shows depth, fuel bar, and stats; right panel shows three upgrade cards with effect descriptions and resource costs
+- Crafting menu updated: the tool information panel now appears on mouse hover rather than on click
+- World layout updated: white boundary walls replaced with transparent barriers; workbench, drill, and beer vending machine relocated to the center of the map
+- Blocks beneath the workbench, drill, and beer vending machine can no longer be dug
 
 **Art**
-- Mining station sprites added for dirt and stone layer deposit types
-- Coin and beer vending machine sprites added
-- UI button and icon sprites added (Start, Exit, Resume, Main Menu, backpack, pause)
+- Sky background with clouds added for the surface layer
+- Block destruction animations added for clay, coal, silicon, and copper
+- Mole falling animation added showing the mole flailing its arms and legs
+- New drill UI panel assets added
 
-**Audio**
-- Hit sound effects selected for dirt and stone blocks
+**Cutscenes and Tutorial**
+- Introductory cutscene added: a picture presenting the mole's backstory plays when a new game starts
+- Tutorial added: a set of navigable pages explaining basic mechanics follows the introductory cutscene
+- Ending cutscene added: a video plays when the drill completes the stone layer, followed by team credits
+
+**Game Design**
+- Recipes rebalanced for tools, drill upgrades, and mining stations to ensure all resources are consumed evenly across progression
+
+**Deployment**
+- Game deployed to [itch.io](https://itch.io) as part of the final customer handover
+- MVP v3 release published with SemVer tag
 
 **Documentation and Handover**
-- [`README.md`](../../README.md) updated as the main public entry point with links to all maintained documentation
-- [`CONTRIBUTING.md`](../../CONTRIBUTING.md) created with contributor guidance
-- [`AGENTS.md`](../../AGENTS.md) created with agent guidance and safety constraints
-- [`docs/customer-handover.md`](../../docs/customer-handover.md) created describing the current handover state of the product
-- [Roadmap](../../docs/roadmap.md) and [user story index](../../docs/user-stories.md) updated to reflect Sprint 4 scope
-- [UAT scenarios](../../docs/user-acceptance-tests.md) updated and two new scenarios added for trial release
-- [`docs/testing.md`](../../docs/testing.md) updated with new unit tests for the mining station, drill/layer transition, and stamina death/respawn systems, and refreshed coverage and manual evidence data
-- [`docs/architecture/README.md`](../../docs/architecture/README.md) and the component diagram updated to document the mining station, drill/layer transition, death/respawn, and beer/coin subsystems
-- [`docs/quality-requirements.md`](../../docs/quality-requirements.md) and [`docs/quality-requirement-tests.md`](../../docs/quality-requirement-tests.md) updated to reference the current pause and inventory menu system
+- [`docs/customer-handover.md`](../../docs/customer-handover.md) updated to reflect the final handover state including [itch.io](https://itch.io) deployment and transition arrangements
+- [`README.md`](../../README.md) updated with links to the [itch.io](https://itch.io) page and final documentation
+- [`CONTRIBUTING.md`](../../CONTRIBUTING.md) and [`AGENTS.md`](../../AGENTS.md) kept current
+- [Roadmap](../../docs/roadmap.md) and [user story index](../../docs/user-stories.md) updated to reflect Sprint 5 scope
+- [UAT scenarios](../../docs/user-acceptance-tests.md) updated and executed for MVP v3
+- [`docs/architecture/README.md`](../../docs/architecture/README.md) updated to reflect Sprint 5 system changes
+- [`docs/testing.md`](../../docs/testing.md) updated with new and modified test coverage for Sprint 5 systems
 
 ### Link to product access artifact
 
@@ -145,7 +157,27 @@ _None_
 Note: identified small polish fixes will be done during Sprint 5
 
 ### Customer-trial results
-`TODO`
+
+The customer explored the build freely after the structured UAT session, covering digging, climbing, crafting, the drill UI, and stamina.
+
+**What worked well:**
+- The core digging loop felt engaging and addictive. The customer noted the game is already fun to play in short bursts
+- The new drill UI was approved as a clear improvement over the previous version
+- The introductory cutscene was well received - "enough to bring tears to your eyes"
+- The red stamina warning vignette was noticed and accepted positively
+- The death and respawn mechanic worked correctly and felt fair
+
+**What needs improvement:**
+- The digging animation loops incorrectly: two attacks play per button press and the animation runs bottom-to-top instead of top-to-bottom, breaking immersion
+- The mole clips through air tiles in Climbing Mode, it should exit climbing automatically when no wall is detected
+- The drill's progress underground is not readable: no visual feedback indicates it is drilling deeper; the customer suggested a visual such as the drill vibrating when it reaches the target depth
+- Resource collection is invisible to the player
+- Upgrade buttons are not visually disabled when the player cannot afford them
+- All blocks look visually similar underground, making exploration feel unrewarding
+- The F key for digging felt unintuitive to the customer
+
+**Customer's overall impression:**
+The game is already enjoyable and has a solid core loop. The customer confirmed that with further polish — particularly animations, UI feedback, and visual block variety — it would be a strong portfolio piece. The handover via itch.io, GitHub, and Unity Version Control was confirmed as sufficient to complete the course transition.
 
 ### [Final SemVer release](https://github.com/coolcamilla/Team32/releases/tag/v1.0.0) mapped to MVP v3 (Sprint 5 Increment)
 
@@ -155,8 +187,8 @@ Note: identified small polish fixes will be done during Sprint 5
 `TODO`
 
 ### Demo Day preparation summary
-`TODO`
-including a brief note that the required Week 7 rehearsal preparation was completed.
+
+The team updated the presentation slides to reflect the final product state and prepared a 2-minute demo video with voiceover covering the core gameplay loop. A full rehearsal was conducted to fit the presentation within the 5-minute time limit. The team also discussed likely questions from the audience and prepared responses in advance. 
 
 ### [Sprint 5 review transcript](sprint-review-transcript.md)
 
@@ -170,24 +202,22 @@ including a brief note that the required Week 7 rehearsal preparation was comple
 
 ### Summary of the final product status
 
-`TODO`
+Operation: EarthCore is a complete two-layer 2D game deployed to [itch.io](https://itch.io), with Windows and Linux builds available on GitHub Releases. The full core gameplay loop is implemented: the mole digs through dirt and stone layers, collects resources, crafts tools at the workbench, builds mining stations on deposits, and fuels and upgrades the drill to progress deeper. Risk mechanics (stamina depletion, death, coins, and the beer vending machine) create meaningful pressure and progression incentives. The game includes a manual save system, an introductory cutscene, a tutorial, and an ending cutscene triggered when the drill completes the stone layer. Audio is fully integrated across all major game events. The stamina bar is sectioned and rebalanced, block destruction is visually and audibly satisfying, and the drill UI has been redesigned based on customer feedback.
 
-The game is a playable Windows and Linux build delivering the complete core gameplay loop across two layers (surface and stone). The mole can explore underground, collect resources, craft tools at the workbench, build mining stations, fuel and upgrade the drill, and progress to the stone layer once the drill breaks through. Sprint 4 completed the core loop through layer transition and mining stations, added risk mechanics (death on stamina depletion, coins, and a beer vending machine), and improved game feel with block destruction visual feedback. Customer-facing handover documentation is in place, including [`README.md`](../../README.md), [`CONTRIBUTING.md`](../../CONTRIBUTING.md), [`AGENTS.md`](../../AGENTS.md), and [`docs/customer-handover.md`](../../docs/customer-handover.md). The codebase is covered by unit, integration, and QRT tests with a CI pipeline enforcing quality gates on every PR.
+The codebase is covered by unit, integration, and QRT tests with a CI pipeline enforcing quality gates on every PR. Architecture documentation (static, dynamic, and deployment views and ADRs) is maintained and up to date. The full documentation set is publicly accessible in the repository, including [`README.md`](../../README.md), [`CONTRIBUTING.md`](../../CONTRIBUTING.md), [`AGENTS.md`](../../AGENTS.md), [`docs/customer-handover.md`](../../docs/customer-handover.md), and all maintained [quality](../../docs/quality-requirements.md), [testing](../../docs/testing.md), [UAT](../../docs/user-acceptance-tests.md), [roadmap](../../docs/roadmap.md), and [architecture](../../docs/architecture/) artifacts. The product has been handed over to the customer via [itch.io](https://itch.io), GitHub, and Unity Version Control.
 
 ### Contribution traceability table
-
-`TODO`
 
 Main implementation process was in Unity Version Control, that is why we merged several PBIs in one PR.
 
 | Team member | Assigned issues | PRs created | PRs reviewed | Testing Work | Documentation Work | Transition work | Deployment work | Demo Day preparation |
-|---|---|---|---|---|---|---|---| 
-| **WazzuRunaway** | | | | | | | | |
-| **Pro100Vorona** | | | | | | | | |
-| **Lilia-Shagidullina** | | | | | | | | |
-| **MarikSH** | | | | | | | | |
-| **coolcamilla** | | | | | | | | |
-| **SunrisEe41** | | | | | | | | |
+|---|---|---|---|---|---|---|---|---|
+| **WazzuRunaway** | [#201](https://github.com/coolcamilla/Team32/issues/201) [#203](https://github.com/coolcamilla/Team32/issues/203) [#207](https://github.com/coolcamilla/Team32/issues/207) [#227](https://github.com/coolcamilla/Team32/issues/227) [#236](https://github.com/coolcamilla/Team32/issues/236) [#256](https://github.com/coolcamilla/Team32/issues/256) | | | | Maintain [`CHANGELOG.md`](TBD) | Transfer ownership of the Unity Version Control project to the customer | | Participate in rehersal |
+| **Pro100Vorona** | [#204](https://github.com/coolcamilla/Team32/issues/204) | | | | | | | Participated in rehersal |
+| **Lilia-Shagidullina** | [#257](https://github.com/coolcamilla/Team32/issues/257) [#258](https://github.com/coolcamilla/Team32/issues/258) [#259](https://github.com/coolcamilla/Team32/issues/259) [#260](https://github.com/coolcamilla/Team32/issues/260) | [#275](https://github.com/coolcamilla/Team32/pull/275) | | |  Maintain [`CHANGELOG.md`](TBD)  | | | Participate in rehersal |
+| **MarikSH** | [#261](https://github.com/coolcamilla/Team32/issues/261) | | [#275](https://github.com/coolcamilla/Team32/pull/275) | | | | | Participate in rehersal | 
+| **coolcamilla** | [#200](https://github.com/coolcamilla/Team32/issues/200) [#237](https://github.com/coolcamilla/Team32/issues/237) [#238](https://github.com/coolcamilla/Team32/issues/238) [#264](https://github.com/coolcamilla/Team32/issues/264) [#265](https://github.com/coolcamilla/Team32/issues/265) [#266](https://github.com/coolcamilla/Team32/issues/266) [#267](https://github.com/coolcamilla/Team32/issues/267) | [#272](https://github.com/coolcamilla/Team32/pull/272) [#273](https://github.com/coolcamilla/Team32/pull/273) [#274](https://github.com/coolcamilla/Team32/pull/274) | | [Add UAT-010](https://github.com/coolcamilla/Team32/pull/274/changes/e8f7b4f36cc76eb89df0d70153e338bec8eb8046) | Maintain [`roadmap.md`, `user-stories.md`](TBD), [`user-acceptance-tests.md`](https://github.com/coolcamilla/Team32/pull/274/commits), [`CHANGELOG.md`](TBD), root [`README.md`](TBD) | Transfer ownership of the GitHub repositoty to the customer | Publish v1.0.0 release (mapped to MVP v3) on GitHub | Prepare presentation slides and script, record and dub the demo video, conduct a rehearsal |
+| **SunrisEe41** | [#239](https://github.com/coolcamilla/Team32/issues/239) [#268](https://github.com/coolcamilla/Team32/issues/268) [#269](https://github.com/coolcamilla/Team32/issues/269) [#270](https://github.com/coolcamilla/Team32/issues/270) [#271](https://github.com/coolcamilla/Team32/issues/271) | | [#272](https://github.com/coolcamilla/Team32/pull/272) [#273](https://github.com/coolcamilla/Team32/pull/273) [#274](https://github.com/coolcamilla/Team32/pull/274) | [Add TBD unit tests](TBD) | Maintain [`docs/architecture/`](TBD), [`testing.md`](TBD), root [`README.md`, `CONTRIBUTING.md`, `AGENTS.md`](TBD) | Customize the background of the [game page](TBD link) to be meaningful and attractive game on itch.io | [Publish game](TBD pr) on itch.io | Participated in rehersal |  
 
 Empty cells means that team member did not work on this area
 
