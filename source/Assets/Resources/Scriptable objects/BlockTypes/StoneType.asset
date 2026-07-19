@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StoneType
   m_EditorClassIdentifier: Assembly-CSharp::BlockTypeData
   _blockName: Stone
-  _maxHp: 10
+  _maxHp: 16
   _minDamage: 5
   type: 3
   _color: {r: 0.21176472, g: 0.21176472, b: 0.24313727, a: 1}

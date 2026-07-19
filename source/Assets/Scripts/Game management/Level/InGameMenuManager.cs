@@ -11,36 +11,38 @@ public class InGameMenuManager : MonoBehaviour
 
     private GameObject _previousMenu;
     private PlayerInput _playerInput;
-    private PlayerInput _input;
-    private UnityAction _onGamePaused;
-    private UnityAction _onGameResumed;
+
+    private MultipleSoundsSourceBehaviour _soundSource;
     private void Awake()
     {
         _previousMenu = null;
-        _input = new PlayerInput();
-        _input.InGameMenu.ToggleInventory.performed += ctx => Toggle(_inventoryMenu);
-        _input.InGameMenu.TogglePause.performed += ctx => Toggle(_pauseMenu);
+
+        _soundSource = GameObject.FindGameObjectWithTag("Global Audio").GetComponent<MultipleSoundsSourceBehaviour>();
         _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().Input;
+        _playerInput.InGameMenu.ToggleInventory.performed += ctx => Toggle(_inventoryMenu);
+        _playerInput.InGameMenu.TogglePause.performed += ctx => Toggle(_pauseMenu);
     }
 
 
     private void OnEnable()
     {
-        _input.Enable();
+        _playerInput.Enable();
     }
 
     private void OnDisable()
     {
-        _input.Disable();
+        _playerInput.Disable();
     }
 
     public void Toggle(GameObject toggledMenu)
     {
+        _soundSource.PlayMenuSound();
+        CursorToggler.IsVisible = true;
         if (toggledMenu == _previousMenu) ResumeGame();
         else
         {
             Time.timeScale = 0.0f;
-            _playerInput.Disable();
+            _playerInput.Player.Disable();
             _hotbar.SetActive(false);
             _menuesList.SetActive(true);
             _previousMenu?.SetActive(false);
@@ -52,10 +54,12 @@ public class InGameMenuManager : MonoBehaviour
     private void ResumeGame()
     {
         Time.timeScale = 1.0f;
-        _playerInput.Enable();
+        _playerInput.Player.Enable();
         _hotbar.SetActive(true);
         _previousMenu.SetActive(false);
         _menuesList.SetActive(false);
         _previousMenu = null;
+
+        CursorToggler.IsVisible = false;
     }
 }

@@ -177,4 +177,26 @@ public class InventoryLogic
         }
         OnInventoryChanged?.Invoke();
     }
+
+    public void SetSlot(int index, Item item, int count)
+    {
+        if (index < 0 || index >= _slots.Length) return;
+        _slots[index] = (item == null || count <= 0) ? null : new InventoryEntry { StoredItem = item, Count = count };
+    }
+
+    public void NotifyChanged() => OnInventoryChanged?.Invoke();
+
+    public int GetTotalAmount(Item item)
+    {
+        int count = 0;
+        for (int i = 0; i < _slots.Length; i++)
+        {
+            if (_slots[i] != null && _slots[i].StoredItem == item)
+            {
+                count += _slots[i].Count;
+            }
+        }
+
+        return count;
+    }
 }

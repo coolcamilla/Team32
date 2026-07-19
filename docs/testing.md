@@ -121,19 +121,20 @@ All Assignment 4 quality gates are maintained project assets and continue to app
 - If a product change makes a critical module or QRT obsolete, the Definition of Done and this document must be updated, and an equivalent or stronger check must replace it rather than being silently dropped.
 
 ## Manual Evidence That Does Not Count as QRT
- 
+
 | Evidence | Scope | Result | Follow-up PBI or issue |
 | --- | --- | --- | --- |
-| Customer UAT - Verify that the mole cannot fly out of the gameplay zone by pressing Space repeatedly. | Movement | Pass (Sprint 3; not re-executed Sprint 4) | [Corner-grab Jump](https://github.com/coolcamilla/Team32/issues/170) |
-| Customer UAT - Verify that the mole can enter climbing mode and climb the background walls. | Movement (Climbing) | Pass (Sprint 3; not re-executed Sprint 4) | [Interactive Game Tutorial](https://github.com/coolcamilla/Team32/issues/200) |
-| Customer UAT - Verify that the crafting system works correctly, and the player can craft a tool when they have sufficient resources. | Crafting System | Pass (Sprint 3; not re-executed Sprint 4) | [Mouse-based Navigation in Crafting UI](https://github.com/coolcamilla/Team32/issues/201) |
-| Customer UAT - Verify that the inventory correctly tracks resources, allows adding and spending items. | Inventory | Pass (Sprint 2 only; not re-executed Sprint 3 or Sprint 4) | [Simplify Inventory](https://github.com/coolcamilla/Team32/issues/174) |
-| Customer UAT - Verify that the drill can be refueled and upgraded correctly. | Drill System | Pass (Sprint 3; not re-executed Sprint 4) | [Improve Drill UI](https://github.com/coolcamilla/Team32/issues/203), [Change World Layout](https://github.com/coolcamilla/Team32/issues/204) |
-| Customer UAT - Verify that stamina depletes in Climbing Mode and that reaching zero triggers the death mechanic (death screen, 10s respawn delay, inventory cleared) and the beer vending machine correctly increases max stamina for 5 coins. | Stamina / Death / Beer System | **Pass (Sprint 4 - current)** | [Stamina warning indicator](https://github.com/coolcamilla/Team32/issues/236) |
-| Customer UAT - Verify that jump stacking and pause-related force accumulation have been fixed. | Movement (Jump/Pause) | Pass (Sprint 3; not re-executed Sprint 4) | None |
-| Customer UAT - Verify that the player can discover a deposit, build a mining station on it, and that the station autonomously collects resources into the inventory. | Mining Stations *(new this Sprint)* | **Pass (Sprint 4 - current)** | [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237) |
-| Customer UAT - Verify that the drill correctly triggers a layer transition, drops the required resources, and allows the mole to access and dig in the new layer with a crafted stone pickaxe. | Layer Transition *(new this Sprint)* | **Pass (Sprint 4 - current)** | [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237) |
+| Customer UAT - Verify that the mole cannot fly out of the gameplay zone by pressing Space repeatedly. | Movement | Pass (Sprint 3; not re-executed since) | [Corner-grab Jump](https://github.com/coolcamilla/Team32/issues/170) |
+| Customer UAT - Verify that the mole can enter climbing mode and climb the background walls. | Movement (Climbing) | Pass (Sprint 3; not re-executed since) | [Interactive Game Tutorial](https://github.com/coolcamilla/Team32/issues/200) |
+| Customer UAT - Verify that the crafting system works correctly, and the player can craft a tool when they have sufficient resources. | Crafting System | **Pass (Sprint 5 - current)** | None |
+| Customer UAT - Verify that the inventory correctly tracks resources, allows adding and spending items. | Inventory | Pass (Sprint 2 only; not re-executed since) | [Simplify Inventory](https://github.com/coolcamilla/Team32/issues/174) |
+| Customer UAT - Verify that the drill can be refueled and upgraded correctly. | Drill System | **Pass (Sprint 5 - current)** | None |
+| Customer UAT - Verify that stamina depletes in Climbing Mode and that reaching zero triggers the death mechanic and the beer vending machine correctly increases max stamina for 5 coins. | Stamina / Death / Beer System | **Pass (Sprint 5 - current)** | None |
+| Customer UAT - Verify that jump stacking and pause-related force accumulation have been fixed. | Movement (Jump/Pause) | Pass (Sprint 3; not re-executed since) | None |
+| Customer UAT - Verify that the player can discover a deposit, build a mining station on it, and that the station autonomously collects resources into the inventory. | Mining Stations | Pass (Sprint 4; not re-executed Sprint 5) | [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237) |
+| Customer UAT - Verify that the drill correctly triggers a layer transition, drops the required resources, and allows the mole to access and dig in the new layer with a crafted stone pickaxe. | Layer Transition | Pass (Sprint 4; not re-executed Sprint 5) | [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237) |
+| Customer UAT - Verify that the introductory cutscene plays on new game, followed by the tutorial, and the ending cutscene plays when the drill completes the stone layer. | Cutscenes *(new Sprint 5)* | **Pass (Sprint 5 - current)** | None |
 
-**Only 3 of the 9 UATs were actually executed this Sprint** (Stamina/Death/Beer, Mining Stations, Layer Transition - the three rows marked "current" above). The other six passed in earlier Sprints and have not been re-verified against the current build; `Inventory` in particular has not been re-executed in two full Sprints. None are known to be broken, but "Pass" on those rows reflects the last time they were actually checked, not a guarantee they still hold today.
+**4 of 10 UATs were executed this Sprint** (Crafting, Drill, Stamina/Death/Beer, and the new Cutscenes scenario). UAT-003, UAT-005, and UAT-006 were updated before execution to align with current implementation. No UATs failed; several UX and polish issues were identified but none require immediate product changes - see the Sprint 5 execution history in `docs/user-acceptance-tests.md` for the full list.
 
 See [`docs/user-acceptance-tests.md`](user-acceptance-tests.md) for full UAT scenarios, IDs, and execution history.

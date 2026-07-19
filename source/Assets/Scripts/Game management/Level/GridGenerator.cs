@@ -7,7 +7,7 @@ public class GridGenerator : MonoBehaviour
     public static GridGenerator Instance { get; private set; }
 
     [Header("Terrain Settings")]
-    public int initX = 0;
+    public int initX = -10;
     public int width = 20;
     public int height = 5;
     public int worldDepth = -10;
@@ -28,6 +28,14 @@ public class GridGenerator : MonoBehaviour
 
     [Header("Station System")]
     [SerializeField] private GameObject depositNodePrefab;
+
+    [Header("World Bounds")]
+    [SerializeField] public float leftWallX = -137f;
+    [SerializeField] public float rightWallX = 49f;
+
+    [Header("Base Zone")]
+    [SerializeField] public float baseStartX = -67f;
+    [SerializeField] public float baseEndX = -32f;
 
     private WorldGenerator _worldGenerator;
     private float _cellSize = 2.5f;
@@ -54,7 +62,8 @@ public class GridGenerator : MonoBehaviour
 
     public void GenerateWorld()
     {
-        _worldGenerator = new WorldGenerator(initX, width, height, worldDepth, reliefAmplitude);
+        _worldGenerator = new WorldGenerator(initX, width, height, worldDepth, reliefAmplitude, _cellSize,
+            leftWallX, rightWallX, baseStartX, baseEndX);
         _worldGenerator.GenerateBaseTerrain(layers);
         _worldGenerator.GenerateDeposits(layers);
 

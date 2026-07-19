@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CoalType
   m_EditorClassIdentifier: GameScripts::BlockTypeData
   _blockName: Coal
-  _maxHp: 10
+  _maxHp: 18
   _minDamage: 5
   type: 5
   _color: {r: 0, g: 0, b: 0, a: 1}
@@ -27,3 +27,10 @@ MonoBehaviour:
   possibleSprites:
   - {fileID: -4616598773014292954, guid: a446536390608654581037e309c118f4, type: 3}
   randomSprite: 0
+  _hittedSprites:
+  - {fileID: 8115644005664255767, guid: 0017b3e18b931b5418aaf9300d9001a8, type: 3}
+  - {fileID: -1974267942269126528, guid: 4ad5590d16ee3b248a20aa88e197f969, type: 3}
+  - {fileID: 2536910936557558875, guid: 7e76ab6faefd5ed40912fd76d83444ab, type: 3}
+  - {fileID: 1399413676680894907, guid: 5b7a27f0fdb47db4aafbe21cad96d64d, type: 3}
+  - {fileID: 6636361135747025162, guid: a0027dee9c54b114bb645f34ac4a231b, type: 3}
+  ChosenSprite: 0

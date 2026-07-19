@@ -54,11 +54,16 @@ public class HotbarBehaviour : MonoBehaviour
 
     public void ChangeItem(Item newItem)
     {
-        int suitableSlotIndex = ((int)newItem.Type - 100) / 40; 
+        int suitableSlotIndex = ((int)newItem.Type - 100) / 40;
         if (_slotsUI[suitableSlotIndex].TrySetNewItem(newItem))
         {
             _player.ChangeItem(newItem);
             _slotsUI[suitableSlotIndex].gameObject.SetActive(true);
         }
+    }
+
+    public void RefreshSelection()
+    {
+        _player.ChangeItem(_slotsUI[_selectedSlot].GetItem);
     }
 }

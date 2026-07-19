@@ -8,7 +8,9 @@ public enum CellType
     Dirt,
     Stone,
     Clay,
-    Coal
+    Coal,
+    Copper,
+    Flint
 }
 
 public enum BackgroundType
@@ -17,7 +19,9 @@ public enum BackgroundType
     Dirt,
     Stone,
     Clay,
-    Coal
+    Coal,
+    Copper,
+    Flint
 }
 
 public struct GridCell

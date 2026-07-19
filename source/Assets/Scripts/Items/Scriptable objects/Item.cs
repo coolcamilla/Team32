@@ -8,7 +8,7 @@ public class Item : ScriptableObject
     [SerializeField] private Sprite _sprite;
     [SerializeField] private bool _isStackable = true;
     [SerializeField] private float _damage = 1f;
-    [SerializeField] private float _diggingCooldown = 0.45f;
+    [SerializeField] private float _diggingCooldown = 0.6f;
     [SerializeField] private CraftRecipe _recipe;
 
     #region Getters

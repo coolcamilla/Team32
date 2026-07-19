@@ -6,13 +6,13 @@ Deliver a 2D mining exploration game where the player character is a mole. The m
 
 ## Current Status
 
-**Completed Sprints:** Sprint 1, Sprint 2, Sprint 3  
-**Current Sprint:** Sprint 4  
-**Next Sprint:** Sprint 5  
+**Completed Sprints:** Sprint 1, Sprint 2, Sprint 3, Sprint 4  
+**Current Sprint:** Sprint 5  
+**Next Sprint:** _Not planned_
 
 ## Current Direction
 
-The current sprint delivers new gameplay mechanics (layer transition, mining stations, death mechanic, and coins), responds to customer UI feedback, and prepares customer-facing handover documentation ahead of the final course delivery. The next sprint will use customer trial feedback to produce the final release, MVP v3, focusing on UI improvements and game balance rather than introducing new mechanics.
+The current sprint delivers the final course version, MVP v3, focusing on polish, balance, and handover rather than new mechanics. Key work includes saving, cutscenes, audio integration, UI improvements, stamina rebalancing, and deployment to itch.io. The product is being transitioned to the customer with complete handover documentation, and no further Sprints are planned after this one.
 
 ---
 
@@ -206,7 +206,7 @@ Trial release as a playable build for Windows and Linux, in which:
 - The mole dies when stamina runs out, losing all resources and respawning at the drill on the surface
 - Coins drop from blocks during digging and are displayed as a separate counter in the UI; the beer vending machine on the surface permanently increases maximum stamina for 5 coins
 - Block destruction now shows progressive crack animation and emits particles on every strike
-- New sprites added for mining stations, coins, and beer vending machine.
+- New sprites added for mining stations, coins, and beer vending machine
 
 Non user-visible outcomes:
 - Updated the testing suite to cover the new mechanics.
@@ -216,11 +216,102 @@ Non user-visible outcomes:
 
 # Sprint 5
 
-This sprint will introduce MVP v3 which foсuses on UI improvements, game balance and game publishing.
+### [Milestone](https://github.com/coolcamilla/Team32/milestone/5)  
+
+### Start
+
+Moday, July 13, 2026  
+
+### End
+
+Sunday, July 19, 2026  
+
+### Goal  
+
+Deliver MVP v3 for Windows and Linux with polished UI and game feel improvements. Deploy it to [itch.io](https://itch.io) and hand over to the customer with complete transition documentation.
+
+### Planned items
+
+- [US-001: Saving](https://github.com/coolcamilla/Team32/issues/65)
+- [Make Discovered Block Temporary](https://github.com/coolcamilla/Team32/issues/207)
+- [Add Cutscences](https://github.com/coolcamilla/Team32/issues/256)
+- [Integrate Music and Sound Effects](https://github.com/coolcamilla/Team32/issues/263)
+- [Mouse-based Navigation in Crafting UI](https://github.com/coolcamilla/Team32/issues/201)
+- [Improve Drill UI](https://github.com/coolcamilla/Team32/issues/203)
+- [Change World Layout](https://github.com/coolcamilla/Team32/issues/204)
+- [Stamina Warning Indicator](https://github.com/coolcamilla/Team32/issues/236)
+- [Rebalance Stamina](https://github.com/coolcamilla/Team32/issues/262)
+- [Edge Glow Artifact](https://github.com/coolcamilla/Team32/issues/227)
+- [Improve Game Balance](https://github.com/coolcamilla/Team32/issues/237) 
+- [Start and End Cutscenes](https://github.com/coolcamilla/Team32/issues/238)
+- [Make the Game Tutorial](https://github.com/coolcamilla/Team32/issues/200)
+- [Draw Background](https://github.com/coolcamilla/Team32/issues/257)
+- [Animate Block Destruction](https://github.com/coolcamilla/Team32/issues/258)
+- [Animate Falling Mole](https://github.com/coolcamilla/Team32/issues/259)
+- [Draw New Drill UI](https://github.com/coolcamilla/Team32/issues/260)
+- [Music And Sounds for MVP v3](https://github.com/coolcamilla/Team32/issues/261)
+- [Update and Execute UATs for MVP v3](https://github.com/coolcamilla/Team32/issues/265)
+- [Update the Testing Suite and Documentation Week 7](https://github.com/coolcamilla/Team32/issues/270)
+- [Maintain Roadmap and User Stories for Sprint 5](https://github.com/coolcamilla/Team32/issues/267)
+- [Maintain Architecture and Views Sprint 5](https://github.com/coolcamilla/Team32/issues/269)
+- [Maintain Customer Handover Documentation Week 7](https://github.com/coolcamilla/Team32/issues/271)
+- [Create MVP v3 Release](https://github.com/coolcamilla/Team32/issues/266)
+- [Publish Game](https://github.com/coolcamilla/Team32/issues/239)
+
+### Outcome
+
+MVP v3 as a playable build for Windows and Linux, in which:
+- The game state is saved automatically when the player exits the game, quits to the main menu, or the application closes
+- An introductory cutscene plays on new game start, presenting the mole's backstory and the game tutorial; an ending cutscene plays when the drill completes the stone layer
+- Music and sound effects are integrated
+- The stamina bar is divided into sections; the initial stamina pool is small, regeneration is slow, and drinking beer fully restores stamina, adds a new section, and increases regeneration rate
+- A red vignette pulses at the edges of the screen when stamina is critically low
+- The drill UI is redesigned
+- The crafting menu information panel appears on mouse hover rather than on click
+- Previously discovered blocks return to darkness as soon as they leave the screen, creating a sense that the mole forgets areas it has not recently visited
+- Boundary walls replaced with transparent barriers; workbench, drill, and beer vending machine relocated to the center of the map
+- New art assets added: sky background, block destruction animations, mole death animation, and drill UI elements
+- Edge glow artifact between block sprites fixed
+- Game balance updated: recipes are rebalanced to ensure all resources are consumed evenly
+
+Non user-visible outcomes:
+- [Architecture](architecture) documentation updated to reflect Sprint 5 changes
+- [UAT scenarios](user-acceptance-tests.md) updated and executed for MVP v3
+- [Testing](testing.md) suite and documentation updated
+- [Roadmap](roadmap.md) and [user story](user-stories.md) index updated to reflect Sprint 5 scope
+- [Customer handover](customer-handover.md) documentation updated to reflect final transition state
+
+---
 
 # State reached by the end of the course
 
-`TODO` in the end of the Sprint 5
+Operation: EarthCore is a complete two-layer 2D game deployed to [itch.io](https://itch.io), with Windows and Linux builds available on GitHub Releases.
+
+## Gameplay
+
+The core gameplay loop is fully implemented: the mole digs through the dirt and stone layers tile by tile, collects resources from broken blocks, and crafts tools at the workbench. The drill operates autonomously, consuming fuel and boring downward until it reaches the stone layer, at which point it drops the resources needed to craft the stone pickaxe and unlocks access to the new layer. Mining stations can be built on discovered deposits and autonomously extract resources.
+
+Risk is introduced through the stamina system: the stamina bar is divided into sections and depletes while climbing; when it reaches zero, the mole dies, losing all inventory resources and respawning at the drill. The beer vending machine on the surface allows the player to spend coins to fully restore stamina, add a new stamina section, and increase the regeneration rate. Coins drop from blocks during digging.
+
+The game has an introductory cutscene presenting the mole's backstory, a tutorial explaining basic mechanics, and an ending cutscene triggered when the drill completes the stone layer. The game state is saved automatically on exit and can be restored via the Load button on the main menu.
+
+## Documentation
+
+The repository contains a maintained documentation set:
+
+- [**README.md**](../README.md) — main public entry point with links to all maintained documentation and access instructions
+- [**customer-handover.md**](customer-handover.md) — describes the final handover state, access arrangements, and what the customer needs to operate the product
+- [**roadmap.md**](roadmap.md) — Sprint-by-Sprint delivery plan covering all five Sprints
+- [**user-stories.md**](user-stories.md) — authoritative registry of all stable user story IDs and their current status
+- [**user-acceptance-tests.md**](user-acceptance-tests.md) — all active UAT scenarios with execution history across all Sprints
+- [**definition-of-done.md**](definition-of-done.md) — shared minimum completion standard for all PBIs
+- [**testing.md**](testing.md) — testing strategy, coverage expectations, and quality gates
+- [**quality-requirements.md**](quality-requirements.md) — ISO/IEC 25010-based quality requirements
+- [**quality-requirement-tests.md**](quality-requirement-tests.md) — automated tests verifying each quality requirement
+- [**development-process.md**](development-process.md) — git workflow, branching conventions, Sprint cadence, and configuration management practices
+- [**architecture/**](architecture/) — static view (component diagram), dynamic view (sequence diagram for the digging flow), deployment view, and ADRs covering key architectural decisions
+
+Root-level maintained artifacts include [`CONTRIBUTING.md`](../CONTRIBUTING.md) for contributor guidance, [`AGENTS.md`](../AGENTS.md) for AI agent guidance, and [`CHANGELOG.md`](../CHANGELOG.md) tracking all user-visible changes across all releases.
 
 ---
 
@@ -229,20 +320,20 @@ This sprint will introduce MVP v3 which foсuses on UI improvements, game balanc
 The following practices must continue throughout all future project work:
 
 ### Documentation
-- **README.md:** Must remain the main public entry point; update whenever product access, documentation links, setup steps, or handover status change
-- **docs/customer-handover.md:** Must describe the current actual handover state; update whenever access details, deployment steps, limitations, or transition status change
-- **CONTRIBUTING.md:** Must reflect the current git workflow, branching conventions, PR process, and review expectations; update when workflow or tooling changes
-- **AGENTS.md:** Must reflect current scope boundaries, verification commands, safety constraints, and documentation links; update when workflow, setup steps, or documentation links change
-- **docs/testing.md:** Must be updated when critical modules change or new quality gates are added
-- **docs/definition-of-done.md:** Must reflect current CI requirements and coverage expectations
-- **docs/quality-requirements.md:** Must be updated when new quality requirements are identified, and each relevant quality requirement must link to at least one related ADR
-- **docs/quality-requirement-tests.md:** Must be updated when QRTs are added or modified
-- **docs/architecture/README.md:** Must be updated as new systems (mining stations, layer transitions, save system) are introduced, including updated static, dynamic, and deployment view diagrams
-- **docs/architecture/adr/:** Each significant architecture decision must be recorded as an ADR and linked from `docs/architecture/README.md`
-- **docs/development-process.md:** Must reflect the current git workflow, Sprint cadence, and configuration management practices, illustrated with a Mermaid `gitGraph` diagram
-- **docs/user-acceptance-tests.md:** Must be kept current with all active UAT scenarios, each linked to relevant acceptance criteria, user story, or supporting PBI
-- **Layer design documents:** Each new layer must have a corresponding design document following `game_design/layers/layer-template.md` before implementation begins
-- **CHANGELOG.md:** Every user-visible change must be recorded under `Unreleased` as part of the PR workflow
+- **[README.md](../README.md):** Must remain the main public entry point; update whenever product access, documentation links, setup steps, or handover status change
+- **[docs/customer-handover.md](customer-handover.md):** Must describe the current actual handover state; update whenever access details, deployment steps, limitations, or transition status change
+- **[CONTRIBUTING.md](../CONTRIBUTING.md):** Must reflect the current git workflow, branching conventions, PR process, and review expectations; update when workflow or tooling changes
+- **[AGENTS.md](../AGENTS.md):** Must reflect current scope boundaries, verification commands, safety constraints, and documentation links; update when workflow, setup steps, or documentation links change
+- **[docs/testing.md](testing.md):** Must be updated when critical modules change or new quality gates are added
+- **[docs/definition-of-done.md](definition-of-done.md):** Must reflect current CI requirements and coverage expectations
+- **[docs/quality-requirements.md](quality-requirements.md):** Must be updated when new quality requirements are identified, and each relevant quality requirement must link to at least one related ADR
+- **[docs/quality-requirement-tests.md](quality-requirement-tests.md):** Must be updated when QRTs are added or modified
+- **[docs/architecture/README.md](architecture/README.md):** Must be updated as new systems (mining stations, layer transitions, save system) are introduced, including updated static, dynamic, and deployment view diagrams
+- **[docs/architecture/adr/](architecture/adr/):** Each significant architecture decision must be recorded as an ADR and linked from [`docs/architecture/README.md`](architecture/README.md)
+- **[docs/development-process.md](development-process.md):** Must reflect the current git workflow, Sprint cadence, and configuration management practices, illustrated with a Mermaid `gitGraph` diagram
+- **[docs/user-acceptance-tests.md](user-acceptance-tests.md):** Must be kept current with all active UAT scenarios, each linked to relevant acceptance criteria, user story, or supporting PBI
+- **Layer design documents:** Each new layer must have a corresponding design document following [`game_design/layers/layer-template.md`](../game_design/layers/layer-template.md) before implementation begins
+- **[CHANGELOG.md](../CHANGELOG.md):** Every user-visible change must be recorded under `Unreleased` as part of the PR workflow
 
 ### Automated Testing
 - **Unit tests (EditMode):** All critical game-logic modules must maintain ≥30% line coverage

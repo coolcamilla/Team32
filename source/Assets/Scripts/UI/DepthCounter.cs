@@ -4,7 +4,7 @@ using UnityEngine;
 public class DepthCounter : MonoBehaviour
 {
     private const float BLOCK_SIZE = 2.5f;
-    private const float BLOCKS_PER_METER = 2.5f;
+    private const float BLOCKS_PER_METER = 12.5f / 3.5f;
 
     private Transform _playerTransform;
     private TextMeshProUGUI _depthRenderer;

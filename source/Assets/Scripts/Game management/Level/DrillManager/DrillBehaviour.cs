@@ -1,57 +1,74 @@
 using TMPro;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class DrillBehaviour : MonoBehaviour
 {
+    [SerializeField] private GameObject _demoEndButton;
     [SerializeField] private ParticleSystem _particleSystem;
     [SerializeField] private Animator _backgroundAnimator;
     [SerializeField] private Animator _drillAnimator;
     [SerializeField] private Transform _signPosition;
-    [SerializeField] private TextMeshProUGUI _fuelCounter;
     [SerializeField] private TextMeshProUGUI _depthCounter;
     [SerializeField] private TextMeshProUGUI _powerStatistics;
     [SerializeField] private TextMeshProUGUI _speedStatistics;
+    [SerializeField] private Slider _fuelSlider;
     [SerializeField] private List<DrillLayer> _dropMapsQueueFields;
+    [SerializeField] private List<Engine> _enginesQueueFields;
+    [SerializeField] private List<Bit> _bitsQueueFields;
+    [SerializeField] private List<FuelTank> _fuelTanksQueueFields;
+
     [SerializeField] private Tilemap _fgBlocks;
     [SerializeField] private Tilemap _bgBlocks;
 
     [Header("Panels")]
-    [SerializeField] private GameObject _engineCraftPanel;
-    [SerializeField] private GameObject _drillCraftPanel;
-    [SerializeField] private GameObject _fuelTankCraftPanel;
-
-    [Header("Level 1 drill modules")]
-    [SerializeField] private Engine _newEngine;
-    [SerializeField] private Drill _newDrill;
-    [SerializeField] private FuelTank _newFuelTank;
+    [SerializeField] private UpgradePanel _engineUpgradePanel;
+    [SerializeField] private UpgradePanel _bitUpgradePanel;
+    [SerializeField] private UpgradePanel _fuelTankUpgradePanel;
 
     [SerializeField] private float _dropForceMultiplier = 10.0f;
+    [SerializeField] private AudioSource _audioSource;
 
-    private Queue<DrillLayer> _dropMapQueue;
+    private Queue<DrillLayer> _drillLayersQueue;
+    private Queue<Engine> _enginesQueue;
+    private Queue<Bit> _bitsQueue;
+    private Queue<FuelTank> _fuelTanksQueue;
+
     private InventoryManager _inventoryManager;
     private DrillLogic _logic;
     private DrillLayer _currentLayer;
     private System.Random _rand;
+    private MultipleSoundsSourceBehaviour _multipleAudioSource;
 
     private event UnityAction OnSecondPassed;
     private event UnityAction OnLayerUpdate;
     
     private void Awake()
     {
-        _logic = new DrillLogic();
-        _fuelCounter.SetText($"Fuel: 0/{_logic.CurrentFuelTank.Capacity}");
-        _depthCounter.SetText("Depth: 0.00 m");
+        _multipleAudioSource = GameObject.FindGameObjectWithTag("Global Audio").GetComponent<MultipleSoundsSourceBehaviour>();
+
+
+        CreateQueues();
+        UpdateCurrentLayer();
+
+        _logic = new DrillLogic(_currentLayer)
+        {
+            NextLayer = _drillLayersQueue.Peek()
+        };
+
+        _depthCounter.SetText("0.00");
+        _fuelSlider.maxValue = _logic.CurrentFuelTank.Capacity;
 
         _inventoryManager = GetComponent<InventoryManager>();
         
         _rand = new System.Random();
 
-        CreateQueue();
-        UpdateCurrentLayer();
         SyncStatistics();
+        RefreshPanels();
     }
 
     private void Update()
@@ -59,60 +76,81 @@ public class DrillBehaviour : MonoBehaviour
         _logic.Tick(Time.deltaTime);
         TryProcessSecond();
         TryUpdateLayer();
+        if (_logic.Depth >= 7) _demoEndButton.SetActive(true);
+
+        if ((_logic.Energy >= _logic.Power || _logic.FuelCount > 0) && !_logic.IsStuck()) TryRunAudio();
+        else StopAudio();
     }
 
     private void OnEnable()
     {
         OnSecondPassed += SyncDepth;
-        OnSecondPassed += SyncFuel;
         OnSecondPassed += TryDrop;
-        OnSecondPassed += SyncVisuals;
+        OnSecondPassed += SyncAnimations;
         OnSecondPassed += SyncStatistics;
+        OnSecondPassed += SyncFuel;
 
         OnLayerUpdate += UpdateSprites;
         OnLayerUpdate += UpdateParticles;
-        OnLayerUpdate += UpdateModifier;
     }
 
     private void OnDisable()
     {
         OnSecondPassed -= SyncDepth;
-        OnSecondPassed -= SyncFuel;
         OnSecondPassed -= TryDrop;
-        OnSecondPassed -= SyncVisuals;
+        OnSecondPassed -= SyncAnimations;
         OnSecondPassed -= SyncStatistics;
+        OnSecondPassed -= SyncFuel;
 
         OnLayerUpdate -= UpdateSprites;
         OnLayerUpdate -= UpdateParticles;
-        OnLayerUpdate -= UpdateModifier;
     }
 
-    private void CreateQueue()
+    private void CreateQueues()
     {
-        _dropMapQueue = new();
+        _drillLayersQueue = new();
+        _enginesQueue = new();
+        _bitsQueue = new();
+        _fuelTanksQueue = new();
+
         foreach(DrillLayer map in _dropMapsQueueFields)
         {
-            _dropMapQueue.Enqueue(map);
+            _drillLayersQueue.Enqueue(map);
+        }
+
+        foreach (Engine engine in _enginesQueueFields)
+        {
+            _enginesQueue.Enqueue(engine);
+        }
+
+        foreach (Bit bit in _bitsQueueFields)
+        {
+            _bitsQueue.Enqueue(bit);
+        }
+
+        foreach (FuelTank tank in _fuelTanksQueueFields)
+        {
+            _fuelTanksQueue.Enqueue(tank);
         }
     }
 
     private void UpdateCurrentLayer()
     {
-        if (_dropMapQueue.Count > 0)
-            _currentLayer = _dropMapQueue.Dequeue();
+        if (_drillLayersQueue.Count > 0)
+            _currentLayer = _drillLayersQueue.Dequeue();
     }
 
     public void SyncDepth()
     {
-        _depthCounter.SetText($"Depth: {_logic.Depth:F2} m");
+        _depthCounter.SetText(FormattableString.Invariant($"{_logic.Depth:F2}"));
     }
 
     private void SyncFuel()
     {
-        _fuelCounter.SetText($"Fuel: {_logic.FuelCount}/{_logic.CurrentFuelTank.Capacity}");
+        _fuelSlider.value = _logic.FuelCount;
     }
 
-    private void SyncVisuals()
+    private void SyncAnimations()
     {
         if (!_logic.IsStuck() && (_logic.Energy >= _logic.Power || _logic.FuelCount > 0))
         {
@@ -130,8 +168,9 @@ public class DrillBehaviour : MonoBehaviour
 
     private void SyncStatistics()
     {
-        _powerStatistics.SetText($"{_logic.Power} W");
-        _speedStatistics.SetText($"{_logic.Speed * 60:F2} m/min");
+        _powerStatistics.SetText(FormattableString.Invariant($"{_logic.Power}"));
+        _speedStatistics.SetText(FormattableString.Invariant($"{_logic.Speed * 60:F2}"));
+        _fuelSlider.maxValue = _logic.CurrentFuelTank.Capacity;
     }
 
     public void TryAddFuel(Fuel fuel)
@@ -154,7 +193,9 @@ public class DrillBehaviour : MonoBehaviour
             OnSecondPassed?.Invoke();
         } else
         {
-            SyncVisuals();
+            SyncAnimations();
+            SyncStatistics();
+            SyncFuel();
         }
     }
 
@@ -179,9 +220,56 @@ public class DrillBehaviour : MonoBehaviour
         }
     }
 
+    public int EngineTier => _enginesQueueFields.Count - _enginesQueue.Count;
+    public int BitTier => _bitsQueueFields.Count - _bitsQueue.Count;
+    public int FuelTankTier => _fuelTanksQueueFields.Count - _fuelTanksQueue.Count;
+    public int LayerTier => _dropMapsQueueFields.Count - _drillLayersQueue.Count;
+    public float Depth => _logic.Depth;
+
+    public void LoadProgress(int engineTier, int bitTier, int fuelTankTier, int layerTier, float depth)
+    {
+        while (EngineTier < engineTier && _enginesQueue.Count > 0)
+        {
+            _logic.CurrentEngine = _enginesQueue.Dequeue();
+        }
+
+        while (BitTier < bitTier && _bitsQueue.Count > 0)
+        {
+            _logic.CurrentBit = _bitsQueue.Dequeue();
+        }
+
+        while (FuelTankTier < fuelTankTier && _fuelTanksQueue.Count > 0)
+        {
+            _logic.CurrentFuelTank = _fuelTanksQueue.Dequeue();
+        }
+
+        while (LayerTier < layerTier && _drillLayersQueue.Count > 0)
+        {
+            UpdateCurrentLayer();
+        }
+        _logic.Layer = _currentLayer;
+        if (_drillLayersQueue.Count > 0) _logic.NextLayer = _drillLayersQueue.Peek();
+
+        _logic.SetDepth(depth);
+
+        RefreshPanelsSafe();
+        SyncStatistics();
+        SyncDepth();
+        SyncFuel();
+        UpdateSprites();
+        UpdateParticles();
+    }
+
+    private void RefreshPanelsSafe()
+    {
+        _bitUpgradePanel.Refresh(_bitsQueue.Count > 0 ? _bitsQueue.Peek().Recipe : null);
+        _engineUpgradePanel.Refresh(_enginesQueue.Count > 0 ? _enginesQueue.Peek().Recipe : null);
+        _fuelTankUpgradePanel.Refresh(_fuelTanksQueue.Count > 0 ? _fuelTanksQueue.Peek().Recipe : null);
+    }
+
     private bool TryUpdateLayer()
     {
-        if (!_logic.IsLayeNeedToBeUpdated()) return false;
+        if (!_logic.IsLayerPossibleToUpdated() || _drillLayersQueue.Count == 0) return false;
 
         UpdateLayer();
         return true;
@@ -190,15 +278,11 @@ public class DrillBehaviour : MonoBehaviour
     private void UpdateLayer()
     {
         UpdateCurrentLayer();
-        _logic.MarkDistance = _currentLayer.DropFrequencyInMeters;
-        _logic.NewLayerDepth = 10000f;
+        _logic.Layer = _currentLayer;
+        if (_drillLayersQueue.Count > 0)
+            _logic.NextLayer = _drillLayersQueue.Peek();
 
         OnLayerUpdate?.Invoke();
-    }
-
-    private void UpdateModifier()
-    {
-        _logic.LayerDurability = _currentLayer.DurabilityModifier;
     }
 
     private void UpdateSprites()
@@ -230,41 +314,97 @@ public class DrillBehaviour : MonoBehaviour
 
     public void TryUpgradeEngine()
     {
-        if (_inventoryManager.IsEnough(TypeToItemData.Convert(ItemType.Pebbles), 10) &&
-            _inventoryManager.IsEnough(TypeToItemData.Convert(ItemType.Clay), 3))
+        Engine newEngine = _enginesQueue.Peek();
+        if (!IsEnoughResourcesForUpgrade(newEngine.Recipe)) return;
+        SpendResourcesForRecipe(newEngine.Recipe);
+
+        _logic.CurrentEngine = newEngine;
+        _enginesQueue.Dequeue();
+
+        try
         {
-            _inventoryManager.Spend(TypeToItemData.Convert(ItemType.Pebbles), 10);
-            _inventoryManager.Spend(TypeToItemData.Convert(ItemType.Clay), 3);
-
-            _logic.CurrentEngine = _newEngine;
-
-            Destroy(_engineCraftPanel);
+            _engineUpgradePanel.Refresh(_enginesQueue.Peek().Recipe);
+        } catch {
+            _engineUpgradePanel.Refresh(null);
         }
+
+        _multipleAudioSource.PlayCraftSound();
     }
 
     public void TryUpgradeDrill()
     {
-        if (_inventoryManager.IsEnough(TypeToItemData.Convert(ItemType.Pebbles), 5) &&
-            _inventoryManager.IsEnough(TypeToItemData.Convert(ItemType.Stick), 5))
+        Bit newBit = _bitsQueue.Peek();
+        if (!IsEnoughResourcesForUpgrade(newBit.Recipe)) return;
+        SpendResourcesForRecipe(newBit.Recipe);
+
+        _logic.CurrentBit = newBit;
+        _bitsQueue.Dequeue();
+
+        try
         {
-            _inventoryManager.Spend(TypeToItemData.Convert(ItemType.Pebbles), 5);
-            _inventoryManager.Spend(TypeToItemData.Convert(ItemType.Stick), 5);
-
-            _logic.CurrentDrill = _newDrill;
-
-            Destroy(_drillCraftPanel);
+            _bitUpgradePanel.Refresh(_bitsQueue.Peek().Recipe);
         }
+        catch
+        {
+            _bitUpgradePanel.Refresh(null);
+        }
+
+        _multipleAudioSource.PlayCraftSound();
     }
 
     public void TryUpgradeFuelTank()
     {
-        if (_inventoryManager.IsEnough(TypeToItemData.Convert(ItemType.Pebbles), 10))
+        FuelTank newFuelTank = _fuelTanksQueue.Peek();
+        if (!IsEnoughResourcesForUpgrade(newFuelTank.Recipe)) return;
+        SpendResourcesForRecipe(newFuelTank.Recipe);
+
+        _logic.CurrentFuelTank = newFuelTank;
+        _fuelTanksQueue.Dequeue();
+
+        try
         {
-            _inventoryManager.Spend(TypeToItemData.Convert(ItemType.Pebbles), 10);
-
-            _logic.CurrentFuelTank = _newFuelTank;
-
-            Destroy(_fuelTankCraftPanel);
+            _fuelTankUpgradePanel.Refresh(_fuelTanksQueue.Peek().Recipe);
         }
+        catch
+        {
+            _fuelTankUpgradePanel.Refresh(null);
+        }
+
+        _multipleAudioSource.PlayCraftSound();
+    }
+
+    private bool IsEnoughResourcesForUpgrade(CraftRecipe recipe)
+    {
+        foreach(var entry in recipe.Materials)
+        {
+            if (!_inventoryManager.IsEnough(TypeToItemData.Convert(entry.Type), entry.Quantity)) return false;
+        }
+        return true;
+    }
+
+    private void SpendResourcesForRecipe(CraftRecipe recipe)
+    {
+        foreach (var entry in recipe.Materials)
+        {
+            _inventoryManager.Spend(TypeToItemData.Convert(entry.Type), entry.Quantity);
+        }
+    }
+
+    private void RefreshPanels()
+    {
+        _bitUpgradePanel.Refresh(_bitsQueue.Peek().Recipe);
+        _engineUpgradePanel.Refresh(_enginesQueue.Peek().Recipe);
+        _fuelTankUpgradePanel.Refresh(_fuelTanksQueue.Peek().Recipe);
+    }
+
+    private void TryRunAudio()
+    {
+        if (_audioSource.isPlaying || !_audioSource.gameObject.activeSelf) return;
+        else _audioSource.Play();
+    }
+
+    private void StopAudio()
+    {
+        _audioSource.Stop();
     }
 }

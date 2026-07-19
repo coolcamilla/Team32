@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DirtWithGrassType
   m_EditorClassIdentifier: Assembly-CSharp::BlockTypeData
   _blockName: DirtWithGrass
-  _maxHp: 3
+  _maxHp: 2
   _minDamage: 1
   type: 1
   _color: {r: 0.07238643, g: 0.6320754, b: 0.056648254, a: 1}

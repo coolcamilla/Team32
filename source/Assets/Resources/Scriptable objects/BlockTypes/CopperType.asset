@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bedb08791680da545bb2bf1b831c06d4, type: 3}
+  m_Name: CopperType
+  m_EditorClassIdentifier: GameScripts::BlockTypeData
+  _blockName: Copper
+  _maxHp: 25
+  _minDamage: 1
+  type: 6
+  _color: {r: 0.5176471, g: 0.33333334, b: 0.08627451, a: 1}
+  _dropTable:
+  - _material: 305
+    _chance: 1
+  - _material: 77
+    _chance: 0.05
+  possibleSprites:
+  - {fileID: 943818220, guid: 2ecec049568e2494f8588d6088ff7526, type: 3}
+  randomSprite: 0
+  _hittedSprites:
+  - {fileID: 8115644005664255767, guid: a4d69eb5035f6b440a31b01c06af879a, type: 3}
+  - {fileID: -1974267942269126528, guid: 14ed52e44d97a1e47bfe849bed669f96, type: 3}
+  - {fileID: 2536910936557558875, guid: 90aab48f723633b4b892849fd077773c, type: 3}
+  - {fileID: 1399413676680894907, guid: cc44d2aed906cca4a9c8a88e058059df, type: 3}
+  - {fileID: 6636361135747025162, guid: 868aac0e80e0689499f7ba04b0fe1efe, type: 3}
+  ChosenSprite: 0

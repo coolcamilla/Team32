@@ -4,7 +4,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## [Unreleased](https://github.com/coolcamilla/Team32/compare/v0.4.0...HEAD)
+## [Unreleased](https://github.com/coolcamilla/Team32/compare/v1.0.0...HEAD)
+
+## [1.0.0](https://github.com/coolcamilla/Team32/releases/tag/v1.0.0) - 2026-07-19
+
+### Added
+
+- [Add Cutscenes](https://github.com/coolcamilla/Team32/issues/256)
+- [Integrate Music and Sound Effects](https://github.com/coolcamilla/Team32/issues/263)
+- [Make Discovered Block Temporary](https://github.com/coolcamilla/Team32/issues/207)
+- [Stamina Warning Indicator](https://github.com/coolcamilla/Team32/issues/236)
+- [Auto-save System](https://github.com/coolcamilla/Team32/issues/65)
+
+### Changed
+
+- [Change World Layout](https://github.com/coolcamilla/Team32/issues/204)
+- [Rebalance Stamina](https://github.com/coolcamilla/Team32/issues/262)
+- [Improve Drill UI](https://github.com/coolcamilla/Team32/issues/203)
+- [Mouse-based Navigation in Crafting UI](https://github.com/coolcamilla/Team32/issues/201)
+
+### Fixed
+
+- [Edge Glow Artifact](https://github.com/coolcamilla/Team32/issues/227)
 
 ## [0.4.0](https://github.com/coolcamilla/Team32/releases/tag/v0.4.0) - 2026-07-12
 
@@ -60,8 +81,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Fixed
 
 - [Fix infinite jump near a wall](https://github.com/coolcamilla/Team32/issues/136)
-
-
 
 ## [0.1.0](https://github.com/coolcamilla/Team32/releases/tag/v0.1.0) - 2026-06-21
 

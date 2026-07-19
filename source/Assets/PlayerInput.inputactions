@@ -74,6 +74,28 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "eef5b37d-faaa-4e6d-a136-711d0fb5f848",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dig",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b90e7514-5fe4-40b5-8aad-2504dca8f724",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dig",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "A, D",
                     "id": "83d0f330-127e-43ef-a619-cf5a11cf6860",
                     "path": "1DAxis",
@@ -204,6 +226,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Tutorial",
+                    "type": "Button",
+                    "id": "0746cf64-5ce9-4b7e-b181-95db1ac27a3e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -281,6 +312,17 @@
                     "processors": "Scale(factor=4)",
                     "groups": "",
                     "action": "Switch inventory slot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7d7c4fbf-9deb-4699-8638-22d5e77f0935",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tutorial",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

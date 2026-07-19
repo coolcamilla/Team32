@@ -9,17 +9,21 @@ using UnityEngine.Events;
 public class BlockBehaviour : MonoBehaviour
 {
     [SerializeField] private BlockTypeData _blockData;
-    [SerializeField] private float _blockOpenDuration;
+    [SerializeField] private float _blockToggleDuration;
+    [SerializeField] private float _triggerRadiusScale = 2f;
 
     private event UnityAction OnDamage;
-    
+
+    private bool _isOpened;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+    private CircleCollider2D _trigger;
     private Color _baseColor;
     private System.Random _rand;
 
     private GameObject _hitParticlesPrefab;
     private BlockBehaviourLogic _logic;
+    private float _startTriggerRadius;
 
     public BlockTypeData BlockData => _blockData;
 
@@ -33,9 +37,11 @@ public class BlockBehaviour : MonoBehaviour
 
         _logic = new BlockBehaviourLogic(_blockData);
         _rand = new();
+        _isOpened = false;
 
         _animator = GetComponent<Animator>();
-
+        _trigger = GetComponent<CircleCollider2D>();
+        _startTriggerRadius = _trigger.radius;
 
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _baseColor = _spriteRenderer.color;
@@ -72,9 +78,19 @@ public class BlockBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (!_isOpened && collision.CompareTag("Player"))
         {
+            _trigger.radius = _startTriggerRadius * _triggerRadiusScale;
             OpenBlock();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (_isOpened && collision.CompareTag("Player") && !IsNaked())
+        {
+            _trigger.radius = _startTriggerRadius;
+            CloseBlock();
         }
     }
 
@@ -86,7 +102,7 @@ public class BlockBehaviour : MonoBehaviour
         }
     }
 
-    public void TryTakeDamage(Item item)
+    public bool TryTakeDamage(Item item)
     {
         if (_logic.TryTakeDamage(item))
         {
@@ -97,7 +113,11 @@ public class BlockBehaviour : MonoBehaviour
                 DropLoot();
                 Destroy(gameObject);
             }
+
+            return true;
         }
+
+        return false;
     }
 
     private void UpdateSprite()
@@ -114,7 +134,14 @@ public class BlockBehaviour : MonoBehaviour
 
     public void OpenBlock()
     {
-        StartCoroutine(ChangeColorCoroutine(_baseColor, _blockOpenDuration));
+        StartCoroutine(ChangeColorCoroutine(_baseColor, _blockToggleDuration));
+        _isOpened = true;
+    }
+
+    public void CloseBlock()
+    {
+        StartCoroutine(ChangeColorCoroutine(Color.black, _blockToggleDuration));
+        _isOpened = false;
     }
 
     private IEnumerator ChangeColorCoroutine(Color targetColor, float duration)
@@ -162,5 +189,35 @@ public class BlockBehaviour : MonoBehaviour
             var mainModule = particles.GetComponent<ParticleSystem>().main;
             mainModule.startColor = _blockData.Color;
         }
+    }
+
+    private bool IsNaked()
+    {
+        Transform transform = GetComponent<Transform>();
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(2, 0, 0), transform.right, 0.01f);
+        if (hit.collider == null || !hit.collider.CompareTag("Block")) return true;
+
+        hit = Physics2D.Raycast(transform.position + new Vector3(-2, 0, 0), transform.right * -1, 0.01f);
+        if (hit.collider == null || !hit.collider.CompareTag("Block")) return true;
+
+        hit = Physics2D.Raycast(transform.position + new Vector3(0, 2, 0), transform.up, 0.01f);
+        if (hit.collider == null || !hit.collider.CompareTag("Block")) return true;
+
+        hit = Physics2D.Raycast(transform.position + new Vector3(0, -2, 0), transform.up * -1, 0.01f);
+        if (hit.collider == null || !hit.collider.CompareTag("Block")) return true;
+
+        hit = Physics2D.Raycast(transform.position + new Vector3(2, 2, 0), transform.right, 0.01f);
+        if (hit.collider == null || !hit.collider.CompareTag("Block")) return true;
+
+        hit = Physics2D.Raycast(transform.position + new Vector3(-2, 2, 0), transform.right * -1, 0.01f);
+        if (hit.collider == null || !hit.collider.CompareTag("Block")) return true;
+
+        hit = Physics2D.Raycast(transform.position + new Vector3(2, -2, 0), transform.up, 0.01f);
+        if (hit.collider == null || !hit.collider.CompareTag("Block")) return true;
+
+        hit = Physics2D.Raycast(transform.position + new Vector3(-2, -2, 0), transform.up * -1, 0.01f);
+        if (hit.collider == null || !hit.collider.CompareTag("Block")) return true;
+        return false;
     }
 }

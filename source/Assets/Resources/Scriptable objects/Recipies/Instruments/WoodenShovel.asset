@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: WoodenShovel
   m_EditorClassIdentifier: Assembly-CSharp::CraftRecipe
   _name: Wooden shovel
-  _description: Handy digging tool
+  _description: Sticks, neatly folded into the shape of a shovel.
   _sprite: {fileID: -7603589313562666499, guid: 4f8ad233b5bbea6429be1028e8d31725, type: 3}
   _materials:
   - _type: 300
-    _quantity: 10
+    _quantity: 12
+  _requiredItem: 0

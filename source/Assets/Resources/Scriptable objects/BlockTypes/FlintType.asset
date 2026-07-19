@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bedb08791680da545bb2bf1b831c06d4, type: 3}
+  m_Name: FlintType
+  m_EditorClassIdentifier: GameScripts::BlockTypeData
+  _blockName: Flint
+  _maxHp: 20
+  _minDamage: 1
+  type: 7
+  _color: {r: 0.21960786, g: 0.21176472, b: 0.25490198, a: 1}
+  _dropTable:
+  - _material: 306
+    _chance: 1
+  - _material: 77
+    _chance: 0.05
+  possibleSprites:
+  - {fileID: -4616598773014292954, guid: a446536390608654581037e309c118f4, type: 3}
+  randomSprite: 0
+  _hittedSprites:
+  - {fileID: 8115644005664255767, guid: 562a5d576a3cf4348835c905ab2b35f5, type: 3}
+  - {fileID: -1974267942269126528, guid: 82b57c7f615023044a0631e8b73b2812, type: 3}
+  - {fileID: 2536910936557558875, guid: 627132f46125a3c438bf0f21a4052e63, type: 3}
+  - {fileID: 1399413676680894907, guid: 4dacb4ab8858b064c8ef8abaf1bc0e27, type: 3}
+  - {fileID: 6636361135747025162, guid: 083a3403ee6627f43b9e5347c7accb35, type: 3}
+  ChosenSprite: 0

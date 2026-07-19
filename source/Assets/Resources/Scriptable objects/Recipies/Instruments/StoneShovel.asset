@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: StoneShovel
   m_EditorClassIdentifier: GameScripts::CraftRecipe
   _name: Stone shovel
-  _description: A solid dirt-digger
+  _description: A stone on a stick.
   _sprite: {fileID: 6447721058822747938, guid: 540544949e39006428fc35e15c04a63f, type: 3}
   _materials:
   - _type: 301
-    _quantity: 5
+    _quantity: 7
   - _type: 300
     _quantity: 10
   _requiredItem: 100
