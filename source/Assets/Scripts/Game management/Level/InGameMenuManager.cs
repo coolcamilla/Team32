@@ -12,9 +12,12 @@ public class InGameMenuManager : MonoBehaviour
     private GameObject _previousMenu;
     private PlayerInput _playerInput;
 
+    private MultipleSoundsSourceBehaviour _soundSource;
     private void Awake()
     {
         _previousMenu = null;
+
+        _soundSource = GameObject.FindGameObjectWithTag("Global Audio").GetComponent<MultipleSoundsSourceBehaviour>();
         _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().Input;
         _playerInput.InGameMenu.ToggleInventory.performed += ctx => Toggle(_inventoryMenu);
         _playerInput.InGameMenu.TogglePause.performed += ctx => Toggle(_pauseMenu);
@@ -33,6 +36,7 @@ public class InGameMenuManager : MonoBehaviour
 
     public void Toggle(GameObject toggledMenu)
     {
+        _soundSource.PlayMenuSound();
         CursorToggler.IsVisible = true;
         if (toggledMenu == _previousMenu) ResumeGame();
         else

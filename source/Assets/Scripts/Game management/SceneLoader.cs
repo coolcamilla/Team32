@@ -15,4 +15,16 @@ public class SceneLoader : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(index);
     }
+
+    public void LoadSavedGameByIndex(int index)
+    {
+        SaveManager.PendingLoad = true;
+        LoadSceneByIndex(index);
+    }
+
+    public void SaveAndLoadSceneByIndex(int index)
+    {
+        SaveManager.Instance?.SaveGame();
+        LoadSceneByIndex(index);
+    }
 }

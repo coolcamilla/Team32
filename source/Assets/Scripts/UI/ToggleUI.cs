@@ -35,6 +35,21 @@ public class ToggleUI : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        VideoPlayerController.OnVideoStarted -= EndGame;
+
+        if (_input != null)
+        {
+            _input.Player.Interact.performed -= ToggleTargetUI;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        VideoPlayerController.OnVideoStarted -= EndGame;
+    }
+
     private void ShowHint()
     {
         _hintDialog.SetActive(true);

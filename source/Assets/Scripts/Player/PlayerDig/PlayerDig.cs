@@ -19,12 +19,15 @@ public class PlayerDig : MonoBehaviour
     private PlayerManager _playerManager;
     private PlayerDigLogic _logic;
 
+    private PlayerSoundsManager _audioSource;
+
     public event UnityAction<float> OnVerticalDirectionChange;
     public event UnityAction OnAnyDig;
     private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
         _playerManager = GetComponent<PlayerManager>();
+        _audioSource = GetComponent<PlayerSoundsManager>();
 
         _input = _playerManager.Input;
         _input.Player.Look.performed += ChangeVerticalDirection;
@@ -95,7 +98,10 @@ public class PlayerDig : MonoBehaviour
 
             if (_logic.BlockHit(objectHit, _playerManager.EquippedItem))
             {
-                objectHit.GetComponent<BlockBehaviour>().TryTakeDamage(_playerManager.EquippedItem);
+                if (objectHit.GetComponent<BlockBehaviour>().TryTakeDamage(_playerManager.EquippedItem))
+                {
+                    _audioSource.PlayPLayerDiggingSound();
+                }
             }
         }
     }

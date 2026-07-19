@@ -16,7 +16,9 @@ public class TutorialManager : MonoBehaviour
     private void Start()
     {
         _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().Input;
-        _playerInput.UI.Tutorial.performed += ctx => OpenMenu(); 
+        _playerInput.UI.Tutorial.performed += ctx => OpenMenu();
+
+        //if (!SaveManager.HasSaveFile())
         OpenMenu();
     }
 

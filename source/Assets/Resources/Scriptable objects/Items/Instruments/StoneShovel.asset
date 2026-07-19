@@ -16,5 +16,5 @@ MonoBehaviour:
   _sprite: {fileID: 6447721058822747938, guid: 540544949e39006428fc35e15c04a63f, type: 3}
   _isStackable: 0
   _damage: 3
-  _diggingCooldown: 0.4
+  _diggingCooldown: 0.5
   _recipe: {fileID: 11400000, guid: 34841915608a24a42af93b4caea7b5c5, type: 2}

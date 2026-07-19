@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public int Coins => _logic.Coins;
+    public int Coins => _logic?.Coins ?? 0;
 
     private void OnEnable()
     {
@@ -75,8 +75,20 @@ public class PlayerManager : MonoBehaviour
         _playerStamina.Upgrade();
     }
 
+    public void LoadCoins(int coins)
+    {
+        if (_logic == null) Initialize();
+        _logic.SetCoins(coins);
+        OnCoinsChanged?.Invoke();
+    }
+
     private void EndGame()
     {
         _input.Disable();
+    }
+
+    public Collider2D GetBelowCollider()
+    {
+        return GetComponent<PlayerMovement>().GetBelowColliderWithBoxCast();
     }
 }

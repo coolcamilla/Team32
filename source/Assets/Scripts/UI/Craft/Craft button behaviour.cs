@@ -26,7 +26,7 @@ public class Craftbuttonbehaviour : MonoBehaviour, IPointerEnterHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!_isAvailable || _isDone) return;
-        _panel.RenderPanel(_itemToCraft, transform);
+        _panel.RenderPanel(_itemToCraft, GetComponent<RectTransform>());
     }
 
     private void OpenButton()

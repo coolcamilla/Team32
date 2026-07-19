@@ -26,4 +26,6 @@ MonoBehaviour:
   - _material: 77
     _chance: 0.05
   _dropFrequencyInMeters: 0.1
-  _durabilityModifier: 1.11
+  _durabilityModifier: 2
+  _maxDepth: 7
+  _requiredModulesLevel: 2

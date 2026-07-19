@@ -27,3 +27,5 @@ MonoBehaviour:
     _chance: 0.03
   _dropFrequencyInMeters: 0.05
   _durabilityModifier: 1
+  _maxDepth: 3.5
+  _requiredModulesLevel: 0

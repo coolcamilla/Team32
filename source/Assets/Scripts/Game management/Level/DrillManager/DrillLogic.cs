@@ -4,7 +4,7 @@ using System.Diagnostics;
 public class DrillLogic
 {
 
-    private Drill _currentDrill;
+    private Bit _currentDrill;
     private FuelTank _currentFuelTank;
     private Engine _currentEngine;
 
@@ -14,14 +14,13 @@ public class DrillLogic
     private float _power;
     private float _availableEnergy;
     private float _depth;
-    private float _layerDurability;
     private int _previousDepthMultiplier;
 
-    public float MarkDistance;
-    public float NewLayerDepth = 3.5f;
+    private DrillLayer _layer;
+    public DrillLayer NextLayer;
 
     #region Properties
-    public Drill CurrentDrill { 
+    public Bit CurrentBit { 
         get => _currentDrill; 
         set 
         { 
@@ -45,17 +44,24 @@ public class DrillLogic
             UpdatePower();
         }
     }
-    public float LayerDurability
+    public DrillLayer Layer
     {
-        get => _layerDurability;
+        get => _layer;
         set
         {
-            _layerDurability = value;
+            _previousDepthMultiplier *= (int)(_layer.DropFrequencyInMeters / value.DropFrequencyInMeters);
+            _layer = value;
             UpdateSpeed();
         }
     }
 
     public float Depth => _depth;
+
+    public void SetDepth(float depth)
+    {
+        _depth = depth;
+        _previousDepthMultiplier = (int)(_depth / _layer.DropFrequencyInMeters);
+    }
 
     public int FuelCount => _fuelQueue.Count;
 
@@ -65,11 +71,13 @@ public class DrillLogic
     public float Energy => _availableEnergy;
 
     #endregion
-    public DrillLogic()
+    public DrillLogic(DrillLayer startLayer)
     {
         _fuelQueue = new();
 
-        _currentDrill = Drill.CreateInstance<Drill>();
+        _layer = startLayer;
+
+        _currentDrill = Bit.CreateInstance<Bit>();
         _currentDrill.SetBasic();
         _currentFuelTank = FuelTank.CreateInstance<FuelTank>();
         _currentFuelTank.SetBasic();
@@ -78,8 +86,6 @@ public class DrillLogic
 
         _availableEnergy = 0f;
         _depth = 0f;
-        MarkDistance = 0.1f;
-        LayerDurability = 1f;
 
         UpdateSpeed();
         UpdatePower();
@@ -109,7 +115,7 @@ public class DrillLogic
     private void UpdateSpeed()
     {
         _speed = _currentDrill.Speed + _currentEngine.Speed;
-        _speed /= LayerDurability;
+        _speed /= _layer.DurabilityModifier;
         _speed /= 60f;
     }
 
@@ -155,24 +161,24 @@ public class DrillLogic
 
     public bool IsMarkPassed()
     {
-        if ((int)(_depth / MarkDistance) > _previousDepthMultiplier)
+        if ((int)(_depth / _layer.DropFrequencyInMeters) > _previousDepthMultiplier)
         {
-            _previousDepthMultiplier = (int) (_depth / MarkDistance);
+            _previousDepthMultiplier = (int) (_depth / _layer.DropFrequencyInMeters);
             return true;
         }
         return false;
     }
 
-    public bool IsLayeNeedToBeUpdated()
+    public bool IsLayerPossibleToUpdated()
     {
-        return (Depth > NewLayerDepth && !IsStuck());
+        return (_depth >= _layer.MaxDepth && !IsStuck());
     }
 
     public bool IsStuck()
     {
-        return _depth >= NewLayerDepth && 
-            (_currentDrill.Name == "Basic Drill" || 
-             _currentEngine.Name == "Basic Engine" ||
-             _currentFuelTank.Name == "Basic Fuel Tank");
+        return _depth >= _layer.MaxDepth && (
+            _currentDrill.Level < NextLayer.RequiredModulesLevel ||
+            _currentEngine.Level < NextLayer.RequiredModulesLevel ||
+            _currentFuelTank.Level < NextLayer.RequiredModulesLevel);
     }
 }

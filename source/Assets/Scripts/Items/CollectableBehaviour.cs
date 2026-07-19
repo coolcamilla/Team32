@@ -3,13 +3,15 @@ using UnityEngine;
 public class CollectableBehaviour : MonoBehaviour
 {
     [SerializeField] private ItemType _itemType;
-
     private bool _isHarvested;
-    
     private InventoryManager _inventoryManager;
+
+    private static MultipleSoundsSourceBehaviour _audioSource;
 
     private void Start()
     {
+        if (_audioSource == null)
+            _audioSource = GameObject.FindGameObjectWithTag("Global Audio").GetComponent<MultipleSoundsSourceBehaviour>();
         _inventoryManager = GameObject.FindWithTag("Game Manager").GetComponent<InventoryManager>();
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -21,6 +23,7 @@ public class CollectableBehaviour : MonoBehaviour
         {
             _isHarvested = true;
             Destroy(gameObject);
+            _audioSource.PlayItemCollectedSound();
         }
     }
 }

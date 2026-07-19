@@ -5,8 +5,12 @@ public class CoinBehaviour : MonoBehaviour
     private PlayerManager _playerManager;
     private bool _isHarevested;
 
+    private static MultipleSoundsSourceBehaviour _audioSource;
+
     private void Start()
     {
+        if (_audioSource == null) 
+            _audioSource = GameObject.FindGameObjectWithTag("Global Audio").GetComponent<MultipleSoundsSourceBehaviour>();
         _playerManager = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
         _isHarevested = false;
     }
@@ -16,6 +20,7 @@ public class CoinBehaviour : MonoBehaviour
 
         _isHarevested = true;
         _playerManager.AddCoin();
+        _audioSource.PlayCoinCollectedSound();
         Destroy(gameObject);
     }
 }

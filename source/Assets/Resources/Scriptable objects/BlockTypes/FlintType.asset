@@ -16,7 +16,7 @@ MonoBehaviour:
   _maxHp: 20
   _minDamage: 1
   type: 7
-  _color: {r: 0.3886792, g: 0.30140972, b: 0.30140972, a: 1}
+  _color: {r: 0.21960786, g: 0.21176472, b: 0.25490198, a: 1}
   _dropTable:
   - _material: 306
     _chance: 1

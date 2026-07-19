@@ -102,5 +102,6 @@ public class DepositNode : MonoBehaviour
         BuildStationUI.Instance.HideUI();
 
         GetComponent<Collider2D>().enabled = false;
+        _playerInput.InGameMenu.Enable();
     }
 }

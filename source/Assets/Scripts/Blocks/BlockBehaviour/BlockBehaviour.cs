@@ -102,7 +102,7 @@ public class BlockBehaviour : MonoBehaviour
         }
     }
 
-    public void TryTakeDamage(Item item)
+    public bool TryTakeDamage(Item item)
     {
         if (_logic.TryTakeDamage(item))
         {
@@ -113,7 +113,11 @@ public class BlockBehaviour : MonoBehaviour
                 DropLoot();
                 Destroy(gameObject);
             }
+
+            return true;
         }
+
+        return false;
     }
 
     private void UpdateSprite()
