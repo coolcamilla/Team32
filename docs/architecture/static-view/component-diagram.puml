@@ -8,174 +8,148 @@ skinparam maxMessageSize 200
 actor Player as player
 
 package "Unity Platform" {
-  [Unity Input System] as input
+  [Unity Input System\n(PlayerInput actions:\nPlayer, InGameMenu maps)] as input
   [Unity Physics2D] as physics
   [Unity Animator] as animator_engine
-  [Unity Tilemap] as tilemap_engine
+  [Unity Scene Manager] as scenemgr
 }
 
 package "Game Management" as gm {
   [GameInitializer] as gameinit
   [GridGenerator\n(singleton)] as gridgen
   [WorldGenerator\n(plain C#)] as worldgen
+  [GameExit] as gameexit
+  note right of gm
+    GameInitializer, GridGenerator, GameExit are
+    co-located on the "Game Manager" GameObject
+    in the Level scene. InGameMenuManager's exact
+    placement is not directly confirmed.
+  end note
 }
 
 package "Menu System" as menu_pkg {
   [InGameMenuManager] as menumgr
+  note right of menu_pkg
+    Replaces the removed PauseManager.
+    Handles both pause and inventory
+    toggle via a single Toggle(GameObject)
+    state machine.
+  end note
 }
 
 package "Player Subsystem" as player_pkg {
   [PlayerMovement] as movement
+  [PlayerMovementLogic\n(plain C#)] as movementlogic
   [PlayerDig] as dig
+  [PlayerDigLogic\n(plain C#, singleton)] as diglogic
   [PlayerStamina] as stamina
   [StaminaLogic\n(plain C#)] as staminalogic
-  [PlayerManager\n(MonoBehaviour,\ntracks EquippedItem + Coins)] as playermgr
-  [PlayerManagerLogic\n(plain C#)] as playermgrlogic
-  [PlayerAnimator\n(singleton)] as playeranim
-}
-
-package "Death / Respawn" as death_pkg {
-  [DeathController] as deathctrl
-  note right of death_pkg
-    Subscribes to StaminaLogic.OnDeath.
-    On death: shows death screen,
-    PlayerMovement.HandleDeath(),
-    waits 10s, then
-    InventoryManager.ClearResources()
-    + respawns player and stamina.
-    Coins are NOT cleared - they live
-    on PlayerManager, not InventoryManager.
-  end note
+  [PlayerManager\n(MonoBehaviour singleton)] as playermgr
+  [PlayerAnimator\n(MonoBehaviour singleton)] as playeranim
 }
 
 package "Blocks / World" as blocks_pkg {
   [BlockBehaviour] as block
   [BlockBehaviourLogic\n(plain C#)] as blocklogic
-  [BlockTypeData\n(ScriptableObject,\ndrop table incl. Coin)] as blockdata
+  [BlockTypeData\n(ScriptableObject)] as blockdata
+  [LayerDefinition /\nDepositDefinition] as layerdata
 }
 
 package "Items" as items_pkg {
   [Item\n(ScriptableObject)] as item
   [CollectableBehaviour] as collectable
-  [TypeToItemData] as typetodata
-  [TypeToPrefab\n(incl. ItemType.Coin)] as typetoprefab
+  [TypeToItemData\n(static converter,\ntypes >= 100 only)] as typetodata
+  [TypeToPrefab\n(static converter)] as typetoprefab
 }
 
 package "Inventory Subsystem" as inv_pkg {
-  [InventoryManager\n(resources only -\nnot coins)] as invmgr
+  [InventoryManager] as invmgr
   [InventoryLogic\n(plain C#)] as invlogic
+  [InventorySlot / InventoryItem\n(UI, drag-drop)] as invui
 }
 
 package "Crafting Subsystem" as craft_pkg {
   [CraftManager] as craftmgr
   [CraftLogic\n(plain C#)] as craftlogic
-  [CraftTracker] as crafttracker
+  [CraftTracker\n(static class)] as crafttracker
+  [CraftPanelRenderer\n(UI)] as craftui
 }
 
-package "Mining Station Subsystem" as mining_pkg {
-  [DepositNode] as depositnode
-  [MiningStation] as miningstation
-  [MiningStationLogic\n(plain C#)] as miningstationlogic
-  [StationRecipe\n(ScriptableObject)] as stationrecipe
-  [BuildStationUI\n(singleton)] as buildui
+package "Hotbar" as hotbar_pkg {
+  [HotbarBehaviour / HotbarSlot] as hotbar
 }
 
-package "Drill / Layer Subsystem" as drill_pkg {
+package "Drill Subsystem" as drill_pkg {
   [DrillBehaviour] as drillbehaviour
   [DrillLogic\n(plain C#)] as drilllogic
-  [Drill / Engine / FuelTank\n(ScriptableObjects)] as drillparts
-  [DrillLayer\n(data: DropChances,\nBackgroundTile, ForegroundTile)] as drilllayer
   note right of drill_pkg
-    IMPORTANT: DrillBehaviour's Tilemap
-    swap (_bgBlocks/_fgBlocks) is a
-    COSMETIC change to the small local
-    "drill scene" diorama only - it does
-    NOT alter the real explorable world.
-    The physical dirt/stone layers in the
-    actual world are separate and gated
-    by the player crafting a stone pickaxe.
-
-    IsStuck() halts ALL drill progress past
-    3.5m depth unless Drill, Engine, AND
-    FuelTank have each been upgraded at
-    least once from their "Basic" tier.
-  end note
-}
-
-package "Beer / Coin Economy" as beer_pkg {
-  [BeerBarrelBehaviour] as beerbarrel
-  note right of beer_pkg
-    5 coins -> PlayerManager.UpgradeStamina()
-    -> PlayerStamina.Upgrade()
-    -> permanently +5 MaxStamina.
-    No cap visible in current code.
-  end note
-}
-
-package "UI" as ui_pkg {
-  [DepthCounter\n(tracks PLAYER's own\nY-position depth)] as depthcounter
-  note right of ui_pkg
-    Independent from DrillLogic.Depth.
-    Two separate "Depth: X m" displays
-    exist: the drill panel's own depth,
-    and this player-position-based one.
+    Identified via coverage report and
+    naming convention; internal structure
+    not directly explored this session.
   end note
 }
 
 ' --- Player subsystem wiring ---
-player --> input : input
-movement ..> stamina : requires (RequireComponent)
+player --> input : key/mouse/gamepad
+input --> movement : Move, Jump actions
+input --> dig : Dig action
+input --> menumgr : InGameMenu.ToggleInventory,\nTogglePause actions
+dig ..> movement : requires\n(RequireComponent)
+movement ..> stamina : requires\n(RequireComponent)
+movement --> movementlogic : delegates movement,\nclimb, jump rules
+movement --> stamina : Drain/Regenerate,\nreads IsExhausted
+movement --> dig : GetComponent\n(direction sync)
+movement --> playermgr : GetComponent
+stamina --> staminalogic : delegates drain/\nregen/threshold rules
+dig --> diglogic : raycast direction,\nblock-hit checks
 dig --> playermgr : reads EquippedItem
-stamina --> staminalogic : Drain/Regenerate/Upgrade
-playermgr --> playermgrlogic : EquippedItem, Coins
-playeranim --> dig : OnAnyDig event
+playeranim --> dig : subscribes to\nOnAnyDig event
+playeranim --> movement : ChangeClimbingState,\nChangeWalkingState
+playeranim --> animator_engine : SetTrigger/SetBool
 
-' --- Death wiring ---
-staminalogic --> deathctrl : OnDeath event
-deathctrl --> movement : HandleDeath(), Respawn()
-deathctrl --> stamina : Respawn()
-deathctrl --> invmgr : ClearResources()
+' --- Menu system wiring ---
+menumgr --> playermgr : GetComponent\n(via Player tag),\nreads .Input
+menumgr --> scenemgr : Time.timeScale\n0 / 1 toggle
 
-' --- Beer/coin wiring ---
-player --> beerbarrel : Interact (trigger zone)
-beerbarrel --> playermgr : TrySpendCoins(5),\nUpgradeStamina()
-
-' --- Block / drops ---
-dig --> block : TryTakeDamage
-block --> blocklogic : damage, drops
-blocklogic --> blockdata : reads drop table\n(incl. Coin entries)
-block --> typetoprefab : Convert(type)\nincl. Coin prefab
-typetoprefab --> collectable : spawned world item
-collectable --> invmgr : TryAddItem
-collectable ..> playermgr : (if Coin,\nlikely credited to PlayerManager\ninstead - not directly verified)
+' --- Dig -> Block interaction ---
+dig --> block : TryTakeDamage(EquippedItem)
+block --> blocklogic : TryTakeDamage,\nIsDestroyed, CalculateDrops
+block --> blockdata : reads MaxHp, MinDamage,\nDropTable, sprites
+block --> typetoprefab : Convert(ItemType)\nto spawn dropped item prefab
 
 ' --- World generation ---
-gameinit --> gridgen : initializes level
-gridgen --> worldgen : generates terrain
-gridgen --> block : instantiates blocks
+gameinit --> gridgen : initializes level\n(Start() -> GenerateWorld())
+gridgen --> worldgen : GenerateBaseTerrain,\nGenerateDeposits
+worldgen --> layerdata : reads layer/deposit\nconfiguration
+gridgen --> block : instantiates block prefabs\n(SpawnForeground)
+gridgen --> blockdata : assigns dirtGrassBlockData
 
-' --- Mining stations ---
-depositnode --> buildui : ShowUI/HideUI
-depositnode --> invmgr : IsEnough / Spend (build cost)
-depositnode --> miningstation : Instantiate + Initialize(recipe)
-miningstation --> miningstationlogic : Tick(deltaTime)
-miningstation --> stationrecipe : reads recipe,\nproducedItemPrefab
-stationrecipe --> item : buildCost references
+' --- Item pickup ---
+collectable --> physics : OnTriggerEnter2D\n(Player tag check)
+collectable --> invmgr : TryAddItem(item)
+collectable --> typetodata : Convert(ItemType)\nto resolve Item asset
 
-' --- Drill / layer subsystem ---
-drillbehaviour --> drilllogic : Tick, TryProcessSecond,\nTryUpdateLayer
-drillbehaviour --> invmgr : fuel + upgrade costs\n(Pebbles, Clay, Stick)
-drillbehaviour --> drillparts : CurrentDrill/Engine/FuelTank
-drillbehaviour --> drilllayer : dequeues next layer\non transition
-drillbehaviour --> tilemap_engine : swaps LOCAL drill-scene\ntiles only (cosmetic)
-drillbehaviour --> typetoprefab : drops layer resources\nnear the sign
+' --- Inventory subsystem ---
+invmgr --> invlogic : TryAddItem, Spend,\nIsEnough, MoveOrSwap
+invmgr --> playermgr : OnSlotChanged event\n-> ChangeItem
+playermgr --> playeranim : ChangeInstrument(ItemType)
+invui --> invmgr : slot select,\ndrag-drop MoveItem\n(via "Game Manager" tag)
 
-' --- Crafting ---
-craftmgr --> craftlogic : TryCraft
-craftlogic --> invlogic : spend/add
-craftmgr --> crafttracker : IsCrafted
+' --- Crafting subsystem ---
+craftmgr ..> invmgr : requires\n(RequireComponent)
+craftmgr --> craftlogic : TryCraft(ItemType)
+craftmgr --> crafttracker : IsCrafted(type),\nIsCrafted(RequiredItem)
+craftmgr --> hotbar : ChangeItem\n(for instrument types)
+craftlogic --> invlogic : Spend materials,\nTryAddItem(crafted item)
+craftlogic --> typetodata : converter dictionary\n(ItemType -> Item)
+craftui --> craftmgr : DelegateCurrentCraft\n(via "Game Manager" tag)
+craftui --> typetodata : Convert(ItemType)\nfor recipe display
 
-' --- UI ---
-depthcounter --> player : reads Transform.position
+' --- Drill subsystem (lightly detailed) ---
+drillbehaviour --> drilllogic : delegates drill\nstate/fuel rules
+
+' --- Shared item data ---
+item ..> typetodata : loaded via\nResources.Load
+typetoprefab ..> item : Resources.Load\nprefab per ItemType
 
 @enduml

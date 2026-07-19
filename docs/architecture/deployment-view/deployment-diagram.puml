@@ -14,7 +14,11 @@ node "GitHub Actions\nCI Runner (ubuntu-latest)" as ci {
 
 cloud "GitHub" as github {
   artifact "releases/ folder\n(committed ZIP archives)" as releasesfolder
-  artifact "GitHub Releases\n(SemVer-tagged, e.g. v0.3.0)" as ghrelease
+  artifact "GitHub Releases\n(SemVer-tagged, e.g. v0.4.0)" as ghrelease
+}
+
+cloud "itch.io" as itchio {
+  artifact "Operation: EarthCore\npublic game page" as itchpage
 }
 
 node "Customer / Player Machine\n(Windows)" as winmachine {
@@ -32,11 +36,14 @@ ci --> ciunity : installs pinned\nEditor version
 ciunity --> buildpipeline : runs tests,\nbuilds player targets
 buildpipeline --> releasesfolder : Windows + Linux\nbuild artifacts (manual\nteam upload after Sprint)
 buildpipeline --> ghrelease : attached to\ntagged release
+buildpipeline --> itchpage : manual upload\n(added Sprint 5)
 
 releasesfolder --> winbuild : download\n(local setup instructions)
 releasesfolder --> linuxbuild : download\n(local setup instructions)
 ghrelease --> winbuild : download\n(release asset)
 ghrelease --> linuxbuild : download\n(release asset)
+itchpage --> winbuild : download\n(itch.io page)
+itchpage --> linuxbuild : download\n(itch.io page)
 
 winbuild --> winexe : unzip, run
 linuxbuild --> linuxexe : unzip,\nchmod +x, run
@@ -44,8 +51,9 @@ linuxbuild --> linuxexe : unzip,\nchmod +x, run
 note bottom of winmachine
   No network connection required at runtime.
   No backend service, database, or external API.
-  All game state lives in local process memory
-  for the current session (no save system yet).
+  Game state persists locally via SaveManager
+  (JSON file at Application.persistentDataPath).
+  Save files are local-only; no cross-device sync.
 end note
 
 note bottom of linuxmachine
