@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased](https://github.com/coolcamilla/Team32/compare/v0.4.0...HEAD)
 
+### Changed
+
+- [Change World Layout](https://github.com/coolcamilla/Team32/issues/204)
+- [Rebalance Stamina](https://github.com/coolcamilla/Team32/issues/262)
+
 ## [0.4.0](https://github.com/coolcamilla/Team32/releases/tag/v0.4.0) - 2026-07-12
 
 ### Added
