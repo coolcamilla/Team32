@@ -93,8 +93,6 @@ Follow installation instructions from [v1.0.0 release](https://github.com/coolca
 
 ### Final transition outcome summary
 
-### Final transition outcome summary
-
 Handover level reached: **Ready for independent use.**
 The customer can download, run, and play MVP v3 without team assistance via [itch.io](https://wazzurunaway.itch.io/operation-earthcore), GitHub Releases, or the repository source. The product has not progressed to "Independently used by customer" - the customer stated they would not continue development or operation without the team.
 
@@ -234,35 +232,36 @@ Main implementation process was in Unity Version Control, that is why we merged 
 | **Pro100Vorona** | [#204](https://github.com/coolcamilla/Team32/issues/204) [#262](https://github.com/coolcamilla/Team32/issues/204) | [#276](https://github.com/coolcamilla/Team32/pull/276) | [#277](https://github.com/coolcamilla/Team32/pull/277) | | Maintain [`CHANGELOG.md`](https://github.com/coolcamilla/Team32/pull/276/changes/0aec4a0538883ba39a816bdd58d8fa8b1bb16e6b) | | | Participated in rehearsal |
 | **Lilia-Shagidullina** | [#257](https://github.com/coolcamilla/Team32/issues/257) [#258](https://github.com/coolcamilla/Team32/issues/258) [#259](https://github.com/coolcamilla/Team32/issues/259) [#260](https://github.com/coolcamilla/Team32/issues/260) | [#275](https://github.com/coolcamilla/Team32/pull/275) | [#285](https://github.com/coolcamilla/Team32/pull/285) | | | | | Participate in rehearsal |
 | **MarikSH** | [#261](https://github.com/coolcamilla/Team32/issues/261) | [#285](https://github.com/coolcamilla/Team32/pull/285) | [#275](https://github.com/coolcamilla/Team32/pull/275) | | | | | Participate in rehearsal | 
-| **coolcamilla** | [#200](https://github.com/coolcamilla/Team32/issues/200) [#237](https://github.com/coolcamilla/Team32/issues/237) [#238](https://github.com/coolcamilla/Team32/issues/238) [#264](https://github.com/coolcamilla/Team32/issues/264) [#265](https://github.com/coolcamilla/Team32/issues/265) [#266](https://github.com/coolcamilla/Team32/issues/266) [#267](https://github.com/coolcamilla/Team32/issues/267) | [#272](https://github.com/coolcamilla/Team32/pull/272) [#273](https://github.com/coolcamilla/Team32/pull/273) [#274](https://github.com/coolcamilla/Team32/pull/274) [#282](https://github.com/coolcamilla/Team32/pull/282) | [#278](https://github.com/coolcamilla/Team32/pull/278) [#279](https://github.com/coolcamilla/Team32/pull/279) [#280](https://github.com/coolcamilla/Team32/pull/280) [#281](https://github.com/coolcamilla/Team32/pull/281) [#283](https://github.com/coolcamilla/Team32/pull/283) [#284](https://github.com/coolcamilla/Team32/pull/284) | [Add UAT-010](https://github.com/coolcamilla/Team32/pull/274/changes/e8f7b4f36cc76eb89df0d70153e338bec8eb8046) | Maintain [`roadmap.md`, `user-stories.md`](https://github.com/coolcamilla/Team32/pull/282), [`user-acceptance-tests.md`](https://github.com/coolcamilla/Team32/pull/274/commits), [`CHANGELOG.md`](TBD), root [`README.md`](TBD) | Add the customer as a contributor in the GitHub repo | [Publish v1.0.0 release](TBD) (mapped to MVP v3) on GitHub | Prepare presentation slides and script, record and dub the demo video, conduct a rehearsal |
-| **SunrisEe41** | [#65](https://github.com/coolcamilla/Team32/issues/65) [#268](https://github.com/coolcamilla/Team32/issues/268) [#269](https://github.com/coolcamilla/Team32/issues/269) [#270](https://github.com/coolcamilla/Team32/issues/270) [#271](https://github.com/coolcamilla/Team32/issues/271) | [#278](https://github.com/coolcamilla/Team32/pull/278) [#279](https://github.com/coolcamilla/Team32/pull/279) [#280](https://github.com/coolcamilla/Team32/pull/280) [#281](https://github.com/coolcamilla/Team32/pull/281) [#283](https://github.com/coolcamilla/Team32/pull/283) | [#272](https://github.com/coolcamilla/Team32/pull/272) [#273](https://github.com/coolcamilla/Team32/pull/273) [#274](https://github.com/coolcamilla/Team32/pull/274) [#282](https://github.com/coolcamilla/Team32/pull/282) | Update testing documentation (no new tests intoduced because changes were minor) | Maintain [`docs/architecture/`](https://github.com/coolcamilla/Team32/pull/279/changes/74a9ad1ed35910063bff17b4de0bd5e422b402b2), [`testing.md`](https://github.com/coolcamilla/Team32/pull/281/changes/d8067fd33804eb77ff2eeedcb6d377452bf35d50), [`customer-handover.md`](https://github.com/coolcamilla/Team32/pull/280/changes/511c279e29c22489b3089c176155ea0ba216b981) | | | Participate in rehearsal |  
+| **coolcamilla** | [#200](https://github.com/coolcamilla/Team32/issues/200) [#237](https://github.com/coolcamilla/Team32/issues/237) [#238](https://github.com/coolcamilla/Team32/issues/238) [#264](https://github.com/coolcamilla/Team32/issues/264) [#265](https://github.com/coolcamilla/Team32/issues/265) [#266](https://github.com/coolcamilla/Team32/issues/266) [#267](https://github.com/coolcamilla/Team32/issues/267) | [#272](https://github.com/coolcamilla/Team32/pull/272) [#273](https://github.com/coolcamilla/Team32/pull/273) [#274](https://github.com/coolcamilla/Team32/pull/274) [#282](https://github.com/coolcamilla/Team32/pull/282) [#286](https://github.com/coolcamilla/Team32/pull/286) [#287](https://github.com/coolcamilla/Team32/pull/287) | [#278](https://github.com/coolcamilla/Team32/pull/278) [#279](https://github.com/coolcamilla/Team32/pull/279) [#280](https://github.com/coolcamilla/Team32/pull/280) [#281](https://github.com/coolcamilla/Team32/pull/281) [#283](https://github.com/coolcamilla/Team32/pull/283) [#284](https://github.com/coolcamilla/Team32/pull/284) | [Add UAT-010](https://github.com/coolcamilla/Team32/pull/274/changes/e8f7b4f36cc76eb89df0d70153e338bec8eb8046) | Maintain [`roadmap.md`, `user-stories.md`](https://github.com/coolcamilla/Team32/pull/282), [`user-acceptance-tests.md`](https://github.com/coolcamilla/Team32/pull/274/commits), [`CHANGELOG.md`](https://github.com/coolcamilla/Team32/pull/286/changes/f8940ec7f39a0335cf7d69797665f4dc06aae3c0), root [`README.md`](https://github.com/coolcamilla/Team32/pull/286/changes/7c7ce61c4d8c3a421e75007120ecb7b59b20a123) | Add the customer as a contributor in the GitHub repo | [Publish v1.0.0 release](https://github.com/coolcamilla/Team32/pull/286) (mapped to MVP v3) on GitHub | Prepare presentation slides and script, record and dub the demo video, conduct a rehearsal |
+| **SunrisEe41** | [#65](https://github.com/coolcamilla/Team32/issues/65) [#268](https://github.com/coolcamilla/Team32/issues/268) [#269](https://github.com/coolcamilla/Team32/issues/269) [#270](https://github.com/coolcamilla/Team32/issues/270) [#271](https://github.com/coolcamilla/Team32/issues/271) | [#278](https://github.com/coolcamilla/Team32/pull/278) [#279](https://github.com/coolcamilla/Team32/pull/279) [#280](https://github.com/coolcamilla/Team32/pull/280) [#281](https://github.com/coolcamilla/Team32/pull/281) [#283](https://github.com/coolcamilla/Team32/pull/283) | [#272](https://github.com/coolcamilla/Team32/pull/272) [#273](https://github.com/coolcamilla/Team32/pull/273) [#274](https://github.com/coolcamilla/Team32/pull/274) [#282](https://github.com/coolcamilla/Team32/pull/282) [#286](https://github.com/coolcamilla/Team32/pull/286) [#287](https://github.com/coolcamilla/Team32/pull/287) | Update testing documentation (no new tests intoduced because changes were minor) | Maintain [`docs/architecture/`](https://github.com/coolcamilla/Team32/pull/279/changes/74a9ad1ed35910063bff17b4de0bd5e422b402b2), [`testing.md`](https://github.com/coolcamilla/Team32/pull/281/changes/d8067fd33804eb77ff2eeedcb6d377452bf35d50), [`customer-handover.md`](https://github.com/coolcamilla/Team32/pull/280/changes/511c279e29c22489b3089c176155ea0ba216b981) | | | Participate in rehearsal |  
 
 Empty cells means that team member did not work on this area
 
 ### Screenshots
-`TODO`
 
 - Sprint milestone  
-![alt](images/sprint_milestone.png)
+![alt](images/sprint_milestone_1.png)
+![alt](images/sprint_milestone_2.png)
 
 - Sprint Backlog  
-![alt](images/sprint_backlog.png)
+![alt](images/sprint_backlog_1.png)
+![alt](images/sprint_backlog_2.png)
 
 - Final release  
 ![alt](images/release_1.png)
 ![alt](images/release_2.png)
 
-- Game page on itch.io
+- Game page on itch.io  
+![alt](images/itch-io.png)
 
 - Reviewed issue-linked PR or MR  
 ![alt](images/example_pr_1.png)
 ![alt](images/example_pr_2.png)
 ![alt](images/example_pr_3.png)
+![alt](images/example_pr_4.png)
 
 - Code coverage  
-![alt](images/code_coverage_1.png)
-![alt](images/code_coverage_2.png)
-![alt](images/code_coverage_3.png)
+![alt](images/code_coverage.png)
 
 - Hosted documentation site  
 ![alt](images/documentation_site.png)
