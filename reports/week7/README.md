@@ -67,7 +67,7 @@
 
 ### Link to product access artifact
 
-`TODO itch.io`  
+Go to the [itch.io page](https://wazzurunaway.itch.io/operation-earthcore) and click `Download Now` button
 **OR**  
 Go to the [`releases`](https://github.com/coolcamilla/Team32/tree/main/releases) folder and download `MVP_v1.0.0.zip` appropriate to your OS  
 **OR**  
@@ -75,7 +75,7 @@ Go to the [v1.0.0 release](https://github.com/coolcamilla/Team32/releases/tag/v1
 
 ### Link to the run instructions
 
-`TODO itch.io`  
+Go to the [itch.io page](https://wazzurunaway.itch.io/operation-earthcore) and click `Download Now` button
 **OR**  
 Follow [local setup instructions](https://github.com/coolcamilla/Team32#local-setup-instructions) and download `MVP_v1.0.0.zip`  
 **OR**  
@@ -93,20 +93,22 @@ Follow installation instructions from [v1.0.0 release](https://github.com/coolca
 
 ### Final transition outcome summary
 
-Handover level reached: **Ready for independent use.**  
-The customer can download, run, and play MVP v3 without team assistance via [itch.io](https://itch.io), GitHub Releases, or the repository source. The product has not progressed to "Independently used by customer" (the customer stated they would not continue development or operation without the team) or "Deployed or operated on customer side" (no customer-side infrastructure exists; itch.io is team-managed).
+### Final transition outcome summary
 
-Customer-confirmation status: **Accepted with follow-up items.**  
-The customer confirmed that [itch.io](https://itch.io) deployment plus the GitHub repository plus Unity Version Control access satisfies the handover scope. Remaining follow-up items (UI polish, animation fixes, content variety) were acknowledged as desirable improvements, not blockers to acceptance.
+Handover level reached: **Ready for independent use.**
+The customer can download, run, and play MVP v3 without team assistance via [itch.io](https://wazzurunaway.itch.io/operation-earthcore), GitHub Releases, or the repository source. The product has not progressed to "Independently used by customer" - the customer stated they would not continue development or operation without the team.
+
+Customer-confirmation status: **Accepted with follow-up items.**
+The customer confirmed that itch.io deployment plus the GitHub repository plus Unity Version Control access satisfies the handover scope. Remaining follow-up items (UI polish, animation fixes, content variety) were acknowledged as desirable improvements, not blockers to acceptance.
 
 ### Summary of what was transferred, delegated, or made available during the transition
 
-- **GitHub repository** - full ownership transferred to the customer, including source code, maintained documentation set under docs/, CI configuration, and release history
-- **Unity Version Control** - project access transferred to the customer
-- **itch.io** - the game is published and publicly accessible; the page is currently team-managed
-- **Hosted [documentation site](https://coolcamilla.github.io/Team32/)** - publicly accessible
-- **Windows and Linux builds** - attached to the MVP v3 release on GitHub and available via itch.io
-- **No accounts, credentials, secrets, or external services were transferred because none exist** - the product is a fully offline standalone build with no backend
+- **GitHub repository** — the customer was added as a contributor, giving them access to the source code, maintained documentation set under `docs/`, CI configuration, and release history
+- **Unity Version Control** — the customer was added as a contributor to the Unity Version Control project, giving them access to the full project history and assets
+- **itch.io** — a public game page was created at [wazzurunaway.itch.io/operation-earthcore](https://wazzurunaway.itch.io/operation-earthcore) with Windows and Linux builds available for download; the page is currently team-managed
+- **Hosted [documentation site](https://coolcamilla.github.io/Team32/)** — publicly accessible
+- **Windows and Linux builds** — attached to the MVP v3 release on GitHub and available via itch.io
+- **No accounts, credentials, secrets, or external services were transferred because none exist** — the product is a fully offline standalone build with no backend
 
 ### Remaining transition blockers, limitations, support expectations, or follow-up items
 
@@ -200,8 +202,7 @@ The game is already enjoyable and has a solid core loop. The customer confirmed 
 
 ### [CHANGELOG](../../CHANGELOG.md)
 
-### [Demo Video]()
-`TODO`
+### [Demo Video](https://drive.google.com/file/d/1miXkwoKkn6B0D6NS5IAK6G6VgOMRmrI6/view?usp=sharing)
 
 ### Demo Day preparation summary
 
@@ -229,12 +230,12 @@ Main implementation process was in Unity Version Control, that is why we merged 
 
 | Team member | Assigned issues | PRs created | PRs reviewed | Testing Work | Documentation Work | Transition work | Deployment work | Demo Day preparation |
 |---|---|---|---|---|---|---|---|---|
-| **WazzuRunaway** | [#201](https://github.com/coolcamilla/Team32/issues/201) [#203](https://github.com/coolcamilla/Team32/issues/203) [#207](https://github.com/coolcamilla/Team32/issues/207) [#227](https://github.com/coolcamilla/Team32/issues/227) [#236](https://github.com/coolcamilla/Team32/issues/236) [#256](https://github.com/coolcamilla/Team32/issues/256) [#263](https://github.com/coolcamilla/Team32/issues/263) | [#277](https://github.com/coolcamilla/Team32/pull/277) | [#276](https://github.com/coolcamilla/Team32/pull/276) | | Maintain [`CHANGELOG.md`](https://github.com/coolcamilla/Team32/pull/277/changes/d03765ff999ac56110bdb66b1fc7e347c50fa86f) | Transfer ownership of the Unity Version Control project to the customer | | Participate in rehearsal |
+| **WazzuRunaway** | [#201](https://github.com/coolcamilla/Team32/issues/201) [#203](https://github.com/coolcamilla/Team32/issues/203) [#207](https://github.com/coolcamilla/Team32/issues/207) [#227](https://github.com/coolcamilla/Team32/issues/227) [#236](https://github.com/coolcamilla/Team32/issues/236) [#239](https://github.com/coolcamilla/Team32/issues/239) [#256](https://github.com/coolcamilla/Team32/issues/256) [#263](https://github.com/coolcamilla/Team32/issues/263) | [#277](https://github.com/coolcamilla/Team32/pull/277) [#284](https://github.com/coolcamilla/Team32/pull/284) | [#276](https://github.com/coolcamilla/Team32/pull/276) | | Maintain [`CHANGELOG.md`](https://github.com/coolcamilla/Team32/pull/277/changes/d03765ff999ac56110bdb66b1fc7e347c50fa86f) | Add the customer as a contributor in the Unity Version Control project. Customize the background of the [game page](https://wazzurunaway.itch.io/operation-earthcore) to be meaningful and attractive on itch.io | [Publish game](https://github.com/coolcamilla/Team32/pull/284) on itch.io | Participate in rehearsal |
 | **Pro100Vorona** | [#204](https://github.com/coolcamilla/Team32/issues/204) [#262](https://github.com/coolcamilla/Team32/issues/204) | [#276](https://github.com/coolcamilla/Team32/pull/276) | [#277](https://github.com/coolcamilla/Team32/pull/277) | | Maintain [`CHANGELOG.md`](https://github.com/coolcamilla/Team32/pull/276/changes/0aec4a0538883ba39a816bdd58d8fa8b1bb16e6b) | | | Participated in rehearsal |
-| **Lilia-Shagidullina** | [#257](https://github.com/coolcamilla/Team32/issues/257) [#258](https://github.com/coolcamilla/Team32/issues/258) [#259](https://github.com/coolcamilla/Team32/issues/259) [#260](https://github.com/coolcamilla/Team32/issues/260) | [#275](https://github.com/coolcamilla/Team32/pull/275) | | |  | | | Participate in rehearsal |
-| **MarikSH** | [#261](https://github.com/coolcamilla/Team32/issues/261) | | [#275](https://github.com/coolcamilla/Team32/pull/275) | | | | | Participate in rehearsal | 
-| **coolcamilla** | [#200](https://github.com/coolcamilla/Team32/issues/200) [#237](https://github.com/coolcamilla/Team32/issues/237) [#238](https://github.com/coolcamilla/Team32/issues/238) [#264](https://github.com/coolcamilla/Team32/issues/264) [#265](https://github.com/coolcamilla/Team32/issues/265) [#266](https://github.com/coolcamilla/Team32/issues/266) [#267](https://github.com/coolcamilla/Team32/issues/267) | [#272](https://github.com/coolcamilla/Team32/pull/272) [#273](https://github.com/coolcamilla/Team32/pull/273) [#274](https://github.com/coolcamilla/Team32/pull/274) | | [Add UAT-010](https://github.com/coolcamilla/Team32/pull/274/changes/e8f7b4f36cc76eb89df0d70153e338bec8eb8046) | Maintain [`roadmap.md`, `user-stories.md`](TBD), [`user-acceptance-tests.md`](https://github.com/coolcamilla/Team32/pull/274/commits), [`CHANGELOG.md`](TBD), root [`README.md`](TBD) | Transfer ownership of the GitHub repositoty to the customer | Publish v1.0.0 release (mapped to MVP v3) on GitHub | Prepare presentation slides and script, record and dub the demo video, conduct a rehearsal |
-| **SunrisEe41** | [#239](https://github.com/coolcamilla/Team32/issues/239) [#268](https://github.com/coolcamilla/Team32/issues/268) [#269](https://github.com/coolcamilla/Team32/issues/269) [#270](https://github.com/coolcamilla/Team32/issues/270) [#271](https://github.com/coolcamilla/Team32/issues/271) | | [#272](https://github.com/coolcamilla/Team32/pull/272) [#273](https://github.com/coolcamilla/Team32/pull/273) [#274](https://github.com/coolcamilla/Team32/pull/274) | [Add TBD unit tests](TBD) | Maintain [`docs/architecture/`](TBD), [`testing.md`](TBD), root [`README.md`, `CONTRIBUTING.md`, `AGENTS.md`](TBD) | Customize the background of the [game page](TBD link) to be meaningful and attractive game on itch.io | [Publish game](TBD pr) on itch.io | Participate in rehearsal |  
+| **Lilia-Shagidullina** | [#257](https://github.com/coolcamilla/Team32/issues/257) [#258](https://github.com/coolcamilla/Team32/issues/258) [#259](https://github.com/coolcamilla/Team32/issues/259) [#260](https://github.com/coolcamilla/Team32/issues/260) | [#275](https://github.com/coolcamilla/Team32/pull/275) | [#285](https://github.com/coolcamilla/Team32/pull/285) | | | | | Participate in rehearsal |
+| **MarikSH** | [#261](https://github.com/coolcamilla/Team32/issues/261) | [#285](https://github.com/coolcamilla/Team32/pull/285) | [#275](https://github.com/coolcamilla/Team32/pull/275) | | | | | Participate in rehearsal | 
+| **coolcamilla** | [#200](https://github.com/coolcamilla/Team32/issues/200) [#237](https://github.com/coolcamilla/Team32/issues/237) [#238](https://github.com/coolcamilla/Team32/issues/238) [#264](https://github.com/coolcamilla/Team32/issues/264) [#265](https://github.com/coolcamilla/Team32/issues/265) [#266](https://github.com/coolcamilla/Team32/issues/266) [#267](https://github.com/coolcamilla/Team32/issues/267) | [#272](https://github.com/coolcamilla/Team32/pull/272) [#273](https://github.com/coolcamilla/Team32/pull/273) [#274](https://github.com/coolcamilla/Team32/pull/274) [#282](https://github.com/coolcamilla/Team32/pull/282) | [#278](https://github.com/coolcamilla/Team32/pull/278) [#279](https://github.com/coolcamilla/Team32/pull/279) [#280](https://github.com/coolcamilla/Team32/pull/280) [#281](https://github.com/coolcamilla/Team32/pull/281) [#283](https://github.com/coolcamilla/Team32/pull/283) [#284](https://github.com/coolcamilla/Team32/pull/284) | [Add UAT-010](https://github.com/coolcamilla/Team32/pull/274/changes/e8f7b4f36cc76eb89df0d70153e338bec8eb8046) | Maintain [`roadmap.md`, `user-stories.md`](https://github.com/coolcamilla/Team32/pull/282), [`user-acceptance-tests.md`](https://github.com/coolcamilla/Team32/pull/274/commits), [`CHANGELOG.md`](TBD), root [`README.md`](TBD) | Add the customer as a contributor in the GitHub repo | [Publish v1.0.0 release](TBD) (mapped to MVP v3) on GitHub | Prepare presentation slides and script, record and dub the demo video, conduct a rehearsal |
+| **SunrisEe41** | [#65](https://github.com/coolcamilla/Team32/issues/65) [#268](https://github.com/coolcamilla/Team32/issues/268) [#269](https://github.com/coolcamilla/Team32/issues/269) [#270](https://github.com/coolcamilla/Team32/issues/270) [#271](https://github.com/coolcamilla/Team32/issues/271) | [#278](https://github.com/coolcamilla/Team32/pull/278) [#279](https://github.com/coolcamilla/Team32/pull/279) [#280](https://github.com/coolcamilla/Team32/pull/280) [#281](https://github.com/coolcamilla/Team32/pull/281) [#283](https://github.com/coolcamilla/Team32/pull/283) | [#272](https://github.com/coolcamilla/Team32/pull/272) [#273](https://github.com/coolcamilla/Team32/pull/273) [#274](https://github.com/coolcamilla/Team32/pull/274) [#282](https://github.com/coolcamilla/Team32/pull/282) | Update testing documentation (no new tests intoduced because changes were minor) | Maintain [`docs/architecture/`](https://github.com/coolcamilla/Team32/pull/279/changes/74a9ad1ed35910063bff17b4de0bd5e422b402b2), [`testing.md`](https://github.com/coolcamilla/Team32/pull/281/changes/d8067fd33804eb77ff2eeedcb6d377452bf35d50), [`customer-handover.md`](https://github.com/coolcamilla/Team32/pull/280/changes/511c279e29c22489b3089c176155ea0ba216b981) | | | Participate in rehearsal |  
 
 Empty cells means that team member did not work on this area
 
