@@ -18,13 +18,13 @@ public class NotificationView : MonoBehaviour
         _text.text = text;
     }
 
-    public void FadeIn(float duration)
+    public void FadeIn(float time)
     {
         if (!gameObject.activeInHierarchy)
         {
-            gameObject.SetActive(true);
+            return;
         }
-        StartCoroutine(FadeInCoroutine(duration));
+        StartCoroutine(FadeRoutine(0, 1, time));
     }
 
     public void FadeOutAndDestroy(float time)
