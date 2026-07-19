@@ -1,4 +1,4 @@
-1. **Claude** was used to write EditMode and PlayMode tests.
+1. **Claude Code** was used to implement save system.
 2. **Claude** was used as a consulting agent during the development. All code was written manually.
 3. **Claude** was used to update testing and architecture documentation.
 4. **Claude** was used to enhance descriptions and write Acceptance Criteria for PBIs. These criteria was refined by team members.
