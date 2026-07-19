@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: StonePickaxe
   m_EditorClassIdentifier: Assembly-CSharp::CraftRecipe
   _name: Stone Pickaxe
-  _description: Allows you to break through the rocks!
+  _description: A heavy stone, sharpened by hitting other stones.
   _sprite: {fileID: 5463335759745693671, guid: 794a463d0e18d044fbc98c661e8fc7a5, type: 3}
   _materials:
   - _type: 300
-    _quantity: 5
+    _quantity: 10
   - _type: 302
     _quantity: 5
   _requiredItem: 101

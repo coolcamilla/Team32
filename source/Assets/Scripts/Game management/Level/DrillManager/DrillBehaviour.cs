@@ -1,19 +1,22 @@
 using TMPro;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class DrillBehaviour : MonoBehaviour
 {
+    [SerializeField] private GameObject _demoEndButton;
     [SerializeField] private ParticleSystem _particleSystem;
     [SerializeField] private Animator _backgroundAnimator;
     [SerializeField] private Animator _drillAnimator;
     [SerializeField] private Transform _signPosition;
-    [SerializeField] private TextMeshProUGUI _fuelCounter;
     [SerializeField] private TextMeshProUGUI _depthCounter;
     [SerializeField] private TextMeshProUGUI _powerStatistics;
     [SerializeField] private TextMeshProUGUI _speedStatistics;
+    [SerializeField] private Slider _fuelSlider;
     [SerializeField] private List<DrillLayer> _dropMapsQueueFields;
     [SerializeField] private Tilemap _fgBlocks;
     [SerializeField] private Tilemap _bgBlocks;
@@ -42,8 +45,8 @@ public class DrillBehaviour : MonoBehaviour
     private void Awake()
     {
         _logic = new DrillLogic();
-        _fuelCounter.SetText($"Fuel: 0/{_logic.CurrentFuelTank.Capacity}");
-        _depthCounter.SetText("Depth: 0.00 m");
+        _depthCounter.SetText("0.00");
+        _fuelSlider.maxValue = _logic.CurrentFuelTank.Capacity;
 
         _inventoryManager = GetComponent<InventoryManager>();
         
@@ -59,15 +62,16 @@ public class DrillBehaviour : MonoBehaviour
         _logic.Tick(Time.deltaTime);
         TryProcessSecond();
         TryUpdateLayer();
+        if (_logic.Depth >= 7) _demoEndButton.SetActive(true);
     }
 
     private void OnEnable()
     {
         OnSecondPassed += SyncDepth;
-        OnSecondPassed += SyncFuel;
         OnSecondPassed += TryDrop;
-        OnSecondPassed += SyncVisuals;
+        OnSecondPassed += SyncAnimations;
         OnSecondPassed += SyncStatistics;
+        OnSecondPassed += SyncFuel;
 
         OnLayerUpdate += UpdateSprites;
         OnLayerUpdate += UpdateParticles;
@@ -77,10 +81,10 @@ public class DrillBehaviour : MonoBehaviour
     private void OnDisable()
     {
         OnSecondPassed -= SyncDepth;
-        OnSecondPassed -= SyncFuel;
         OnSecondPassed -= TryDrop;
-        OnSecondPassed -= SyncVisuals;
+        OnSecondPassed -= SyncAnimations;
         OnSecondPassed -= SyncStatistics;
+        OnSecondPassed -= SyncFuel;
 
         OnLayerUpdate -= UpdateSprites;
         OnLayerUpdate -= UpdateParticles;
@@ -104,15 +108,15 @@ public class DrillBehaviour : MonoBehaviour
 
     public void SyncDepth()
     {
-        _depthCounter.SetText($"Depth: {_logic.Depth:F2} m");
+        _depthCounter.SetText(FormattableString.Invariant($"{_logic.Depth:F2}"));
     }
 
     private void SyncFuel()
     {
-        _fuelCounter.SetText($"Fuel: {_logic.FuelCount}/{_logic.CurrentFuelTank.Capacity}");
+        _fuelSlider.value = _logic.FuelCount;
     }
 
-    private void SyncVisuals()
+    private void SyncAnimations()
     {
         if (!_logic.IsStuck() && (_logic.Energy >= _logic.Power || _logic.FuelCount > 0))
         {
@@ -130,8 +134,9 @@ public class DrillBehaviour : MonoBehaviour
 
     private void SyncStatistics()
     {
-        _powerStatistics.SetText($"{_logic.Power} W");
-        _speedStatistics.SetText($"{_logic.Speed * 60:F2} m/min");
+        _powerStatistics.SetText(FormattableString.Invariant($"{_logic.Power}"));
+        _speedStatistics.SetText(FormattableString.Invariant($"{_logic.Speed * 60:F2}"));
+        _fuelSlider.maxValue = _logic.CurrentFuelTank.Capacity;
     }
 
     public void TryAddFuel(Fuel fuel)
@@ -154,7 +159,7 @@ public class DrillBehaviour : MonoBehaviour
             OnSecondPassed?.Invoke();
         } else
         {
-            SyncVisuals();
+            SyncAnimations();
         }
     }
 

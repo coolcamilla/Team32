@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: FlintPickaxe
   m_EditorClassIdentifier: GameScripts::CraftRecipe
   _name: Flint Pickaxe
-  _description: Level 2 pickaxe
+  _description: "Cuts rock like it\u2019s wood. Almost."
   _sprite: {fileID: 7065984007077758398, guid: 8dae18d66c93a6741a9f64ab5d140daf, type: 3}
   _materials:
-  - _type: 302
+  - _type: 300
     _quantity: 10
   - _type: 306
     _quantity: 5

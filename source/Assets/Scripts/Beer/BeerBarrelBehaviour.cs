@@ -26,6 +26,7 @@ public class BeerBarrelBehaviour : MonoBehaviour
         {
             _textHint.SetActive(true);
             _input.Enable();
+            _playerManager.Input.Player.Dig.Disable();
         }
     }
 
@@ -35,6 +36,7 @@ public class BeerBarrelBehaviour : MonoBehaviour
         {
             _textHint.SetActive(false);
             _input.Disable();
+            _playerManager.Input.Player.Dig.Enable();
         }
     }
 

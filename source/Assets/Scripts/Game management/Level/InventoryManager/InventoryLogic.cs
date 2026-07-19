@@ -177,4 +177,18 @@ public class InventoryLogic
         }
         OnInventoryChanged?.Invoke();
     }
+
+    public int GetTotalAmount(Item item)
+    {
+        int count = 0;
+        for (int i = 0; i < _slots.Length; i++)
+        {
+            if (_slots[i] != null && _slots[i].StoredItem == item)
+            {
+                count += _slots[i].Count;
+            }
+        }
+
+        return count;
+    }
 }

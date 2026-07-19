@@ -9,7 +9,8 @@ public struct DepositSpawnData
 
 public class WorldGenerator
 {
-    private int initX, width, height, worldDepth, reliefAmplitude;
+    private int initX, width, height, worldDepth, reliefAmplitude; 
+    private float cellSize, leftWallX, rightWallX, baseStartX, baseEndX;
     public int[] SurfaceY { get; private set; }
     public int[,] LayerBottoms { get; private set; }
     public GridCell[,] Grid { get; private set; }
@@ -18,13 +19,18 @@ public class WorldGenerator
 
     private HashSet<Vector2Int> _blockedDepositCells;
 
-    public WorldGenerator(int initX, int width, int height, int worldDepth, int reliefAmplitude)
+    public WorldGenerator(int initX, int width, int height, int worldDepth, int reliefAmplitude, float cellSize, float leftWallX, float rightWallX, float baseStartX, float baseEndX)
     {
         this.initX = initX;
         this.width = width;
         this.height = height;
         this.worldDepth = worldDepth;
         this.reliefAmplitude = reliefAmplitude;
+        this.cellSize = cellSize;
+        this.leftWallX = leftWallX;
+        this.rightWallX = rightWallX;
+        this.baseStartX = baseStartX;
+        this.baseEndX = baseEndX;
     }
 
     public void GenerateBaseTerrain(List<LayerDefinition> layers)
@@ -50,8 +56,17 @@ public class WorldGenerator
         int prevSurfaceY = height - 1;
         for (int x = 0; x < columns; x++)
         {
-            prevSurfaceY = Mathf.Clamp(prevSurfaceY + Random.Range(-reliefAmplitude, reliefAmplitude + 1),
-                height - 1 - reliefAmplitude, height - 1 + reliefAmplitude);
+            float worldX = (initX + x) * cellSize;
+
+            if (worldX >= baseStartX && worldX <= baseEndX)
+            {
+                prevSurfaceY = height - 1;
+            }
+            else
+            {
+                prevSurfaceY = Mathf.Clamp(prevSurfaceY + Random.Range(-reliefAmplitude, reliefAmplitude + 1),
+                    height - 1 - reliefAmplitude, height - 1 + reliefAmplitude);
+            }
             SurfaceY[x] = prevSurfaceY;
         }
     }
@@ -185,9 +200,24 @@ public class WorldGenerator
 
     private bool IsCellValidForDeposit(Vector2Int cell, LayerDefinition layer, int layerIndex)
     {
+        int columns = width - initX;
         int yIndex = cell.y - worldDepth;
-        if (cell.x < 0 || cell.x >= width - initX || yIndex < 0 || yIndex >= Grid.GetLength(1))
+
+        if (cell.x < 0 || cell.x >= columns || yIndex < 0 || yIndex >= Grid.GetLength(1))
             return false;
+
+        float worldX = (initX + cell.x) * cellSize;
+
+        if (worldX < leftWallX || worldX > rightWallX) return false;
+
+        if (worldX >= baseStartX && worldX <= baseEndX)
+        {
+            int baseSurfaceY = height - 1;
+            if (cell.y > baseSurfaceY - 3)
+            {
+                return false;
+            }
+        }
 
         int bottomY = LayerBottoms[cell.x, layerIndex];
         int topY = layer.maxY;

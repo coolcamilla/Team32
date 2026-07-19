@@ -9,12 +9,14 @@ public class DepositNode : MonoBehaviour
 
     private Vector2 _checkAreaSize = new Vector2(4f, 4f);
 
+    private PlayerInput _playerInput;
     private bool _isPlayerNear = false;
     private bool _isBuilt = false;
     private StationRecipe _stationRecipe;
 
     public void Initialize(StationRecipe recipe)
     {
+        _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().Input;
         _stationRecipe = recipe;
     }
 
@@ -53,10 +55,12 @@ public class DepositNode : MonoBehaviour
         {
             if (BuildStationUI.Instance.IsPanelActive())
             {
+                _playerInput.InGameMenu.Enable();
                 BuildStationUI.Instance.HideUI();
             }
             else
             {
+                _playerInput.InGameMenu.Disable();
                 BuildStationUI.Instance.ShowUI(this, _stationRecipe);
             }
         }

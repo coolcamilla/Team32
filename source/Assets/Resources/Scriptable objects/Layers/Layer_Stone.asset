@@ -19,3 +19,5 @@ MonoBehaviour:
   baseBackground: 2
   deposits:
   - {fileID: 11400000, guid: 2c91acaa5a51dbb4b980d2a80084814e, type: 2}
+  - {fileID: 11400000, guid: e8f492f00f97cb04f993947eaa5c4d66, type: 2}
+  - {fileID: 11400000, guid: ff99797a1dc206247a08902fa825e8da, type: 2}

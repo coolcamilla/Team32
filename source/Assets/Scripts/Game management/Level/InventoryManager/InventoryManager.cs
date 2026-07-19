@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using System;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private PlayerDig _playerDig;
 
     private GameObject _inventoryItemPrefab;
+
+    public event Action<Item, int> OnItemCollected;
 
     private InventoryLogic _logic;
 
@@ -38,6 +41,8 @@ public class InventoryManager : MonoBehaviour
 
         if (slotIndex != -1)
         {
+            int total = _logic.GetTotalAmount(item);
+            OnItemCollected?.Invoke(item, total);
             return true;
         }
         return false;

@@ -160,6 +160,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""eef5b37d-faaa-4e6d-a136-711d0fb5f848"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dig"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b90e7514-5fe4-40b5-8aad-2504dca8f724"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dig"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""A, D"",
                     ""id"": ""83d0f330-127e-43ef-a619-cf5a11cf6860"",
                     ""path"": ""1DAxis"",
@@ -290,6 +312,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Tutorial"",
+                    ""type"": ""Button"",
+                    ""id"": ""0746cf64-5ce9-4b7e-b181-95db1ac27a3e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -367,6 +398,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": ""Scale(factor=4)"",
                     ""groups"": """",
                     ""action"": ""Switch inventory slot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7d7c4fbf-9deb-4699-8638-22d5e77f0935"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tutorial"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -497,6 +539,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_UI_CursorPosition = m_UI.FindAction("CursorPosition", throwIfNotFound: true);
         m_UI_Callpausemenu = m_UI.FindAction("Call pause menu", throwIfNotFound: true);
         m_UI_Switchinventoryslot = m_UI.FindAction("Switch inventory slot", throwIfNotFound: true);
+        m_UI_Tutorial = m_UI.FindAction("Tutorial", throwIfNotFound: true);
         // InGameMenu
         m_InGameMenu = asset.FindActionMap("InGameMenu", throwIfNotFound: true);
         m_InGameMenu_ToggleInventory = m_InGameMenu.FindAction("ToggleInventory", throwIfNotFound: true);
@@ -737,6 +780,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_CursorPosition;
     private readonly InputAction m_UI_Callpausemenu;
     private readonly InputAction m_UI_Switchinventoryslot;
+    private readonly InputAction m_UI_Tutorial;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -760,6 +804,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/Switchinventoryslot".
         /// </summary>
         public InputAction @Switchinventoryslot => m_Wrapper.m_UI_Switchinventoryslot;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/Tutorial".
+        /// </summary>
+        public InputAction @Tutorial => m_Wrapper.m_UI_Tutorial;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -795,6 +843,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Switchinventoryslot.started += instance.OnSwitchinventoryslot;
             @Switchinventoryslot.performed += instance.OnSwitchinventoryslot;
             @Switchinventoryslot.canceled += instance.OnSwitchinventoryslot;
+            @Tutorial.started += instance.OnTutorial;
+            @Tutorial.performed += instance.OnTutorial;
+            @Tutorial.canceled += instance.OnTutorial;
         }
 
         /// <summary>
@@ -815,6 +866,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Switchinventoryslot.started -= instance.OnSwitchinventoryslot;
             @Switchinventoryslot.performed -= instance.OnSwitchinventoryslot;
             @Switchinventoryslot.canceled -= instance.OnSwitchinventoryslot;
+            @Tutorial.started -= instance.OnTutorial;
+            @Tutorial.performed -= instance.OnTutorial;
+            @Tutorial.canceled -= instance.OnTutorial;
         }
 
         /// <summary>
@@ -1098,6 +1152,13 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSwitchinventoryslot(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Tutorial" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTutorial(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "InGameMenu" which allows adding and removing callbacks.

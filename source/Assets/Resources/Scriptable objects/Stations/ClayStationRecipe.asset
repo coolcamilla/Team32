@@ -18,6 +18,6 @@ MonoBehaviour:
   unitsPerMinute: 5
   buildCost:
   - item: {fileID: 11400000, guid: 3e4092eb2c073054eb713a391b63c1cc, type: 2}
-    count: 8
+    count: 20
   - item: {fileID: 11400000, guid: 123fc262946664f45a60d6c1da035dfb, type: 2}
-    count: 5
+    count: 8

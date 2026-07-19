@@ -16,12 +16,14 @@ MonoBehaviour:
   _background: {fileID: 11400000, guid: c35d1cbe26488e441b964cc0528dece0, type: 2}
   _dropChances:
   - _material: 302
-    _chance: 0.67
+    _chance: 0.8
   - _material: 307
-    _chance: 0.3
+    _chance: 0.2
   - _material: 306
-    _chance: 0.14
+    _chance: 0.16
   - _material: 305
     _chance: 0.06
-  _dropFrequencyInMeters: 0.05
-  _durabilityModifier: 1.05
+  - _material: 77
+    _chance: 0.05
+  _dropFrequencyInMeters: 0.1
+  _durabilityModifier: 1.11

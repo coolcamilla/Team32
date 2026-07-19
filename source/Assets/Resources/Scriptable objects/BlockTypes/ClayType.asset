@@ -25,5 +25,10 @@ MonoBehaviour:
   possibleSprites:
   - {fileID: -4616598773014292954, guid: a446536390608654581037e309c118f4, type: 3}
   randomSprite: 0
-  _hittedSprites: []
+  _hittedSprites:
+  - {fileID: 8115644005664255767, guid: 2ae7c77918996374b85ba58772900e0a, type: 3}
+  - {fileID: -1974267942269126528, guid: df5ea82d94114514bb98bdc21912e5b8, type: 3}
+  - {fileID: 2536910936557558875, guid: e5365884a8f80c44e9a9c58f16b8a7dc, type: 3}
+  - {fileID: 1399413676680894907, guid: 0978d5c5c0275d44a8a6335824ce1dda, type: 3}
+  - {fileID: 6636361135747025162, guid: aac9bb14b69fcbc4590eda2f5d7c8973, type: 3}
   ChosenSprite: 0

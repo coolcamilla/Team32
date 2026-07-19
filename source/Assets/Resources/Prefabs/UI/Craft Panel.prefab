@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e909512accae148a7ccd72d8753a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CraftPanelRenderer
+  _buttons: []
 --- !u!1 &5009569582755517924
 GameObject:
   m_ObjectHideFlags: 0
