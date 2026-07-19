@@ -78,7 +78,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_isDead) return;
 
+        bool previousIsGrounded = _logic.IsGrounded;
         _logic.IsGrounded = _feetCollider.IsTouching(GetBelowColliderWithBoxCast());
+        if (_logic.IsGrounded != previousIsGrounded)
+        {
+            PlayerAnimator.ChangeGroundedState(_logic.IsGrounded);
+        }
+
         _logic.SetVerticalDirection(Input.GetAxisRaw("Vertical"));
 
         if (_logic.IsClimbing && _logic.IsMoving())
@@ -197,7 +203,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Collider2D GetBelowColliderWithBoxCast()
     {
-        return Physics2D.BoxCast(_feetCollider.transform.position - new Vector3(0, 0.5f, 0), new Vector2(0.1f, 0.01f), 0f, Vector2.down).collider;
+        return Physics2D.BoxCast(_feetCollider.transform.position - new Vector3(0, 0.5f, 0), new Vector2(0.6f, 0.01f), 0f, Vector2.down).collider;
     }
 }
 

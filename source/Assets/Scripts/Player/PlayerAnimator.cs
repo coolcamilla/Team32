@@ -53,4 +53,10 @@ public class PlayerAnimator : MonoBehaviour
         if (Instance != null)
             Instance._animator.SetBool("IsClimbing", isClimbing);
     }
+
+    public static void ChangeGroundedState(bool isGrounded)
+    {
+        if (Instance != null)
+            Instance._animator.SetBool("IsGrounded", isGrounded);
+    }
 }

@@ -39,6 +39,7 @@ public class PlayerManager : MonoBehaviour
     {
         _logic = new PlayerManagerLogic();
         _playerStamina = GetComponent<PlayerStamina>();
+        VideoPlayerController.OnVideoStarted += EndGame;
     }
 
     public void ChangeItem(Item item)
@@ -72,5 +73,10 @@ public class PlayerManager : MonoBehaviour
     public void UpgradeStamina()
     {
         _playerStamina.Upgrade();
+    }
+
+    private void EndGame()
+    {
+        _input.Disable();
     }
 }

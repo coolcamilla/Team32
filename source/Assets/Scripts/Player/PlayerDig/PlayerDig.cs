@@ -9,6 +9,8 @@ public class PlayerDig : MonoBehaviour
 {
     [SerializeField] private float _raycastDistance = 1.5f;
 
+    public float cellSize = 2.5f;
+
     // The offset is used to adjust the starting position of the raycast based on the player's size
     private readonly Vector2 START_POSITION_OFFSET = new Vector2(1.2f, 2f);
 
@@ -64,15 +66,37 @@ public class PlayerDig : MonoBehaviour
     private void TryDig(InputAction.CallbackContext context)
     {
         if (_playerMovement.IsDead) return;
-
         if (_playerMovement.IsClimbing) return;
 
         OnAnyDig?.Invoke();
         GameObject objectHit = GetObjectOnDigDirection();
 
-        if (_logic.BlockHit(objectHit, _playerManager.EquippedItem))
+        if (objectHit != null)
         {
-            objectHit.GetComponent<BlockBehaviour>().TryTakeDamage(_playerManager.EquippedItem);
+            if (GridGenerator.Instance != null)
+            {
+                Vector3 blockPos = objectHit.transform.position;
+                float baseStartX = GridGenerator.Instance.baseStartX;
+                float baseEndX = GridGenerator.Instance.baseEndX;
+
+                if (blockPos.x >= baseStartX && blockPos.x <= baseEndX)
+                {
+                    int height = GridGenerator.Instance.height;
+
+                    float surfaceWorldY = (height - 1) * cellSize;
+                    float minAllowedDigY = surfaceWorldY - (3 * cellSize);
+
+                    if (blockPos.y > minAllowedDigY)
+                    {
+                        return;
+                    }
+                }
+            }
+
+            if (_logic.BlockHit(objectHit, _playerManager.EquippedItem))
+            {
+                objectHit.GetComponent<BlockBehaviour>().TryTakeDamage(_playerManager.EquippedItem);
+            }
         }
     }
     private GameObject GetObjectOnDigDirection()
