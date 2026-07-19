@@ -7,7 +7,7 @@
 | US-017 | Tools Crafting Action | Must Have | [#81](https://github.com/coolcamilla/Team32/issues/81) | Active | Done | [Sprint 1](https://github.com/coolcamilla/Team32/milestone/1) |
 | US-018 | Drill Upgrading | Must Have | [#82](https://github.com/coolcamilla/Team32/issues/82) | Active | Done | [Sprint 2](https://github.com/coolcamilla/Team32/milestone/2) |
 | US-019 | Layer Transition | Must Have | [#83](https://github.com/coolcamilla/Team32/issues/83) | Active | Done | [Sprint 4](https://github.com/coolcamilla/Team32/milestone/4) |
-| US-001 | Saving | Should Have | [#65](https://github.com/coolcamilla/Team32/issues/65) | Active | In Progress | [Sprint 5](https://github.com/coolcamilla/Team32/milestone/5) |
+| US-001 | Saving | Should Have | [#65](https://github.com/coolcamilla/Team32/issues/65) | Active | Done | [Sprint 5](https://github.com/coolcamilla/Team32/milestone/5) |
 | US-006 | Burrow depth | Should Have | [#68](https://github.com/coolcamilla/Team32/issues/68) | Active | Done | [Sprint 3](https://github.com/coolcamilla/Team32/milestone/3) |
 | US-020 | Deposit Discovery | Should Have | [#84](https://github.com/coolcamilla/Team32/issues/84) | Active | Done | [Sprint 3](https://github.com/coolcamilla/Team32/milestone/3) |
 | US-021 | Mining Station Placement | Should Have | [#85](https://github.com/coolcamilla/Team32/issues/85) | Active | Done | [Sprint 4](https://github.com/coolcamilla/Team32/milestone/4) |
