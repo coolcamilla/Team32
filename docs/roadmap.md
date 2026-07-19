@@ -261,7 +261,7 @@ Deliver MVP v3 for Windows and Linux with polished UI and game feel improvements
 ### Outcome
 
 MVP v3 as a playable build for Windows and Linux, in which:
-- The player can manually save the game state to a local `.txt` file and load it from the main menu
+- The game state is saved automatically when the player exits the game, quits to the main menu, or the application closes
 - An introductory cutscene plays on new game start, presenting the mole's backstory and the game tutorial; an ending cutscene plays when the drill completes the stone layer
 - Music and sound effects are integrated
 - The stamina bar is divided into sections; the initial stamina pool is small, regeneration is slow, and drinking beer fully restores stamina, adds a new section, and increases regeneration rate
@@ -291,9 +291,9 @@ Operation: EarthCore is a complete two-layer 2D game deployed to [itch.io](https
 
 The core gameplay loop is fully implemented: the mole digs through the dirt and stone layers tile by tile, collects resources from broken blocks, and crafts tools at the workbench. The drill operates autonomously, consuming fuel and boring downward until it reaches the stone layer, at which point it drops the resources needed to craft the stone pickaxe and unlocks access to the new layer. Mining stations can be built on discovered deposits and autonomously extract resources.
 
-Risk is introduced through the stamina system: the stamina bar is divided into sections and depletes while climbing; when it reaches zero, the mole dies, losing all inventory resources and respawning at the drill. The beer vending machine on the surface allows the player to spend coins to fully restore stamina and permanently increase the stamina pool and regeneration rate. Coins drop from blocks during digging.
+Risk is introduced through the stamina system: the stamina bar is divided into sections and depletes while climbing; when it reaches zero, the mole dies, losing all inventory resources and respawning at the drill. The beer vending machine on the surface allows the player to spend coins to fully restore stamina, add a new stamina section, and increase the regeneration rate. Coins drop from blocks during digging.
 
-The game has an introductory cutscene presenting the mole's backstory and a tutorial explaining basic mechanics, and an ending cutscene triggered when the drill completes the stone layer. A manual save system allows the player to save and resume progress via a local `.txt` file.
+The game has an introductory cutscene presenting the mole's backstory, a tutorial explaining basic mechanics, and an ending cutscene triggered when the drill completes the stone layer. The game state is saved automatically on exit and can be restored via the Load button on the main menu.
 
 ## Documentation
 
