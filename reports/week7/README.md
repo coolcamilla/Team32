@@ -20,12 +20,12 @@
 
 ### Total Sprint 5 size
 
-`TODO` Story Points
+48 Story Points
 
 ## Summary of Week 7 follow-up maintenance and final MVP v3 changes
 
 **Gameplay**
-- Manual save system added: the player can save the game state to a local file and load it from the main menu via the Load Game button
+- Auto-save system added: the game state is saved automatically when the player exits the game, quits to the main menu, or the application closes. 
 - Temporary block visibility added: blocks return to darkness as soon as they leave the screen, creating a sense that the mole forgets areas it has not recently visited
 - Stamina rebalanced: the initial stamina pool is small (only 2 sections), regeneration is very slow in normal mode; drinking beer fully restores stamina, adds a new stamina section, and increases the regeneration rate
 - Stamina bar redesigned: replaced with a sectioned display where each section represents one unit of stamina capacity
@@ -92,23 +92,40 @@ Follow installation instructions from [v1.0.0 release](https://github.com/coolca
 ### [Documentation site](https://coolcamilla.github.io/Team32/)
 
 ### Final transition outcome summary
-`TODO`
-(stating which handover level was reached and which customer-confirmation status was received.)
+
+Handover level reached: **Ready for independent use.**  
+The customer can download, run, and play MVP v3 without team assistance via [itch.io](https://itch.io), GitHub Releases, or the repository source. The product has not progressed to "Independently used by customer" (the customer stated they would not continue development or operation without the team) or "Deployed or operated on customer side" (no customer-side infrastructure exists; itch.io is team-managed).
+
+Customer-confirmation status: **Accepted with follow-up items.**  
+The customer confirmed that [itch.io](https://itch.io) deployment plus the GitHub repository plus Unity Version Control access satisfies the handover scope. Remaining follow-up items (UI polish, animation fixes, content variety) were acknowledged as desirable improvements, not blockers to acceptance.
 
 ### Summary of what was transferred, delegated, or made available during the transition
-`TODO`
+
+- **GitHub repository** - full ownership transferred to the customer, including source code, maintained documentation set under docs/, CI configuration, and release history
+- **Unity Version Control** - project access transferred to the customer
+- **itch.io** - the game is published and publicly accessible; the page is currently team-managed
+- **Hosted [documentation site](https://coolcamilla.github.io/Team32/)** - publicly accessible
+- **Windows and Linux builds** - attached to the MVP v3 release on GitHub and available via itch.io
+- **No accounts, credentials, secrets, or external services were transferred because none exist** - the product is a fully offline standalone build with no backend
 
 ### Remaining transition blockers, limitations, support expectations, or follow-up items
-`TODO`
+
+No items currently block the reached handover level. The following are acknowledged limitations, not blockers:
+
+- No save-system edge-case hardening - the local `.json` save file can be freely edited or corrupted by the user; the customer explicitly accepted this tradeoff
+- Content variety - the customer identified block/resource diversity as the single biggest gap affecting long-term engagement, but confirmed this is a post-course improvement, not a handover condition
+- No ongoing support obligation exists after course end; the customer is aware of this
 
 ### Summary of customer-independent use, customer-side deployment or operation
-`TODO`
+
+The customer is not currently using, deploying, or operating the product independently. When asked directly, the customer framed the project's primary value as a learning and portfolio experience for the team rather than something they intend to actively operate themselves. The customer confirmed they would play the game once published to [itch.io](https://itch.io) and expressed interest in the team continuing to refine it post-course, but did not indicate plans for independent development, redistribution, or customer-side hosting.  
+The product is fully playable without team involvement - no backend, no login, no ongoing infrastructure - so independent use is technically possible at any time. Whether it occurs depends on customer engagement after delivery, not on any remaining technical barrier.
 
 ### Customer feedback response table for Sprint 5 follow-up work
 
 | Feedback point | Resulting PBI or issue | Status | Response |
 | ---| --- | --- | --- |
-| Save system is missing | [#65](https://github.com/coolcamilla/Team32/issues/65)   | Done | Implemented simple save system through local `.txt` file |
+| Save system is missing | [#65](https://github.com/coolcamilla/Team32/issues/65) | Done | Implemented auto-save system that writes game state to a local `save.json` file on exit, quit to menu, or application close |
 | Corner-Grab Jump | [#170](https://github.com/coolcamilla/Team32/issues/170) | Not planned | Deferred because the team focuses on polish work rather than new mechanics. This decision was confirmed by the customer |
 | Simplify tool information panel opening | [#201](https://github.com/coolcamilla/Team32/issues/201) | Done | Tool recipe opens on hovering over the tool icon instead of clicking on it | 
 | Drill UI is overly complex | [#203](https://github.com/coolcamilla/Team32/issues/203) [#224](https://github.com/coolcamilla/Team32/issues/224) [#260](https://github.com/coolcamilla/Team32/issues/260) | Done | Approved Drill UI mockup was drawn and integrated into the game |
@@ -202,7 +219,7 @@ The team updated the presentation slides to reflect the final product state and 
 
 ### Summary of the final product status
 
-Operation: EarthCore is a complete two-layer 2D game deployed to [itch.io](https://itch.io), with Windows and Linux builds available on GitHub Releases. The full core gameplay loop is implemented: the mole digs through dirt and stone layers, collects resources, crafts tools at the workbench, builds mining stations on deposits, and fuels and upgrades the drill to progress deeper. Risk mechanics (stamina depletion, death, coins, and the beer vending machine) create meaningful pressure and progression incentives. The game includes a manual save system, an introductory cutscene, a tutorial, and an ending cutscene triggered when the drill completes the stone layer. Audio is fully integrated across all major game events. The stamina bar is sectioned and rebalanced, block destruction is visually and audibly satisfying, and the drill UI has been redesigned based on customer feedback.
+Operation: EarthCore is a complete two-layer 2D game deployed to [itch.io](https://itch.io), with Windows and Linux builds available on GitHub Releases. The full core gameplay loop is implemented: the mole digs through dirt and stone layers, collects resources, crafts tools at the workbench, builds mining stations on deposits, and fuels and upgrades the drill to progress deeper. Risk mechanics (stamina depletion, death, coins, and the beer vending machine) create meaningful pressure and progression incentives. The game includes an auto-save system, an introductory cutscene, a tutorial, and an ending cutscene triggered when the drill completes the stone layer. Audio is fully integrated across all major game events. The stamina bar is sectioned and rebalanced, block destruction is visually and audibly satisfying, and the drill UI has been redesigned based on customer feedback.
 
 The codebase is covered by unit, integration, and QRT tests with a CI pipeline enforcing quality gates on every PR. Architecture documentation (static, dynamic, and deployment views and ADRs) is maintained and up to date. The full documentation set is publicly accessible in the repository, including [`README.md`](../../README.md), [`CONTRIBUTING.md`](../../CONTRIBUTING.md), [`AGENTS.md`](../../AGENTS.md), [`docs/customer-handover.md`](../../docs/customer-handover.md), and all maintained [quality](../../docs/quality-requirements.md), [testing](../../docs/testing.md), [UAT](../../docs/user-acceptance-tests.md), [roadmap](../../docs/roadmap.md), and [architecture](../../docs/architecture/) artifacts. The product has been handed over to the customer via [itch.io](https://itch.io), GitHub, and Unity Version Control.
 
@@ -212,9 +229,9 @@ Main implementation process was in Unity Version Control, that is why we merged 
 
 | Team member | Assigned issues | PRs created | PRs reviewed | Testing Work | Documentation Work | Transition work | Deployment work | Demo Day preparation |
 |---|---|---|---|---|---|---|---|---|
-| **WazzuRunaway** | [#201](https://github.com/coolcamilla/Team32/issues/201) [#203](https://github.com/coolcamilla/Team32/issues/203) [#207](https://github.com/coolcamilla/Team32/issues/207) [#227](https://github.com/coolcamilla/Team32/issues/227) [#236](https://github.com/coolcamilla/Team32/issues/236) [#256](https://github.com/coolcamilla/Team32/issues/256) | | | | Maintain [`CHANGELOG.md`](TBD) | Transfer ownership of the Unity Version Control project to the customer | | Participate in rehearsal |
-| **Pro100Vorona** | [#204](https://github.com/coolcamilla/Team32/issues/204) | | | | | | | Participated in rehearsal |
-| **Lilia-Shagidullina** | [#257](https://github.com/coolcamilla/Team32/issues/257) [#258](https://github.com/coolcamilla/Team32/issues/258) [#259](https://github.com/coolcamilla/Team32/issues/259) [#260](https://github.com/coolcamilla/Team32/issues/260) | [#275](https://github.com/coolcamilla/Team32/pull/275) | | |  Maintain [`CHANGELOG.md`](TBD)  | | | Participate in rehearsal |
+| **WazzuRunaway** | [#201](https://github.com/coolcamilla/Team32/issues/201) [#203](https://github.com/coolcamilla/Team32/issues/203) [#207](https://github.com/coolcamilla/Team32/issues/207) [#227](https://github.com/coolcamilla/Team32/issues/227) [#236](https://github.com/coolcamilla/Team32/issues/236) [#256](https://github.com/coolcamilla/Team32/issues/256) [#263](https://github.com/coolcamilla/Team32/issues/263) | [#277](https://github.com/coolcamilla/Team32/pull/277) | [#276](https://github.com/coolcamilla/Team32/pull/276) | | Maintain [`CHANGELOG.md`](TBD) | Transfer ownership of the Unity Version Control project to the customer | | Participate in rehearsal |
+| **Pro100Vorona** | [#204](https://github.com/coolcamilla/Team32/issues/204) [#262](https://github.com/coolcamilla/Team32/issues/204) | [#276](https://github.com/coolcamilla/Team32/pull/276) | [#277](https://github.com/coolcamilla/Team32/pull/277) | | Maintain [`CHANGELOG.md`](https://github.com/coolcamilla/Team32/pull/276/changes/0aec4a0538883ba39a816bdd58d8fa8b1bb16e6b) | | | Participated in rehearsal |
+| **Lilia-Shagidullina** | [#257](https://github.com/coolcamilla/Team32/issues/257) [#258](https://github.com/coolcamilla/Team32/issues/258) [#259](https://github.com/coolcamilla/Team32/issues/259) [#260](https://github.com/coolcamilla/Team32/issues/260) | [#275](https://github.com/coolcamilla/Team32/pull/275) | | |  | | | Participate in rehearsal |
 | **MarikSH** | [#261](https://github.com/coolcamilla/Team32/issues/261) | | [#275](https://github.com/coolcamilla/Team32/pull/275) | | | | | Participate in rehearsal | 
 | **coolcamilla** | [#200](https://github.com/coolcamilla/Team32/issues/200) [#237](https://github.com/coolcamilla/Team32/issues/237) [#238](https://github.com/coolcamilla/Team32/issues/238) [#264](https://github.com/coolcamilla/Team32/issues/264) [#265](https://github.com/coolcamilla/Team32/issues/265) [#266](https://github.com/coolcamilla/Team32/issues/266) [#267](https://github.com/coolcamilla/Team32/issues/267) | [#272](https://github.com/coolcamilla/Team32/pull/272) [#273](https://github.com/coolcamilla/Team32/pull/273) [#274](https://github.com/coolcamilla/Team32/pull/274) | | [Add UAT-010](https://github.com/coolcamilla/Team32/pull/274/changes/e8f7b4f36cc76eb89df0d70153e338bec8eb8046) | Maintain [`roadmap.md`, `user-stories.md`](TBD), [`user-acceptance-tests.md`](https://github.com/coolcamilla/Team32/pull/274/commits), [`CHANGELOG.md`](TBD), root [`README.md`](TBD) | Transfer ownership of the GitHub repositoty to the customer | Publish v1.0.0 release (mapped to MVP v3) on GitHub | Prepare presentation slides and script, record and dub the demo video, conduct a rehearsal |
 | **SunrisEe41** | [#239](https://github.com/coolcamilla/Team32/issues/239) [#268](https://github.com/coolcamilla/Team32/issues/268) [#269](https://github.com/coolcamilla/Team32/issues/269) [#270](https://github.com/coolcamilla/Team32/issues/270) [#271](https://github.com/coolcamilla/Team32/issues/271) | | [#272](https://github.com/coolcamilla/Team32/pull/272) [#273](https://github.com/coolcamilla/Team32/pull/273) [#274](https://github.com/coolcamilla/Team32/pull/274) | [Add TBD unit tests](TBD) | Maintain [`docs/architecture/`](TBD), [`testing.md`](TBD), root [`README.md`, `CONTRIBUTING.md`, `AGENTS.md`](TBD) | Customize the background of the [game page](TBD link) to be meaningful and attractive game on itch.io | [Publish game](TBD pr) on itch.io | Participated in rehearsal |  
