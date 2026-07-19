@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - [Integrate Music and Sound Effects](https://github.com/coolcamilla/Team32/issues/263)
 - [Make Discovered Block Temporary](https://github.com/coolcamilla/Team32/issues/207)
 - [Stamina Warning Indicator](https://github.com/coolcamilla/Team32/issues/236)
+- [Auto-save System](https://github.com/coolcamilla/Team32/issues/65)
 
 ### Changed
 
