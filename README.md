@@ -4,6 +4,8 @@ Operation: EarthCore is a 2D mining and exploration game where you dig a mole to
 
 This repo includes Operation: EarthCore game source code, documentation, reports, interface artifacts, and setup instructions  
 
+[itch.io game link](https://wazzurunaway.itch.io/operation-earthcore)
+
 ## About
 
 Operation: EarthCore is a 2D exploration and resource-management game. The player digs downward from the surface, collecting resources along the way, crafting progressively better tools, and refueling/upgrading a drill that enables deeper exploration. Reaching 3 meters of depth opens the stone layer, requiring a crafted pickaxe to continue digging and unlocking new resources like coal, flint, and copper. The core loop is built around risk and reward: stamina limits how long the mole can climb and explore, and running out entirely causes a fall, a respawn delay, and loss of the current inventory. Mining stations, built on resource deposits, provide passive resource collection, and coins earned from digging can be spent at a surface-level beer stand to permanently boost maximum stamina.
@@ -23,7 +25,8 @@ Operation: EarthCore is a 2D exploration and resource-management game. The playe
 
 ## Download
 
-Get the latest build from the [Trial release](https://github.com/coolcamilla/Team32/releases/tag/v0.4.0). See [**Local Setup Instructions**](#local-setup-instructions) below for platform-specific run steps.
+Get the latest build from the [Trial release](https://github.com/coolcamilla/Team32/releases/tag/v0.4.0). See [**Local Setup Instructions**](#local-setup-instructions) below for platform-specific run steps.  
+You can also check out the [game on itch.io](https://wazzurunaway.itch.io/operation-earthcore)
 
 ## How to Play
 
