@@ -4,7 +4,6 @@ public class PlayerManagerLogic
 {
     private int _coins;
     public Item EquippedItem;
-
     public int Coins => _coins;
     public PlayerManagerLogic()
     {
@@ -21,6 +20,11 @@ public class PlayerManagerLogic
     public void AddCoin()
     {
         _coins++;
+    }
+
+    public void SetCoins(int coins)
+    {
+        _coins = coins;
     }
 
     public bool TrySpend(int coinsToSpend)

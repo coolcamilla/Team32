@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e4defa4a47c884195c635823c16309, type: 3}
+  m_Name: Engine level 3
+  m_EditorClassIdentifier: GameScripts::Engine
+  _name: 
+  _speed: 1
+  _power: 16
+  _recipe: {fileID: 11400000, guid: 659a3ec7e86deeb439a29c7cdcb33377, type: 2}
+  _level: 3

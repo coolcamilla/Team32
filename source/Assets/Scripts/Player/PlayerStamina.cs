@@ -23,6 +23,7 @@ public class PlayerStamina : MonoBehaviour
     {
         Logic = new StaminaLogic(_maxStamina, _regenCoefficient, _drainRate);
         Logic.OnValueChanged += (current, max) => OnStaminaChanged?.Invoke(current, max);
+        Logic.OnDeath += GetComponent<PlayerSoundsManager>().PlayPLayerDeathSound;
     }
 
     private void Update()
@@ -44,5 +45,12 @@ public class PlayerStamina : MonoBehaviour
     {
         ModifyMaxStamina(MaxStamina + 5);
         SetRegenMultiplier((float)0.05);
+    }
+
+    public void LoadProgress(float maxStamina, float regenMultiplier)
+    {
+        Logic.MaxStamina = maxStamina;
+        Logic.RegenMultiplier = regenMultiplier;
+        Logic.ResetStamina();
     }
 }

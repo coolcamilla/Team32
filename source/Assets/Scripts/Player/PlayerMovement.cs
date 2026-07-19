@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     private Collider2D _feetCollider;
     private SpriteRenderer _spriteRenderer;
 
+    private PlayerSoundsManager _playerSoundsManager;
+
     private Vector3 _startPosition;
     private bool _isDead = false;
     public bool IsDead => _isDead;
@@ -49,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
             RotationSpeed = rotationSpeed,
             BaseGravityScale = 1.5f
         };
+
+        _playerSoundsManager = GetComponent<PlayerSoundsManager>();
 
         _rb = GetComponent<Rigidbody2D>();
         _playerDig = GetComponent<PlayerDig>();
@@ -83,6 +87,8 @@ public class PlayerMovement : MonoBehaviour
         if (_logic.IsGrounded != previousIsGrounded)
         {
             PlayerAnimator.ChangeGroundedState(_logic.IsGrounded);
+            if (_logic.IsGrounded == true)
+                _playerSoundsManager.PlayPLayerLandingSound();
         }
 
         _logic.SetVerticalDirection(Input.GetAxisRaw("Vertical"));
@@ -121,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         bool isMoving = _logic.IsMoving();
+
 
         PlayerAnimator.ChangeClimbingState(_logic.IsClimbing);
 
@@ -201,7 +208,7 @@ public class PlayerMovement : MonoBehaviour
         if (!_logic.IsClimbing) OnDirectionChange?.Invoke(0);
     }
 
-    private Collider2D GetBelowColliderWithBoxCast()
+    public Collider2D GetBelowColliderWithBoxCast()
     {
         return Physics2D.BoxCast(_feetCollider.transform.position - new Vector3(0, 0.5f, 0), new Vector2(0.6f, 0.01f), 0f, Vector2.down).collider;
     }

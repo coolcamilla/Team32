@@ -68,6 +68,17 @@ public class InventoryManager : MonoBehaviour
         _logic.ClearResources();
     }
 
+    public void LoadInventory(ItemType[] types, int[] counts)
+    {
+        int len = Mathf.Min(types.Length, Mathf.Min(counts.Length, _inventoryUI.Length));
+        for (int i = 0; i < len; i++)
+        {
+            Item item = types[i] == ItemType.None ? null : TypeToItemData.Convert(types[i]);
+            _logic.SetSlot(i, item, counts[i]);
+        }
+        _logic.NotifyChanged();
+    }
+
     private void SyncUI()
     {
         for (int i = 0; i < _inventoryUI.Length; i++)

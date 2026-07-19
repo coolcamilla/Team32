@@ -10,10 +10,14 @@ public class BeerBarrelBehaviour : MonoBehaviour
     private PlayerInput _input;
     private GameObject _beerParticlesPrefab;
 
+    private MultipleSoundsSourceBehaviour _audioSource;
+
     private void Awake()
     {
         _playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        
+
+        _audioSource = GameObject.FindGameObjectWithTag("Global Audio").GetComponent<MultipleSoundsSourceBehaviour>();
+
         _input = new PlayerInput();
         _input.Player.Interact.performed += ctx => TryBuyBeer();
 
@@ -46,8 +50,12 @@ public class BeerBarrelBehaviour : MonoBehaviour
         {
             _playerManager.UpgradeStamina();
             SpawnBeerParticles(_beerColor);
+            _audioSource.PlayBeerDrinkingSound();
         }
-        else SpawnBeerParticles(_noBeerColor);
+        else
+        {
+            SpawnBeerParticles(_noBeerColor);
+        }
     }
 
     private void SpawnBeerParticles(Color color)

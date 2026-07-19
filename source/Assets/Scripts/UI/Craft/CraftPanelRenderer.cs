@@ -10,23 +10,27 @@ public class CraftPanelRenderer : MonoBehaviour
     private TextMeshProUGUI nameOnPanel;
     private TextMeshProUGUI descriptionOnPanel;
     private Image imageOnPanel;
-    private Transform materialsScrollViewportOnPanel;
+    private Transform RecipeContentsOnPanel;
     private ItemType _renderedType;
     private CraftManager _craftManager;
-
+    private RectTransform _rectTransform;
+    private MultipleSoundsSourceBehaviour _audioSource;
     private void Awake()
     {
         _renderedType = ItemType.None;
+        _rectTransform = GetComponent<RectTransform>();
         _materialCountPrefab = Resources.Load<GameObject>("Prefabs/UI/Material count");
+
+        _audioSource = GameObject.FindGameObjectWithTag("Global Audio").GetComponent<MultipleSoundsSourceBehaviour>();
 
         _craftManager = GameObject.FindWithTag("Game Manager").GetComponent<CraftManager>();
 
         nameOnPanel = transform.Find("Name").GetComponent<TextMeshProUGUI>();
         descriptionOnPanel = transform.Find("Description").GetComponent<TextMeshProUGUI>();
         imageOnPanel = transform.Find("Icon").GetComponent<Image>();
-        materialsScrollViewportOnPanel = transform.Find("Materials/Viewport/Content");
+        RecipeContentsOnPanel = transform.Find("Materials");
     }
-    public void RenderPanel(ItemType type, Transform position)
+    public void RenderPanel(ItemType type, RectTransform position)
     {
         /*if (_renderedType == type && gameObject.activeSelf)
         {
@@ -36,7 +40,7 @@ public class CraftPanelRenderer : MonoBehaviour
 
         gameObject.SetActive(true);
 
-        transform.position = position.position + new Vector3(0, 400, 0);
+        _rectTransform.position = new Vector3(position.position.x, _rectTransform.position.y, _rectTransform.position.z);
 
         _renderedType = type;
         Item item = TypeToItemData.Convert(_renderedType);
@@ -46,7 +50,7 @@ public class CraftPanelRenderer : MonoBehaviour
         descriptionOnPanel.SetText(recipe.Description);
         imageOnPanel.sprite = recipe.GetSprite;
 
-        foreach (Transform child in materialsScrollViewportOnPanel.transform)
+        foreach (Transform child in RecipeContentsOnPanel.transform)
         {
             Destroy(child.gameObject);
         }
@@ -54,7 +58,7 @@ public class CraftPanelRenderer : MonoBehaviour
         foreach (var pair in recipe.Materials)
         {
             GameObject newCount = Instantiate(_materialCountPrefab, transform.position, Quaternion.identity);
-            newCount.transform.SetParent(materialsScrollViewportOnPanel);
+            newCount.transform.SetParent(RecipeContentsOnPanel);
             newCount.GetComponentInChildren<TextMeshProUGUI>().SetText($"x{pair.Quantity}");
             newCount.GetComponentInChildren<Image>().sprite = TypeToItemData.Convert(pair.Type).GetSprite;
         }
@@ -72,6 +76,8 @@ public class CraftPanelRenderer : MonoBehaviour
                 break;
             }
         }
+
+        _audioSource.PlayCraftSound();
 
         gameObject.SetActive(false);
     }

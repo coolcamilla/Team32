@@ -20,6 +20,10 @@ public class NotificationView : MonoBehaviour
 
     public void FadeIn(float time)
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
         StartCoroutine(FadeRoutine(0, 1, time));
     }
 
